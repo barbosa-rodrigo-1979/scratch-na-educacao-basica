@@ -1,0 +1,2973 @@
+/*
+Objetivo: Padronizar a apresentação visual dos elementos HTML do projeto Scratch na Educação Básica
+Desenvolvido por: Gisele Nunes, Rodrigo Barbosa
+Data: Segundo semestre de 2025
+*/
+/* ====== VARIÁVEIS CSS (CSS Custom Properties) ====== */
+:root {
+    /* Paleta de cores oficial da UTFPR baseada no amarelo */
+    --utfpr-Yellow: #FFD200;
+    /* Amarelo principal UTFPR */
+    --utfpr-Yellow-light: #FFE84D;
+    /* Amarelo claro para hover/states */
+    --utfpr-Yellow-dark: #E9B400;
+    /* Amarelo escuro para bordas/ênfase */
+    --utfpr-Yellow-darker: #C99700;
+    /* Amarelo mais escuro para detalhes */
+
+    /* Escala de cinza para textos e fundos */
+    --utfpr-white: #ffffff;
+    /* Branco puro */
+    --utfpr-gray-light: #f8f9fa;
+    /* Cinza muito claro para fundos */
+    --utfpr-gray: #e9ecef;
+    /* Cinza claro para bordas */
+    --utfpr-gray-medium: #dee2e6;
+    /* Cinza médio para elementos UI */
+    --utfpr-gray-dark: #6c757d;
+    /* Cinza escuro para textos secundários */
+    --utfpr-black: #212529;
+    /* Preto para textos principais */
+
+    /* Cores temáticas do Scratch baseadas nas categorias de blocos */
+    --scratch-motion: #4a6cd4;
+    /* Azul - blocos de Movimento */
+    --scratch-looks: #8a55d7;
+    /* Roxo - blocos de Aparência */
+    --scratch-sound: #bb42c3;
+    /* Rosa - blocos de Som */
+    --scratch-events: #ffbf00;
+    /* Amarelo - blocos de Eventos */
+    --scratch-control: #ff8c1a;
+    /* Laranja - blocos de Controle */
+    --scratch-sensing: #2ca5a2;
+    /* Verde-água - blocos de Sensores */
+    --scratch-operators: #5cb712;
+    /* Verde - blocos de Operadores */
+
+    /* Cores utilitárias para componentes */
+    --card-bg: #ffffff;
+    /* Cor de fundo para cards */
+    --border-color: #dee2e6;
+    /* Cor padrão para bordas */
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra padrão */
+    --success-color: #28a745;
+    /* Verde para indicar sucesso */
+}
+
+/* ====== RESET E CONFIGURAÇÕES GLOBAIS ====== */
+* {
+    margin: 0;
+    /* Remove margens padrão de todos os elementos */
+    padding: 0;
+    /* Remove paddings padrão de todos os elementos */
+    box-sizing: border-box;
+    /* Inclui padding e border no cálculo de width/height */
+}
+
+/* Estilização do corpo do documento */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Fonte moderna e legível */
+    line-height: 1.6;
+    /* Espaçamento entre linhas para melhor legibilidade */
+    color: var(--utfpr-black);
+    /* Cor do texto usando variável CSS */
+    /* Gradiente de fundo do corpo - pode ser alterado facilmente */
+    background: linear-gradient(135deg, var(--utfpr-gray-dark) 0%, #343a40 100%);
+}
+
+/* ====== LAYOUT CONTAINER ====== */
+.container {
+    max-width: 1200px;
+    /* Largura máxima do conteúdo */
+    margin: 0 auto;
+    /* Centraliza o container horizontalmente */
+    padding: 0 20px;
+    /* Padding lateral para espaçamento em telas menores */
+}
+
+/* ====== CABEÇALHO SUPERIOR ====== */
+.header-top {
+    /* Gradiente de fundo do cabeçalho */
+    background: linear-gradient(135deg, var(--utfpr-gray-dark) 0%, var(--utfpr-gray-medium) 100%);
+    color: var(--utfpr-black);
+    /* Cor do texto */
+    padding: 20px 0;
+    /* Espaçamento vertical */
+    box-shadow: 0 2px 15px rgba(35, 31, 32, 0.4);
+    /* Sombra para profundidade */
+    border-bottom: 4px solid var(--utfpr-yellow-dark);
+    /* Linha de destaque na borda inferior */
+}
+
+/* Layout flexível para o container do cabeçalho */
+.header-top .container {
+    display: flex;
+    /* Ativa layout flexbox */
+    justify-content: space-between;
+    /* Espaça itens nas extremidades */
+    align-items: center;
+    /* Alinha itens verticalmente ao centro */
+    flex-wrap: wrap;
+    /* Permite quebra de linha em telas pequenas */
+}
+
+/* Container para logo e nome da instituição */
+.logo-container {
+    display: flex;
+    /* Layout flex para alinhar logo e texto */
+    align-items: center;
+    /* Alinha verticalmente ao centro */
+    gap: 15px;
+    /* Espaço entre logo e texto */
+}
+
+/* Estilização da logo */
+.logo {
+    height: 65px;
+    /* Altura fixa da logo */
+    width: auto;
+    /* Largura automática para manter proporção */
+    filter: brightness(0) invert(1);
+    /* Inverte cores para versão branca */
+}
+
+/* Estilização do nome da instituição */
+.institution-name {
+    font-size: 0.95rem;
+    /* Tamanho de fonte menor */
+    line-height: 1.3;
+    /* Espaçamento entre linhas */
+    font-weight: 600;
+    /* Peso da fonte semi-negrito */
+    color: var(--utfpr-black);
+    /* Cor do texto */
+}
+
+/* Texto secundário dentro do nome da instituição */
+.institution-name small {
+    font-size: 0.85rem;
+    /* Tamanho ainda menor */
+    opacity: 0.95;
+    /* Leve transparência */
+    font-weight: normal;
+    /* Peso normal (não negrito) */
+    color: var(--utfpr-black);
+    /* Cor do texto */
+}
+
+/* Título principal do cabeçalho */
+.header-title {
+    text-align: right;
+    /* Alinha texto à direita */
+    font-size: 1.15rem;
+    /* Tamanho da fonte */
+    font-weight: bold;
+    /* Texto em negrito */
+    color: var(--utfpr-black);
+    /* Cor do texto */
+}
+
+/* Texto secundário do título */
+.header-title small {
+    font-size: 0.9rem;
+    /* Tamanho menor */
+    font-weight: normal;
+    /* Peso normal */
+    opacity: 0.95;
+    /* Leve transparência */
+    color: var(--utfpr-black);
+    /* Cor do texto */
+}
+
+/* ====== CABEÇALHO INFERIOR (MENU DE NAVEGAÇÃO) ====== */
+.header-bottom {
+    background-color: var(--utfpr-gray-dark);
+    /* Cor de fundo */
+    border-bottom: 3px solid var(--utfpr-yellow-darker);
+    /* Linha de destaque */
+}
+
+/* Lista de navegação */
+nav ul {
+    display: flex;
+    /* Layout flex para menu horizontal */
+    list-style: none;
+    /* Remove marcadores padrão de lista */
+    justify-content: center;
+    /* Centraliza itens do menu */
+    flex-wrap: wrap;
+    /* Permite quebra em telas pequenas */
+}
+
+/* Itens da lista de navegação */
+nav li {
+    margin: 0;
+    /* Remove margens padrão */
+}
+
+/* Links de navegação */
+nav a {
+    display: block;
+    /* Faz o link ocupar toda a área do li */
+    padding: 16px 22px;
+    /* Espaçamento interno */
+    color: var(--utfpr-black);
+    /* Cor do texto */
+    text-decoration: none;
+    /* Remove sublinhado padrão */
+    font-weight: 500;
+    /* Peso médio da fonte */
+    transition: all 0.3s ease;
+    /* Transição suave para hover */
+    border-bottom: 3px solid transparent;
+    /* Borda inferior transparente */
+}
+
+/* Efeito hover nos links de navegação */
+nav a:hover {
+    background-color: var(--utfpr-yellow-dark);
+    /* Fundo amarelo escuro */
+    color: var(--utfpr-black);
+    /* Cor do texto */
+    border-bottom-color: var(--utfpr-yellow-light);
+    /* Borda inferior amarela clara */
+}
+
+/* Link de navegação ativo */
+nav a.active {
+    background-color: var(--utfpr-Yellow);
+    /* Fundo amarelo */
+    border-bottom-color: var(--utfpr-black);
+    /* Borda inferior preta */
+    font-weight: bold;
+    /* Texto em negrito */
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra interna */
+    color: var(--utfpr-black);
+    /* Cor do texto */
+}
+
+/* ====== CONTEÚDO PRINCIPAL ====== */
+main {
+    padding: 30px 0;
+    /* Espaçamento vertical */
+    /* Gradiente de fundo do conteúdo principal */
+    background: linear-gradient(135deg, var(--utfpr-gray-medium) 0%, var(--utfpr-gray-dark) 100%);
+    min-height: calc(100vh - 200px);
+    /* Altura mínima para ocupar a tela */
+}
+
+/* ====== CABEÇALHO DA PÁGINA ====== */
+.page-header {
+    text-align: center;
+    /* Centraliza o conteúdo */
+    margin-bottom: 40px;
+    /* Espaço abaixo do cabeçalho */
+    padding: 35px 0;
+    /* Espaçamento vertical interno */
+    background: var(--utfpr-white);
+    /* Fundo branco */
+    border-radius: 12px;
+    /* Bordas arredondadas */
+    box-shadow: 0 4px 15px rgba(35, 31, 32, 0.3);
+    /* Sombra para destaque */
+    border: 2px solid var(--utfpr-gray);
+    /* Borda sutil */
+}
+
+/* Título principal da página */
+.page-header h1 {
+    color: var(--utfpr-Yellow);
+    /* Cor amarela UTFPR */
+    font-size: 2.6rem;
+    /* Tamanho grande da fonte */
+    margin-bottom: 12px;
+    /* Espaço abaixo do título */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil no texto */
+}
+
+/* Subtítulo da página */
+.subtitle {
+    font-size: 1.25rem;
+    /* Tamanho médio da fonte */
+    color: var(--utfpr-gray-dark);
+    /* Cor cinza escuro */
+    margin-bottom: 18px;
+    /* Espaço abaixo */
+    font-weight: 500;
+    /* Peso médio da fonte */
+}
+
+/* Autores do conteúdo */
+.authors {
+    font-style: italic;
+    /* Texto em itálico */
+    color: var(--utfpr-gray-dark);
+    /* Cor cinza escuro */
+    font-size: 0.95rem;
+    /* Tamanho menor */
+}
+
+/* ====== SEÇÕES DE CONTEÚDO ====== */
+.content-section {
+    background: var(--utfpr-white);
+    /* Fundo branco */
+    padding: 32px;
+    /* Espaçamento interno generoso */
+    margin-bottom: 32px;
+    /* Espaço entre seções */
+    border-radius: 12px;
+    /* Bordas arredondadas */
+    box-shadow: 0 3px 12px rgba(35, 31, 32, 0.1);
+    /* Sombra sutil */
+    border-left: 5px solid var(--utfpr-yellow-dark);
+    /* Destaque na borda esquerda */
+    border: 1px solid var(--utfpr-gray-medium);
+    /* Borda completa sutil */
+    text-align: justify;
+    /* Texto justificado */
+    hyphens: auto;
+    /* Hifenização automática */
+}
+
+/* Títulos de seção nível 2 */
+.content-section h2 {
+    color: var(--utfpr-Yellow);
+    /* Cor amarela */
+    margin-bottom: 22px;
+    /* Espaço abaixo */
+    font-size: 1.9rem;
+    /* Tamanho grande */
+    border-bottom: 2px solid var(--utfpr-Yellow-light);
+    /* Linha abaixo do título */
+    padding-bottom: 12px;
+    /* Espaço entre texto e linha */
+}
+
+/* Títulos de seção nível 3 */
+.content-section h3 {
+    color: var(--utfpr-Yellow-dark);
+    /* Amarelo escuro */
+    margin: 28px 0 16px 0;
+    /* Margem superior e inferior */
+    font-size: 1.45rem;
+    /* Tamanho médio-grande */
+    border-left: 3px solid var(--utfpr-Yellow);
+    /* Destaque na borda esquerda */
+    padding-left: 12px;
+    /* Espaço entre borda e texto */
+}
+
+/* Títulos de seção nível 4 */
+.content-section h4 {
+    color: var(--utfpr-Yellow);
+    /* Cor amarela */
+    margin: 22px 0 12px 0;
+    /* Margens */
+    font-size: 1.25rem;
+    /* Tamanho médio */
+}
+
+/* Títulos de seção nível 5 */
+.content-section h5 {
+    color: var(--utfpr-Yellow-dark);
+    /* Amarelo escuro */
+    margin: 18px 0 10px 0;
+    /* Margens */
+    font-size: 1.1rem;
+    /* Tamanho pequeno-médio */
+    font-weight: 600;
+    /* Peso semi-negrito */
+}
+
+/* Parágrafos */
+.content-section p {
+    margin-bottom: 16px;
+    /* Espaço entre parágrafos */
+    line-height: 1.7;
+    /* Espaçamento entre linhas para legibilidade */
+}
+
+/* Listas não-ordenadas e ordenadas */
+.content-section ul,
+.content-section ol {
+    margin: 18px 0;
+    /* Margem superior e inferior */
+    padding-left: 32px;
+    /* Recuo interno esquerdo */
+}
+
+/* Itens de lista */
+.content-section li {
+    margin-bottom: 10px;
+    /* Espaço entre itens */
+    line-height: 1.6;
+    /* Espaçamento entre linhas */
+}
+
+/* Listas aninhadas */
+.content-section ul ul,
+.content-section ol ol {
+    margin: 8px 0;
+    /* Margem menor para listas aninhadas */
+    padding-left: 20px;
+    /* Recuo menor para aninhamento */
+}
+
+/* Itens de lista sem marcador */
+.content-section ul li[style*="list-style-type: none"] {
+    list-style-type: none !important;
+    /* Remove marcador */
+    margin-left: 0;
+    /* Remove margem */
+    padding-left: 0;
+    /* Remove padding */
+}
+
+/* Links no conteúdo */
+.content-section a {
+    color: var(--utfpr-Yellow-dark);
+    /* Cor amarela escura */
+    text-decoration: none;
+    /* Remove sublinhado */
+    border-bottom: 1px solid transparent;
+    /* Borda inferior transparente */
+    transition: border-color 0.3s ease;
+    /* Transição suave */
+}
+
+/* Efeito hover em links */
+.content-section a:hover {
+    border-bottom-color: var(--utfpr-Yellow-dark);
+    /* Borda inferior amarela */
+}
+
+/* ====== COMPONENTES DE INTERFACE ====== */
+
+/* Badge/etiqueta para destaques */
+.badge {
+    display: inline-block;
+    /* Permite padding e margin */
+    padding: 5px 14px;
+    /* Espaçamento interno */
+    /* Gradiente amarelo */
+    background: linear-gradient(135deg, var(--utfpr-Yellow) 0%, var(--utfpr-Yellow-light) 100%);
+    color: var(--utfpr-black);
+    /* Cor do texto */
+    border-radius: 20px;
+    /* Bordas completamente arredondadas */
+    font-size: 0.82rem;
+    /* Tamanho pequeno */
+    font-weight: bold;
+    /* Texto em negrito */
+    margin-left: 12px;
+    /* Espaço à esquerda */
+    vertical-align: middle;
+    /* Alinha verticalmente com texto */
+    box-shadow: 0 2px 4px rgba(35, 31, 32, 0.3);
+    /* Sombra */
+}
+
+/* Container para palavras-chave */
+.keywords {
+    display: flex;
+    /* Layout flexível */
+    flex-wrap: wrap;
+    /* Permite quebra de linha */
+    gap: 10px;
+    /* Espaço entre elementos */
+    margin: 20px 0;
+    /* Margem vertical */
+}
+
+/* Item individual de palavra-chave */
+.keyword {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 8px 16px;
+    /* Espaçamento interno */
+    border-radius: 20px;
+    /* Bordas arredondadas */
+    font-size: 0.9rem;
+    /* Tamanho pequeno */
+    border: 1px solid var(--utfpr-gray-medium);
+    /* Borda sutil */
+    color: var(--utfpr-gray-dark);
+    /* Cor do texto */
+}
+
+/* Grid para resumo executivo */
+.executive-summary {
+    display: grid;
+    /* Layout em grid */
+    /* Colunas responsivas com largura mínima de 250px */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    /* Espaço entre células */
+    margin: 25px 0;
+    /* Margem vertical */
+}
+
+/* Item individual do resumo */
+.summary-item {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 20px;
+    /* Espaçamento interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    border-left: 4px solid var(--utfpr-Yellow);
+    /* Destaque na esquerda */
+}
+
+/* Caixa de informação */
+.info-box {
+    /* Gradiente azul suave */
+    background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+    border-left: 4px solid var(--scratch-motion);
+    /* Borda colorida */
+    padding: 20px;
+    /* Espaçamento interno */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin: 20px 0;
+    /* Margem vertical */
+}
+
+/* Passo a passo */
+.step-by-step {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    border: 2px dashed var(--utfpr-Yellow);
+    /* Borda tracejada amarela */
+    padding: 20px;
+    /* Espaçamento interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    margin: 20px 0;
+    /* Margem vertical */
+}
+
+/* Caixa de prática */
+.practice-box {
+    /* Gradiente verde suave */
+    background: linear-gradient(135deg, #e8f5e8, #f0f4c3);
+    border: 2px solid var(--scratch-operators);
+    /* Borda verde */
+    padding: 20px;
+    /* Espaçamento interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    margin: 20px 0;
+    /* Margem vertical */
+}
+
+/* ====== COMPONENTES ESPECÍFICOS DO PROJETO ====== */
+
+/* Seção de projeto por ano */
+.projeto-ano {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 25px;
+    /* Espaçamento interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    margin: 25px 0;
+    /* Margem vertical */
+    border: 1px solid var(--utfpr-gray-medium);
+    /* Borda sutil */
+}
+
+/* Conexão com currículo */
+.curriculum-connection {
+    background: white;
+    /* Fundo branco */
+    padding: 15px;
+    /* Espaçamento interno */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin: 15px 0;
+    /* Margem vertical */
+    border-left: 4px solid var(--success-color);
+    /* Borda verde */
+}
+
+/* Tabela de progressão */
+.progression-table {
+    margin: 30px 0;
+    /* Margem vertical */
+    overflow-x: auto;
+    /* Scroll horizontal se necessário */
+}
+
+/* Estilização de tabelas */
+.progression-table table {
+    width: 100%;
+    /* Largura total */
+    border-collapse: collapse;
+    /* Remove espaços entre bordas */
+    background: white;
+    /* Fundo branco */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    overflow: hidden;
+    /* Esconde bordas internas arredondadas */
+    box-shadow: var(--shadow);
+    /* Sombra padrão */
+}
+
+/* Cabeçalho da tabela */
+.progression-table th {
+    background: var(--utfpr-Yellow);
+    /* Fundo amarelo */
+    color: var(--utfpr-black);
+    /* Texto preto */
+    padding: 12px;
+    /* Espaçamento interno */
+    text-align: left;
+    /* Alinhamento à esquerda */
+    font-weight: bold;
+    /* Texto em negrito */
+}
+
+/* Células da tabela */
+.progression-table td {
+    padding: 10px 12px;
+    /* Espaçamento interno */
+    border-bottom: 1px solid var(--utfpr-gray);
+    /* Linha divisória */
+}
+
+/* Linhas pares com fundo alternado */
+.progression-table tr:nth-child(even) {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+}
+
+/* ====== PLANOS DE AULA ====== */
+.plano-aula {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 25px;
+    /* Espaçamento interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    margin: 25px 0;
+    /* Margem vertical */
+    border: 2px solid var(--utfpr-gray-medium);
+    /* Borda */
+}
+
+/* Detalhes do plano */
+.plano-details {
+    background: white;
+    /* Fundo branco */
+    padding: 20px;
+    /* Espaçamento interno */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin-top: 15px;
+    /* Margem superior */
+}
+
+/* Informações do plano */
+.plano-info {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 15px;
+    /* Espaçamento interno */
+    border-radius: 6px;
+    /* Bordas arredondadas */
+    margin-bottom: 20px;
+    /* Margem inferior */
+}
+
+/* ====== FICHAS DE ATIVIDADE ====== */
+.ficha-modelo {
+    background: white;
+    /* Fundo branco */
+    border: 2px solid var(--utfpr-gray-dark);
+    /* Borda escura */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    padding: 25px;
+    /* Espaçamento interno */
+    margin: 20px 0;
+    /* Margem vertical */
+    box-shadow: var(--shadow);
+    /* Sombra padrão */
+}
+
+/* Cabeçalho da ficha */
+.ficha-header {
+    display: flex;
+    /* Layout flexível */
+    justify-content: space-between;
+    /* Espaça elementos nas extremidades */
+    align-items: center;
+    /* Alinha verticalmente */
+    margin-bottom: 20px;
+    /* Margem inferior */
+    padding-bottom: 15px;
+    /* Espaçamento inferior interno */
+    border-bottom: 2px solid var(--utfpr-gray);
+    /* Linha divisória */
+}
+
+/* Informações da ficha */
+.ficha-info {
+    display: flex;
+    /* Layout flexível */
+    gap: 10px;
+    /* Espaço entre elementos */
+}
+
+/* Tempo e nível da ficha */
+.ficha-tempo,
+.ficha-nivel {
+    background: var(--utfpr-Yellow);
+    /* Fundo amarelo */
+    color: var(--utfpr-black);
+    /* Texto preto */
+    padding: 5px 10px;
+    /* Espaçamento interno */
+    border-radius: 15px;
+    /* Bordas arredondadas */
+    font-size: 0.8rem;
+    /* Tamanho pequeno */
+    font-weight: bold;
+    /* Texto em negrito */
+}
+
+/* Conteúdo da ficha */
+.ficha-content {
+    line-height: 1.8;
+    /* Espaçamento entre linhas generoso */
+}
+
+/* Seção de desafios */
+.ficha-desafios {
+    margin: 20px 0;
+    /* Margem vertical */
+}
+
+/* Desafio individual */
+.desafio {
+    margin: 15px 0;
+    /* Margem vertical */
+}
+
+/* Espaço para resposta */
+.space-resposta {
+    border-bottom: 1px dashed var(--utfpr-gray-dark);
+    /* Linha tracejada */
+    min-height: 25px;
+    /* Altura mínima */
+    margin: 5px 0 15px 0;
+    /* Margens */
+}
+
+/* Checkpoint da ficha */
+.ficha-checkpoint {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 15px;
+    /* Espaçamento interno */
+    border-radius: 6px;
+    /* Bordas arredondadas */
+    margin-top: 20px;
+    /* Margem superior */
+}
+
+/* Lista de verificação */
+.checklist {
+    list-style: none;
+    /* Remove marcadores */
+    padding-left: 0;
+    /* Remove recuo */
+}
+
+/* Itens da lista de verificação */
+.checklist li {
+    padding: 5px 0;
+    /* Espaçamento vertical */
+    display: flex;
+    /* Layout flexível */
+    align-items: center;
+    /* Alinha verticalmente */
+}
+
+/* ====== CARTÕES DO SCRATCH ====== */
+.cartoes-container {
+    display: grid;
+    /* Layout em grid */
+    /* Colunas responsivas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    /* Espaço entre cartões */
+    margin: 25px 0;
+    /* Margem vertical */
+}
+
+/* Categoria de cartões */
+.categoria-cartoes {
+    background: white;
+    /* Fundo branco */
+    padding: 20px;
+    /* Espaçamento interno */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    border-left: 4px solid var(--utfpr-Yellow);
+    /* Destaque na esquerda */
+    box-shadow: var(--shadow);
+    /* Sombra padrão */
+}
+
+/* Lista dentro de categoria */
+.categoria-cartoes ul {
+    list-style: none;
+    /* Remove marcadores */
+    padding-left: 0;
+    /* Remove recuo */
+}
+
+/* Itens da lista de cartões */
+.categoria-cartoes li {
+    padding: 8px 0;
+    /* Espaçamento vertical */
+    border-bottom: 1px dashed var(--utfpr-gray);
+    /* Linha tracejada divisória */
+    font-family: 'Courier New', monospace;
+    /* Fonte monoespaçada */
+}
+
+/* Remove borda do último item */
+.categoria-cartoes li:last-child {
+    border-bottom: none;
+    /* Sem borda inferior */
+}
+
+/* ====== GLOSSÁRIO ====== */
+.glossario {
+    margin: 25px 0;
+    /* Margem vertical */
+}
+
+/* Termo do glossário */
+.termo-glossario {
+    background: white;
+    /* Fundo branco */
+    padding: 20px;
+    /* Espaçamento interno */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin-bottom: 15px;
+    /* Margem inferior */
+    border-left: 4px solid var(--utfpr-Yellow);
+    /* Destaque na esquerda */
+    box-shadow: var(--shadow);
+    /* Sombra padrão */
+}
+
+/* ====== IMAGENS E MULTIMÍDIA ====== */
+.image-container {
+    display: flex;
+    /* Layout flexível */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    margin: 25px 0;
+    /* Margem vertical */
+    padding: 15px;
+    /* Espaçamento interno */
+    background-color: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    border: 1px solid var(--utfpr-gray-medium);
+    /* Borda sutil */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+}
+
+/* Imagem de conteúdo geral */
+.content-image {
+    max-width: 100%;
+    /* Largura máxima responsiva */
+    height: auto;
+    /* Altura automática para manter proporção */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    /* Sombra */
+    transition: all 0.3s ease;
+    /* Transição suave para hover */
+    border: 2px solid var(--utfpr-white);
+    /* Borda branca */
+}
+
+/* Efeito hover na imagem */
+.content-image:hover {
+    transform: scale(1.02);
+    /* Leve aumento */
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    /* Sombra mais intensa */
+}
+
+/* Variantes específicas de imagens */
+.logo-image {
+    max-width: 300px;
+    /* Largura máxima para logos */
+    padding: 10px;
+    /* Espaçamento interno */
+    background-color: var(--utfpr-white);
+    /* Fundo branco */
+}
+
+.contextual-image {
+    max-width: 500px;
+    /* Largura máxima */
+    border: 3px solid var(--utfpr-Yellow-light);
+    /* Borda amarela clara */
+}
+
+.interface-image {
+    max-width: 600px;
+    /* Largura máxima */
+    border: 2px dashed var(--utfpr-gray-dark);
+    /* Borda tracejada */
+}
+
+.blocks-image {
+    max-width: 400px;
+    /* Largura máxima */
+    border: 2px solid var(--utfpr-gray);
+    /* Borda cinza */
+    background-color: var(--utfpr-white);
+    /* Fundo branco */
+    padding: 15px;
+    /* Espaçamento interno */
+}
+
+.project-image {
+    max-width: 550px;
+    /* Largura máxima */
+    border: 3px solid var(--utfpr-Yellow);
+    /* Borda amarela */
+    background-color: var(--utfpr-white);
+    /* Fundo branco */
+    padding: 10px;
+    /* Espaçamento interno */
+}
+
+/* Legenda de imagem */
+.image-caption {
+    text-align: center;
+    /* Texto centralizado */
+    font-style: italic;
+    /* Texto em itálico */
+    color: var(--utfpr-gray-dark);
+    /* Cor cinza escuro */
+    margin-top: 8px;
+    /* Espaço acima */
+    font-size: 0.9rem;
+    /* Tamanho pequeno */
+}
+
+/* ====== CÓDIGO E PRÉ-FORMATAÇÃO ====== */
+pre {
+    background-color: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 22px;
+    /* Espaçamento interno generoso */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    margin: 18px 0;
+    /* Margem vertical */
+    overflow-x: auto;
+    /* Scroll horizontal se necessário */
+    border-left: 5px solid var(--utfpr-Yellow);
+    /* Destaque na esquerda */
+    border: 1px solid var(--utfpr-gray-medium);
+    /* Borda completa */
+    font-size: 0.95rem;
+    /* Tamanho da fonte */
+}
+
+code {
+    background-color: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 3px 8px;
+    /* Espaçamento interno */
+    border-radius: 5px;
+    /* Bordas arredondadas */
+    font-family: 'Courier New', monospace;
+    /* Fonte monoespaçada */
+    font-size: 0.92rem;
+    /* Tamanho pequeno */
+    border: 1px solid var(--utfpr-gray);
+    /* Borda sutil */
+    color: var(--utfpr-Yellow-dark);
+    /* Cor do texto */
+}
+
+/* ====== CARDS DE NAVEGAÇÃO ====== */
+.card-grid {
+    display: grid;
+    /* Layout em grid */
+    /* Colunas responsivas */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+    /* Espaço entre cards */
+    margin-top: 24px;
+    /* Margem superior */
+}
+
+/* Card de navegação individual */
+.nav-card {
+    /* Gradiente de fundo */
+    background: linear-gradient(135deg, var(--utfpr-white) 0%, var(--utfpr-gray-light) 100%);
+    padding: 28px;
+    /* Espaçamento interno generoso */
+    border-radius: 12px;
+    /* Bordas arredondadas */
+    text-decoration: none;
+    /* Remove sublinhado */
+    color: inherit;
+    /* Herda cor do texto */
+    border: 2px solid var(--utfpr-gray);
+    /* Borda sutil */
+    transition: all 0.3s ease;
+    /* Transição suave */
+    display: block;
+    /* Elemento de bloco */
+    box-shadow: 0 3px 10px rgba(35, 31, 32, 0.3);
+    /* Sombra */
+}
+
+/* Efeito hover no card */
+.nav-card:hover {
+    transform: translateY(-5px);
+    /* Move para cima */
+    box-shadow: 0 8px 25px rgba(35, 31, 32, 0.3);
+    /* Sombra mais intensa */
+    border-color: var(--utfpr-Yellow);
+    /* Borda amarela */
+    /* Gradiente alterado no hover */
+    background: linear-gradient(135deg, var(--utfpr-white) 0%, #f0f7ff 100%);
+}
+
+/* ====== RODAPÉ ====== */
+footer {
+    /* Gradiente de fundo */
+    background: linear-gradient(135deg, var(--utfpr-gray-medium) 0%, var(--utfpr-gray-dark) 100%);
+    color: var(--utfpr-black);
+    /* Cor do texto */
+    padding: 45px 0 25px 0;
+    /* Espaçamento interno (mais em cima) */
+    border-top: 5px solid var(--utfpr-yellow);
+    /* Linha amarela no topo */
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
+    /* Sombra interna */
+}
+
+/* Conteúdo do rodapé em grid */
+.footer-content {
+    display: grid;
+    /* Layout em grid */
+    /* Colunas responsivas */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+    /* Espaço entre colunas */
+    margin-bottom: 35px;
+    /* Margem inferior */
+}
+
+/* Seções do rodapé */
+.footer-section h3 {
+    color: var(--utfpr-black);
+    /* Cor do texto */
+    margin-bottom: 18px;
+    /* Margem inferior */
+    font-size: 1.25rem;
+    /* Tamanho da fonte */
+    border-bottom: 2px solid var(--utfpr-Yellow-light);
+    /* Linha abaixo */
+    padding-bottom: 8px;
+    /* Espaço entre texto e linha */
+    display: inline-block;
+    /* Largura conforme conteúdo */
+}
+
+/* Texto e links do rodapé */
+.footer-section p,
+.footer-section li {
+    margin-bottom: 10px;
+    /* Espaço entre itens */
+    opacity: 0.95;
+    /* Leve transparência */
+    line-height: 1.6;
+    /* Espaçamento entre linhas */
+    color: var(--utfpr-black);
+    /* Cor do texto */
+}
+
+.footer-section a {
+    color: var(--utfpr-black);
+    /* Cor do link */
+    text-decoration: none;
+    /* Remove sublinhado */
+    transition: all 0.3s ease;
+    /* Transição suave */
+    border-bottom: 1px solid transparent;
+    /* Borda inferior transparente */
+}
+
+.footer-section a:hover {
+    opacity: 0.9;
+    /* Leve transparência no hover */
+    border-bottom-color: var(--utfpr-black);
+    /* Sublinhado no hover */
+}
+
+.footer-section ul {
+    list-style: none;
+    /* Remove marcadores */
+    padding: 0;
+    /* Remove padding */
+}
+
+/* Copyright */
+.copyright {
+    text-align: center;
+    /* Texto centralizado */
+    padding-top: 25px;
+    /* Espaçamento superior */
+    border-top: 1px solid rgba(0, 0, 0, 0.3);
+    /* Linha divisória */
+    opacity: 0.9;
+    /* Leve transparência */
+    font-size: 0.92rem;
+    /* Tamanho pequeno */
+    color: var(--utfpr-black);
+    /* Cor do texto */
+}
+
+/* ====== CARTÕES SCRATCH ESPECÍFICOS ====== */
+.cartoes-scratch-section {
+    margin: 30px 0;
+    /* Margem vertical */
+}
+
+.cartoes-intro {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 20px;
+    /* Espaçamento interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    margin-bottom: 25px;
+    /* Margem inferior */
+    border-left: 4px solid var(--utfpr-Yellow);
+    /* Destaque na esquerda */
+}
+
+/* Grid para cartões scratch */
+.cartoes-grid {
+    display: grid;
+    /* Layout em grid */
+    /* Colunas responsivas */
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+    /* Espaço entre cartões */
+    margin: 25px 0;
+    /* Margem vertical */
+}
+
+/* Cartão scratch individual */
+.cartao-scratch {
+    background: white;
+    /* Fundo branco */
+    border-radius: 12px;
+    /* Bordas arredondadas */
+    padding: 20px;
+    /* Espaçamento interno */
+    box-shadow: var(--shadow);
+    /* Sombra padrão */
+    border-top: 5px solid;
+    /* Borda superior colorida */
+    position: relative;
+    /* Para posicionamento de elementos filhos */
+    min-height: 180px;
+    /* Altura mínima */
+    display: flex;
+    /* Layout flexível */
+    flex-direction: column;
+    /* Direção coluna */
+    justify-content: space-between;
+    /* Espaço entre conteúdo */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Transições */
+}
+
+/* Efeito hover no cartão */
+.cartao-scratch:hover {
+    transform: translateY(-5px);
+    /* Move para cima */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    /* Sombra mais intensa */
+}
+
+/* Cores específicas por categoria de bloco Scratch */
+.cartao-scratch.movimento {
+    border-top-color: var(--scratch-motion);
+    /* Azul - Movimento */
+}
+
+.cartao-scratch.aparencia {
+    border-top-color: var(--scratch-looks);
+    /* Roxo - Aparência */
+}
+
+.cartao-scratch.som {
+    border-top-color: var(--scratch-sound);
+    /* Rosa - Som */
+}
+
+.cartao-scratch.eventos {
+    border-top-color: var(--scratch-events);
+    /* Amarelo - Eventos */
+}
+
+.cartao-scratch.controle {
+    border-top-color: var(--scratch-control);
+    /* Laranja - Controle */
+}
+
+.cartao-scratch.operadores {
+    border-top-color: var(--scratch-operators);
+    /* Verde - Operadores */
+}
+
+.cartao-scratch.valores {
+    border-top-color: var(--utfpr-gray-dark);
+    /* Cinza - Valores */
+}
+
+/* Cabeçalho do cartão */
+.cartao-header {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 8px 12px;
+    /* Espaçamento interno */
+    border-radius: 6px;
+    /* Bordas arredondadas */
+    margin-bottom: 15px;
+    /* Margem inferior */
+    text-align: center;
+    /* Texto centralizado */
+    font-weight: bold;
+    /* Texto em negrito */
+    font-size: 0.9rem;
+    /* Tamanho pequeno */
+}
+
+/* Conteúdo principal do cartão */
+.cartao-content {
+    flex-grow: 1;
+    /* Ocupa espaço disponível */
+    display: flex;
+    /* Layout flexível */
+    flex-direction: column;
+    /* Direção coluna */
+    justify-content: center;
+    /* Centraliza verticalmente */
+    align-items: center;
+    /* Centraliza horizontalmente */
+    text-align: center;
+    /* Texto centralizado */
+    font-family: 'Courier New', monospace;
+    /* Fonte monoespaçada */
+    font-size: 0.95rem;
+    /* Tamanho da fonte */
+    line-height: 1.4;
+    /* Espaçamento entre linhas */
+}
+
+/* Input simulado no cartão */
+.cartao-input {
+    display: inline-block;
+    /* Permite dimensionamento */
+    background: var(--utfpr-gray);
+    /* Fundo cinza */
+    border: 1px solid var(--utfpr-gray-medium);
+    /* Borda */
+    border-radius: 4px;
+    /* Bordas levemente arredondadas */
+    padding: 2px 6px;
+    /* Espaçamento interno mínimo */
+    margin: 0 2px;
+    /* Margem lateral pequena */
+    min-width: 30px;
+    /* Largura mínima */
+    text-align: center;
+    /* Texto centralizado */
+}
+
+/* Rodapé do cartão */
+.cartao-footer {
+    margin-top: 10px;
+    /* Margem superior */
+    font-size: 0.8rem;
+    /* Tamanho muito pequeno */
+    color: var(--utfpr-gray-dark);
+    /* Cor cinza escuro */
+    text-align: center;
+    /* Texto centralizado */
+    font-style: italic;
+    /* Texto em itálico */
+}
+
+/* ====== ATIVIDADES E SUGESTÕES ====== */
+.atividades-sugestoes {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 25px;
+    /* Espaçamento interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    margin-top: 30px;
+    /* Margem superior */
+    border: 2px dashed var(--utfpr-Yellow);
+    /* Borda tracejada amarela */
+}
+
+.atividade-item {
+    background: white;
+    /* Fundo branco */
+    padding: 20px;
+    /* Espaçamento interno */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin-bottom: 20px;
+    /* Margem inferior */
+    border-left: 4px solid var(--utfpr-Yellow);
+    /* Destaque na esquerda */
+}
+
+/* Tags de cartões necessários */
+.cartoes-necessarios {
+    display: flex;
+    /* Layout flexível */
+    flex-wrap: wrap;
+    /* Permite quebra de linha */
+    gap: 8px;
+    /* Espaço entre tags */
+    margin: 10px 0;
+    /* Margem vertical */
+}
+
+.cartao-tag {
+    background: var(--utfpr-Yellow-light);
+    /* Fundo amarelo claro */
+    color: var(--utfpr-black);
+    /* Texto preto */
+    padding: 4px 10px;
+    /* Espaçamento interno */
+    border-radius: 15px;
+    /* Bordas arredondadas */
+    font-size: 0.8rem;
+    /* Tamanho pequeno */
+    font-weight: bold;
+    /* Texto em negrito */
+}
+
+/* ====== BOTÃO DE ALTERAÇÃO DE TEMA ====== */
+.theme-toggle {
+    position: fixed;
+    /* Posicionamento fixo na tela */
+    bottom: 20px;
+    /* 20px da parte inferior */
+    right: 20px;
+    /* 20px da direita */
+    /*background: var(--utfpr-Yellow);  Fundo amarelo */
+    background-color: var(--utfpr-gray-dark); /* Fundo cinza escuro*/
+    /* Cor de fundo */
+    color: var(--utfpr-gray-dark);
+    /* Cor cinza escuro */
+    border: none;
+    /* Sem borda */
+    border-radius: 50%;
+    /* Forma circular */
+    width: 50px;
+    /* Largura fixa */
+    height: 50px;
+    /* Altura fixa */
+    font-size: 1.2rem;
+    /* Tamanho do ícone */
+    cursor: pointer;
+    /* Cursor de pointer */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    /* Sombra */
+    z-index: 1000;
+    /* Acima de outros elementos */
+}
+
+/* ====== ACESSIBILIDADE ====== */
+a:focus,
+button:focus {
+    outline: 3px solid var(--utfpr-Yellow);
+    /* Contraste amarelo no foco */
+    outline-offset: 2px;
+    /* Espaço entre elemento e outline */
+}
+
+/* Scroll suave para navegação por âncoras */
+html {
+    scroll-behavior: smooth;
+    /* Animação suave ao scroll */
+}
+
+/* ====== RESPONSIVIDADE - TABLETS ====== */
+@media (max-width: 768px) {
+    .header-top .container {
+        flex-direction: column;
+        /* Empilha elementos verticalmente */
+        text-align: center;
+        /* Centraliza texto */
+        gap: 18px;
+        /* Espaço entre elementos */
+    }
+
+    .header-title {
+        text-align: center;
+        /* Centraliza título */
+    }
+
+    nav ul {
+        flex-direction: column;
+        /* Menu vertical */
+    }
+
+    nav a {
+        padding: 14px 20px;
+        /* Ajusta espaçamento */
+        text-align: center;
+        /* Centraliza texto */
+    }
+
+    .page-header h1 {
+        font-size: 2.2rem;
+        /* Reduz tamanho do título */
+    }
+
+    .content-section {
+        padding: 25px;
+        /* Reduz padding */
+    }
+
+    .card-grid {
+        grid-template-columns: 1fr;
+        /* Uma coluna */
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        /* Uma coluna */
+        text-align: center;
+        /* Centraliza texto */
+    }
+
+    .executive-summary {
+        grid-template-columns: 1fr;
+        /* Uma coluna */
+    }
+
+    .cartoes-container {
+        grid-template-columns: 1fr;
+        /* Uma coluna */
+    }
+
+    .ficha-header {
+        flex-direction: column;
+        /* Empilha elementos */
+        gap: 10px;
+        /* Espaço entre elementos */
+        text-align: center;
+        /* Centraliza texto */
+    }
+
+    .progression-table {
+        font-size: 0.9rem;
+        /* Reduz tamanho da fonte */
+    }
+
+    .image-container {
+        margin: 20px 0;
+        /* Ajusta margens */
+        padding: 12px;
+        /* Reduz padding */
+    }
+
+    /* Ajustes específicos para imagens em tablets */
+    .logo-image {
+        max-width: 250px;
+        /* Reduz largura máxima */
+    }
+
+    .contextual-image {
+        max-width: 400px;
+        /* Reduz largura máxima */
+    }
+
+    .interface-image {
+        max-width: 500px;
+        /* Reduz largura máxima */
+    }
+
+    .blocks-image {
+        max-width: 350px;
+        /* Reduz largura máxima */
+    }
+
+    .project-image {
+        max-width: 450px;
+        /* Reduz largura máxima */
+    }
+
+    .cartoes-grid {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        /* Ajusta grid */
+        gap: 15px;
+        /* Reduz espaço entre cartões */
+    }
+
+    .cartao-scratch {
+        min-height: 160px;
+        /* Reduz altura mínima */
+        padding: 15px;
+        /* Reduz padding */
+    }
+}
+
+/* ====== RESPONSIVIDADE - CELULARES ====== */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 15px;
+        /* Reduz padding lateral */
+    }
+
+    .page-header h1 {
+        font-size: 1.9rem;
+        /* Reduz ainda mais o título */
+    }
+
+    .content-section h2 {
+        font-size: 1.6rem;
+        /* Reduz subtítulo */
+    }
+
+    .content-section h3 {
+        font-size: 1.35rem;
+        /* Reduz título nível 3 */
+    }
+
+    .logo {
+        height: 55px;
+        /* Reduz logo */
+    }
+
+    .content-section {
+        padding: 20px;
+        /* Reduz padding */
+    }
+
+    .projeto-ano,
+    .plano-aula {
+        padding: 20px;
+        /* Reduz padding */
+    }
+
+    .ficha-modelo {
+        padding: 20px;
+        /* Reduz padding */
+    }
+
+    .image-container {
+        margin: 15px 0;
+        /* Reduz margens */
+        padding: 10px;
+        /* Reduz padding */
+    }
+
+    .content-image {
+        border-radius: 6px;
+        /* Bordas menos arredondadas */
+    }
+
+    /* Ajustes específicos para imagens em celulares */
+    .logo-image {
+        max-width: 200px;
+        /* Reduz ainda mais */
+    }
+
+    .contextual-image {
+        max-width: 300px;
+        /* Reduz ainda mais */
+    }
+
+    .interface-image {
+        max-width: 350px;
+        /* Reduz ainda mais */
+    }
+
+    .blocks-image {
+        max-width: 280px;
+        /* Reduz ainda mais */
+        padding: 10px;
+        /* Reduz padding */
+    }
+
+    .project-image {
+        max-width: 320px;
+        /* Reduz ainda mais */
+        padding: 8px;
+        /* Reduz padding */
+    }
+
+    .cartoes-grid {
+        grid-template-columns: 1fr;
+        /* Uma coluna em celulares */
+    }
+
+    .cartao-scratch {
+        min-height: 140px;
+        /* Altura mínima menor */
+        padding: 12px;
+        /* Padding menor */
+    }
+
+    .cartao-content {
+        font-size: 0.9rem;
+        /* Fonte menor */
+    }
+}
+
+/* ====== ACESSIBILIDADE - REDUÇÃO DE MOVIMENTO ====== */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        /* Remove animações */
+        animation-iteration-count: 1 !important;
+        /* Uma única iteração */
+        transition-duration: 0.01ms !important;
+        /* Remove transições */
+    }
+
+    .content-image:hover {
+        transform: none;
+        /* Sem transform no hover */
+    }
+
+    .nav-card:hover {
+        transform: none;
+        /* Sem transform no hover */
+    }
+
+    .cartao-scratch:hover {
+        transform: none;
+        /* Sem transform no hover */
+    }
+}
+
+/* ====== ESTILOS PARA IMPRESSÃO ====== */
+@media print {
+
+    /* Elementos a serem ocultados na impressão */
+    header,
+    footer,
+    .nav-card,
+    .theme-toggle,
+    .card-grid,
+    .content-section:last-child {
+        display: none !important;
+        /* Oculta completamente */
+    }
+
+    /* Estilos gerais para impressão */
+    body {
+        background: white !important;
+        /* Fundo branco */
+        color: black !important;
+        /* Texto preto */
+        font-size: 12pt;
+        /* Tamanho padrão para impressão */
+        line-height: 1.4;
+        /* Espaçamento reduzido */
+    }
+
+    .container {
+        max-width: 100% !important;
+        /* Largura total */
+        padding: 0 !important;
+        /* Sem padding */
+        margin: 0 !important;
+        /* Sem margem */
+    }
+
+    /* Cartões para impressão */
+    .scratch-card,
+    .cartao-scratch {
+        break-inside: avoid;
+        /* Evita quebra dentro do cartão */
+        page-break-inside: avoid;
+        /* Evita quebra de página */
+        border: 2px solid #000 !important;
+        /* Borda preta */
+        box-shadow: none !important;
+        /* Sem sombra */
+        margin-bottom: 15px;
+        /* Margem padrão */
+    }
+
+    .scratch-card:hover,
+    .cartao-scratch:hover {
+        transform: none !important;
+        /* Sem transform no hover */
+    }
+
+    .page-header {
+        margin-bottom: 20px !important;
+        /* Margem reduzida */
+    }
+
+    .content-section {
+        box-shadow: none !important;
+        /* Sem sombra */
+        margin-bottom: 20px !important;
+        /* Margem reduzida */
+        padding: 15px !important;
+        /* Padding reduzido */
+        break-inside: avoid;
+        /* Evita quebra dentro da seção */
+        border: 1px solid #000;
+        /* Borda preta */
+    }
+
+    /* Quebra de página antes da terceira seção em diante */
+    .content-section:nth-child(n+3) {
+        page-break-before: always;
+        /* Quebra de página antes */
+    }
+
+    .badge {
+        background: #ddd !important;
+        /* Fundo cinza */
+        color: black !important;
+        /* Texto preto */
+        border: 1px solid #999;
+        /* Borda cinza */
+    }
+}
+
+/* ====== SIMULAÇÃO DA INTERFACE SCRATCH ====== */
+.scratch-interface {
+    display: grid;
+    /* Layout em grid complexo */
+    /* Definição das áreas do grid */
+    grid-template-areas:
+        "menu menu menu"
+        "palco blocos scripts"
+        "sprites blocos scripts";
+    grid-template-columns: 1fr 1fr 2fr;
+    /* Proporções das colunas */
+    gap: 12px;
+    /* Espaço entre áreas */
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    border: 2px solid var(--utfpr-gray-medium);
+    /* Borda */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    padding: 15px;
+    /* Espaçamento interno */
+    margin: 25px auto;
+    /* Margem centralizada */
+    max-width: 100%;
+    /* Largura máxima responsiva */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+}
+
+/* Áreas individuais da interface */
+.interface-area {
+    background: var(--utfpr-white);
+    /* Fundo branco */
+    border: 1px solid var(--utfpr-gray-medium);
+    /* Borda sutil */
+    border-radius: 6px;
+    /* Bordas arredondadas */
+    padding: 10px;
+    /* Espaçamento interno */
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
+    /* Sombra interna */
+    text-align: center;
+    /* Texto centralizado */
+    font-size: 0.95rem;
+    /* Tamanho da fonte */
+    color: var(--utfpr-black);
+    /* Cor do texto */
+}
+
+/* Posicionamento específico no grid */
+.menu-area {
+    grid-area: menu;
+    /* Ocupa área 'menu' */
+    background: var(--utfpr-Yellow);
+    /* Fundo amarelo */
+    font-weight: bold;
+    /* Texto em negrito */
+    border-radius: 6px;
+    /* Bordas arredondadas */
+    text-align: left;
+    /* Alinhamento à esquerda */
+    padding: 10px 15px;
+    /* Espaçamento interno */
+}
+
+.palco-area {
+    grid-area: palco;
+    /* Ocupa área 'palco' */
+}
+
+.blocos-area {
+    grid-area: blocos;
+    /* Ocupa área 'blocos' */
+}
+
+.scripts-area {
+    grid-area: scripts;
+    /* Ocupa área 'scripts' */
+}
+
+.sprites-area {
+    grid-area: sprites;
+    /* Ocupa área 'sprites' */
+}
+
+/* Estilos das subpartes */
+.area-label {
+    font-weight: bold;
+    /* Texto em negrito */
+    color: var(--utfpr-Yellow-dark);
+    /* Cor amarela escura */
+    border-bottom: 2px solid var(--utfpr-Yellow-light);
+    /* Linha abaixo */
+    padding-bottom: 4px;
+    /* Espaço entre texto e linha */
+    margin-bottom: 8px;
+    /* Margem inferior */
+}
+
+.area-content {
+    font-family: 'Courier New', monospace;
+    /* Fonte monoespaçada */
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    border-radius: 6px;
+    /* Bordas arredondadas */
+    padding: 8px;
+    /* Espaçamento interno */
+    border: 1px dashed var(--utfpr-gray-dark);
+    /* Borda tracejada */
+}
+
+/* ====== RESPONSIVIDADE DA INTERFACE SCRATCH ====== */
+@media (max-width: 900px) {
+    .scratch-interface {
+        /* Grid de uma coluna para telas menores */
+        grid-template-areas:
+            "menu"
+            "palco"
+            "blocos"
+            "scripts"
+            "sprites";
+        grid-template-columns: 1fr;
+        /* Uma coluna */
+    }
+
+    .interface-area {
+        text-align: left;
+        /* Alinhamento à esquerda */
+    }
+}
+
+/* ====== COMPONENTES ADICIONAIS ====== */
+
+.atividade-info {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 15px;
+    /* Espaçamento interno */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin: 15px 0;
+    /* Margem vertical */
+    border-left: 4px solid var(--utfpr-Yellow);
+    /* Destaque na esquerda */
+}
+
+.scratch-code {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    border: 1px solid var(--utfpr-gray-medium);
+    /* Borda */
+    border-left: 4px solid var(--utfpr-Yellow);
+    /* Destaque na esquerda */
+    padding: 15px;
+    /* Espaçamento interno */
+    margin: 15px 0;
+    /* Margem vertical */
+    border-radius: 6px;
+    /* Bordas arredondadas */
+    font-family: 'Courier New', monospace;
+    /* Fonte monoespaçada */
+    white-space: pre-wrap;
+    /* Preserva quebras de linha */
+    line-height: 1.4;
+    /* Espaçamento entre linhas */
+}
+
+/* ====== FICHAS RÁPIDAS ====== */
+.ficha-rapida {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 25px;
+    /* Espaçamento interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    margin: 20px 0;
+    /* Margem vertical */
+    border: 2px solid var(--utfpr-Yellow);
+    /* Borda amarela */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+}
+
+.ficha-header {
+    display: flex;
+    /* Layout flexível */
+    justify-content: space-between;
+    /* Espaça elementos */
+    align-items: center;
+    /* Alinha verticalmente */
+    margin-bottom: 20px;
+    /* Margem inferior */
+    padding-bottom: 15px;
+    /* Espaçamento inferior interno */
+    border-bottom: 2px solid var(--utfpr-Yellow-light);
+    /* Linha divisória */
+    flex-wrap: wrap;
+    /* Permite quebra de linha */
+    gap: 10px;
+    /* Espaço entre elementos */
+}
+
+.ficha-tempo,
+.ficha-nivel {
+    background: var(--utfpr-Yellow);
+    /* Fundo amarelo */
+    color: var(--utfpr-black);
+    /* Texto preto */
+    padding: 8px 15px;
+    /* Espaçamento interno */
+    border-radius: 20px;
+    /* Bordas arredondadas */
+    font-size: 0.9rem;
+    /* Tamanho pequeno */
+    font-weight: bold;
+    /* Texto em negrito */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+}
+
+.dica-box {
+    /* Gradiente amarelo suave */
+    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
+    border: 1px solid var(--utfpr-Yellow);
+    /* Borda amarela */
+    border-left: 4px solid var(--utfpr-Yellow-dark);
+    /* Destaque na esquerda */
+    padding: 15px;
+    /* Espaçamento interno */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin: 15px 0;
+    /* Margem vertical */
+}
+
+.cartaz-box {
+    background: white;
+    /* Fundo branco */
+    border: 3px solid var(--utfpr-Yellow);
+    /* Borda amarela espessa */
+    border-radius: 12px;
+    /* Bordas arredondadas */
+    margin: 20px 0;
+    /* Margem vertical */
+    overflow: hidden;
+    /* Esconde conteúdo extra */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    /* Sombra */
+}
+
+.cartaz-header {
+    background: var(--utfpr-Yellow);
+    /* Fundo amarelo */
+    color: var(--utfpr-black);
+    /* Texto preto */
+    text-align: center;
+    /* Texto centralizado */
+    padding: 15px;
+    /* Espaçamento interno */
+    font-size: 1.3rem;
+    /* Tamanho grande */
+    font-weight: bold;
+    /* Texto em negrito */
+    border-bottom: 2px solid var(--utfpr-Yellow-dark);
+    /* Linha divisória */
+}
+
+.cartaz-content {
+    padding: 20px;
+    /* Espaçamento interno */
+}
+
+.cartaz-content p {
+    margin-bottom: 15px;
+    /* Espaço entre parágrafos */
+    padding-bottom: 15px;
+    /* Espaçamento inferior */
+    border-bottom: 1px dashed var(--utfpr-gray);
+    /* Linha tracejada divisória */
+}
+
+.cartaz-content p:last-child {
+    border-bottom: none;
+    /* Remove borda do último parágrafo */
+    margin-bottom: 0;
+    /* Remove margem inferior */
+}
+
+/* Lista de verificação personalizada */
+.checklist {
+    list-style: none;
+    /* Remove marcadores padrão */
+    padding-left: 0;
+    /* Remove recuo */
+}
+
+.checklist li {
+    padding: 8px 0;
+    /* Espaçamento vertical */
+    display: flex;
+    /* Layout flexível */
+    align-items: center;
+    /* Alinha verticalmente */
+    border-bottom: 1px solid var(--utfpr-gray);
+    /* Linha divisória */
+}
+
+.checklist li:last-child {
+    border-bottom: none;
+    /* Remove borda do último item */
+}
+
+/* Marcador personalizado para checklist */
+.checklist li::before {
+    content: "☐";
+    /* Quadrado vazio (checkbox não marcado) */
+    margin-right: 10px;
+    /* Espaço entre marcador e texto */
+    font-size: 1.1rem;
+    /* Tamanho do marcador */
+}
+
+/* Bloco de código Scratch estilizado */
+.scratch-code {
+    background: #2d2d2d;
+    /* Fundo escuro quase preto */
+    color: #f8f8f2;
+    /* Texto claro (cor de syntax highlighting) */
+    border: 1px solid #444;
+    /* Borda escura */
+    border-left: 4px solid var(--utfpr-Yellow);
+    /* Destaque amarelo na esquerda */
+    padding: 18px;
+    /* Espaçamento interno generoso */
+    margin: 18px 0;
+    /* Margem vertical */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    font-family: 'Courier New', monospace;
+    /* Fonte monoespaçada */
+    white-space: pre-wrap;
+    /* Preserva quebras de linha */
+    line-height: 1.5;
+    /* Espaçamento entre linhas */
+    font-size: 0.95rem;
+    /* Tamanho da fonte */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra */
+}
+
+/* Responsividade para fichas rápidas */
+@media (max-width: 768px) {
+    .ficha-header {
+        flex-direction: column;
+        /* Empilha elementos verticalmente */
+        align-items: flex-start;
+        /* Alinha à esquerda */
+    }
+
+    .ficha-tempo,
+    .ficha-nivel {
+        width: 100%;
+        /* Largura total */
+        text-align: center;
+        /* Texto centralizado */
+    }
+
+    .scratch-code {
+        font-size: 0.85rem;
+        /* Fonte menor */
+        padding: 12px;
+        /* Padding reduzido */
+    }
+}
+
+/* ====== FICHAS DE ATIVIDADE ESPECÍFICAS ====== */
+.ficha-atividade {
+    background: var(--utfpr-white);
+    /* Fundo branco */
+    border: 2px solid var(--utfpr-Yellow);
+    /* Borda amarela */
+    border-radius: 12px;
+    /* Bordas arredondadas */
+    padding: 25px;
+    /* Espaçamento interno */
+    margin: 25px 0;
+    /* Margem vertical */
+    box-shadow: var(--shadow);
+    /* Sombra padrão */
+}
+
+.ficha-cabecalho {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 15px;
+    /* Espaçamento interno */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin-bottom: 20px;
+    /* Margem inferior */
+    border-left: 4px solid var(--utfpr-Yellow);
+    /* Destaque na esquerda */
+}
+
+.ficha-cabecalho p {
+    margin: 5px 0;
+    /* Margem vertical reduzida */
+    font-weight: 500;
+    /* Peso médio da fonte */
+}
+
+/* Checklist específico para fichas */
+.checklist-ficha {
+    list-style: none;
+    /* Remove marcadores */
+    padding-left: 0;
+    /* Remove recuo */
+}
+
+.checklist-ficha li {
+    padding: 8px 0;
+    /* Espaçamento vertical */
+    display: flex;
+    /* Layout flexível */
+    align-items: center;
+    /* Alinha verticalmente */
+    border-bottom: 1px solid var(--utfpr-gray);
+    /* Linha divisória */
+}
+
+.checklist-ficha li:last-child {
+    border-bottom: none;
+    /* Remove borda do último item */
+}
+
+/* Marcador personalizado */
+.checklist-ficha li::before {
+    content: "☐";
+    /* Quadrado vazio */
+    margin-right: 10px;
+    /* Espaço entre marcador e texto */
+    font-size: 1.1rem;
+    /* Tamanho do marcador */
+    color: var(--utfpr-Yellow-dark);
+    /* Cor amarela escura */
+}
+
+/* Área para desenho/diagramas */
+.area-desenho {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    border: 2px dashed var(--utfpr-gray-dark);
+    /* Borda tracejada escura */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin: 15px 0;
+    /* Margem vertical */
+    padding: 15px;
+    /* Espaçamento interno */
+}
+
+.assinatura {
+    margin-top: 25px;
+    /* Margem superior generosa */
+    padding-top: 15px;
+    /* Espaçamento superior interno */
+    border-top: 2px solid var(--utfpr-Yellow);
+    /* Linha divisória */
+    text-align: right;
+    /* Alinhamento à direita */
+}
+
+/* Espaços para preenchimento em formulários */
+.form-input-space {
+    border-bottom: 1px dashed var(--utfpr-gray-dark);
+    /* Linha tracejada */
+    min-height: 25px;
+    /* Altura mínima */
+    margin: 5px 0 15px 0;
+    /* Margens */
+    padding: 0 5px;
+    /* Pequeno padding lateral */
+}
+
+.form-list-space {
+    border-bottom: 1px dashed var(--utfpr-gray-dark);
+    /* Linha tracejada */
+    min-height: 20px;
+    /* Altura mínima menor */
+    margin: 8px 0;
+    /* Margens */
+    padding: 0 5px;
+    /* Pequeno padding lateral */
+    display: block;
+    /* Elemento de bloco */
+}
+
+.formula-box {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 15px;
+    /* Espaçamento interno */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin: 10px 0;
+    /* Margem vertical */
+    border-left: 4px solid var(--utfpr-Yellow-dark);
+    /* Destaque na esquerda */
+    font-family: 'Courier New', monospace;
+    /* Fonte monoespaçada */
+}
+
+.diario-bordo {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    border: 1px solid var(--utfpr-gray-medium);
+    /* Borda sutil */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    padding: 15px;
+    /* Espaçamento interno */
+    margin: 15px 0;
+    /* Margem vertical */
+    min-height: 80px;
+    /* Altura mínima */
+}
+
+.brainstorming-section {
+    /* Gradiente azul/roxo suave */
+    background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
+    padding: 20px;
+    /* Espaçamento interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    margin: 20px 0;
+    /* Margem vertical */
+    border: 2px solid var(--utfpr-Yellow-light);
+    /* Borda amarela clara */
+}
+
+.plano-acao {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 20px;
+    /* Espaçamento interno */
+    border-radius: 10px;
+    /* Bordas arredondadas */
+    margin: 20px 0;
+    /* Margem vertical */
+    border: 2px dashed var(--utfpr-Yellow);
+    /* Borda tracejada amarela */
+}
+
+.semana-plano {
+    background: white;
+    /* Fundo branco */
+    padding: 15px;
+    /* Espaçamento interno */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin: 15px 0;
+    /* Margem vertical */
+    border-left: 4px solid var(--utfpr-Yellow);
+    /* Destaque na esquerda */
+}
+
+/* ====== RESPONSIVIDADE PARA FICHAS ====== */
+@media (max-width: 768px) {
+    .ficha-atividade {
+        padding: 20px;
+        /* Reduz padding */
+    }
+
+    .ficha-cabecalho {
+        padding: 12px;
+        /* Reduz padding */
+    }
+
+    .area-desenho {
+        padding: 12px;
+        /* Reduz padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .ficha-atividade {
+        padding: 15px;
+        /* Reduz ainda mais o padding */
+    }
+
+    .checklist-ficha li {
+        padding: 6px 0;
+        /* Reduz espaçamento */
+        font-size: 0.9rem;
+        /* Reduz tamanho da fonte */
+    }
+}
+
+/* ====== COMPONENTES ADICIONAIS ====== */
+
+/* Tabelas de projetos */
+.projeto-tabela {
+    width: 100%;
+    /* Largura total */
+    border-collapse: collapse;
+    /* Remove espaços entre bordas */
+    margin: 20px 0;
+    /* Margem vertical */
+    background: white;
+    /* Fundo branco */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    overflow: hidden;
+    /* Esconde bordas internas arredondadas */
+    box-shadow: var(--shadow);
+    /* Sombra padrão */
+}
+
+.projeto-tabela th {
+    background: var(--utfpr-Yellow);
+    /* Fundo amarelo */
+    color: var(--utfpr-black);
+    /* Texto preto */
+    padding: 12px;
+    /* Espaçamento interno */
+    text-align: left;
+    /* Alinhamento à esquerda */
+    font-weight: bold;
+    /* Texto em negrito */
+    border-bottom: 2px solid var(--utfpr-Yellow-dark);
+    /* Linha inferior */
+}
+
+.projeto-tabela td {
+    padding: 10px 12px;
+    /* Espaçamento interno */
+    border-bottom: 1px solid var(--utfpr-gray);
+    /* Linha divisória */
+}
+
+.projeto-tabela tr:nth-child(even) {
+    background: var(--utfpr-gray-light);
+    /* Fundo alternado para linhas pares */
+}
+
+.projeto-tabela tr:hover {
+    background: var(--utfpr-Yellow-light);
+    /* Destaque ao passar o mouse */
+}
+
+/* Lista de avaliação */
+.avaliacao-lista {
+    list-style: none;
+    /* Remove marcadores */
+    padding-left: 0;
+    /* Remove recuo */
+}
+
+.avaliacao-lista li {
+    padding: 8px 0;
+    /* Espaçamento vertical */
+    border-bottom: 1px solid var(--utfpr-gray);
+    /* Linha divisória */
+    display: flex;
+    /* Layout flexível */
+    align-items: center;
+    /* Alinha verticalmente */
+}
+
+.avaliacao-lista li:last-child {
+    border-bottom: none;
+    /* Remove borda do último item */
+}
+
+.avaliacao-lista li::before {
+    content: "✅";
+    /* Emoji de checkmark */
+    margin-right: 10px;
+    /* Espaço entre marcador e texto */
+    font-size: 1.1rem;
+    /* Tamanho do marcador */
+}
+
+/* Bloco de código Scratch melhorado */
+.scratch-code {
+    background: #2d2d2d;
+    /* Fundo escuro */
+    color: #f8f8f2;
+    /* Texto claro */
+    border: 1px solid #444;
+    /* Borda escura */
+    border-left: 4px solid var(--utfpr-Yellow);
+    /* Destaque amarelo */
+    padding: 18px;
+    /* Espaçamento interno */
+    margin: 18px 0;
+    /* Margem vertical */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    font-family: 'Courier New', monospace;
+    /* Fonte monoespaçada */
+    white-space: pre-wrap;
+    /* Preserva quebras de linha */
+    line-height: 1.5;
+    /* Espaçamento entre linhas */
+    font-size: 0.95rem;
+    /* Tamanho da fonte */
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    /* Sombra */
+    position: relative;
+    /* Para posicionar pseudo-elemento */
+}
+
+/* Label para bloco de código Scratch */
+.scratch-code::before {
+    content: "Scratch";
+    /* Texto do label */
+    position: absolute;
+    /* Posicionamento absoluto */
+    top: -10px;
+    /* Move para cima do container */
+    left: 10px;
+    /* Distância da esquerda */
+    background: var(--utfpr-Yellow);
+    /* Fundo amarelo */
+    color: var(--utfpr-black);
+    /* Texto preto */
+    padding: 2px 8px;
+    /* Espaçamento interno */
+    border-radius: 4px;
+    /* Bordas arredondadas */
+    font-size: 0.8rem;
+    /* Tamanho pequeno */
+    font-weight: bold;
+    /* Texto em negrito */
+}
+
+/* ====== RESPONSIVIDADE PARA TABELAS ====== */
+@media (max-width: 768px) {
+    .projeto-tabela {
+        font-size: 0.9rem;
+        /* Reduz tamanho da fonte */
+    }
+
+    .projeto-tabela th,
+    .projeto-tabela td {
+        padding: 8px 10px;
+        /* Reduz padding */
+    }
+
+    .scratch-code {
+        font-size: 0.85rem;
+        /* Reduz tamanho da fonte */
+        padding: 12px;
+        /* Reduz padding */
+    }
+}
+
+@media (max-width: 480px) {
+    .projeto-tabela {
+        font-size: 0.8rem;
+        /* Reduz ainda mais a fonte */
+    }
+
+    .projeto-tabela th,
+    .projeto-tabela td {
+        padding: 6px 8px;
+        /* Reduz ainda mais o padding */
+    }
+}
+
+/* ====== ESTILOS PARA IMPRESSÃO DE PROJETOS ====== */
+@media print {
+    .projeto-tabela {
+        break-inside: avoid;
+        /* Evita quebra dentro da tabela */
+        page-break-inside: avoid;
+        /* Evita quebra de página */
+    }
+
+    .scratch-code {
+        background: white !important;
+        /* Fundo branco para impressão */
+        color: black !important;
+        /* Texto preto para impressão */
+        border: 1px solid black !important;
+        /* Borda preta */
+    }
+}
+
+/* ====== COMPONENTES ADICIONAIS ====== */
+
+/* Aviso importante */
+.aviso-importante {
+    /* Gradiente amarelo chamativo */
+    /*background: linear-gradient(135deg, var(--utfpr-Yellow-light), var(--utfpr-Yellow));*/
+    background-color: var(--utfpr-gray-dark);
+    /* Cor de fundo */
+    border: 3px solid var(--utfpr-Yellow-dark);
+    /* Borda espessa */
+    border-radius: 12px;
+    /* Bordas arredondadas */
+    padding: 25px;
+    /* Espaçamento interno generoso */
+    margin: 25px 0;
+    /* Margem vertical */
+    text-align: center;
+    /* Texto centralizado */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    /* Sombra intensa */
+}
+
+.aviso-importante h4 {
+    color: var(--utfpr-black);
+    /* Texto preto */
+    margin: 0;
+    /* Remove margens */
+    font-size: 1.4rem;
+    /* Tamanho grande */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    /* Sombra de texto */
+}
+
+/* Código Scratch dentro de listas */
+.content-section ul .scratch-code,
+.content-section ol .scratch-code {
+    margin: 10px 0;
+    /* Margem reduzida */
+    font-size: 0.9rem;
+    /* Fonte menor */
+}
+
+/* ====== RESPONSIVIDADE PARA CONTEÚDO LONGO ====== */
+@media (max-width: 768px) {
+    .scratch-code {
+        font-size: 0.85rem;
+        /* Fonte menor */
+        padding: 12px;
+        /* Padding reduzido */
+        overflow-x: auto;
+        /* Scroll horizontal se necessário */
+    }
+
+    .aviso-importante {
+        padding: 20px;
+        /* Padding reduzido */
+    }
+
+    .aviso-importante h4 {
+        font-size: 1.2rem;
+        /* Fonte menor */
+    }
+}
+
+@media (max-width: 480px) {
+    .scratch-code {
+        font-size: 0.8rem;
+        /* Fonte ainda menor */
+        padding: 10px;
+        /* Padding ainda menor */
+    }
+
+    .aviso-importante {
+        padding: 15px;
+        /* Padding ainda menor */
+    }
+
+    .aviso-importante h4 {
+        font-size: 1.1rem;
+        /* Fonte ainda menor */
+    }
+}
+
+/* Melhorias para organização visual dos planos */
+.plano-info {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
+    padding: 20px;
+    /* Espaçamento interno */
+    border-radius: 8px;
+    /* Bordas arredondadas */
+    margin-bottom: 25px;
+    /* Margem inferior */
+    border-left: 4px solid var(--utfpr-Yellow);
+    /* Destaque na esquerda */
+}
+
+.plano-info ul {
+    margin: 10px 0;
+    /* Margem vertical para listas */
+}
+
+.plano-info li {
+    margin-bottom: 8px;
+    /* Espaço entre itens da lista */
+}
+
+/* Melhorias para hierarquia visual */
+.content-section h4 {
+    color: var(--utfpr-Yellow-dark);
+    /* Amarelo escuro */
+    margin: 20px 0 12px 0;
+    /* Margens */
+    font-size: 1.2rem;
+    /* Tamanho médio */
+    border-bottom: 1px solid var(--utfpr-Yellow-light);
+    /* Linha inferior */
+    padding-bottom: 6px;
+    /* Espaço entre texto e linha */
+}
+
+.content-section h5 {
+    color: var(--utfpr-Yellow-darker);
+    /* Amarelo mais escuro */
+    margin: 16px 0 8px 0;
+    /* Margens reduzidas */
+    font-size: 1.1rem;
+    /* Tamanho pequeno-médio */
+    font-weight: 600;
+    /* Peso semi-negrito */
+}
+
+/* ====== MODO ESCURO ====== */
+body.dark-mode {
+    /* Inversão completa da paleta de cores para modo escuro */
+    --utfpr-black: #f8f9fa;
+    /* Texto claro (era escuro) */
+    --utfpr-white: #212529;
+    /* Fundo escuro (era claro) */
+    --utfpr-gray-light: #343a40;
+    /* Cinza escuro (era claro) */
+    --utfpr-gray: #495057;
+    /* Cinza médio-escuro */
+    --utfpr-gray-medium: #6c757d;
+    /* Cinza médio */
+    --utfpr-gray-dark: #adb5bd;
+    /* Cinza claro (era escuro) */
+    --card-bg: #2d3748;
+    /* Fundo de cards escuro */
+    --border-color: #4a5568;
+    /* Borda escura */
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    /* Sombra mais intensa */
+}
+
+/* Ajustes específicos para modo escuro */
+body.dark-mode .header-top {
+    background: linear-gradient(135deg, var(--utfpr-gray) 0%, var(--utfpr-gray-medium) 100%);
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode .header-bottom {
+    background-color: var(--utfpr-gray);
+    /* Fundo escuro */
+}
+
+body.dark-mode nav a {
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode nav a:hover {
+    background-color: var(--utfpr-Yellow-dark);
+    /* Amarelo escuro */
+    color: var(--utfpr-white);
+    /* Texto branco */
+}
+
+body.dark-mode main {
+    background: linear-gradient(135deg, var(--utfpr-gray-medium) 0%, var(--utfpr-gray) 100%);
+}
+
+body.dark-mode .page-header {
+    background: var(--utfpr-white);
+    /* Fundo escuro */
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode .content-section {
+    background: var(--utfpr-white);
+    /* Fundo escuro */
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+/* Títulos no modo escuro */
+body.dark-mode .content-section h2,
+body.dark-mode .content-section h3,
+body.dark-mode .content-section h4,
+body.dark-mode .content-section h5 {
+    color: var(--utfpr-Yellow);
+    /* Amarelo para contraste */
+}
+
+/* Componentes no modo escuro */
+body.dark-mode .summary-item,
+body.dark-mode .info-box,
+body.dark-mode .step-by-step,
+body.dark-mode .practice-box,
+body.dark-mode .projeto-ano,
+body.dark-mode .plano-aula,
+body.dark-mode .ficha-modelo,
+body.dark-mode .ficha-rapida,
+body.dark-mode .ficha-atividade {
+    background: var(--utfpr-gray-light);
+    /* Fundo escuro */
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode .keyword {
+    background: var(--utfpr-gray);
+    /* Fundo escuro */
+    color: var(--utfpr-black);
+    /* Texto claro */
+    border-color: var(--utfpr-gray-medium);
+    /* Borda escura */
+}
+
+body.dark-mode .nav-card {
+    background: linear-gradient(135deg, var(--utfpr-white) 0%, var(--utfpr-gray-light) 100%);
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode .nav-card:hover {
+    background: linear-gradient(135deg, var(--utfpr-white) 0%, var(--utfpr-gray) 100%);
+}
+
+body.dark-mode footer {
+    background: linear-gradient(135deg, var(--utfpr-gray-medium) 0%, var(--utfpr-gray) 100%);
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode .footer-section h3 {
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode .footer-section a {
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode .cartao-scratch {
+    background: var(--utfpr-white);
+    /* Fundo escuro */
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode .cartao-header {
+    background: var(--utfpr-gray-light);
+    /* Fundo escuro */
+}
+
+body.dark-mode .cartao-input {
+    background: var(--utfpr-gray);
+    /* Fundo escuro */
+    border-color: var(--utfpr-gray-medium);
+    /* Borda escura */
+}
+
+body.dark-mode pre,
+body.dark-mode code {
+    background-color: var(--utfpr-gray-light);
+    /* Fundo escuro */
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode .scratch-code {
+    background: #1a202c;
+    /* Fundo azul escuro */
+    color: #e2e8f0;
+    /* Texto azul claro */
+    border-color: #4a5568;
+    /* Borda azul escura */
+}
+
+body.dark-mode .image-container {
+    background-color: var(--utfpr-gray-light);
+    /* Fundo escuro */
+    border-color: var(--utfpr-gray-medium);
+    /* Borda escura */
+}
+
+body.dark-mode .dica-box {
+    background: linear-gradient(135deg, #4a5568, #2d3748);
+    /* Gradiente escuro */
+    border-color: var(--utfpr-Yellow);
+    /* Borda amarela */
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode .cartaz-box {
+    background: var(--utfpr-white);
+    /* Fundo escuro */
+    border-color: var(--utfpr-Yellow);
+    /* Borda amarela */
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode .cartaz-header {
+    background: var(--utfpr-Yellow);
+    /* Fundo amarelo */
+    color: var(--utfpr-white);
+    /* Texto escuro */
+}
+
+body.dark-mode .area-desenho {
+    background: var(--utfpr-gray-light);
+    /* Fundo escuro */
+    border-color: var(--utfpr-gray-dark);
+    /* Borda clara */
+}
+
+body.dark-mode .diario-bordo {
+    background: var(--utfpr-gray-light);
+    /* Fundo escuro */
+    border-color: var(--utfpr-gray-medium);
+    /* Borda escura */
+}
+
+body.dark-mode .brainstorming-section {
+    background: linear-gradient(135deg, #2d3748, #4a5568);
+    /* Gradiente escuro */
+    border-color: var(--utfpr-Yellow-light);
+    /* Borda amarela clara */
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode .plano-acao {
+    background: var(--utfpr-gray-light);
+    /* Fundo escuro */
+    border-color: var(--utfpr-Yellow);
+    /* Borda amarela */
+}
+
+body.dark-mode .semana-plano {
+    background: var(--utfpr-white);
+    /* Fundo escuro */
+    border-left-color: var(--utfpr-Yellow);
+    /* Destaque amarelo */
+}
+
+/* Tabelas no modo escuro */
+body.dark-mode .progression-table table,
+body.dark-mode .projeto-tabela {
+    background: var(--utfpr-white);
+    /* Fundo escuro */
+    color: var(--utfpr-black);
+    /* Texto claro */
+}
+
+body.dark-mode .progression-table th,
+body.dark-mode .projeto-tabela th {
+    background: var(--utfpr-Yellow);
+    /* Fundo amarelo */
+    color: var(--utfpr-white);
+    /* Texto escuro */
+}
+
+body.dark-mode .progression-table tr:nth-child(even),
+body.dark-mode .projeto-tabela tr:nth-child(even) {
+    background: var(--utfpr-gray-light);
+    /* Fundo escuro alternado */
+}
+
+/* Formulários no modo escuro */
+body.dark-mode .form-input-space,
+body.dark-mode .form-list-space {
+    border-bottom-color: var(--utfpr-gray-dark);
+    /* Borda clara */
+}
+
+/* Checklists no modo escuro */
+body.dark-mode .checklist li,
+body.dark-mode .checklist-ficha li {
+    border-bottom-color: var(--utfpr-gray);
+    /* Borda escura */
+}
+
+/* Botão de tema no modo escuro */
+body.dark-mode .theme-toggle {
+    /*background: var(--utfpr-Yellow);  Fundo amarelo */
+    background-color: var(--utfpr-gray-dark);  /* Fundo cinza escuro*/
+    /* Cor de fundo */
+    color: var(--utfpr-white);
+    /* Texto escuro */
+}

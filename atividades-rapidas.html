@@ -1,0 +1,889 @@
+<!--
+Objetivo: Apresentar as sugestões de atividades rápidas e práticas - projeto Scratch na Educação Básica
+Desenvolvido por: Gisele Nunes, Rodrigo Barbosa
+Data: Segundo semestre de 2025
+-->
+
+<!DOCTYPE html>
+<!--
+  <!DOCTYPE html>
+  Declaração do tipo do documento: informa ao navegador que o documento usa HTML5.
+  Sempre deve ser a primeira linha do documento HTML para garantir compatibilidade.
+-->
+
+<html lang="pt-BR">
+<!--
+  <html lang="pt-BR">
+  Elemento raiz do documento. Atributo lang define o idioma principal do conteúdo,
+  importante para acessibilidade (leitores de tela) e para mecanismos de busca.
+-->
+
+<head>
+    <!-- Conteúdo do head: metadados, título, links para CSS/JS externos -->
+    <meta charset="UTF-8">
+    <!--
+      <meta charset="UTF-8">
+      Define a codificação de caracteres do documento. UTF-8 é recomendado para suportar
+      caracteres acentuados em português e outros idiomas.
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+      <meta name="viewport"...>
+      Torna a página responsiva em dispositivos móveis. 'width=device-width' define a largura
+      da viewport igual à largura do dispositivo; 'initial-scale=1.0' define o zoom inicial.
+      Essencial para que o layout em CSS responda corretamente em telas pequenas.
+    -->
+
+    <title>Fichas de Atividade Rápida Scratch | Cartilha Pedagógica</title>
+    <!--
+      <title>...</title>
+      Define o título da aba do navegador e é usado por motores de busca. Deve ser claro e
+      descritivo para melhorar usabilidade e SEO.
+    -->
+
+    <link rel="stylesheet" href="style.css">
+    <!--
+      Link para a folha de estilo externa 'style.css'.
+      Observações / melhorias:
+      - Verificar se style.css existe no mesmo diretório; caso contrário, incluir estilo inline
+        ou corrigir caminho.
+      - Para performance, considerar adicionar 'media' se a folha for apenas para mídia específica,
+        ou usar técnicas de carregamento assíncrono se o CSS for grande.
+    -->
+</head>
+
+<body>
+    <!-- Corpo da página: conteúdo visível ao usuário -->
+    <header>
+        <!-- Cabeçalho: dividido em 'header-top' e 'header-bottom' para layout e navegação -->
+        <div class="header-top">
+            <div class="container">
+                <div class="logo-container">
+                    <!-- Imagem do logo institucional -->
+                    <img src="UTFPR_logo.png" alt="UTFPR Logo" class="logo">
+                    <!--
+                      <img ... alt="UTFPR Logo">
+                      - 'src' aponta para o arquivo de imagem do logo; verificar existência.
+                      - 'alt' fornece descrição alternativa (acessibilidade) caso a imagem não carregue.
+                      - Para melhorar: adicionar width/height ou usar srcset para responsividade.
+                    -->
+
+                    <div class="institution-name">
+                        Universidade Tecnológica Federal do Paraná<br>
+                        <small>Campus Siqueira Campos</small>
+                    </div>
+                    <!--
+                      Bloco com nome da instituição. Usar <h*> se for cabeçalho semântico
+                      (por exemplo, <h1> no topo, mas aqui está em header -> considerar <p>).
+                    -->
+                </div>
+
+                <div class="header-title">
+                    Scratch na Educação Básica<br>
+                    <small>Material Didático para Professores</small>
+                </div>
+                <!--
+                  Título/descrição do material. Poderia ser um <h1> se esta página for a principal
+                  do material; porém a página usa <h1> no main para o título da página — manter
+                  hierarquia semântica consistente.
+                -->
+            </div>
+        </div>
+
+        <div class="header-bottom">
+            <div class="container">
+                <nav>
+                    <!-- Navegação principal do site -->
+                    <ul>
+                        <li><a href="index.html">Página Inicial</a></li>
+                        <li><a href="primeiros-passos.html">Primeiros Passos</a></li>
+                        <li><a href="cartoes-scratch.html">Cartões Scratch</a></li>
+                        <li><a href="sugestoes-atividades.html">Sugestões de Atividades</a></li>
+                        <li><a href="atividades-rapidas.html" class="active">Atividades Rápidas</a></li>
+                        <li><a href="fichas-atividades.html">Fichas de Atividades</a></li>
+                        <li><a href="projetos-didaticos.html">Projetos Didáticos</a></li>
+                        <li><a href="modelos-projetos.html">Modelos de Projetos</a></li>
+                        <li><a href="planos-aula.html">Planos de Aula</a></li>
+                        <li><a href="materiais-complementares.html">Materiais Complementares</a></li>
+                        <li><a href="referencias-bibliograficas.html">Referências Bibliográficas</a></li>
+                    </ul>
+                    <!--
+                      Lista de navegação:
+                      - Usar <nav> é semântico e ajuda leitores de tela.
+                      - O link com class="active" indica a página atual; o CSS deve estilizar isso.
+                      - Para acessibilidade, pode-se adicionar aria-current="page" no item ativo:
+                        <a ... aria-current="page">Atividades Rápidas</a>
+                      - Para muitos itens, considere nav responsivo (colapso em mobile).
+                    -->
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Conteúdo principal da página: cada seção de 'ficha-rapida' é um exemplo de atividade -->
+        <div class="container">
+            <div class="page-header">
+                <!-- Título principal da página (semântica correta: h1 dentro de main) -->
+                <h1>Fichas de Atividade Rápida Scratch</h1>
+                <p class="subtitle">Atividades de 15 Minutos para Diferentes Níveis</p>
+            </div>
+
+            <!-- FICHA RÁPIDA 1 -->
+            <div class="content-section">
+                <h2>FICHA RÁPIDA 1: "ANIMAÇÃO RELÂMPAGO"</h2>
+                <!--
+                  Cada 'content-section' representa uma unidade independente.
+                  h2 aqui é apropriado (subtítulo do h1 principal). Manter hierarquia.
+                -->
+                
+                <div class="ficha-rapida">
+                    <div class="ficha-header">
+                        <span class="ficha-tempo">⏱️ Tempo: 15 minutos</span>
+                        <span class="ficha-nivel">🎯 Nível: Iniciante (1º-2º ano)</span>
+                    </div>
+                    <!--
+                      Cabeçalho da ficha com tempo e nível.
+                      Considerar uso de <time datetime="PT15M"> para marcação de tempo (machine-readable).
+                    -->
+
+                    <h3>🎯 OBJETIVO</h3>
+                    <p>Criar uma animação simples com movimento e som em apenas 15 minutos!</p>
+
+                    <h3>📋 CHECKLIST RÁPIDO</h3>
+                    <ul class="checklist">
+                        <li>[ ] Adicione um sprite animal</li>
+                        <li>[ ] Faça-o andar pela tela</li>
+                        <li>[ ] Adicione um efeito sonoro</li>
+                        <li>[ ] Use a bandeira verde para testar</li>
+                    </ul>
+                    <!--
+                      Checklist: lista simples. Para melhorar acessibilidade, poderia ser uma lista de
+                      itens com role="list" e inputs tipo checkbox se interatividade for desejada.
+                    -->
+
+                    <h3>🧩 BLOCOS NECESSÁRIOS</h3>
+                    <div class="scratch-code">
+<!--
+  Aqui o autor apresenta pseudo-código em texto que remete aos blocos do Scratch.
+  Para melhor legibilidade poderia ser marcado como <pre><code> e usar CSS para estilo.
+-->
+QUANDO ⚑ FOR CLICADO
+REPITA 4 VEZES
+MOVER 50 PASSOS
+TOCAR O SOM [pop]
+GIRAR ↻ 90 GRAUS
+                    </div>
+
+                    <h3>🚀 PASSO A PASSO EXPRESS</h3>
+                    
+                    <h4>Minuto 1-3: Configuração</h4>
+                    <ol>
+                        <li>Clique em "Criar" novo projeto</li>
+                        <li>Escolha um sprite animal (gato, cachorro, pássaro)</li>
+                        <li>Posicione no centro do palco (x:0, y:0)</li>
+                    </ol>
+
+                    <h4>Minuto 4-8: Programação Básica</h4>
+                    <ol>
+                        <li>Arraste "quando ⚑ for clicado"</li>
+                        <li>Adicione "repita 4 vezes"</li>
+                        <li>Dentro do repeat: "mova 50 passos"</li>
+                        <li>Adicione "toque o som pop"</li>
+                        <li>Complete com "gire 90 graus"</li>
+                    </ol>
+
+                    <h4>Minuto 9-12: Personalização</h4>
+                    <ol>
+                        <li>Mude o número de passos para 30</li>
+                        <li>Escolha outro som (meow, drum, etc.)</li>
+                        <li>Teste com bandeira verde!</li>
+                        <li>Ajuste se necessário</li>
+                    </ol>
+
+                    <h4>Minuto 13-15: Extensão Rápida</h4>
+                    <ol>
+                        <li>Adicione "diga [Estou andando!] por 2 segundos"</li>
+                        <li>Teste novamente</li>
+                        <li>Salve como "AnimacaoRelampago"</li>
+                    </ol>
+
+                    <h3>💡 DICA EXPRESS</h3>
+                    <div class="dica-box">
+                        <p><strong>Problema comum:</strong> O sprite some da tela?</p>
+                        <p><strong>Solução:</strong> Use "vá para x:0 y:0" no início!</p>
+                    </div>
+
+                    <h3>🌟 DESAFIO EXTRA (OPCIONAL)</h3>
+                    <ul>
+                        <li>Adicione um segundo sprite que se mova diferente</li>
+                        <li>Use "espere 1 segundos" entre movimentos</li>
+                        <li>Mude a cor do sprite durante a animação</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FICHA RÁPIDA 2 -->
+            <div class="content-section">
+                <h2>FICHA RÁPIDA 2: "DIÁLOGO EXPRESS"</h2>
+                
+                <div class="ficha-rapida">
+                    <div class="ficha-header">
+                        <span class="ficha-tempo">⏱️ Tempo: 15 minutos</span>
+                        <span class="ficha-nivel">🎯 Nível: Básico (2º-3º ano)</span>
+                    </div>
+
+                    <h3>🎯 OBJETIVO</h3>
+                    <p>Criar uma conversa sincronizada entre dois personagens!</p>
+
+                    <h3>📋 CHECKLIST RÁPIDO</h3>
+                    <ul class="checklist">
+                        <li>[ ] Adicionar 2 sprites diferentes</li>
+                        <li>[ ] Programar falas alternadas</li>
+                        <li>[ ] Usar blocos de espera</li>
+                        <li>[ ] Adicionar expressões faciais</li>
+                    </ul>
+
+                    <h3>🧩 BLOCOS PRINCIPAIS</h3>
+                    <div class="scratch-code">
+SPRITE 1:
+QUANDO ⚑ FOR CLICADO
+DIGA [Olá!] POR 2 SEGUNDOS
+ESPERA 1 SEGUNDOS
+TRANSMITA [resposta]
+
+SPRITE 2:
+QUANDO RECEBER [resposta]
+DIGA [Oi! Tudo bem?] POR 2 SEGUNDOS
+                    </div>
+
+                    <h3>🚀 PASSO A PASSO EXPRESS</h3>
+                    
+                    <h4>Minuto 1-4: Preparação dos Personagens</h4>
+                    <ol>
+                        <li>Adicione dois sprites (ex: gato e cachorro)</li>
+                        <li>Posicione um de cada lado do palco</li>
+                        <li>Nomeie os sprites: "Gato" e "Cachorro"</li>
+                    </ol>
+
+                    <h4>Minuto 5-9: Programação do Diálogo</h4>
+                    <ol>
+                        <li>No Gato: "quando ⚑ for clicado"</li>
+                        <li>Adicione "diga [Olá, amigo!] por 2 segundos"</li>
+                        <li>Adicione "espere 1 segundos"</li>
+                        <li>Adicione "transmita [resposta_amigo]"</li>
+                        <li>No Cachorro: "quando receber [resposta_amigo]"</li>
+                        <li>Adicione "diga [Oi! Como vai?] por 2 segundos"</li>
+                    </ol>
+
+                    <h4>Minuto 10-13: Melhorias Rápidas</h4>
+                    <ol>
+                        <li>Adicione "espere 0.5 segundos" antes das falas</li>
+                        <li>Use "mude o efeito cor" para expressão</li>
+                        <li>Teste a conversa!</li>
+                        <li>Ajuste tempos se necessário</li>
+                    </ol>
+
+                    <h4>Minuto 14-15: Expansão</h4>
+                    <ol>
+                        <li>Adicione uma terceira fala para o gato</li>
+                        <li>Use "transmita" para continuar a conversa</li>
+                    </ol>
+
+                    <h3>💡 DICA EXPRESS</h3>
+                    <div class="dica-box">
+                        <p><strong>Para sincronização perfeita:</strong></p>
+                        <ul>
+                            <li>Use "espere" entre as falas</li>
+                            <li>Teste os tempos várias vezes</li>
+                            <li>Use transmissões para coordenar</li>
+                        </ul>
+                    </div>
+
+                    <h3>🌟 DESAFIO EXTRA</h3>
+                    <ul>
+                        <li>Adicione um terceiro personagem na conversa</li>
+                        <li>Use mudanças de cenário durante o diálogo</li>
+                        <li>Inclua sons de fundo apropriados</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FICHA RÁPIDA 3 -->
+            <div class="content-section">
+                <h2>FICHA RÁPIDA 3: "EFEITOS VISUAIS RELÂMPAGO"</h2>
+                
+                <div class="ficha-rapida">
+                    <div class="ficha-header">
+                        <span class="ficha-tempo">⏱️ Tempo: 15 minutos</span>
+                        <span class="ficha-nivel">🎯 Nível: Intermediário (3º-4º ano)</span>
+                    </div>
+
+                    <h3>🎯 OBJETIVO</h3>
+                    <p>Criar efeitos visuais impressionantes em tempo recorde!</p>
+
+                    <h3>📋 CHECKLIST RÁPIDO</h3>
+                    <ul class="checklist">
+                        <li>[ ] Escolher um sprite principal</li>
+                        <li>[ ] Programar mudanças de efeito</li>
+                        <li>[ ] Usar repetições para animação</li>
+                        <li>[ ] Adicionar sincronização com som</li>
+                    </ul>
+
+                    <h3>🧩 BLOCOS MÁGICOS</h3>
+                    <div class="scratch-code">
+QUANDO ⚑ FOR CLICADO
+REPITA 10 VEZES
+MUDE O EFEITO [COR] PARA 25
+ESPERE 0.2 SEGUNDOS
+MUDE O EFEITO [COR] PARA 0
+ESPERE 0.2 SEGUNDOS
+                    </div>
+
+                    <h3>🚀 PASSO A PASSO EXPRESS</h3>
+                    
+                    <h4>Minuto 1-3: Configuração Inicial</h4>
+                    <ol>
+                        <li>Escolha um sprite (personagem ou objeto)</li>
+                        <li>Posicione no centro do palco</li>
+                        <li>Adicione "quando ⚑ for clicado"</li>
+                    </ol>
+
+                    <h4>Minuto 4-8: Efeito de Piscar</h4>
+                    <ol>
+                        <li>Adicione "repita 10 vezes"</li>
+                        <li>Dentro: "mude o efeito cor para 25"</li>
+                        <li>Adicione "espere 0.2 segundos"</li>
+                        <li>Adicione "mude o efeito cor para 0"</li>
+                        <li>Adicione "espere 0.2 segundos"</li>
+                    </ol>
+
+                    <h4>Minuto 9-12: Efeitos Adicionais</h4>
+                    <ol>
+                        <li>Teste o efeito piscante!</li>
+                        <li>Experimente outros efeitos:
+                            <ul>
+                                <li>"brilho" para luz</li>
+                                <li>"pixelar" para transformação</li>
+                                <li>"fantasma" para transparência</li>
+                            </ul>
+                        </li>
+                        <li>Mude o número de repetições</li>
+                        <li>Ajuste tempos de espera</li>
+                    </ol>
+
+                    <h4>Minuto 13-15: Sincronização com Som</h4>
+                    <ol>
+                        <li>Adicione "toque o som laser1"</li>
+                        <li>Posicione antes do loop</li>
+                        <li>Teste a sincronização som-efeito</li>
+                    </ol>
+
+                    <h3>💡 DICA EXPRESS</h3>
+                    <div class="dica-box">
+                        <p><strong>Combinações de efeitos:</strong></p>
+                        <ul>
+                            <li>Mistura mágica: cor + brilho</li>
+                            <li>Transformação: pixelar + fantasma</li>
+                            <li>Explosão: tamanho + cor + som</li>
+                        </ul>
+                    </div>
+
+                    <h3>🌟 DESAFIO EXTRA</h3>
+                    <ul>
+                        <li>Crie uma sequência de efeitos diferentes</li>
+                        <li>Use "sempre" para efeito contínuo</li>
+                        <li>Adicione movimento durante os efeitos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FICHA RÁPIDA 4 -->
+            <div class="content-section">
+                <h2>FICHA RÁPIDA 4: "MINI-JOGO RELÂMPAGO"</h2>
+                
+                <div class="ficha-rapida">
+                    <div class="ficha-header">
+                        <span class="ficha-tempo">⏱️ Tempo: 15 minutos</span>
+                        <span class="ficha-nivel">🎯 Nível: Intermediário (4º ano)</span>
+                    </div>
+
+                    <h3>🎯 OBJETIVO</h3>
+                    <p>Criar um jogo básico funcional em tempo recorde!</p>
+
+                    <h3>📋 CHECKLIST RÁPIDO</h3>
+                    <ul class="checklist">
+                        <li>[ ] Criar personagem controlável</li>
+                        <li>[ ] Adicionar objetivo simples</li>
+                        <li>[ ] Programar controles de teclado</li>
+                        <li>[ ] Implementar sistema de pontuação</li>
+                    </ul>
+
+                    <h3>🧩 BLOCOS DO JOGO</h3>
+                    <div class="scratch-code">
+CONTROLES:
+QUANDO TECLA [SETTA PARA CIMA] PRESSIONADA
+MUDE Y POR 10
+
+PONTUAÇÃO:
+QUANDO ⚑ FOR CLICADO
+MUDE [PONTOS] PARA 0
+QUANDO TOCAR EM [ALVO]
+ADICIONE 1 A [PONTOS]
+                    </div>
+
+                    <h3>🚀 PASSO A PASSO EXPRESS</h3>
+                    
+                    <h4>Minuto 1-4: Configuração do Jogador</h4>
+                    <ol>
+                        <li>Escolha um sprite para o jogador</li>
+                        <li>Crie variável "pontos"</li>
+                        <li>Adicione "quando ⚑ for clicado"</li>
+                        <li>Programe: "mude [pontos] para 0"</li>
+                    </ol>
+
+                    <h4>Minuto 5-8: Controles de Movimento</h4>
+                    <ol>
+                        <li>Adicione "quando tecla seta para cima"</li>
+                        <li>Programe: "mude y por 10"</li>
+                        <li>Repita para outras direções:
+                            <ul>
+                                <li>Baixo: mude y por -10</li>
+                                <li>Esquerda: mude x por -10</li>
+                                <li>Direita: mude x por 10</li>
+                            </ul>
+                        </li>
+                    </ol>
+
+                    <h4>Minuto 9-12: Objetivo do Jogo</h4>
+                    <ol>
+                        <li>Adicione um sprite alvo (estrela, moeda)</li>
+                        <li>Programe no alvo:
+                            <ul>
+                                <li>"quando tocando em [jogador]"</li>
+                                <li>"adicione 1 a [pontos]"</li>
+                                <li>"vá para posição aleatória"</li>
+                            </ul>
+                        </li>
+                        <li>Teste a coleta!</li>
+                    </ol>
+
+                    <h4>Minuto 13-15: Polimento Final</h4>
+                    <ol>
+                        <li>Adicione som ao coletar: "toque o som coin"</li>
+                        <li>Mostre a pontuação: use "sempre" + "diga pontos"</li>
+                        <li>Teste o jogo completo!</li>
+                        <li>Ajuste velocidades se necessário</li>
+                    </ol>
+
+                    <h3>💡 DICA EXPRESS</h3>
+                    <div class="dica-box">
+                        <p><strong>Para jogo mais desafiador:</strong></p>
+                        <ul>
+                            <li>Aumente velocidade do movimento</li>
+                            <li>Adicione timer com variável</li>
+                            <li>Crie obstáculos que reduzem pontos</li>
+                        </ul>
+                    </div>
+
+                    <h3>🌟 DESAFIO EXTRA</h3>
+                    <ul>
+                        <li>Adicione inimigos que se movem sozinhos</li>
+                        <li>Crie power-ups com efeitos especiais</li>
+                        <li>Implemente sistema de vidas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FICHA RÁPIDA 5 -->
+            <div class="content-section">
+                <h2>FICHA RÁPIDA 5: "ANIMAÇÃO COM CLONES"</h2>
+                
+                <div class="ficha-rapida">
+                    <div class="ficha-header">
+                        <span class="ficha-tempo">⏱️ Tempo: 15 minutos</span>
+                        <span class="ficha-nivel">🎯 Nível: Avançado (5º ano)</span>
+                    </div>
+
+                    <h3>🎯 OBJETIVO</h3>
+                    <p>Dominar o uso de clones para efeitos especiais!</p>
+
+                    <h3>📋 CHECKLIST RÁPIDO</h3>
+                    <ul class="checklist">
+                        <li>[ ] Criar sprite original</li>
+                        <li>[ ] Programar sistema de clonagem</li>
+                        <li>[ ] Controlar comportamento dos clones</li>
+                        <li>[ ] Implementar efeitos em grupo</li>
+                    </ul>
+
+                    <h3>🧩 BLOCOS DE CLONAGEM</h3>
+                    <div class="scratch-code">
+QUANDO ⚑ FOR CLICADO
+ESCONDA
+REPITA 5 VEZES
+CRIE CLONE DE [MIM MESMO]
+ESPERE 1 SEGUNDOS
+
+QUANDO COMEÇAR COMO CLONE
+MOSTRE
+VÁ PARA POSIÇÃO ALEATÓRIA
+REPITA ATÉ [CONDIÇÃO]
+[AÇÕES DO CLONE]
+                    </div>
+
+                    <h3>🚀 PASSO A PASSO EXPRESS</h3>
+                    
+                    <h4>Minuto 1-4: Configuração Base</h4>
+                    <ol>
+                        <li>Escolha um sprite simples (bola, estrela)</li>
+                        <li>Adicione "quando ⚑ for clicado"</li>
+                        <li>Programe: "esconda" (para o original)</li>
+                        <li>Adicione: "repita 5 vezes"</li>
+                    </ol>
+
+                    <h4>Minuto 5-9: Sistema de Clonagem</h4>
+                    <ol>
+                        <li>Dentro do repeat: "crie clone de mim mesmo"</li>
+                        <li>Adicione: "espere 1 segundos"</li>
+                        <li>Crie novo script: "quando começar como clone"</li>
+                        <li>Programe clones: "mostre"</li>
+                        <li>Adicione: "vá para posição aleatória"</li>
+                    </ol>
+
+                    <h4>Minuto 10-13: Comportamento dos Clones</h4>
+                    <ol>
+                        <li>Adicione movimento: "sempre mova 5 passos"</li>
+                        <li>Programe quique: "se tocando na borda, gire 180"</li>
+                        <li>Adicione efeito: "mude o efeito cor para 25"</li>
+                        <li>Teste a clonagem!</li>
+                    </ol>
+
+                    <h4>Minuto 14-15: Refinamento</h4>
+                    <ol>
+                        <li>Ajuste número de clones no repeat</li>
+                        <li>Modifique velocidade e efeitos</li>
+                    </ol>
+
+                    <h3>💡 DICA EXPRESS</h3>
+                    <div class="dica-box">
+                        <p><strong>Gerenciamento de clones:</strong></p>
+                        <ul>
+                            <li>Use "delete este clone" para remover</li>
+                            <li>Controle com variáveis globais</li>
+                            <li>Diferencie comportamentos por clone</li>
+                        </ul>
+                    </div>
+
+                    <h3>🌟 DESAFIO EXTRA</h3>
+                    <ul>
+                        <li>Crie diferentes tipos de clones</li>
+                        <li>Implemente sistema de "vida" para clones</li>
+                        <li>Use clones para partículas de efeito</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FICHA RÁPIDA 6 -->
+            <div class="content-section">
+                <h2>FICHA RÁPIDA 6: "INTERATIVIDADE INSTANTÂNEA"</h2>
+                
+                <div class="ficha-rapida">
+                    <div class="ficha-header">
+                        <span class="ficha-tempo">⏱️ Tempo: 15 minutos</span>
+                        <span class="ficha-nivel">🎯 Nível: Todos os anos (adaptável)</span>
+                    </div>
+
+                    <h3>🎯 OBJETIVO</h3>
+                    <p>Criar projeto que reage às ações do usuário!</p>
+
+                    <h3>📋 CHECKLIST RÁPIDO</h3>
+                    <ul class="checklist">
+                        <li>[ ] Programar resposta a cliques</li>
+                        <li>[ ] Implementar detecção de cor</li>
+                        <li>[ ] Usar entrada de texto</li>
+                        <li>[ ] Criar feedback visual</li>
+                    </ul>
+
+                    <h3>🧩 BLOCOS INTERATIVOS</h3>
+                    <div class="scratch-code">
+QUANDO ESTE SPRITE FOR CLICADO
+DIGA [Você me clicou!] POR 2 SEGUNDOS
+MUDE O EFEITO [BRILHO] PARA 50
+ESPERA 0.5 SEGUNDOS
+MUDE O EFEITO [BRILHO] PARA 0
+                    </div>
+
+                    <h3>🚀 PASSO A PASSO EXPRESS</h3>
+                    
+                    <h4>Minuto 1-4: Resposta a Clique</h4>
+                    <ol>
+                        <li>Escolha um sprite atrativo</li>
+                        <li>Adicione "quando este sprite for clicado"</li>
+                        <li>Programe: "diga [Me clicou!] por 2 segundos"</li>
+                        <li>Adicione efeito: "mude o efeito brilho para 50"</li>
+                    </ol>
+
+                    <h4>Minuto 5-8: Detecção de Cor</h4>
+                    <ol>
+                        <li>Adicione: "sempre"</li>
+                        <li>Dentro: "se tocando na cor [azul]?"</li>
+                        <li>Então: "toque o som magic spell"</li>
+                        <li>E: "mude o efeito cor para 25"</li>
+                    </ol>
+
+                    <h4>Minuto 9-12: Entrada do Usuário</h4>
+                    <ol>
+                        <li>Adicione: "pergunte [Qual seu nome?] e espere"</li>
+                        <li>Programe: "diga (juntar [Olá,] (resposta))"</li>
+                        <li>Use resposta em outras ações</li>
+                        <li>Teste a interação!</li>
+                    </ol>
+
+                    <h4>Minuto 13-15: Feedback Completo</h4>
+                    <ol>
+                        <li>Adicione múltiplas respostas</li>
+                        <li>Crie diferentes reações para diferentes entradas</li>
+                        <li>Teste todas as interações</li>
+                    </ol>
+
+                    <h3>💡 DICA EXPRESS</h3>
+                    <div class="dica-box">
+                        <p><strong>Para melhor experiência:</strong></p>
+                        <ul>
+                            <li>Resposta imediata às ações</li>
+                            <li>Feedback visual claro</li>
+                            <li>Variedade de reações</li>
+                            <li>Elemento de surpresa</li>
+                        </ul>
+                    </div>
+
+                    <h3>🌟 DESAFIO EXTRA</h3>
+                    <ul>
+                        <li>Crie quiz com perguntas e respostas</li>
+                        <li>Implemente sistema de comandos por voz (texto)</li>
+                        <li>Desenvolve história que responde às escolhas</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- FICHA RÁPIDA 7 -->
+            <div class="content-section">
+                <h2>FICHA RÁPIDA 7: "ANIMAÇÃO COM CENÁRIOS"</h2>
+                
+                <div class="ficha-rapida">
+                    <div class="ficha-header">
+                        <span class="ficha-tempo">⏱️ Tempo: 15 minutos</span>
+                        <span class="ficha-nivel">🎯 Nível: 2º-4º ano</span>
+                    </div>
+
+                    <h3>🎯 OBJETIVO</h3>
+                    <p>Criar narrativa visual com mudanças de cenário!</p>
+
+                    <h3>📋 CHECKLIST RÁPIDO</h3>
+                    <ul class="checklist">
+                        <li>[ ] Adicionar múltiplos cenários</li>
+                        <li>[ ] Programar transições</li>
+                        <li>[ ] Sincronizar com diálogos</li>
+                        <li>[ ] Criar fluxo narrativo</li>
+                    </ul>
+
+                    <h3>🧩 BLOCOS DE CENÁRIO</h3>
+                    <div class="scratch-code">
+QUANDO ⚑ FOR CLICADO
+MUDE PARA O CENÁRIO [MANHÃ]
+DIGA [Bom dia!] POR 3 SEGUNDOS
+ESPERA 1 SEGUNDOS
+MUDE PARA O CENÁRIO [TARDE]
+DIGA [Boa tarde!] POR 3 SEGUNDOS
+                    </div>
+
+                    <h3>🚀 PASSO A PASSO EXPRESS</h3>
+                    
+                    <h4>Minuto 1-3: Preparação de Cenários</h4>
+                    <ol>
+                        <li>Adicione 3 cenários diferentes (ex: manhã, tarde, noite)</li>
+                        <li>Nomeie os cenários claramente</li>
+                        <li>Posicione o sprite principal</li>
+                    </ol>
+
+                    <h4>Minuto 4-8: Sequência Básica</h4>
+                    <ol>
+                        <li>Adicione "quando ⚑ for clicado"</li>
+                        <li>Programe: "mude para o cenário manhã"</li>
+                        <li>Adicione: "diga [Bom dia!] por 3 segundos"</li>
+                        <li>Adicione: "espere 1 segundos"</li>
+                        <li>Continue com outros cenários</li>
+                    </ol>
+
+                    <h4>Minuto 9-12: Sincronização</h4>
+                    <ol>
+                        <li>Adicione sons apropriados para cada cena</li>
+                        <li>Use "toque osom birds" para manhã</li>
+                        <li>Use "toque o som crickets" para noite</li>
+                        <li>Teste a sequência!</li>
+                    </ol>
+
+                    <h4>Minuto 13-15: Elementos Interativos</h4>
+                    <ol>
+                        <li>Adicione mudança de cenário por clique</li>
+                        <li>Programe transições suaves</li>
+                        <li>Crie loop de animação</li>
+                    </ol>
+
+                    <h3>💡 DICA EXPRESS</h3>
+                    <div class="dica-box">
+                        <p><strong>Para narrativa envolvente:</strong></p>
+                        <ul>
+                            <li>Use cenários que contam história</li>
+                            <li>Sincronize diálogos com mudanças</li>
+                            <li>Adicione elementos surpresa</li>
+                            <li>Crie transições suaves</li>
+                        </ul>
+                    </div>
+
+                    <h3>🌟 DESAFIO EXTRA</h3>
+                    <ul>
+                        <li>Crie história com múltiplos caminhos</li>
+                        <li>Implemente sistema de capítulos</li>
+                        <li>Adicione personagens que aparecem em cenários específicos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- MATERIAL DE APOIO AO PROFESSOR -->
+            <div class="content-section">
+                <h2>MATERIAL DE APOIO AO PROFESSOR</h2>
+
+                <h3>Como Usar as Fichas Rápidas</h3>
+                
+                <h4>Contextos de Uso:</h4>
+                <ul>
+                    <li><strong>Aquecimento:</strong> Início da aula (15 min)</li>
+                    <li><strong>Desafio rápido:</strong> Entre atividades principais</li>
+                    <li><strong>Recuperação:</strong> Para alunos que terminam cedo</li>
+                    <li><strong>Revisão:</strong> Retomada de conceitos anteriores</li>
+                </ul>
+
+                <h4>Adaptações por Série:</h4>
+                <ul>
+                    <li><strong>1º-2º ano:</strong> Fichas 1, 2, 7</li>
+                    <li><strong>3º-4º ano:</strong> Fichas 3, 4, 6</li>
+                    <li><strong>5º ano:</strong> Fichas 5 e todas as anteriores</li>
+                </ul>
+
+                <h4>Gestão de Tempo:</h4>
+                <p><strong>ESTRUTURA SUGERIDA (15 MIN):</strong></p>
+                <ul>
+                    <li><strong>0-2 min:</strong> Explicação do desafio</li>
+                    <li><strong>2-12 min:</strong> Desenvolvimento prático</li>
+                    <li><strong>12-14 min:</strong> Teste e ajustes</li>
+                    <li><strong>14-15 min:</strong> Compartilhamento rápido</li>
+                </ul>
+
+                <h3>Cartaz de Apoio Rápido</h3>
+                <div class="cartaz-box">
+                    <div class="cartaz-header">⚡ DICAS RELÂMPAGO ⚡</div>
+                    <div class="cartaz-content">
+                        <p>🎯 <strong>COMEÇE SIMPLES</strong><br>Funcione primeiro, depois melhore</p>
+                        <p>🧪 <strong>TESTE FREQUENTEMENTE</strong><br>A cada 2-3 blocos adicionados</p>
+                        <p>💾 <strong>SALVE RAPIDAMENTE</strong><br>Nome claro + salvar a cada 5 min</p>
+                        <p>🔧 <strong>PROBLEMA? TROQUE A ORDEM!</strong><br>Mova blocos, ajuste valores</p>
+                        <p>🎉 <strong>CELEBRE PEQUENOS SUCESSOS</strong><br>Cada bloco funcionando é vitória</p>
+                    </div>
+                </div>
+
+                <h3>Avaliação Express</h3>
+                
+                <h4>CRITÉRIOS RÁPIDOS (✔️/🔁/❌):</h4>
+                <ul>
+                    <li>✅ <strong>FUNCIONA:</strong> Projeto executa sem erros</li>
+                    <li>✅ <strong>OBJETIVO:</strong> Atende ao desafio proposto</li>
+                    <li>✅ <strong>CRIATIVO:</strong> Elementos pessoais adicionados</li>
+                    <li>✅ <strong>TEMPO:</strong> Concluído em 15 minutos</li>
+                </ul>
+
+                <h4>FEEDBACK RÁPIDO:</h4>
+                <ul>
+                    <li>🌟 <strong>"Excelente!"</strong> - Todos critérios</li>
+                    <li>👍 <strong>"Bom trabalho!"</strong> - 3 critérios</li>
+                    <li>💪 <strong>"Quase lá!"</strong> - 2 critérios</li>
+                    <li>🔄 <strong>"Vamos tentar de novo?"</strong> - 1 critério</li>
+                </ul>
+
+                <h3>Extensões para Aulas Completas</h3>
+                <p>Cada ficha rápida pode ser expandida para:</p>
+                <ul>
+                    <li><strong>Aula de 50 min:</strong> Adicionar complexidade</li>
+                    <li><strong>Projeto de semana:</strong> Desenvolver versão completa</li>
+                    <li><strong>Trabalho em grupo:</strong> Divisão de tarefas</li>
+                    <li><strong>Apresentação:</strong> Demonstração para colegas</li>
+                </ul>
+            </div>
+
+            <div class="content-section">
+                <h2>Navegação</h2>
+                <div class="card-grid">
+                    <a href="sugestoes-atividades.html" class="nav-card">
+                        <h3>Sugestões de Atividades</h3>
+                        <p>Atividades com cartões Scratch</p>
+                    </a>
+                    <a href="fichas-atividades.html" class="nav-card">
+                        <h3>Fichas de Atividades</h3>
+                        <p>Material complementar</p>
+                    </a>
+                    <a href="projetos-didaticos.html" class="nav-card">
+                        <h3>Projetos Didáticos</h3>
+                        <p>Projetos por ano escolar</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>UTFPR - Campus Siqueira Campos</h3>
+                    <p>Universidade Tecnológica Federal do Paraná</p>
+                    <p>Departamento de Computação</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Recursos Scratch</h3>
+                    <ul>
+                        <li><a href="https://scratch.mit.edu">Site Oficial do Scratch</a></li>
+                        <li><a href="https://scratch.mit.edu/educators">Para Educadores</a></li>
+                        <li><a href="https://scratch.mit.edu/parents">Para Pais</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Email: giseleacn@gmail.com</p>
+                    <p>Email: barbosa.rodrigo.1979@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 UTFPR - Desenvolvido por Gisele Nunes e Rodrigo Barbosa. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!--
+      Botão para alternar tema (escuro/claro). O comportamento presume um script em 'script.js'
+      que adiciona/remova classes no <body> e salva preferência (localStorage).
+      Melhoria sugerida: adicionar aria-label para acessibilidade:
+      <button ... aria-label="Alternar tema claro/escuro">
+    -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar tema">🌙</button>
+
+    <!-- Inclusão do script JavaScript -->
+    <script src="script.js"></script>
+    <!--
+      script.js deve conter o comportamento do botão de tema e possivelmente
+      outras interações (ex.: abrir/fechar nav em mobile). Verificar se existe e testar.
+      Sugestão: colocar scripts no final do body (como aqui) para que o DOM já esteja carregado.
+      Se o script for crítico para renderização inicial, considerar 'defer' no head.
+    -->
+</body>
+</html>

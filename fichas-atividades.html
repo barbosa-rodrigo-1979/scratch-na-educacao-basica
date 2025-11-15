@@ -1,0 +1,866 @@
+<!--
+Objetivo: Apresentar fichas organizadas por ano escolar com complexidade crescente - projeto Scratch na Educação Básica
+Desenvolvido por: Gisele Nunes, Rodrigo Barbosa
+Data: Segundo semestre de 2025
+-->
+<!DOCTYPE html>
+<!-- Declaração do tipo de documento como HTML5 -->
+<html lang="pt-BR">
+<!-- Elemento raiz do documento HTML, define o idioma como português brasileiro -->
+<head>
+    <!-- Cabeçalho do documento - contém metadados e links para recursos externos -->
+    
+    <!-- Define a codificação de caracteres como UTF-8 para suportar acentos e caracteres especiais do português -->
+    <meta charset="UTF-8">
+    
+    <!-- Configura a viewport para responsividade em dispositivos móveis -->
+    <!-- width=device-width: faz a página ocupar a largura do dispositivo -->
+    <!-- initial-scale=1.0: define o nível de zoom inicial como 100% -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- Título da página que aparece na aba do navegador -->
+    <title>Fichas de Atividades Scratch | Cartilha Pedagógica</title>
+    
+    <!-- Link para o arquivo de estilos CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- Corpo do documento - conteúdo visível da página -->
+    
+    <!-- Cabeçalho principal do site com informações institucionais -->
+    <header>
+        <!-- Seção superior do cabeçalho com logo e título principal -->
+        <div class="header-top">
+            <!-- Container para agrupar e centralizar conteúdo -->
+            <div class="container">
+                <!-- Container para a logo e nome da instituição -->
+                <div class="logo-container">
+                    <!-- Imagem da logo da UTFPR -->
+                    <!-- alt: texto alternativo para acessibilidade -->
+                    <img src="UTFPR_logo.png" alt="UTFPR Logo" class="logo">
+                    
+                    <!-- Nome da instituição com quebra de linha -->
+                    <div class="institution-name">
+                        Universidade Tecnológica Federal do Paraná<br>
+                        <!-- <small>: tag para texto secundário/less important -->
+                        <small>Campus Siqueira Campos</small>
+                    </div>
+                </div>
+                
+                <!-- Título principal do projeto -->
+                <div class="header-title">
+                    Scratch na Educação Básica<br>
+                    <small>Material Didático para Professores</small>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Seção inferior do cabeçalho com menu de navegação -->
+        <div class="header-bottom">
+            <div class="container">
+                <!-- Menu de navegação principal -->
+                <nav>
+                    <!-- Lista não ordenada com os links de navegação -->
+                    <ul>
+                        <!-- Links para outras páginas do site -->
+                        <!-- Cada <li> representa um item do menu -->
+                        <li><a href="index.html">Página Inicial</a></li>
+                        <li><a href="primeiros-passos.html">Primeiros Passos</a></li>
+                        <li><a href="cartoes-scratch.html">Cartões Scratch</a></li>
+                        <li><a href="sugestoes-atividades.html">Sugestões de Atividades</a></li>
+                        <li><a href="atividades-rapidas.html">Atividades Rápidas</a></li>
+                        
+                        <!-- Item ativo atual (Fichas de Atividades) -->
+                        <!-- class="active": destaca a página atual no menu -->
+                        <li><a href="fichas-atividades.html" class="active">Fichas de Atividades</a></li>
+                        
+                        <li><a href="projetos-didaticos.html">Projetos Didáticos</a></li>
+                        <li><a href="modelos-projetos.html">Modelos de Projetos</a></li>
+                        <li><a href="planos-aula.html">Planos de Aula</a></li>
+                        <li><a href="materiais-complementares.html">Materiais Complementares</a></li>
+                        <li><a href="referencias-bibliograficas.html">Referências Bibliográficas</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal da página com fichas de atividades -->
+    <main>
+        <!-- Container principal para centralizar e limitar a largura do conteúdo -->
+        <div class="container">
+            
+            <!-- Cabeçalho da página com título e subtítulo -->
+            <div class="page-header">
+                <!-- Título principal da página (Heading nível 1) -->
+                <h1>Fichas de Atividades Scratch</h1>
+                
+                <!-- Subtítulo descritivo -->
+                <p class="subtitle">Material Complementar para Professores</p>
+            </div>
+
+            <!-- FICHA 1: PRIMEIROS PASSOS NO SCRATCH (1º ANO) -->
+            <!-- Seção de conteúdo para cada ficha de atividade -->
+            <div class="content-section">
+                <!-- Título da ficha de atividade (Heading nível 2) -->
+                <h2>FICHA 1: PRIMEIROS PASSOS NO SCRATCH (1º ANO)</h2>
+                
+                <!-- Container principal da ficha de atividade -->
+                <div class="ficha-atividade">
+                    <!-- Cabeçalho da ficha com informações básicas -->
+                    <div class="ficha-cabecalho">
+                        <!-- Informações da atividade com campos para preenchimento -->
+                        <p><strong>Atividade:</strong> "O Gato Dançarino"</p>
+                        <p><strong>Nome:</strong> _________________________</p>
+                        <p><strong>Data:</strong> _________________________</p>
+                        <p><strong>Série:</strong> 1º ano</p>
+                    </div>
+
+                    <!-- Seção 1: Conhecendo a Interface -->
+                    <h3>PARTE 1: CONHECENDO A INTERFACE 🐱</h3>
+                    <p><strong>Objetivo:</strong> Identificar as partes principais do Scratch</p>
+                    
+                    <!-- Container para imagem da interface do Scratch -->
+                    <div class="image-container">
+                        <!-- Imagem educativa mostrando a interface do Scratch -->
+                        <img src="Interface_do_Scratch.png" alt="Interface Scratch" class="content-image">
+                    </div>
+
+                    <!-- Instruções para identificação dos componentes -->
+                    <p><strong>Marque com X onde ficam:</strong></p>
+                    <!-- Lista de verificação para identificação de componentes -->
+                    <ul class="checklist-ficha">
+                        <li>[ ] Palco (onde o Caranguejo aparece)</li>
+                        <li>[ ] Blocos (peças coloridas)</li>
+                        <li>[ ] Área de Scripts (onde montamos os blocos)</li>
+                        <li>[ ] Sprite do Caranguejo (nosso personagem)</li>
+                    </ul>
+
+                    <!-- Seção 2: Desafios Práticos -->
+                    <h3>PARTE 2: DESAFIOS PRÁTICOS 🎯</h3>
+                    
+                    <!-- Desafio 1: Movimento básico -->
+                    <h4>Desafio 1: Faça o gato andar</h4>
+                    <!-- Lista de verificação para o primeiro desafio prático -->
+                    <ul class="checklist-ficha">
+                        <!-- <code>: tag para indicar código ou comandos específicos -->
+                        <li>[ ] Encontre o bloco azul <code>mova 10 passos</code></li>
+                        <li>[ ] Arraste para a área de scripts</li>
+                        <li>[ ] Clique no bloco para testar</li>
+                    </ul>
+
+                    <!-- Desafio 2: Adição de som -->
+                    <h4>Desafio 2: Adicione um som</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Encontre o bloco roxo <code>diga Olá! por 2 segundos</code></li>
+                        <li>[ ] Encaixe abaixo do bloco de movimento</li>
+                        <li>[ ] Clique para testar a sequência</li>
+                    </ul>
+
+                    <!-- Desafio 3: Inicialização com bandeira -->
+                    <h4>Desafio 3: Comece com a bandeira</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Encontre o bloco amarelo <code>quando ⚑ for clicado</code></li>
+                        <li>[ ] Encaixe em cima da sequência</li>
+                        <li>[ ] Clique na bandeira verde para testar</li>
+                    </ul>
+
+                    <!-- Seção 3: Atividade criativa de desenho -->
+                    <h3>PARTE 3: MINHA ANIMAÇÃO ✨</h3>
+                    <p><strong>Desenhe abaixo como ficou sua animação:</strong></p>
+                    
+                    <!-- Área reservada para desenho da animação -->
+                    <div class="area-desenho">
+                        <!-- Container com borda tracejada para desenho manual -->
+                        <!-- Estilo inline para definir aparência visual básica -->
+                        <div style="border: 2px dashed var(--border-color); height: 200px; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: var(--text-color); opacity: 0.7;">
+                            [Área para desenho - caixa grande]
+                        </div>
+                    </div>
+
+                    <!-- Checklist de aprendizagem -->
+                    <h4>O que eu aprendi hoje:</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Sei encontrar os blocos de movimento</li>
+                        <li>[ ] Sei encaixar blocos na sequência correta</li>
+                        <li>[ ] Sei iniciar meu projeto com a bandeira verde</li>
+                    </ul>
+
+                    <!-- Espaço para assinatura do professor -->
+                    <div class="assinatura">
+                        <p><strong>Assinatura do professor:</strong> _________________________</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FICHA 2: CONTO INTERATIVO (2º ANO) -->
+            <div class="content-section">
+                <h2>FICHA 2: CONTO INTERATIVO (2º ANO)</h2>
+                
+                <div class="ficha-atividade">
+                    <div class="ficha-cabecalho">
+                        <p><strong>Atividade:</strong> "Escolha sua Aventura"</p>
+                        <p><strong>Nome:</strong> _________________________</p>
+                        <p><strong>Data:</strong> _________________________</p>
+                        <p><strong>Série:</strong> 2º ano</p>
+                    </div>
+
+                    <!-- Seção de planejamento da história -->
+                    <h3>PLANEJAMENTO DA HISTÓRIA 📖</h3>
+                    
+                    <!-- Definição do personagem principal -->
+                    <h4>Personagem Principal:</h4>
+                    <!-- Campos para preenchimento com espaços em branco -->
+                    <p><strong>Nome:</strong> <span class="form-input-space">_________________________</span></p>
+                    <p><strong>Característica:</strong> <span class="form-input-space">_________________________</span></p>
+
+                    <!-- Definição do cenário inicial -->
+                    <h4>Cenário Inicial:</h4>
+                    <p><strong>Onde a história começa?</strong> <span class="form-input-space">_________________________</span></p>
+
+                    <!-- Definição das escolhas possíveis -->
+                    <h4>Duas Escolhas Possíveis:</h4>
+                    <!-- Lista ordenada para opções sequenciais -->
+                    <ol>
+                        <li><span class="form-list-space">_________________________</span></li>
+                        <li><span class="form-list-space">_________________________</span></li>
+                    </ol>
+
+                    <!-- Definição dos finais diferentes -->
+                    <h4>Dois Finais Diferentes:</h4>
+                    <ul>
+                        <li><strong>Se escolher opção 1:</strong> <span class="form-input-space">_________________________</span></li>
+                        <li><strong>Se escolher opção 2:</strong> <span class="form-input-space">_________________________</span></li>
+                    </ul>
+
+                    <!-- Checklist de programação -->
+                    <h3>CHECKLIST DE PROGRAMAÇÃO ✅</h3>
+                    
+                    <!-- Preparação dos elementos visuais -->
+                    <h4>Preparação dos Sprites:</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Personagem principal adicionado</li>
+                        <li>[ ] Dois cenários diferentes</li>
+                        <li>[ ] Itens especiais (opcional)</li>
+                    </ul>
+
+                    <!-- Programação da lógica da história -->
+                    <h4>Programação da História:</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] História inicia quando clicar na bandeira</li>
+                        <li>[ ] Personagem apresenta a situação</li>
+                        <li>[ ] Uso do bloco <code>pergunte e espere</code></li>
+                        <li>[ ] Condição <code>se-então</code> para as escolhas</li>
+                        <li>[ ] Mudança de cenário para cada final</li>
+                    </ul>
+
+                    <!-- Adição de elementos especiais -->
+                    <h4>Efeitos Especiais:</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Sons para diferentes situações</li>
+                        <li>[ ] Mudanças na aparência do personagem</li>
+                        <li>[ ] Mensagens especiais nos finais</li>
+                    </ul>
+
+                    <!-- Avaliação da história criada -->
+                    <h3>AVALIAÇÃO DA HISTÓRIA 🌟</h3>
+                    <p><strong>Minha história tem:</strong></p>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Início claro</li>
+                        <li>[ ] Personagem definido</li>
+                        <li>[ ] Duas escolhas possíveis</li>
+                        <li>[ ] Dois finais diferentes</li>
+                        <li>[ ] Efeitos visuais ou sonoros</li>
+                    </ul>
+
+                    <!-- Reflexão sobre o processo criativo -->
+                    <h4>Reflexão:</h4>
+                    <p><strong>O que mais gostei de criar:</strong> <span class="form-input-space">_________________________</span></p>
+                    <p><strong>O que foi mais desafiador:</strong> <span class="form-input-space">_________________________</span></p>
+
+                    <!-- Espaço para assinatura do professor -->
+                    <div class="assinatura">
+                        <p><strong>Assinatura do professor:</strong> _________________________</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FICHA 3: QUIZ MATEMÁTICO (3º ANO) -->
+            <div class="content-section">
+                <h2>FICHA 3: QUIZ MATEMÁTICO (3º ANO)</h2>
+                
+                <div class="ficha-atividade">
+                    <div class="ficha-cabecalho">
+                        <p><strong>Atividade:</strong> "Desafio da Matemática"</p>
+                        <p><strong>Nome:</strong> _________________________</p>
+                        <p><strong>Data:</strong> _________________________</p>
+                        <p><strong>Série:</strong> 3º ano</p>
+                    </div>
+
+                    <!-- Seção de planejamento das perguntas matemáticas -->
+                    <h3>PLANEJAMENTO DAS PERGUNTAS ➕➖</h3>
+                    <p><strong>Crie 5 perguntas de matemática:</strong></p>
+                    
+                    <!-- Container para cada pergunta do quiz -->
+                    <div class="pergunta-item">
+                        <p><strong>1. Pergunta:</strong> <span class="form-input-space">_________________________</span></p>
+                        <p><strong>Resposta correta:</strong> <span class="form-input-space">_________</span></p>
+                        <p><strong>Respostas erradas:</strong> <span class="form-input-space">_________</span> e <span class="form-input-space">_________</span></p>
+                    </div>
+
+                    <!-- Repetição da estrutura para as 5 perguntas -->
+                    <div class="pergunta-item">
+                        <p><strong>2. Pergunta:</strong> <span class="form-input-space">_________________________</span></p>
+                        <p><strong>Resposta correta:</strong> <span class="form-input-space">_________</span></p>
+                        <p><strong>Respostas erradas:</strong> <span class="form-input-space">_________</span> e <span class="form-input-space">_________</span></p>
+                    </div>
+
+                    <div class="pergunta-item">
+                        <p><strong>3. Pergunta:</strong> <span class="form-input-space">_________________________</span></p>
+                        <p><strong>Resposta correta:</strong> <span class="form-input-space">_________</span></p>
+                        <p><strong>Respostas erradas:</strong> <span class="form-input-space">_________</span> e <span class="form-input-space">_________</span></p>
+                    </div>
+
+                    <div class="pergunta-item">
+                        <p><strong>4. Pergunta:</strong> <span class="form-input-space">_________________________</span></p>
+                        <p><strong>Resposta correta:</strong> <span class="form-input-space">_________</span></p>
+                        <p><strong>Respostas erradas:</strong> <span class="form-input-space">_________</span> e <span class="form-input-space">_________</span></p>
+                    </div>
+
+                    <div class="pergunta-item">
+                        <p><strong>5. Pergunta:</strong> <span class="form-input-space">_________________________</span></p>
+                        <p><strong>Resposta correta:</strong> <span class="form-input-space">_________</span></p>
+                        <p><strong>Respostas erradas:</strong> <span class="form-input-space">_________</span> e <span class="form-input-space">_________</span></p>
+                    </div>
+
+                    <!-- Seção de programação do quiz -->
+                    <h3>PROGRAMAÇÃO DO QUIZ 💻</h3>
+                    
+                    <!-- Definição das variáveis necessárias -->
+                    <h4>Variáveis Necessárias:</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Variável "pontuação"</li>
+                        <li>[ ] Variável "pergunta_atual"</li>
+                    </ul>
+
+                    <!-- Estrutura principal do programa -->
+                    <h4>Estrutura Principal:</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Projeto inicia com bandeira verde</li>
+                        <li>[ ] Pontuação começa em 0</li>
+                        <li>[ ] Sistema para fazer perguntas em sequência</li>
+                        <li>[ ] Verificação de respostas</li>
+                        <li>[ ] Atualização da pontuação</li>
+                    </ul>
+
+                    <!-- Sistema de feedback para o jogador -->
+                    <h4>Feedback ao Jogador:</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Mensagem de acerto</li>
+                        <li>[ ] Mensagem de erro</li>
+                        <li>[ ] Pontuação mostrada sempre</li>
+                        <li>[ ] Mensagem final com resultado</li>
+                    </ul>
+
+                    <!-- Seção de teste do projeto -->
+                    <h3>TESTE DO PROJETO 🧪</h3>
+                    <p><strong>Convide um colega para testar seu quiz:</strong></p>
+                    <p><strong>Colega testador:</strong> <span class="form-input-space">_________________________</span></p>
+                    
+                    <!-- Checklist de funcionalidades testadas -->
+                    <p><strong>Resultado do teste:</strong></p>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Todas as perguntas aparecem</li>
+                        <li>[ ] Pontuação aumenta ao acertar</li>
+                        <li>[ ] Feedback funciona corretamente</li>
+                        <li>[ ] Mensagem final aparece</li>
+                    </ul>
+
+                    <!-- Espaço para registro de ajustes e dificuldades -->
+                    <p><strong>Ajustes necessários:</strong> <span class="form-input-space">_________________________</span></p>
+                    <p><strong>Dificuldades encontradas:</strong> <span class="form-input-space">_________________________</span></p>
+
+                    <!-- Espaço para assinatura do professor -->
+                    <div class="assinatura">
+                        <p><strong>Assinatura do professor:</strong> _________________________</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FICHA 4: SIMULADOR GEOMÉTRICO (4º ANO) -->
+            <div class="content-section">
+                <h2>FICHA 4: SIMULADOR GEOMÉTRICO (4º ANO)</h2>
+                
+                <div class="ficha-atividade">
+                    <div class="ficha-cabecalho">
+                        <p><strong>Atividade:</strong> "Formas e Medidas"</p>
+                        <p><strong>Nome:</strong> _________________________</p>
+                        <p><strong>Data:</strong> _________________________</p>
+                        <p><strong>Série:</strong> 4º ano</p>
+                    </div>
+
+                    <!-- Seção de planejamento das formas geométricas -->
+                    <h3>PLANEJAMENTO DAS FORMAS ◼️🔺🔵</h3>
+                    
+                    <!-- Seleção das formas a serem trabalhadas -->
+                    <p><strong>Formas que vou trabalhar:</strong></p>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Quadrado</li>
+                        <li>[ ] Retângulo</li>
+                        <li>[ ] Triângulo</li>
+                        <li>[ ] Círculo</li>
+                    </ul>
+
+                    <!-- Container para fórmulas de cada forma geométrica -->
+                    <h4>Cálculos para cada forma:</h4>
+                    
+                    <!-- Fórmulas do quadrado -->
+                    <div class="formula-box">
+                        <p><strong>Quadrado:</strong></p>
+                        <p>- Área: lado × lado</p>
+                        <p>- Perímetro: 4 × lado</p>
+                    </div>
+
+                    <!-- Fórmulas do retângulo -->
+                    <div class="formula-box">
+                        <p><strong>Retângulo:</strong></p>
+                        <p>- Área: base × altura</p>
+                        <p>- Perímetro: 2 × (base + altura)</p>
+                    </div>
+
+                    <!-- Fórmulas do triângulo -->
+                    <div class="formula-box">
+                        <p><strong>Triângulo:</strong></p>
+                        <p>- Área: (base × altura) ÷ 2</p>
+                        <p>- Perímetro: soma dos três lados</p>
+                    </div>
+
+                    <!-- Fórmulas do círculo -->
+                    <div class="formula-box">
+                        <p><strong>Círculo:</strong></p>
+                        <p>- Área: π × raio²</p>
+                        <p>- Perímetro: 2 × π × raio</p>
+                    </div>
+
+                    <!-- Seção de programação do simulador -->
+                    <h3>PROGRAMAÇÃO DO SIMULADOR ⚙️</h3>
+                    
+                    <!-- Definição das variáveis matemáticas -->
+                    <h4>Variáveis Necessárias:</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] base</li>
+                        <li>[ ] altura</li>
+                        <li>[ ] área</li>
+                        <li>[ ] perímetro</li>
+                        <li>[ ] raio</li>
+                    </ul>
+
+                    <!-- Interface do usuário do simulador -->
+                    <h4>Interface do Usuário:</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Botões para escolher formas</li>
+                        <li>[ ] Campos para inserir medidas</li>
+                        <li>[ ] Área para desenhar a forma</li>
+                        <li>[ ] Display para mostrar resultados</li>
+                    </ul>
+
+                    <!-- Sistema de cálculos automáticos -->
+                    <h4>Cálculos Automáticos:</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Fórmulas programadas corretamente</li>
+                        <li>[ ] Atualização em tempo real</li>
+                        <li>[ ] Verificação de números válidos</li>
+                    </ul>
+
+                    <!-- Seção de relatório de testes -->
+                    <h3>RELATÓRIO DE TESTES 📊</h3>
+                    <p><strong>Teste com medidas reais:</strong></p>
+                    
+                    <!-- Teste com quadrado -->
+                    <div class="teste-item">
+                        <p><strong>Quadrado (lado = 5):</strong></p>
+                        <p>- Área calculada: <span class="form-input-space">_________</span></p>
+                        <p>- Área esperada: 25</p>
+                        <p>- [ ] Cálculo correto</p>
+                    </div>
+
+                    <!-- Teste com retângulo -->
+                    <div class="teste-item">
+                        <p><strong>Retângulo (base=6, altura=4):</strong></p>
+                        <p>- Área calculada: <span class="form-input-space">_________</span></p>
+                        <p>- Área esperada: 24</p>
+                        <p>- [ ] Cálculo correto</p>
+                    </div>
+
+                    <!-- Teste com triângulo -->
+                    <div class="teste-item">
+                        <p><strong>Triângulo (base=8, altura=3):</strong></p>
+                        <p>- Área calculada: <span class="form-input-space">_________</span></p>
+                        <p>- Área esperada: 12</p>
+                        <p>- [ ] Cálculo correto</p>
+                    </div>
+
+                    <!-- Espaço para aplicação prática -->
+                    <p><strong>Aplicação prática encontrada:</strong> <span class="form-input-space">_________________________</span></p>
+
+                    <!-- Espaço para assinatura do professor -->
+                    <div class="assinatura">
+                        <p><strong>Assinatura do professor:</strong> _________________________</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FICHA 5: ECOSSISTEMA INTERATIVO (5º ANO) -->
+            <div class="content-section">
+                <h2>FICHA 5: ECOSSISTEMA INTERATIVO (5º ANO)</h2>
+                
+                <div class="ficha-atividade">
+                    <div class="ficha-cabecalho">
+                        <p><strong>Atividade:</strong> "Mundo em Equilíbrio"</p>
+                        <p><strong>Nome:</strong> _________________________</p>
+                        <p><strong>Data:</strong> _________________________</p>
+                        <p><strong>Série:</strong> 5º ano</p>
+                    </div>
+
+                    <!-- Seção de planejamento do ecossistema -->
+                    <h3>PLANEJAMENTO DO ECOSSISTEMA 🌍</h3>
+                    
+                    <!-- Definição dos elementos do ecossistema -->
+                    <p><strong>Elementos do Meio Ambiente:</strong></p>
+                    <p>- Produtores: <span class="form-input-space">_________________________</span></p>
+                    <p>- Consumidores primários: <span class="form-input-space">_________________________</span></p>
+                    <p>- Consumidores secundários: <span class="form-input-space">_________________________</span></p>
+                    <p>- Decompositores: <span class="form-input-space">_________________________</span></p>
+
+                    <!-- Definição das regras do ecossistema -->
+                    <p><strong>Regras do Ecossistema:</strong></p>
+                    <p>- Cada produtor precisa de: <span class="form-input-space">_________________________</span></p>
+                    <p>- Cada consumidor come: <span class="form-input-space">_________________________</span></p>
+                    <p>- Fatores que afetam o equilíbrio: <span class="form-input-space">_________________________</span></p>
+
+                    <!-- Variáveis do sistema ecológico -->
+                    <h4>Variáveis do Sistema:</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] População de produtores</li>
+                        <li>[ ] População de consumidores</li>
+                        <li>[ ] Nível de recursos</li>
+                        <li>[ ] Taxa de reprodução</li>
+                    </ul>
+
+                    <!-- Seção de programação da simulação -->
+                    <h3>PROGRAMAÇÃO DA SIMULAÇÃO 🔄</h3>
+                    
+                    <!-- Comportamento dos produtores (plantas) -->
+                    <h4>Sprites e Comportamentos:</h4>
+                    <p><strong>Produtores (plantas):</strong></p>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Aparecem aleatoriamente</li>
+                        <li>[ ] Consomem recursos do solo</li>
+                        <li>[ ] Servem de alimento</li>
+                        <li>[ ] Reproduzem-se sob condições</li>
+                    </ul>
+
+                    <!-- Comportamento dos consumidores (animais) -->
+                    <p><strong>Consumidores (animais):</strong></p>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Movem-se em busca de alimento</li>
+                        <li>[ ] Alimentam-se de produtores/consumidores</li>
+                        <li>[ ] Reproduzem-se quando bem alimentados</li>
+                        <li>[ ] Morrem sem alimento</li>
+                    </ul>
+
+                    <!-- Sistema de balanceamento ecológico -->
+                    <h4>Sistema de Balanceamento:</h4>
+                    <ul class="checklist-ficha">
+                        <li>[ ] Limites de população</li>
+                        <li>[ ] Ciclos de recursos</li>
+                        <li>[ ] Efeitos de interferência humana</li>
+                    </ul>
+
+                    <!-- Seção de análise dos resultados -->
+                    <h3>ANÁLISE DOS RESULTADOS 📈</h3>
+                    <p><strong>Execute a simulação por 2 minutos e observe:</strong></p>
+                    
+                    <!-- Registro das populações iniciais -->
+                    <p><strong>População Inicial:</strong></p>
+                    <p>- Produtores: <span class="form-input-space">_________</span></p>
+                    <p>- Consumidores primários: <span class="form-input-space">_________</span></p>
+                    <p>- Consumidores secundários: <span class="form-input-space">_________</span></p>
+
+                    <!-- Registro das populações finais -->
+                    <p><strong>População Final:</strong></p>
+                    <p>- Produtores: <span class="form-input-space">_________</span></p>
+                    <p>- Consumidores primários: <span class="form-input-space">_________</span></p>
+                    <p>- Consumidores secundários: <span class="form-input-space">_________</span></p>
+
+                    <!-- Observações sobre o equilíbrio ecológico -->
+                    <p><strong>Observações sobre o equilíbrio:</strong></p>
+                    <!-- Área expandida para observações detalhadas -->
+                    <div class="diario-bordo">
+                        <span class="form-input-space">_________________________</span><br>
+                        <span class="form-input-space">_________________________</span>
+                    </div>
+
+                    <!-- Efeitos da intervenção humana -->
+                    <p><strong>Efeito da intervenção humana:</strong></p>
+                    <div class="diario-bordo">
+                        <span class="form-input-space">_________________________</span><br>
+                        <span class="form-input-space">_________________________</span>
+                    </div>
+
+                    <!-- Conclusões sobre ecossistemas -->
+                    <p><strong>Conclusões sobre ecossistemas:</strong></p>
+                    <div class="diario-bordo">
+                        <span class="form-input-space">_________________________</span><br>
+                        <span class="form-input-space">_________________________</span>
+                    </div>
+
+                    <!-- Espaço para assinatura do professor -->
+                    <div class="assinatura">
+                        <p><strong>Assinatura do professor:</strong> _________________________</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FICHA BÔNUS: DESAFIO CRIATIVO -->
+            <div class="content-section">
+                <h2>FICHA BÔNUS: DESAFIO CRIATIVO</h2>
+                
+                <div class="ficha-atividade">
+                    <div class="ficha-cabecalho">
+                        <p><strong>Atividade:</strong> "Invente seu Próprio Projeto"</p>
+                        <p><strong>Nome:</strong> _________________________</p>
+                        <p><strong>Data:</strong> _________________________</p>
+                        <p><strong>Série:</strong> <span class="form-input-space">_________</span></p>
+                    </div>
+
+                    <!-- Seção de brainstorming para projeto criativo -->
+                    <div class="brainstorming-section">
+                        <h3>BRAINSTORMING 💡</h3>
+                        
+                        <!-- Definição da ideia do projeto -->
+                        <p><strong>Ideia do Projeto:</strong></p>
+                        <p><strong>Título:</strong> <span class="form-input-space">_________________________</span></p>
+                        
+                        <!-- Seleção do tipo de projeto -->
+                        <p><strong>Tipo:</strong> 
+                            <!-- Opções de seleção para tipo de projeto -->
+                            [ ] Jogo [ ] Animação [ ] História [ ] Simulação [ ] Outro: <span class="form-input-space">_________</span>
+                        </p>
+
+                        <!-- Definição do objetivo principal -->
+                        <p><strong>Objetivo Principal:</strong></p>
+                        <p>O que o usuário vai experimentar? <span class="form-input-space">_________________________</span></p>
+
+                        <!-- Definição do público-alvo -->
+                        <p><strong>Público-Alvo:</strong></p>
+                        <p>Para quem é esse projeto? <span class="form-input-space">_________________________</span></p>
+                    </div>
+
+                    <!-- Seção de plano de ação detalhado -->
+                    <div class="plano-acao">
+                        <h3>PLANO DE AÇÃO 🗓️</h3>
+                        
+                        <!-- Lista de recursos necessários -->
+                        <p><strong>Recursos Necessários:</strong></p>
+                        <p>- Sprites: <span class="form-input-space">_________________________</span></p>
+                        <p>- Cenários: <span class="form-input-space">_________________________</span></p>
+                        <p>- Sons: <span class="form-input-space">_________________________</span></p>
+                        <p>- Efeitos Especiais: <span class="form-input-space">_________________________</span></p>
+
+                        <!-- Tarefas organizadas por semana -->
+                        <h4>Tarefas por Etapa:</h4>
+                        
+                        <!-- Semana 1: Planejamento -->
+                        <div class="semana-plano">
+                            <p><strong>Semana 1 - Planejamento:</strong></p>
+                            <ul class="checklist-ficha">
+                                <li>[ ] Definir ideia principal</li>
+                                <li>[ ] Esboçar sprites e cenários</li>
+                                <li>[ ] Listar funcionalidades</li>
+                            </ul>
+                        </div>
+
+                        <!-- Semana 2: Implementação -->
+                        <div class="semana-plano">
+                            <p><strong>Semana 2 - Implementação:</strong></p>
+                            <ul class="checklist-ficha">
+                                <li>[ ] Criar sprites e cenários</li>
+                                <li>[ ] Programar funcionalidades básicas</li>
+                                <li>[ ] Testar cada parte</li>
+                            </ul>
+                        </div>
+
+                        <!-- Semana 3: Refinamento -->
+                        <div class="semana-plano">
+                            <p><strong>Semana 3 - Refinamento:</strong></p>
+                            <ul class="checklist-ficha">
+                                <li>[ ] Adicionar efeitos especiais</li>
+                                <li>[ ] Corrigir erros (debug)</li>
+                                <li>[ ] Testar com usuários</li>
+                            </ul>
+                        </div>
+
+                        <!-- Semana 4: Finalização -->
+                        <div class="semana-plano">
+                            <p><strong>Semana 4 - Finalização:</strong></p>
+                            <ul class="checklist-ficha">
+                                <li>[ ] Últimos ajustes</li>
+                                <li>[ ] Documentação</li>
+                                <li>[ ] Apresentação</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Seção de diário de bordo para registro do processo -->
+                    <h3>DIÁRIO DE BORDO 📔</h3>
+                    
+                    <!-- Registro diário do progresso -->
+                    <p><strong>Dia 1:</strong> <span class="form-input-space">_________________________</span></p>
+                    <div class="diario-bordo">
+                        <span class="form-input-space">_________________________</span>
+                    </div>
+
+                    <p><strong>Dia 2:</strong> <span class="form-input-space">_________________________</span></p>
+                    <div class="diario-bordo">
+                        <span class="form-input-space">_________________________</span>
+                    </div>
+
+                    <p><strong>Dia 3:</strong> <span class="form-input-space">_________________________</span></p>
+                    <div class="diario-bordo">
+                        <span class="form-input-space">_________________________</span>
+                    </div>
+
+                    <!-- Registro de descobertas interessantes -->
+                    <p><strong>Descobertas Interessantes:</strong> <span class="form-input-space">_________________________</span></p>
+                    <div class="diario-bordo">
+                        <span class="form-input-space">_________________________</span>
+                    </div>
+
+                    <!-- Registro de problemas e soluções -->
+                    <p><strong>Problemas e Soluções:</strong> <span class="form-input-space">_________________________</span></p>
+                    <div class="diario-bordo">
+                        <span class="form-input-space">_________________________</span>
+                    </div>
+
+                    <!-- Autoavaliação do aluno -->
+                    <h4>Autoavaliação:</h4>
+                    <!-- Escala de avaliação simplificada -->
+                    <p>[ ] Excelente [ ] Bom [ ] Regular [ ] Precisa melhorar</p>
+
+                    <!-- Espaço para assinatura do professor -->
+                    <div class="assinatura">
+                        <p><strong>Assinatura do professor:</strong> _________________________</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- INSTRUÇÕES PARA O PROFESSOR -->
+            <div class="content-section">
+                <h2>INSTRUÇÕES GERAIS PARA O PROFESSOR</h2>
+
+                <!-- Instruções sobre como utilizar as fichas -->
+                <h3>Como Utilizar as Fichas:</h3>
+                <!-- Lista ordenada com passos sequenciais -->
+                <ol>
+                    <li>Imprimir conforme necessidade de cada turma</li>
+                    <li>Distribuir no início da atividade</li>
+                    <li>Orientar o preenchimento durante a aula</li>
+                    <li>Coletar para avaliação do progresso</li>
+                    <li>Arquivar no portfólio do aluno</li>
+                </ol>
+
+                <!-- Critérios de avaliação do trabalho dos alunos -->
+                <h3>Critérios de Avaliação:</h3>
+                <ul>
+                    <li>Compreensão dos conceitos (teoria)</li>
+                    <li>Aplicação prática no Scratch</li>
+                    <li>Criatividade e originalidade</li>
+                    <li>Capacidade de resolver problemas</li>
+                    <li>Colaboração e trabalho em equipe</li>
+                </ul>
+
+                <!-- Adaptações possíveis para diferentes necessidades -->
+                <h3>Adaptações Possíveis:</h3>
+                <ul>
+                    <li><strong>Para dificuldades:</strong> Simplificar os desafios</li>
+                    <li><strong>Para avançados:</strong> Adicionar extensões opcionais</li>
+                    <li><strong>Para trabalho em grupo:</strong> Designar funções específicas</li>
+                </ul>
+            </div>
+
+            <!-- Seção de navegação entre páginas relacionadas -->
+            <div class="content-section">
+                <h2>Navegação</h2>
+                <!-- Grid de cartões de navegação -->
+                <div class="card-grid">
+                    <!-- Cartão de navegação para Atividades Rápidas -->
+                    <a href="atividades-rapidas.html" class="nav-card">
+                        <h3>Atividades Rápidas</h3>
+                        <p>Exercícios de 15 minutos</p>
+                    </a>
+                    
+                    <!-- Cartão de navegação para Projetos Didáticos -->
+                    <a href="projetos-didaticos.html" class="nav-card">
+                        <h3>Projetos Didáticos</h3>
+                        <p>Projetos por ano escolar</p>
+                    </a>
+                    
+                    <!-- Cartão de navegação para Planos de Aula -->
+                    <a href="planos-aula.html" class="nav-card">
+                        <h3>Planos de Aula</h3>
+                        <p>Planos completos</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé do site com informações institucionais e de contato -->
+    <footer>
+        <div class="container">
+            <!-- Conteúdo do rodapé organizado em seções -->
+            <div class="footer-content">
+                <!-- Seção da instituição -->
+                <div class="footer-section">
+                    <h3>UTFPR - Campus Siqueira Campos</h3>
+                    <p>Universidade Tecnológica Federal do Paraná</p>
+                    <p>Departamento de Computação</p>
+                </div>
+                
+                <!-- Seção de recursos do Scratch -->
+                <div class="footer-section">
+                    <h3>Recursos Scratch</h3>
+                    <ul>
+                        <!-- Links externos para recursos do Scratch -->
+                        <li><a href="https://scratch.mit.edu">Site Oficial do Scratch</a></li>
+                        <li><a href="https://scratch.mit.edu/educators">Para Educadores</a></li>
+                        <li><a href="https://scratch.mit.edu/parents">Para Pais</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Seção de contato -->
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Email: giseleacn@gmail.com</p>
+                    <p>Email: barbosa.rodrigo.1979@gmail.com</p>
+                </div>
+            </div>
+            
+            <!-- Direitos autorais -->
+            <div class="copyright">
+                <!-- Símbolo de copyright e informações dos desenvolvedores -->
+                &copy; 2025 UTFPR - Desenvolvido por Gisele Nunes e Rodrigo Barbosa. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão para alternar entre temas claro/escuro -->
+    <!-- Botão com emoji de lua e ID para manipulação via JavaScript -->
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+
+    <!-- Link para o arquivo JavaScript externo -->
+    <script src="script.js"></script>
+</body>
+</html>

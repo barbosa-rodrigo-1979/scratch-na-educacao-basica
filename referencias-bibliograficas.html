@@ -1,0 +1,1542 @@
+<!--
+======================================================================================
+CABEÇALHO DO DOCUMENTO - INFORMAÇÕES SOBRE O PROJETO
+======================================================================================
+Este bloco de comentários inicial fornece metadados sobre o arquivo:
+- Objetivo: descreve a finalidade desta página específica
+- Desenvolvido por: identifica os autores do projeto
+- Data: indica quando o material foi criado
+======================================================================================
+-->
+<!--
+002|Objetivo: Apresentar as referências bibliográficas utilizadas - projeto Scratch na Educação Básica
+003|Desenvolvido por: Gisele Nunes, Rodrigo Barbosa
+004|Data: Segundo semestre de 2025
+005|-->
+
+<!--
+======================================================================================
+DOCTYPE - DECLARAÇÃO DO TIPO DE DOCUMENTO
+======================================================================================
+A declaração <!DOCTYPE html> informa ao navegador que este é um documento HTML5.
+- É OBRIGATÓRIA e deve ser a primeira linha do código HTML
+- Não é uma tag HTML, mas uma instrução para o navegador
+- Garante que o navegador renderize a página no modo padrão (standards mode)
+- Sem ela, o navegador pode entrar em "quirks mode" (modo de compatibilidade)
+======================================================================================
+-->
+<!DOCTYPE html>
+
+<!--
+======================================================================================
+TAG <html> - ELEMENTO RAIZ DO DOCUMENTO
+======================================================================================
+A tag <html> é o elemento raiz que envolve todo o conteúdo da página.
+- lang="pt-BR": atributo que define o idioma principal do documento
+  * "pt-BR" = Português do Brasil
+  * Importante para: acessibilidade (leitores de tela), SEO (mecanismos de busca)
+  * Ajuda navegadores a oferecer tradução automática quando necessário
+======================================================================================
+-->
+<html lang="pt-BR">
+
+
+<!--
+======================================================================================
+TAG <head> - CABEÇALHO DO DOCUMENTO (METADADOS)
+======================================================================================
+A seção <head> contém metadados sobre o documento HTML.
+- Não é exibida visualmente na página
+- Contém informações para navegadores, mecanismos de busca e outros serviços
+- Inclui: título, links para CSS, metadados, scripts, etc.
+======================================================================================
+-->
+
+<head>
+
+    <!--
+    ==================================================================================
+    META CHARSET - CODIFICAÇÃO DE CARACTERES
+    ==================================================================================
+    Define a codificação de caracteres usada no documento.
+    - charset="UTF-8": UTF-8 é o padrão universal de codificação
+    - Suporta praticamente todos os caracteres de todos os idiomas
+    - Permite uso de acentos (á, é, ã), cedilha (ç), símbolos especiais (€, ©, ™)
+    - DEVE ser uma das primeiras tags no <head> para evitar problemas de renderização
+    ==================================================================================
+    -->
+    <meta charset="UTF-8">
+
+    <!--
+    ==================================================================================
+    META VIEWPORT - RESPONSIVIDADE PARA DISPOSITIVOS MÓVEIS
+    ==================================================================================
+    Controla como a página é exibida em diferentes tamanhos de tela.
+    - name="viewport": identifica este meta como configuração de viewport
+    - content="width=device-width": largura da página = largura do dispositivo
+    - initial-scale=1.0: zoom inicial em 100% (sem zoom aplicado)
+    - Essencial para design responsivo (mobile-first)
+    - Sem isso, sites podem aparecer muito pequenos em smartphones
+    ==================================================================================
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--
+    ==================================================================================
+    TAG <title> - TÍTULO DA PÁGINA
+    ==================================================================================
+    Define o título que aparece:
+    - Na aba do navegador
+    - Nos resultados de busca do Google
+    - Nos favoritos/bookmarks
+    - Na barra de título da janela
+    
+    Estrutura usada: "Página Específica | Nome do Site"
+    - Ajuda na navegação quando múltiplas abas estão abertas
+    - Importante para SEO (Search Engine Optimization)
+    ==================================================================================
+    -->
+    <title>Referências Bibliográficas | Cartilha Pedagógica</title>
+
+    <!--
+    ==================================================================================
+    TAG <link> - VINCULAÇÃO DE ARQUIVO CSS EXTERNO
+    ==================================================================================
+    Conecta o documento HTML a uma folha de estilos externa.
+    - rel="stylesheet": define o relacionamento como folha de estilos
+    - href="style.css": caminho para o arquivo CSS
+      * Caminho relativo (mesmo diretório que o HTML)
+      * Contém todas as regras de estilização visual da página
+    
+    Vantagens de CSS externo:
+    - Reutilização em múltiplas páginas
+    - Facilita manutenção (alterar em um lugar afeta todas as páginas)
+    - Melhora performance (navegador pode cachear o arquivo CSS)
+    - Separa estrutura (HTML) de apresentação (CSS)
+    ==================================================================================
+    -->
+    <link rel="stylesheet" href="style.css">
+
+    <!--
+======================================================================================
+FECHAMENTO DA TAG </head>
+======================================================================================
+Marca o fim da seção de metadados do documento.
+======================================================================================
+-->
+</head>
+
+
+<!--
+======================================================================================
+TAG <body> - CORPO DO DOCUMENTO (CONTEÚDO VISÍVEL)
+======================================================================================
+A tag <body> contém todo o conteúdo visível da página web.
+- Tudo dentro de <body> será renderizado e exibido ao usuário
+- Inclui: textos, imagens, links, formulários, vídeos, etc.
+- Estrutura semântica: <header>, <main>, <footer>, <nav>, etc.
+======================================================================================
+-->
+
+<body>
+
+    <!--
+    ==================================================================================
+    TAG <header> - CABEÇALHO DA PÁGINA
+    ==================================================================================
+    Elemento semântico HTML5 que representa o cabeçalho da página.
+    - Geralmente contém: logo, título, navegação principal
+    - Pode aparecer no topo de toda a página ou de seções específicas
+    - Melhora acessibilidade (leitores de tela identificam como cabeçalho)
+    - Facilita manutenção e compreensão do código
+    ==================================================================================
+    -->
+    <header>
+
+        <!--
+        ==============================================================================
+        DIV.header-top - SEÇÃO SUPERIOR DO CABEÇALHO
+        ==============================================================================
+        Primeira divisão do cabeçalho, contendo logo e título institucional.
+        - class="header-top": classe CSS para estilização específica
+        - Agrupa elementos relacionados logicamente
+        - Facilita aplicação de estilos CSS e manipulação via JavaScript
+        ==============================================================================
+        -->
+        <div class="header-top">
+
+            <!--
+            ==========================================================================
+            DIV.container - CONTAINER DE LARGURA LIMITADA
+            ==========================================================================
+            Container que centraliza e limita a largura do conteúdo.
+            - class="container": classe comum em frameworks CSS
+            - Geralmente define: max-width, margin auto (centralização)
+            - Cria margens laterais em telas grandes
+            - Melhora legibilidade (linhas de texto não muito longas)
+            - Padrão de design responsivo amplamente utilizado
+            ==========================================================================
+            -->
+            <div class="container">
+
+                <!--
+                ======================================================================
+                DIV.logo-container - AGRUPAMENTO DE LOGO E NOME INSTITUCIONAL
+                ======================================================================
+                Container flexível para logo e texto da instituição.
+                - Agrupa elementos relacionados (logo + nome)
+                - Facilita alinhamento horizontal/vertical com Flexbox
+                - Permite controle de espaçamento entre elementos
+                ======================================================================
+                -->
+                <div class="logo-container">
+
+                    <!--
+                    ==================================================================
+                    TAG <img> - IMAGEM DA LOGO DA UTFPR
+                    ==================================================================
+                    Elemento de imagem auto-fechável (não precisa de tag de fechamento).
+                    
+                    Atributos:
+                    - src="/images/UTFPRLogo.jpg": caminho para o arquivo de imagem
+                      * Caminho relativo (mesmo diretório do HTML)
+                      * Formato PNG (suporta transparência)
+                    
+                    - alt="UTFPR Logo": texto alternativo
+                      * Exibido se a imagem não carregar
+                      * Lido por leitores de tela (acessibilidade)
+                      * Importante para SEO
+                      * Deve descrever o conteúdo/função da imagem
+                    
+                    - class="logo": classe para estilização CSS
+                      * Permite controlar: tamanho, margens, bordas, etc.
+                    ==================================================================
+                    -->
+                    <img src="UTFPR_logo.png" alt="UTFPR Logo" class="logo">
+
+                    <!--
+                    ==================================================================
+                    DIV.institution-name - NOME DA INSTITUIÇÃO
+                    ==================================================================
+                    Container para o nome completo da universidade.
+                    - Permite estilização independente do logo
+                    - Facilita controle de tipografia e espaçamento
+                    ==================================================================
+                    -->
+                    <div class="institution-name">
+
+                        <!--
+                        ==============================================================
+                        TEXTO DO NOME DA INSTITUIÇÃO
+                        ==============================================================
+                        Nome completo da universidade em duas linhas.
+                        - Linha 1: Nome completo da universidade
+                        - <br>: quebra de linha (line break)
+                          * Força o texto seguinte para a próxima linha
+                          * Elemento vazio (não precisa tag de fechamento)
+                        ==============================================================
+                        -->
+                        Universidade Tecnológica Federal do Paraná<br>
+
+                        <!--
+                        ==============================================================
+                        TAG <small> - TEXTO SECUNDÁRIO MENOR
+                        ==============================================================
+                        Elemento semântico para texto de menor importância.
+                        - Renderiza o texto em tamanho menor por padrão
+                        - Indica informação secundária ou complementar
+                        - Aqui usado para o nome do campus
+                        - Mantém hierarquia visual de informação
+                        ==============================================================
+                        -->
+                        <small>Campus Siqueira Campos</small>
+
+                        <!--
+                    ==================================================================
+                    FECHAMENTO DA DIV.institution-name
+                    ==================================================================
+                    -->
+                    </div>
+
+                    <!--
+                ======================================================================
+                FECHAMENTO DA DIV.logo-container
+                ======================================================================
+                -->
+                </div>
+
+                <!--
+                ======================================================================
+                DIV.header-title - TÍTULO PRINCIPAL DO PROJETO
+                ======================================================================
+                Container para o título e subtítulo do projeto educacional.
+                - Separado do logo para melhor controle de layout
+                - Permite alinhamento e posicionamento independentes
+                ======================================================================
+                -->
+                <div class="header-title">
+
+                    <!--
+                    ==================================================================
+                    TÍTULO DO PROJETO
+                    ==================================================================
+                    Texto principal identificando o tema do material didático.
+                    - "Scratch na Educação Básica": tema central
+                    - <br>: quebra de linha para o subtítulo
+                    ==================================================================
+                    -->
+                    Scratch na Educação Básica<br>
+
+                    <!--
+                    ==================================================================
+                    TAG <small> - SUBTÍTULO DO PROJETO
+                    ==================================================================
+                    Descrição complementar do material.
+                    - "Material Didático para Professores": público-alvo
+                    - Texto menor para criar hierarquia visual
+                    - Fornece contexto adicional sobre o propósito
+                    ==================================================================
+                    -->
+                    <small>Material Didático para Professores</small>
+
+                    <!--
+                ======================================================================
+                FECHAMENTO DA DIV.header-title
+                ======================================================================
+                -->
+                </div>
+
+                <!--
+            ==========================================================================
+            FECHAMENTO DA DIV.container (primeira ocorrência)
+            ==========================================================================
+            -->
+            </div>
+
+            <!--
+        ==============================================================================
+        FECHAMENTO DA DIV.header-top
+        ==============================================================================
+        -->
+        </div>
+
+        <!--
+        ==============================================================================
+        DIV.header-bottom - SEÇÃO INFERIOR DO CABEÇALHO (NAVEGAÇÃO)
+        ==============================================================================
+        Segunda divisão do cabeçalho, dedicada ao menu de navegação.
+        - class="header-bottom": estilização específica para barra de navegação
+        - Separação visual e funcional do topo do cabeçalho
+        - Geralmente tem cor de fundo diferente ou borda
+        ==============================================================================
+        -->
+        <div class="header-bottom">
+
+            <!--
+            ==========================================================================
+            DIV.container - SEGUNDO CONTAINER
+            ==========================================================================
+            Mantém consistência de largura com o restante do layout.
+            - Mesma classe "container" usada anteriormente
+            - Garante alinhamento vertical entre seções
+            ==========================================================================
+            -->
+            <div class="container">
+
+                <!--
+                ======================================================================
+                TAG <nav> - NAVEGAÇÃO PRINCIPAL
+                ======================================================================
+                Elemento semântico HTML5 para navegação.
+                - Identifica seção de links de navegação principal
+                - Melhora acessibilidade (leitores de tela anunciam "navegação")
+                - Ajuda mecanismos de busca a entender estrutura do site
+                - Pode haver múltiplos <nav> em uma página (navegação principal,
+                  secundária, breadcrumbs, etc.)
+                ======================================================================
+                -->
+                <nav>
+
+                    <!--
+                    ==================================================================
+                    TAG <ul> - LISTA NÃO ORDENADA
+                    ==================================================================
+                    Lista de itens sem ordem específica (sem numeração).
+                    - Estrutura semântica adequada para menus de navegação
+                    - Facilita estilização com CSS (display: flex, grid, etc.)
+                    - Melhora acessibilidade (leitores de tela anunciam como lista)
+                    - Por padrão, renderiza com marcadores (bullets), mas CSS
+                      geralmente remove isso em menus
+                    ==================================================================
+                    -->
+                    <ul>
+
+                        <!--
+                        ==============================================================
+                        TAG <li> - ITEM DA LISTA (List Item)
+                        ==============================================================
+                        Cada <li> representa um item individual da lista.
+                        - Deve estar sempre dentro de <ul> ou <ol>
+                        - Contém um link de navegação
+                        ==============================================================
+                        -->
+                        <li><a href="index.html">Página Inicial</a></li>
+
+                        <!--
+                        ==============================================================
+                        ANATOMIA DO LINK DE NAVEGAÇÃO
+                        ==============================================================
+                        <a href="index.html">Página Inicial</a>
+                        
+                        - <a>: tag âncora (anchor) para criar hiperlinks
+                        - href="index.html": atributo que define o destino do link
+                          * Caminho relativo para a página inicial
+                          * Quando clicado, carrega index.html
+                        - "Página Inicial": texto visível do link (link text)
+                          * Deve ser descritivo e claro
+                          * Importante para acessibilidade e SEO
+                        ==============================================================
+                        -->
+
+                        <!--
+                        ==============================================================
+                        DEMAIS ITENS DO MENU DE NAVEGAÇÃO
+                        ==============================================================
+                        Seguem o mesmo padrão: <li><a href="...">Texto</a></li>
+                        Cada link aponta para uma página diferente da cartilha.
+                        ==============================================================
+                        -->
+                        <li><a href="primeiros-passos.html">Primeiros Passos</a></li>
+                        <li><a href="cartoes-scratch.html">Cartões Scratch</a></li>
+                        <li><a href="sugestoes-atividades.html">Sugestões de Atividades</a></li>
+                        <li><a href="atividades-rapidas.html">Atividades Rápidas</a></li>
+                        <li><a href="fichas-atividades.html">Fichas de Atividades</a></li>
+                        <li><a href="projetos-didaticos.html">Projetos Didáticos</a></li>
+                        <li><a href="modelos-projetos.html">Modelos de Projetos</a></li>
+                        <li><a href="planos-aula.html">Planos de Aula</a></li>
+                        <li><a href="materiais-complementares.html">Materiais Complementares</a></li>
+                        <li><a href="referencias-bibliograficas.html">Referências Bibliográficas</a></li>
+
+                        <!--
+                        ==============================================================
+                        LINK DA PÁGINA ATUAL (ATIVO)
+                        ==============================================================
+                        Este item representa a página atual (Referências Bibliográficas).
+                        
+                        Atributos especiais:
+                        - class="active": classe CSS para destacar visualmente
+                          * Geralmente: cor diferente, negrito, sublinhado, etc.
+                          * Indica ao usuário onde ele está no site
+                        
+                        - aria-current="page": atributo de acessibilidade
+                          * Informa a tecnologias assistivas que esta é a página atual
+                          * "page" indica que é a página corrente na navegação
+                          * Importante para usuários de leitores de tela
+                          * Parte da especificação WAI-ARIA (Web Accessibility Initiative)
+                        ==============================================================
+                        -->
+                        <!--<li><a href="referencias-bibliograficas.html" class="active" aria-current="page">Referências Bibliográficas</a></li>-->
+
+                        <!--
+                    ==================================================================
+                    FECHAMENTO DA TAG </ul>
+                    ==================================================================
+                    -->
+                    </ul>
+
+                    <!--
+                ======================================================================
+                FECHAMENTO DA TAG </nav>
+                ======================================================================
+                -->
+                </nav>
+
+                <!--
+            ==========================================================================
+            FECHAMENTO DA DIV.container (segunda ocorrência)
+            ==========================================================================
+            -->
+            </div>
+
+            <!--
+        ==============================================================================
+        FECHAMENTO DA DIV.header-bottom
+        ==============================================================================
+        -->
+        </div>
+
+        <!--
+    ==================================================================================
+    FECHAMENTO DA TAG </header>
+    ==================================================================================
+    Fim da seção de cabeçalho da página.
+    ==================================================================================
+    -->
+    </header>
+
+
+    <!--
+    ==================================================================================
+    TAG <main> - CONTEÚDO PRINCIPAL DA PÁGINA
+    ==================================================================================
+    Elemento semântico HTML5 que identifica o conteúdo principal.
+    - Deve haver apenas UM <main> por página
+    - Exclui conteúdo repetido (header, footer, sidebar, nav)
+    - Melhora acessibilidade (leitores de tela podem pular direto ao conteúdo)
+    - Ajuda mecanismos de busca a identificar o conteúdo mais importante
+    - Usuários podem usar atalhos de teclado para pular ao <main>
+    ==================================================================================
+    -->
+    <main>
+
+        <!--
+        ==============================================================================
+        DIV.container - CONTAINER PRINCIPAL DO CONTEÚDO
+        ==============================================================================
+        Mantém consistência de largura e centralização com o restante do layout.
+        ==============================================================================
+        -->
+        <div class="container">
+
+            <!--
+            ==========================================================================
+            DIV.page-header - CABEÇALHO DA PÁGINA DE CONTEÚDO
+            ==========================================================================
+            Seção introdutória da página com título e subtítulo.
+            - Diferente do <header> global, este é específico desta página
+            - Fornece contexto sobre o conteúdo que virá a seguir
+            ==========================================================================
+            -->
+            <div class="page-header">
+
+                <!--
+                ======================================================================
+                TAG <h1> - TÍTULO PRINCIPAL (HEADING LEVEL 1)
+                ======================================================================
+                O título mais importante da página.
+                - Deve haver apenas UM <h1> por página (boas práticas SEO)
+                - Identifica o tópico principal do conteúdo
+                - Hierarquia de headings: h1 > h2 > h3 > h4 > h5 > h6
+                - Leitores de tela usam headings para navegação rápida
+                - Mecanismos de busca dão grande peso ao conteúdo do <h1>
+                ======================================================================
+                -->
+                <h1>Referências Bibliográficas</h1>
+
+                <!--
+                ======================================================================
+                TAG <p> - PARÁGRAFO COM SUBTÍTULO
+                ======================================================================
+                Parágrafo de texto com classe especial para subtítulo.
+                - class="subtitle": estilização diferenciada (tamanho, cor, peso)
+                - Fornece contexto adicional sobre o conteúdo da página
+                - <p> é o elemento mais comum para texto em HTML
+                ======================================================================
+                -->
+                <p class="subtitle">Fundamentação Teórica e Recursos Utilizados</p>
+
+                <!--
+            ==========================================================================
+            FECHAMENTO DA DIV.page-header
+            ==========================================================================
+            -->
+            </div>
+
+
+            <!--
+            ==========================================================================
+            DIV.content-section - PRIMEIRA SEÇÃO DE CONTEÚDO
+            ==========================================================================
+            Container para uma seção temática de conteúdo.
+            - class="content-section": aplica estilos consistentes (padding, margin)
+            - Agrupa conteúdo relacionado logicamente
+            - Facilita leitura e manutenção do código
+            - Permite estilização uniforme de todas as seções
+            ==========================================================================
+            -->
+            <div class="content-section">
+
+                <!--
+                ======================================================================
+                TAG <h2> - TÍTULO DE SEÇÃO (HEADING LEVEL 2)
+                ======================================================================
+                Segundo nível de hierarquia de títulos.
+                - Subdivide o conteúdo do <h1>
+                - Deve ser usado em ordem hierárquica (não pular níveis)
+                - Aqui identifica a primeira categoria de referências
+                - "1. SCRATCH - PLATAFORMA OFICIAL": numeração manual para ordem
+                ======================================================================
+                -->
+                <h2>1. SCRATCH - PLATAFORMA OFICIAL</h2>
+
+
+                <!--
+                ======================================================================
+                DIV.plano-info - CONTAINER PARA REFERÊNCIA BIBLIOGRÁFICA
+                ======================================================================
+                Bloco estilizado para apresentar uma referência.
+                - class="plano-info": aplica formatação específica (fundo, borda)
+                - Destaca visualmente a citação
+                - Facilita identificação e leitura das referências
+                ======================================================================
+                -->
+                <div class="plano-info">
+
+                    <!--
+                    ==================================================================
+                    REFERÊNCIA BIBLIOGRÁFICA FORMATADA
+                    ==================================================================
+                    Parágrafo contendo uma citação no formato acadêmico.
+                    
+                    Elementos de formatação:
+                    - <strong>: texto em negrito (bold)
+                      * Usado para autores e títulos importantes
+                      * Semanticamente indica forte ênfase
+                    
+                    - <em>: texto em itálico (emphasis)
+                      * Usado para títulos de publicações
+                      * Semanticamente indica ênfase
+                    
+                    Estrutura da referência (formato ABNT adaptado):
+                    - AUTORES (em negrito e maiúsculas)
+                    - Título do artigo
+                    - Título da publicação (em itálico)
+                    - Volume, número, páginas, ano
+                    ==================================================================
+                    -->
+                    <p><strong>RESNICK, M. et al.</strong> Scratch: programming for all. <em>Communications of the
+                            ACM</em>, v. 52, n. 11, p. 60-67, 2009.</p>
+
+                    <!--
+                ======================================================================
+                FECHAMENTO DA DIV.plano-info (primeira referência)
+                ======================================================================
+                -->
+                </div>
+
+
+                <!--
+                ======================================================================
+                SEGUNDA REFERÊNCIA BIBLIOGRÁFICA
+                ======================================================================
+                Segue o mesmo padrão da anterior, mas para o site oficial do Scratch.
+                
+                Diferença importante:
+                - Inclui URL clicável com <a href="...">
+                - target="_blank": abre link em nova aba/janela
+                  * Mantém a página atual aberta
+                  * Útil para links externos
+                
+                - rel="noopener noreferrer": atributos de segurança
+                  * "noopener": previne que a nova página acesse window.opener
+                  * "noreferrer": não envia informação de referência
+                  * Protege contra vulnerabilidades de segurança
+                  * Melhora privacidade do usuário
+                ======================================================================
+                -->
+                <div class="plano-info">
+                    <p><strong>SCRATCH.</strong> Scratch - Imagine, Program, Share. Cambridge: MIT Media Lab, 2024.
+                        Disponível em: <a href="https://scratch.mit.edu" target="_blank"
+                            rel="noopener noreferrer">https://scratch.mit.edu</a>. Acesso em: 12 out. 2025.</p>
+                </div>
+
+
+                <!--
+                ======================================================================
+                DIV.info-box - CAIXA DE INFORMAÇÃO COMPLEMENTAR
+                ======================================================================
+                Container estilizado para informações adicionais explicativas.
+                - class="info-box": aplica fundo colorido, ícone, bordas
+                - Fornece contexto e explicações sobre as referências
+                - Melhora compreensão do leitor
+                - Quebra monotonia visual do texto
+                ======================================================================
+                -->
+                <div class="info-box">
+
+                    <!--
+                    ==================================================================
+                    TAG <h4> - SUBTÍTULO DENTRO DA CAIXA (HEADING LEVEL 4)
+                    ==================================================================
+                    Quarto nível de hierarquia de títulos.
+                    - Usado para títulos dentro de componentes menores
+                    - "💡": emoji Unicode para representar "ideia/dica"
+                      * Adiciona apelo visual
+                      * Facilita escaneamento rápido da página
+                    ==================================================================
+                    -->
+                    <h4>💡 Sobre o Scratch</h4>
+
+                    <!--
+                    ==================================================================
+                    PARÁGRAFO EXPLICATIVO
+                    ==================================================================
+                    Texto que contextualiza a referência bibliográfica.
+                    - Explica o que é o Scratch
+                    - Fornece informações úteis para o professor
+                    - Complementa a citação acadêmica com linguagem acessível
+                    ==================================================================
+                    -->
+                    <p>O Scratch é uma linguagem de programação visual desenvolvida pelo MIT Media Lab, especialmente
+                        projetada para crianças e adolescentes. A plataforma permite criar histórias interativas, jogos
+                        e animações de forma intuitiva através de blocos de programação.</p>
+
+                    <!--
+                ======================================================================
+                FECHAMENTO DA DIV.info-box
+                ======================================================================
+                -->
+                </div>
+
+                <!--
+            ==========================================================================
+            FECHAMENTO DA DIV.content-section (primeira seção)
+            ==========================================================================
+            -->
+            </div>
+
+
+            <!--
+            ==========================================================================
+            SEGUNDA SEÇÃO DE CONTEÚDO - BNCC
+            ==========================================================================
+            Segue a mesma estrutura da seção anterior:
+            - <div class="content-section">: container da seção
+            - <h2>: título da seção (nível 2)
+            - <div class="plano-info">: referências bibliográficas
+            - <div class="info-box">: informações complementares
+            
+            Padrão repetido para manter consistência visual e estrutural.
+            ==========================================================================
+            -->
+            <div class="content-section">
+                <h2>2. BASE NACIONAL COMUM CURRICULAR (BNCC)</h2>
+
+                <div class="plano-info">
+                    <p><strong>BRASIL.</strong> Base Nacional Comum Curricular. Brasília: MEC, 2018. Disponível em: <a
+                            href="http://basenacionalcomum.mec.gov.br" target="_blank"
+                            rel="noopener noreferrer">http://basenacionalcomum.mec.gov.br</a>. Acesso em: 01 nov. 2025.
+                    </p>
+                </div>
+
+                <div class="info-box">
+                    <h4>📚 Importância da BNCC</h4>
+                    <p>A Base Nacional Comum Curricular estabelece os conhecimentos, competências e habilidades que
+                        todos os alunos devem desenvolver ao longo da Educação Básica. Este material foi desenvolvido em
+                        alinhamento com as competências gerais da BNCC, especialmente a Competência 5 (Cultura Digital)
+                        e a Competência 2 (Pensamento Científico, Crítico e Criativo).</p>
+                </div>
+            </div>
+
+
+            <!--
+            ==========================================================================
+            TERCEIRA SEÇÃO - PENSAMENTO COMPUTACIONAL
+            ==========================================================================
+            Esta seção contém DUAS referências bibliográficas (duas div.plano-info).
+            - Primeira: artigo seminal de Jeannette Wing (2006)
+            - Segunda: tese de doutorado brasileira sobre o tema
+            ==========================================================================
+            -->
+            <div class="content-section">
+                <h2>3. PENSAMENTO COMPUTACIONAL NA EDUCAÇÃO</h2>
+
+                <div class="plano-info">
+                    <p><strong>WING, J. M.</strong> Computational thinking. <em>Communications of the ACM</em>, v. 49,
+                        n. 3, p. 33-35, 2006.</p>
+                </div>
+
+                <div class="plano-info">
+                    <p><strong>BRACKMANN, C. P.</strong> Desenvolvimento do pensamento computacional através de
+                        atividades desplugadas na educação básica. 2017. 226 f. Tese (Doutorado em Informática na
+                        Educação) - Universidade Federal do Rio Grande do Sul, Porto Alegre, 2017.</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>🧠 O que é Pensamento Computacional?</h4>
+                    <p>O pensamento computacional é uma abordagem para resolver problemas de forma que um computador
+                        possa ajudar. Envolve habilidades como decomposição de problemas, reconhecimento de padrões,
+                        abstração e desenvolvimento de algoritmos. Estas competências são fundamentais não apenas para a
+                        programação, mas para a resolução de problemas em diversas áreas do conhecimento.</p>
+                </div>
+            </div>
+
+
+            <!--
+            ==========================================================================
+            QUARTA SEÇÃO - METODOLOGIAS ATIVAS
+            ==========================================================================
+            Referências sobre teorias de aprendizagem e uso de tecnologia na educação.
+            - Valente: pesquisador brasileiro renomado
+            - Papert: criador do Logo, precursor do Scratch
+            ==========================================================================
+            -->
+            <div class="content-section">
+                <h2>4. METODOLOGIAS ATIVAS E TECNOLOGIAS EDUCACIONAIS</h2>
+
+                <div class="plano-info">
+                    <p><strong>VALENTE, J. A.</strong> A espiral da aprendizagem e as tecnologias da informação e
+                        comunicação: repensando conceitos. In: JOLY, M. C. (Org.). <em>Tecnologia no ensino: implicações
+                            para a aprendizagem</em>. São Paulo: Casa do Psicólogo, 2011. p. 15-37.</p>
+                </div>
+
+                <div class="plano-info">
+                    <p><strong>PAPERT, S.</strong> Mindstorms: children, computers, and powerful ideas. 2. ed. New York:
+                        Basic Books, 2020.</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>🎯 Construcionismo de Papert</h4>
+                    <p>Seymour Papert, criador da linguagem Logo e mentor do Scratch, desenvolveu a teoria do
+                        construcionismo, que propõe que o aprendizado é mais efetivo quando os alunos constroem
+                        ativamente algo significativo. O Scratch incorpora esta filosofia ao permitir que as crianças
+                        criem seus próprios projetos interativos.</p>
+                </div>
+            </div>
+
+
+            <!--
+            ==========================================================================
+            QUINTA SEÇÃO - RECURSOS EM PORTUGUÊS
+            ==========================================================================
+            Referências de materiais brasileiros sobre Scratch.
+            - Importante para professores que preferem conteúdo em português
+            - Contextualizado para a realidade educacional brasileira
+            ==========================================================================
+            -->
+            <div class="content-section">
+                <h2>5. RECURSOS EDUCACIONAIS EM PORTUGUÊS</h2>
+
+                <div class="plano-info">
+                    <p><strong>FUNDAÇÃO LEMANN.</strong> Scratch para professores. São Paulo: Fundação Lemann, 2020.
+                        Disponível em: <a href="https://fundacaolemann.org.br" target="_blank"
+                            rel="noopener noreferrer">https://fundacaolemann.org.br</a>. Acesso em: 20 set. 2025.</p>
+                </div>
+
+                <div class="plano-info">
+                    <p><strong>SCRATCH BRASIL.</strong> Comunidade Scratch Brasil. 2024. Disponível em: <a
+                            href="https://scratch.mit.edu/studios/1000001" target="_blank"
+                            rel="noopener noreferrer">https://scratch.mit.edu/studios/1000001</a>. Acesso em: 07 set.
+                        2025.</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>🌐 Comunidade Brasileira</h4>
+                    <p>Existe uma comunidade ativa de educadores brasileiros utilizando o Scratch. Estes recursos em
+                        português facilitam a implementação da ferramenta em sala de aula e oferecem exemplos
+                        contextualizados para a realidade educacional brasileira.</p>
+                </div>
+            </div>
+
+
+            <!--
+            ==========================================================================
+            SEXTA SEÇÃO - FORMAÇÃO DE PROFESSORES
+            ==========================================================================
+            Referência sobre o framework TPACK (Technological Pedagogical Content Knowledge).
+            - Fundamental para entender como integrar tecnologia ao ensino
+            - Modelo teórico amplamente reconhecido internacionalmente
+            ==========================================================================
+            -->
+            <div class="content-section">
+                <h2>6. FORMAÇÃO DE PROFESSORES EM TECNOLOGIA</h2>
+
+                <div class="plano-info">
+                    <p><strong>MISHRA, P.; KOEHLER, M. J.</strong> Technological pedagogical content knowledge: a
+                        framework for teacher knowledge. <em>Teachers College Record</em>, v. 108, n. 6, p. 1017-1054,
+                        2006.</p>
+                </div>
+
+                <div class="info-box">
+
+                    <!--
+                    ==================================================================
+                    CARACTERE ESPECIAL HTML ENTITY
+                    ==================================================================
+                    Na linha 150, aparece: 👨‍🏫
+                    
+                    Este é um emoji composto:
+                    - 👨 (homem) + zero-width joiner + 🏫 (escola) = 👨‍🏫 (professor)
+                    - Zero-width joiner (\u200d): caractere invisível que une emojis
+                    - Cria emojis compostos com significados específicos
+                    - Suportado pela maioria dos navegadores modernos
+                    ==================================================================
+                    -->
+                    <h4>👨‍🏫 TPACK - Conhecimento Pedagógico Tecnológico do Conteúdo</h4>
+                    <p>O framework TPACK propõe que o ensino efetivo com tecnologia requer a interseção de três tipos de
+                        conhecimento: conhecimento do conteúdo (o que ensinar), conhecimento pedagógico (como ensinar) e
+                        conhecimento tecnológico (quais ferramentas usar). Esta cartilha foi desenvolvida considerando
+                        estes três pilares.</p>
+                </div>
+            </div>
+
+
+            <!--
+            ==========================================================================
+            SÉTIMA SEÇÃO - AVALIAÇÃO
+            ==========================================================================
+            Referência sobre como avaliar o desenvolvimento do pensamento computacional.
+            - Brennan e Resnick: pesquisadores do MIT, criadores do Scratch
+            - Framework específico para avaliação em contexto educacional
+            ==========================================================================
+            -->
+            <div class="content-section">
+                <h2>7. AVALIAÇÃO EM TECNOLOGIA EDUCACIONAL</h2>
+
+                <div class="plano-info">
+                    <p><strong>BRENNAN, K.; RESNICK, M.</strong> New frameworks for studying and assessing the
+                        development of computational thinking. In: ANNUAL AMERICAN EDUCATIONAL RESEARCH ASSOCIATION
+                        MEETING, 2012, Vancouver. <em>Proceedings...</em> Vancouver: AERA, 2012.</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>📊 Avaliando o Pensamento Computacional</h4>
+                    <p>Brennan e Resnick propõem três dimensões para avaliar o desenvolvimento do pensamento
+                        computacional: conceitos computacionais (sequências, loops, condicionais, etc.), práticas
+                        computacionais (experimentar, testar, depurar, reutilizar) e perspectivas computacionais
+                        (expressar-se, conectar-se, questionar). As rubricas de avaliação desta cartilha foram
+                        desenvolvidas com base neste framework.</p>
+                </div>
+            </div>
+
+
+            <!--
+            ==========================================================================
+            SEÇÃO DE RECURSOS ADICIONAIS
+            ==========================================================================
+            Esta seção não segue o padrão de referências bibliográficas formais.
+            Em vez disso, apresenta recursos práticos organizados em categorias.
+            ==========================================================================
+            -->
+            <div class="content-section">
+                <h2>RECURSOS ADICIONAIS RECOMENDADOS</h2>
+
+
+                <!--
+                ======================================================================
+                TAG <h3> - SUBTÍTULO DE CATEGORIA (HEADING LEVEL 3)
+                ======================================================================
+                Terceiro nível de hierarquia de títulos.
+                - Subdivide o conteúdo do <h2>
+                - Aqui usado para categorizar tipos de recursos
+                - "Sites e Plataformas": primeira categoria
+                ======================================================================
+                -->
+                <h3>Sites e Plataformas</h3>
+
+                <!--
+                ======================================================================
+                TAG <ul> - LISTA NÃO ORDENADA DE RECURSOS
+                ======================================================================
+                Lista de links para sites e plataformas úteis.
+                - Cada <li> contém um recurso diferente
+                - Estrutura: <strong>Nome:</strong> URL - descrição
+                ======================================================================
+                -->
+                <ul>
+
+                    <!--
+                    ==================================================================
+                    ESTRUTURA DE CADA ITEM DA LISTA
+                    ==================================================================
+                    Padrão repetido:
+                    - <strong>: nome do recurso em negrito
+                    - <a href="..." target="_blank" rel="noopener noreferrer">: link
+                    - Texto descritivo após o link
+                    
+                    Exemplo da linha 173:
+                    - Nome: "Scratch Website"
+                    - URL: https://scratch.mit.edu
+                    - Descrição: "Plataforma oficial com milhões de projetos"
+                    ==================================================================
+                    -->
+                    <li><strong>Scratch Website:</strong> <a href="https://scratch.mit.edu" target="_blank"
+                            rel="noopener noreferrer">https://scratch.mit.edu</a> - Plataforma oficial com milhões de
+                        projetos compartilhados</li>
+                    <li><strong>Scratch Wiki:</strong> <a href="https://en.scratch-wiki.info" target="_blank"
+                            rel="noopener noreferrer">https://en.scratch-wiki.info</a> - Documentação colaborativa sobre
+                        o Scratch</li>
+                    <li><strong>ScratchEd:</strong> <a href="https://scratched.gse.harvard.edu" target="_blank"
+                            rel="noopener noreferrer">https://scratched.gse.harvard.edu</a> - Comunidade online de
+                        educadores Scratch</li>
+                    <li><strong>Code.org:</strong> <a href="https://code.org" target="_blank"
+                            rel="noopener noreferrer">https://code.org</a> - Recursos adicionais para ensino de
+                        programação</li>
+
+                    <!--
+                ======================================================================
+                FECHAMENTO DA TAG </ul> (Sites e Plataformas)
+                ======================================================================
+                -->
+                </ul>
+
+
+                <!--
+                ======================================================================
+                SEGUNDA CATEGORIA - LIVROS E GUIAS
+                ======================================================================
+                Mesma estrutura: <h3> para título + <ul> para lista
+                ======================================================================
+                -->
+                <h3>Livros e Guias</h3>
+                <ul>
+                    <li><strong>"Creative Computing"</strong> - Guia do Harvard Graduate School of Education (disponível
+                        gratuitamente online)</li>
+                    <li><strong>"Scratch Programming Playground"</strong> - Al Sweigart (No Starch Press)</li>
+                    <li><strong>"Learn to Program with Scratch"</strong> - Majed Marji (No Starch Press)</li>
+                </ul>
+
+
+                <!--
+                ======================================================================
+                TERCEIRA CATEGORIA - CANAIS E VÍDEOS
+                ======================================================================
+                Recursos audiovisuais e iniciativas brasileiras.
+                ======================================================================
+                -->
+                <h3>Canais e Vídeos</h3>
+                <ul>
+                    <li><strong>Scratch Team no YouTube:</strong> Tutoriais oficiais e atualizações</li>
+                    <li><strong>Programaê:</strong> Iniciativa brasileira para ensino de programação</li>
+                    <li><strong>Code Club Brasil:</strong> Rede de clubes de programação para crianças</li>
+                </ul>
+
+                <!--
+            ==========================================================================
+            FECHAMENTO DA DIV.content-section (Recursos Adicionais)
+            ==========================================================================
+            -->
+            </div>
+
+
+            <!--
+            ==========================================================================
+            SEÇÃO - COMO CITAR ESTA CARTILHA
+            ==========================================================================
+            Fornece modelos de citação nos formatos ABNT e APA.
+            - Importante para uso acadêmico do material
+            - Facilita referenciação correta pelos professores
+            ==========================================================================
+            -->
+            <div class="content-section">
+                <h2>COMO CITAR ESTA CARTILHA</h2>
+
+
+                <!--
+                ======================================================================
+                CITAÇÃO NO FORMATO ABNT
+                ======================================================================
+                - <h4>: subtítulo indicando o formato
+                - <p>: parágrafo com a citação formatada
+                - Formato brasileiro padrão para trabalhos acadêmicos
+                ======================================================================
+                -->
+                <div class="plano-info">
+                    <h4>Formato ABNT:</h4>
+                    <p><strong>NUNES, G.; BARBOSA, R.</strong> Cartilha Pedagógica: Scratch na Educação Básica.
+                        Orientador: Alexandre Busquim. Siqueira Campos: UTFPR, 2025. Material didático para professores
+                        do 1º ao 5º ano.</p>
+                </div>
+
+
+                <!--
+                ======================================================================
+                CITAÇÃO NO FORMATO APA
+                ======================================================================
+                - Formato internacional (American Psychological Association)
+                - Amplamente usado em publicações científicas
+                ======================================================================
+                -->
+                <div class="plano-info">
+                    <h4>Formato APA:</h4>
+                    <p>Nunes, G., & Barbosa, R. (2025). <em>Cartilha Pedagógica: Scratch na Educação Básica</em>.
+                        Universidade Tecnológica Federal do Paraná, Campus Siqueira Campos.</p>
+                </div>
+
+                <!--
+            ==========================================================================
+            FECHAMENTO DA DIV.content-section (Como Citar)
+            ==========================================================================
+            -->
+            </div>
+
+
+            <!--
+            ==========================================================================
+            SEÇÃO - AGRADECIMENTOS
+            ==========================================================================
+            Reconhecimento de contribuições e apoios recebidos.
+            ==========================================================================
+            -->
+            <div class="content-section">
+                <h2>AGRADECIMENTOS</h2>
+
+                <p>Agradecemos especialmente:</p>
+
+                <!--
+                ======================================================================
+                LISTA DE AGRADECIMENTOS
+                ======================================================================
+                - Cada item em <strong> para destacar a entidade/pessoa
+                - Texto explicativo após o nome
+                ======================================================================
+                -->
+                <ul>
+                    <li><strong>MIT Media Lab</strong> pelo desenvolvimento e disponibilização gratuita do Scratch</li>
+                    <li><strong>Prof. Alexandre Busquim</strong> pela orientação e suporte acadêmico</li>
+                    <li><strong>UTFPR - Campus Siqueira Campos</strong> pelo apoio institucional</li>
+                    <li><strong>Comunidade Scratch Brasil</strong> pelas contribuições e inspirações</li>
+                    <li><strong>Professores e alunos</strong> que testaram e forneceram feedback sobre os materiais</li>
+                </ul>
+
+                <!--
+            ==========================================================================
+            FECHAMENTO DA DIV.content-section (Agradecimentos)
+            ==========================================================================
+            -->
+            </div>
+
+
+            <!--
+            ==========================================================================
+            SEÇÃO - LICENÇA E USO DO MATERIAL
+            ==========================================================================
+            Informações legais sobre como o material pode ser utilizado.
+            ==========================================================================
+            -->
+            <div class="content-section">
+                <h2>LICENÇA E USO DO MATERIAL</h2>
+
+                <div class="info-box">
+                    <h4>📄 Termos de Uso</h4>
+                    <p>Este material foi desenvolvido com fins educacionais e pode ser utilizado livremente por
+                        professores da educação básica. Solicitamos que, ao utilizar ou adaptar este material, seja
+                        feita a devida citação dos autores.</p>
+                    <p><strong>Permitido:</strong> Uso em sala de aula, adaptação para contextos específicos,
+                        compartilhamento com outros educadores.</p>
+                    <p><strong>Não permitido:</strong> Uso comercial sem autorização prévia dos autores.</p>
+                </div>
+
+                <!--
+            ==========================================================================
+            FECHAMENTO DA DIV.content-section (Licença)
+            ==========================================================================
+            -->
+            </div>
+
+
+            <!--
+            ==========================================================================
+            SEÇÃO - CONTATO E FEEDBACK
+            ==========================================================================
+            Informações para contato com os autores.
+            ==========================================================================
+            -->
+            <div class="content-section">
+                <h2>CONTATO E FEEDBACK</h2>
+
+                <p>Valorizamos muito o feedback de educadores que utilizam este material. Suas sugestões, relatos de
+                    experiência e adaptações são fundamentais para o aprimoramento contínuo desta cartilha.</p>
+
+
+                <!--
+                ======================================================================
+                INFORMAÇÕES DE CONTATO
+                ======================================================================
+                - Email, Instituição, Departamento
+                - Links de email usam proteção contra spam (Cloudflare)
+                ======================================================================
+                -->
+                <div class="plano-info">
+
+                    <!--
+                    ==================================================================
+                    LINK DE EMAIL COM PROTEÇÃO CLOUDFLARE
+                    ==================================================================
+                    Linha 238: estrutura complexa para proteger email de spam bots.
+                    
+                    - href="/cdn-cgi/l/email-protection": URL de proteção Cloudflare
+                    - class="__cf_email__": classe especial do Cloudflare
+                    - data-cfemail="...": email codificado em hexadecimal
+                    
+                    Como funciona:
+                    1. Email é codificado no servidor
+                    2. JavaScript do Cloudflare decodifica no navegador do usuário
+                    3. Bots de spam não conseguem extrair o email real
+                    4. Usuários humanos veem e podem clicar normalmente
+                    
+                    Observação: [email protected] é um placeholder
+                    ==================================================================
+                    -->
+                    <p><strong>Email:</strong> giseleacn@gmail.com / barbosa.rodrigo.1979@gmail.com</p>
+                    <p><strong>Instituição:</strong> UTFPR - Campus Siqueira Campos</p>
+                    <p><strong>Departamento:</strong> Departamento de Computação</p>
+
+                    <!--
+                ======================================================================
+                FECHAMENTO DA DIV.plano-info (Contato)
+                ======================================================================
+                -->
+                </div>
+
+
+                <!--
+                ======================================================================
+                DIV.aviso-importante - CAIXA DE DESTAQUE ESPECIAL
+                ======================================================================
+                Container com estilização diferenciada para mensagens importantes.
+                - class="aviso-importante": geralmente com cor de fundo chamativa
+                - Usado para chamadas à ação ou informações críticas
+                ======================================================================
+                -->
+                <div class="aviso-importante">
+                    <h4>💬 Compartilhe Sua Experiência!</h4>
+                    <p>Se você utilizou esta cartilha em sua prática pedagógica, adoraríamos conhecer sua experiência.
+                        Entre em contato conosco para compartilhar sucessos, desafios e sugestões de melhoria.</p>
+                </div>
+
+                <!--
+            ==========================================================================
+            FECHAMENTO DA DIV.content-section (Contato e Feedback)
+            ==========================================================================
+            -->
+            </div>
+
+
+            <!--
+            ==========================================================================
+            SEÇÃO - NAVEGAÇÃO INTERNA
+            ==========================================================================
+            Links para outras páginas importantes da cartilha.
+            - Facilita navegação do usuário
+            - Oferece próximos passos lógicos
+            ==========================================================================
+            -->
+            <div class="content-section">
+                <h2>Navegação</h2>
+
+                <!--
+                ======================================================================
+                DIV.card-grid - GRADE DE CARTÕES DE NAVEGAÇÃO
+                ======================================================================
+                Container para exibir cards de navegação em layout de grade.
+                - class="card-grid": provavelmente usa CSS Grid ou Flexbox
+                - Cria layout responsivo de cartões
+                - Cada cartão é um link clicável
+                ======================================================================
+                -->
+                <div class="card-grid">
+
+                    <!--
+                    ==================================================================
+                    CARTÃO DE NAVEGAÇÃO (LINK ESTILIZADO)
+                    ==================================================================
+                    Estrutura de cada cartão:
+                    - <a href="..." class="nav-card">: link com classe especial
+                      * Toda a área do cartão é clicável
+                      * Estilizado como um card visual (borda, sombra, hover)
+                    
+                    - <h3>: título do destino
+                    - <p>: descrição breve do conteúdo
+                    
+                    Vantagem: melhor UX (área clicável maior) e visual atraente
+                    ==================================================================
+                    -->
+                    <a href="index.html" class="nav-card">
+                        <h3>Página Inicial</h3>
+                        <p>Voltar ao início da cartilha</p>
+                    </a>
+
+                    <!--
+                    ==================================================================
+                    SEGUNDO CARTÃO - PLANOS DE AULA
+                    ==================================================================
+                    -->
+                    <a href="planos-aula.html" class="nav-card">
+                        <h3>Planos de Aula</h3>
+                        <p>Planos completos por ano escolar</p>
+                    </a>
+
+                    <!--
+                    ==================================================================
+                    TERCEIRO CARTÃO - MATERIAIS COMPLEMENTARES
+                    ==================================================================
+                    -->
+                    <a href="materiais-complementares.html" class="nav-card">
+                        <h3>Materiais Complementares</h3>
+                        <p>Recursos adicionais</p>
+                    </a>
+
+                    <!--
+                ======================================================================
+                FECHAMENTO DA DIV.card-grid
+                ======================================================================
+                -->
+                </div>
+
+                <!--
+            ==========================================================================
+            FECHAMENTO DA DIV.content-section (Navegação)
+            ==========================================================================
+            -->
+            </div>
+
+            <!--
+        ==============================================================================
+        FECHAMENTO DA DIV.container (conteúdo principal)
+        ==============================================================================
+        -->
+        </div>
+
+        <!--
+    ==================================================================================
+    FECHAMENTO DA TAG </main>
+    ==================================================================================
+    Fim do conteúdo principal da página.
+    ==================================================================================
+    -->
+    </main>
+
+
+    <!--
+    ==================================================================================
+    TAG <footer> - RODAPÉ DA PÁGINA
+    ==================================================================================
+    Elemento semântico HTML5 para o rodapé.
+    - Geralmente contém: informações de contato, links úteis, copyright
+    - Aparece no final de todas as páginas do site
+    - Melhora acessibilidade e estrutura semântica
+    ==================================================================================
+    -->
+    <footer>
+
+        <!--
+        ==============================================================================
+        DIV.container - CONTAINER DO RODAPÉ
+        ==============================================================================
+        Mantém consistência de largura com o restante do layout.
+        ==============================================================================
+        -->
+        <div class="container">
+
+            <!--
+            ==========================================================================
+            DIV.footer-content - CONTEÚDO PRINCIPAL DO RODAPÉ
+            ==========================================================================
+            Container para organizar as colunas de informação do rodapé.
+            - Provavelmente usa Flexbox ou Grid para layout em colunas
+            - Responsivo: colunas empilham em telas pequenas
+            ==========================================================================
+            -->
+            <div class="footer-content">
+
+                <!--
+                ======================================================================
+                DIV.footer-section - PRIMEIRA COLUNA DO RODAPÉ
+                ======================================================================
+                Seção com informações institucionais.
+                - <h3>: título da seção
+                - <p>: parágrafos com informações
+                ======================================================================
+                -->
+                <div class="footer-section">
+                    <h3>UTFPR - Campus Siqueira Campos</h3>
+                    <p>Universidade Tecnológica Federal do Paraná</p>
+                    <p>Departamento de Computação</p>
+                </div>
+
+                <!--
+                ======================================================================
+                DIV.footer-section - SEGUNDA COLUNA (RECURSOS SCRATCH)
+                ======================================================================
+                Links úteis relacionados ao Scratch.
+                - <ul>: lista não ordenada de links
+                - Cada <li> contém um <a> para um recurso externo
+                ======================================================================
+                -->
+                <div class="footer-section">
+                    <h3>Recursos Scratch</h3>
+                    <ul>
+                        <li><a href="https://scratch.mit.edu" target="_blank" rel="noopener noreferrer">Site Oficial do
+                                Scratch</a></li>
+                        <li><a href="https://scratch.mit.edu/educators" target="_blank" rel="noopener noreferrer">Para
+                                Educadores</a></li>
+                        <li><a href="https://scratch.mit.edu/parents" target="_blank" rel="noopener noreferrer">Para
+                                Pais</a></li>
+                    </ul>
+                </div>
+
+                <!--
+                ======================================================================
+                DIV.footer-section - TERCEIRA COLUNA (CONTATO)
+                ======================================================================
+                Informações de contato duplicadas do corpo da página.
+                - Facilita acesso rápido às informações de contato
+                - Padrão comum em design web
+                ======================================================================
+                -->
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Email: giseleacn@gmail.com</p>
+                    <p>Email: barbosa.rodrigo.1979@gmail.com</p>
+                </div>
+
+                <!--
+            ==========================================================================
+            FECHAMENTO DA DIV.footer-content
+            ==========================================================================
+            -->
+            </div>
+
+            <!--
+            ==========================================================================
+            DIV.copyright - INFORMAÇÕES DE COPYRIGHT
+            ==========================================================================
+            Seção final do rodapé com direitos autorais.
+            
+            - &copy;: HTML entity para o símbolo © (copyright)
+              * Alternativa: usar diretamente o símbolo © em UTF-8
+              * Entities HTML são códigos que representam caracteres especiais
+              * Formato: &nome; ou &#número;
+              * Exemplos: &lt; (<), &gt; (>), &amp; (&), &quot; (")
+            
+            - "2025 UTFPR": ano e instituição
+            - Créditos aos desenvolvedores
+            - "Todos os direitos reservados": declaração legal padrão
+            ==========================================================================
+            -->
+            <div class="copyright">
+                &copy; 2025 UTFPR - Desenvolvido por Gisele Nunes e Rodrigo Barbosa. Todos os direitos reservados.
+            </div>
+
+            <!--
+        ==============================================================================
+        FECHAMENTO DA DIV.container (rodapé)
+        ==============================================================================
+        -->
+        </div>
+
+        <!--
+    ==================================================================================
+    FECHAMENTO DA TAG </footer>
+    ==================================================================================
+    Fim da seção de rodapé.
+    ==================================================================================
+    -->
+    </footer>
+
+
+    <!--
+    ==================================================================================
+    BOTÃO DE ALTERNÂNCIA DE TEMA (DARK MODE / LIGHT MODE)
+    ==================================================================================
+    Botão flutuante para alternar entre tema claro e escuro.
+    
+    Atributos importantes:
+    - class="theme-toggle": classe para estilização CSS
+      * Geralmente posicionado fixo no canto da tela
+      * Fica visível mesmo ao rolar a página
+    
+    - id="themeToggle": identificador único
+      * Usado pelo JavaScript para manipular o botão
+      * Permite adicionar event listeners (click, etc.)
+    
+    - aria-pressed="false": atributo de acessibilidade
+      * Indica se o botão está pressionado/ativado
+      * "false" = tema claro (padrão)
+      * "true" = tema escuro (quando ativado)
+      * Importante para tecnologias assistivas
+    
+    - aria-label="Alternar tema claro e escuro": rótulo acessível
+      * Descreve a função do botão para leitores de tela
+      * Essencial quando o botão contém apenas emoji/ícone
+      * Melhora acessibilidade para usuários com deficiência visual
+    
+    Conteúdo: 🌙 (emoji de lua)
+    - Representa o tema escuro
+    - Geralmente muda para ☀️ (sol) quando tema escuro está ativo
+    - JavaScript altera o emoji dinamicamente
+    ==================================================================================
+    -->
+    <button class="theme-toggle" id="themeToggle" aria-pressed="false"
+        aria-label="Alternar tema claro e escuro">🌙</button>
+
+
+    <!--
+    ==================================================================================
+    SCRIPTS JAVASCRIPT
+    ==================================================================================
+    Seção que carrega arquivos JavaScript para adicionar interatividade à página.
+    ==================================================================================
+    -->
+
+    <!--
+    ==================================================================================
+    SCRIPT CLOUDFLARE - DECODIFICAÇÃO DE EMAIL
+    ==================================================================================
+    Linha 299: Script de proteção de email do Cloudflare.
+    
+    Atributos:
+    - data-cfasync="false": desativa carregamento assíncrono
+      * Garante que o script execute na ordem correta
+      * Necessário para decodificar emails antes de outros scripts
+    
+    - src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"
+      * Caminho para o script de decodificação
+      * .min.js = versão minificada (menor, mais rápida)
+      * Fornecido automaticamente pelo Cloudflare
+    
+    Função: Decodifica os emails protegidos (data-cfemail) e os torna clicáveis.
+    ==================================================================================
+    -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+    <!--
+    ==================================================================================
+    SCRIPT PRINCIPAL DA APLICAÇÃO
+    ==================================================================================
+    Carrega o arquivo JavaScript principal do site.
+    
+    - <script src="script.js"></script>
+      * Vincula arquivo JavaScript externo
+      * src="script.js": caminho relativo (mesmo diretório)
+      * Contém toda a lógica de interatividade da página
+    
+    Funcionalidades prováveis em script.js:
+    - Alternância de tema claro/escuro
+    - Animações e transições
+    - Validação de formulários (se houver)
+    - Menu responsivo (hamburger menu em mobile)
+    - Smooth scrolling
+    - Etc.
+    
+    Posicionamento no final do <body>:
+    - Boa prática: permite que o HTML carregue primeiro
+    - Melhora performance percebida (página aparece mais rápido)
+    - Garante que elementos DOM existam antes de serem manipulados
+    - Alternativa moderna: usar atributo "defer" no <head>
+    ==================================================================================
+    -->
+    <script src="script.js"></script>
+
+    <!--
+======================================================================================
+FECHAMENTO DA TAG </body>
+======================================================================================
+Marca o fim do conteúdo visível da página.
+======================================================================================
+-->
+</body>
+
+<!--
+======================================================================================
+FECHAMENTO DA TAG </html>
+======================================================================================
+Marca o fim do documento HTML.
+- Toda tag aberta deve ser fechada
+- Estrutura hierárquica: html > head + body
+- Documento HTML válido e bem-formado
+======================================================================================
+-->
+
+</html>

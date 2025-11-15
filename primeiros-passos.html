@@ -1,0 +1,695 @@
+<!--
+Objetivo: Apresentar um guia para professores que estão começando a usar o Scratch - projeto Scratch na Educação Básica
+Desenvolvido por: Gisele Nunes, Rodrigo Barbosa
+Data: Segundo semestre de 2025
+-->
+<!DOCTYPE html>
+<!-- DECLARAÇÃO DO TIPO DE DOCUMENTO: Define que este é um documento HTML5 -->
+<html lang="pt-BR">
+<!-- ELEMENTO RAIZ DO HTML: 
+     - Inicia o documento HTML
+     - Atributo 'lang="pt-BR"' define o idioma como português brasileiro para acessibilidade -->
+
+<head>
+    <!-- CABEÇALHO DO DOCUMENTO: Contém metadados, título e links para recursos externos -->
+    <meta charset="UTF-8">
+    <!-- META TAG DE CODIFICAÇÃO: 
+         - Define o conjunto de caracteres como UTF-8
+         - Essencial para exibir corretamente caracteres acentuados em português -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- META TAG DE VIEWPORT:
+         - Configura a visualização em dispositivos móveis
+         - 'width=device-width' faz a página ocupar a largura do dispositivo
+         - 'initial-scale=1.0' define o nível de zoom inicial como 100% -->
+    <title>Primeiros Passos no Scratch | Cartilha Pedagógica</title>
+    <!-- TÍTULO DA PÁGINA:
+         - Aparece na aba do navegador
+         - É mostrado nos resultados de mecanismos de busca
+         - Importante para SEO e identificação da página -->
+    <link rel="stylesheet" href="style.css">
+    <!-- LINK PARA FOLHA DE ESTILOS CSS:
+         - Conecta o arquivo CSS externo 'style.css'
+         - Define toda a aparência visual da página (cores, fontes, layout, espaçamentos) -->
+</head>
+
+<body>
+    <!-- CORPO DO DOCUMENTO: Contém todo o conteúdo visível da página web -->
+
+    <header>
+        <!-- CABEÇALHO DA PÁGINA: Área superior que contém identidade visual e navegação principal -->
+        <div class="header-top">
+            <!-- DIV DO TOPO DO CABEÇALHO: Container para logotipo e título institucional -->
+            <div class="container">
+                <!-- CONTAINER PRINCIPAL: Elemento para centralizar e limitar a largura do conteúdo -->
+                <div class="logo-container">
+                    <!-- CONTAINER DO LOGOTIPO: Agrupa imagem e texto da instituição -->
+                    <img src="UTFPR_logo.png" alt="UTFPR Logo" class="logo">
+                    <!-- IMAGEM DO LOGOTIPO:
+                         - 'src' define o caminho do arquivo de imagem
+                         - 'alt' fornece texto alternativo para acessibilidade (leitores de tela)
+                         - 'class' aplica estilos CSS específicos da classe 'logo' -->
+                    <div class="institution-name">
+                        <!-- DIV DO NOME DA INSTITUIÇÃO: Container para informações textuais -->
+                        Universidade Tecnológica Federal do Paraná<br>
+                        <!-- QUEBRA DE LINHA: Separa o nome da universidade do campus -->
+                        <small>Campus Siqueira Campos</small>
+                        <!-- ELEMENTO SMALL: Para informações secundárias em tamanho reduzido -->
+                    </div>
+                </div>
+                <div class="header-title">
+                    <!-- TÍTULO PRINCIPAL DO CABEÇALHO -->
+                    Scratch na Educação Básica<br>
+                    <!-- TEXTO PRINCIPAL DO PROJETO -->
+                    <small>Material Didático para Professores</small>
+                    <!-- SUBTÍTULO EM TAMANHO REDUZIDO -->
+                </div>
+            </div>
+        </div>
+        <div class="header-bottom">
+            <!-- PARTE INFERIOR DO CABEÇALHO: Contém o menu de navegação principal -->
+            <div class="container">
+                <!-- CONTAINER PARA CENTRALIZAÇÃO DO MENU DE NAVEGAÇÃO -->
+                <nav>
+                    <!-- ELEMENTO DE NAVEGAÇÃO SEMÂNTICA: Define a área principal de links de navegação -->
+                    <ul>
+                        <!-- LISTA NÃO ORDENADA: Contém todos os itens do menu de navegação -->
+                        <li><a href="index.html">Página Inicial</a></li>
+                        <!-- ITEM DE LISTA COM LINK: Cada <li> representa um item do menu -->
+                        <li><a href="primeiros-passos.html" class="active">Primeiros Passos</a></li>
+                        <!-- CLASSE 'active': Destaca visualmente a página atual no menu -->
+                        <li><a href="cartoes-scratch.html">Cartões Scratch</a></li>
+                        <li><a href="sugestoes-atividades.html">Sugestões de Atividades</a></li>
+                        <li><a href="atividades-rapidas.html">Atividades Rápidas</a></li>
+                        <li><a href="fichas-atividades.html">Fichas de Atividades</a></li>
+                        <li><a href="projetos-didaticos.html">Projetos Didáticos</a></li>
+                        <li><a href="modelos-projetos.html">Modelos de Projetos</a></li>
+                        <li><a href="planos-aula.html">Planos de Aula</a></li>
+                        <li><a href="materiais-complementares.html">Materiais Complementares</a></li>
+                        <li><a href="referencias-bibliograficas.html">Referências Bibliográficas</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- CONTEÚDO PRINCIPAL DA PÁGINA: Área central com o conteúdo específico desta página -->
+        <div class="container">
+            <!-- CONTAINER PARA ORGANIZAÇÃO E LIMITAÇÃO DE LARGURA DO CONTEÚDO -->
+            <div class="page-header">
+                <!-- CABEÇALHO DA PÁGINA ATUAL -->
+                <h1>Primeiros Passos no Scratch</h1>
+                <!-- TÍTULO PRINCIPAL DA PÁGINA (nível 1) - Mais importante para SEO -->
+                <p class="subtitle">Guia Completo para Professores</p>
+                <!-- SUBTÍTULO DA PÁGINA COM CLASSE PARA ESTILIZAÇÃO ESPECÍFICA -->
+            </div>
+
+            <!-- SEÇÃO 1: ACESSANDO A PLATAFORMA SCRATCH -->
+            <div class="content-section">
+                <!-- SEÇÃO DE CONTEÚDO: Agrupa conteúdo relacionado em uma unidade temática -->
+                <h2>1. ACESSANDO A PLATAFORMA SCRATCH</h2>
+                <!-- TÍTULO DA SEÇÃO (nível 2) -->
+
+                <h3>Opção 1: Conta Online (Recomendada)</h3>
+                <!-- SUBTÍTULO DA SEÇÃO (nível 3) -->
+                <p><strong>Passo a passo para criar conta:</strong></p>
+                <!-- PARÁGRAFO COM TEXTO EM NEGRITO PARA DESTAQUE -->
+                <ol>
+                    <!-- LISTA ORDENADA: Para instruções sequenciais que devem ser seguidas em ordem -->
+                    <li>Acesse o site oficial: https://scratch.mit.edu</li>
+                    <!-- ITEM DE LISTA ORDENADA: Cada passo numerado automaticamente -->
+                    <li>Clique em "Entrar" (canto superior direito)</li>
+                    <li>Clique em "Junte-se à Comunidade Scratch"</li>
+                    <li>Preencha o formulário:
+                        <ul>
+                            <!-- LISTA NÃO ORDENADA ANINHADA: Para opções sem ordem específica -->
+                            <li>Nome de usuário: (Ex: ProfMaria_School)</li>
+                            <li>Senha: (Mínimo 6 caracteres)</li>
+                            <li>Confirme a senha: (Digite novamente)</li>
+                            <li>Email: (Seu email institucional)</li>
+                        </ul>
+                    </li>
+                    <li>Selecione:
+                        <ul>
+                            <li>País: Brasil</li>
+                            <li>Aniversário: (Data aproximada)</li>
+                            <li>Gênero: (Opcional)</li>
+                            <li>Email updates: (Recomendo desmarcar)</li>
+                        </ul>
+                    </li>
+                    <li>Clique em "Avançar" e complete o cadastro</li>
+                </ol>
+
+                <h3>Opção 2: Modo Offline</h3>
+                <p><strong>Para escolas com internet limitada:</strong></p>
+                <ol>
+                    <li>Baixe o Scratch Desktop: https://scratch.mit.edu/download</li>
+                    <li>Instale no computador:
+                        <ul>
+                            <li>Windows: Execute o arquivo .exe</li>
+                            <li>Mac: Arraste para a pasta Aplicações</li>
+                            <li>Linux: Siga instruções específicas</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h4>Dicas Importantes para Professores:</h4>
+                <!-- SUBTÍTULO (nível 4) PARA DICAS -->
+                <ul>
+                    <li>Crie uma conta própria para demonstrar</li>
+                    <li>Considere criar conta de turma se for permitido</li>
+                    <li>Anote login e senha em local seguro</li>
+                    <li>Teste o acesso antes da aula</li>
+                </ul>
+            </div>
+
+            <!-- SEÇÃO 2: CONHECENDO A INTERFACE DO SCRATCH -->
+            <div class="content-section">
+                <h2>2. CONHECENDO A INTERFACE DO SCRATCH</h2>
+
+                <h3>Visão Geral da Tela Principal:</h3>
+
+                <div class="scratch-interface">
+                    <!-- DIV PARA SIMULAR A INTERFACE DO SCRATCH COM CSS -->
+                    <div class="interface-area menu-area">
+                        <!-- ÁREA DO MENU SUPERIOR SIMULADA -->
+                        MENU SUPERIOR [Arquivo] [Editar] [Ajuda] [Scratch] [Entrar]
+                    </div>
+
+                    <div class="interface-area palco-area">
+                        <!-- ÁREA DO PALCO SIMULADA -->
+                        <div class="area-label">PALCO</div>
+                        <!-- RÓTULO DA ÁREA -->
+                        <div class="area-content">
+                            <!-- CONTEÚDO DA ÁREA SIMULADA -->
+                            [Animação]<br>
+                            [aqui]
+                        </div>
+                    </div>
+
+                    <div class="interface-area blocos-area">
+                        <!-- ÁREA DOS BLOCOS SIMULADA -->
+                        <div class="area-label">BLOCOS</div>
+                        <div class="area-content">
+                            [Movimento]<br>
+                            [Aparência]<br>
+                            [Som]<br>
+                            [Eventos]<br>
+                            [Controle]<br>
+                            [Sensores]<br>
+                            [Operadores]<br>
+                            [Variáveis]
+                        </div>
+                    </div>
+
+                    <div class="interface-area scripts-area">
+                        <!-- ÁREA DE SCRIPTS SIMULADA -->
+                        <div class="area-label">ÁREA DE SCRIPTS</div>
+                        <div class="area-content">
+                            [Blocos]<br>
+                            [encaixados]
+                        </div>
+                    </div>
+
+                    <div class="interface-area sprites-area">
+                        <!-- ÁREA DE SPRITES SIMULADA -->
+                        <div class="area-label">SPRITES</div>
+                        <div class="area-content">
+                            [Gato] [+]<br>
+                            [Cenários] [+]
+                        </div>
+                    </div>
+                </div>
+
+                <h4>Detalhamento de Cada Área:</h4>
+
+                <h5>A. PALCO (Superior Direito)</h5>
+                <!-- SUBTÍTULO (nível 5) PARA DETALHES ESPECÍFICOS -->
+                <p><strong>O que é:</strong> Onde a animação/jogo acontece</p>
+                <p><strong>Funcionalidades:</strong></p>
+                <ul>
+                    <li>Visualização do projeto em execução</li>
+                    <li>Controles de iniciar/parar (bandeira verde/stop vermelho)</li>
+                    <li>Modo tela cheia (ícone de expandir)</li>
+                </ul>
+
+                <h5>B. BLOCOS DE PROGRAMAÇÃO (Lateral Esquerda)</h5>
+                <p><strong>Organização por cores e categorias:</strong></p>
+                <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
+                    <!-- TABELA PARA ORGANIZAR INFORMAÇÕES DE CATEGORIAS DE BLOCOS -->
+                    <!-- ESTILO INLINE: Define aparência da tabela diretamente no HTML -->
+                    <tr>
+                        <!-- LINHA DE CABEÇALHO DA TABELA -->
+                        <th style="padding: 8px; border: 1px solid var(--border-color); text-align: left;">Cor</th>
+                        <!-- CÉLULA DE CABEÇALHO: Título da coluna -->
+                        <th style="padding: 8px; border: 1px solid var(--border-color); text-align: left;">Categoria
+                        </th>
+                        <th style="padding: 8px; border: 1px solid var(--border-color); text-align: left;">Função
+                            Principal</th>
+                    </tr>
+                    <tr>
+                        <!-- LINHA DE DADOS DA TABELA -->
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">🟦</td>
+                        <!-- CÉLULA DE DADOS: Contém emoji representando a cor -->
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Movimento</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Controlar posição e direção
+                        </td>
+                    </tr>
+                    <!-- ESTRUTURA REPETIDA PARA AS DEMAIS CATEGORIAS DE BLOCOS -->
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">🟪</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Aparência</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Mudar visual, falar, pensar
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">🟥</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Som</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Efeitos sonoros e música</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">🟨</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Eventos</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Iniciar programas, detectar
+                            ações</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">🟧</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Controle</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Repetições, condições, esperas
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">🟩</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Sensores</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Detectar toques, cores,
+                            respostas</td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">🟦</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Operadores</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Cálculos matemáticos, lógica
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">🟫</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Variáveis</td>
+                        <td style="padding: 8px; border: 1px solid var(--border-color);">Armazenar e manipular dados
+                        </td>
+                    </tr>
+                </table>
+
+                <h5>C. ÁREA DE SCRIPTS (Centro)</h5>
+                <p><strong>O que é:</strong> Onde montamos os programas encaixando blocos</p>
+                <p><strong>Características:</strong></p>
+                <ul>
+                    <li>Área vazia inicialmente</li>
+                    <li>Blocos são arrastados para aqui</li>
+                    <li>Podem ser encaixados verticalmente</li>
+                    <li>Programas podem ser testados a qualquer momento</li>
+                </ul>
+
+                <h5>D. SPRITES E CENÁRIOS (Inferior Direito)</h5>
+                <p><strong>Sprites:</strong> Personagens e objetos que realizam ações</p>
+                <p><strong>Cenários:</strong> Fundos onde os sprites interagem</p>
+            </div>
+
+            <!-- SEÇÃO 3: PRIMEIRO PROJETO PRÁTICO -->
+            <div class="content-section">
+                <h2>3. PRIMEIRO PROJETO: "GATO DANÇARINO"</h2>
+
+                <p><strong>Objetivo:</strong> Criar uma animação simples para familiarização</p>
+
+                <h3>Passo 1: Preparar o Ambiente</h3>
+                <ol>
+                    <li>Certifique-se de estar na conta Scratch</li>
+                    <li>Clique em "Criar" (canto superior esquerdo)</li>
+                    <li>Verifique se temos:
+                        <ul>
+                            <li>Um sprite gato no palco</li>
+                            <li>Área de scripts vazia</li>
+                            <li>Blocos disponíveis no menu lateral</li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Passo 2: Encontrar os Blocos Necessários</h3>
+                <p>Vamos usar 4 tipos de blocos:</p>
+                <ol>
+                    <li>Evento Amarelo: <code>quando ⚑ for clicado</code></li>
+                    <!-- ELEMENTO CODE: Para mostrar código ou comandos com formatação especial -->
+                    <li>Movimento Azul: <code>mova 10 passos</code></li>
+                    <li>Aparência Roxa: <code>diga Olá! por 2 segundos</code></li>
+                    <li>Controle Laranja: <code>espere 1 segundos</code></li>
+                </ol>
+
+                <h3>Passo 3: Montando o Primeiro Programa</h3>
+                <p><strong>Sequência para arrastar e encaixar:</strong></p>
+                <ol>
+                    <li>Arraste "quando ⚑ for clicado" para a área de scripts</li>
+                    <li>Arraste "mova 10 passos" abaixo do primeiro bloco</li>
+                    <li>Arraste "diga Olá! por 2 segundos" abaixo</li>
+                    <li>Arraste "espere 1 segundos" abaixo</li>
+                    <li>Arraste outro "mova 10 passos" abaixo</li>
+                </ol>
+
+                <div class="scratch-code-block">
+                    <!-- DIV PARA EXIBIR CÓDIGO SCRATCH COM FORMATAÇÃO ESPECIAL -->
+                    quando ⚑ for clicado
+                    mova 10 passos
+                    diga Olá! por 2 segundos
+                    espere 1 segundos
+                    mova 10 passos
+                </div>
+
+                <h3>Passo 4: Testando o Programa</h3>
+                <ol>
+                    <li>Clique na bandeira verde (acima do palco)</li>
+                    <li>Observe o que acontece:
+                        <ul>
+                            <li>Gato se move para a direita</li>
+                            <li>Aparece balão "Olá!" por 2 segundos</li>
+                            <li>Gato espera 1 segundo</li>
+                            <li>Gato se move mais 10 passos</li>
+                        </ul>
+                    </li>
+                    <li>Clique no stop vermelho para parar</li>
+                </ol>
+
+                <h3>Passo 5: Fazendo Ajustes</h3>
+                <p><strong>Modificando valores:</strong></p>
+                <ol>
+                    <li>Clique no número "10" do "mova 10 passos"</li>
+                    <li>Digite "20" e pressione Enter</li>
+                    <li>Clique no texto "Olá!" do bloco "diga"</li>
+                    <li>Digite "Estou programando!" e pressione Enter</li>
+                    <li>Clique no número "1" do "espere 1 segundos"</li>
+                    <li>Digite "2" e pressione Enter</li>
+                </ol>
+                <p>Teste novamente com a bandeira verde!</p>
+            </div>
+
+            <!-- SEÇÃO 4: EXPLORANDO RECURSOS ADICIONAIS -->
+            <div class="content-section">
+                <h2>4. EXPLORANDO A BIBLIOTECA DE SPRITES E CENÁRIOS</h2>
+
+                <h3>Adicionando Novos Sprites</h3>
+
+                <h4>Método 1: Biblioteca Oficial</h4>
+                <ol>
+                    <li>Clique em "Escolher um Sprite" (+)</li>
+                    <li>Explore as categorias:
+                        <ul>
+                            <li>Animais</li>
+                            <li>Pessoas</li>
+                            <li>Fantasia</li>
+                            <li>Letras e Números</li>
+                            <li>Entre outras</li>
+                        </ul>
+                    </li>
+                    <li>Clique em um sprite para adicionar</li>
+                    <li>Repita para adicionar vários</li>
+                </ol>
+
+                <h4>Método 2: Upload de Imagem</h4>
+                <ol>
+                    <li>Clique em "Escolher um Sprite" (+)</li>
+                    <li>Selecione "Fazer upload de um arquivo"</li>
+                    <li>Navegue até uma imagem no computador</li>
+                    <li>Clique em "Abrir"</li>
+                    <li>A imagem será convertida em sprite</li>
+                </ol>
+
+                <h4>Método 3: Desenhar seu Próprio Sprite</h4>
+                <ol>
+                    <li>Clique em "Escolher um Sprite" (+)</li>
+                    <li>Selecione "Pintar"</li>
+                    <li>Use as ferramentas de desenho:
+                        <ul>
+                            <li>Pincel, linha, círculo, retângulo</li>
+                            <li>Preenchimento de cor</li>
+                            <li>Texto</li>
+                            <li>Borracha</li>
+                        </ul>
+                    </li>
+                    <li>Clique em "OK" quando terminar</li>
+                </ol>
+
+                <h3>Trabalhando com Cenários</h3>
+
+                <h4>Adicionando Cenários</h4>
+                <ol>
+                    <li>No canto inferior direito, clique em "Escolher um Cenário" (+)</li>
+                    <li>Explore as categorias:
+                        <ul>
+                            <li>Fantasia</li>
+                            <li>Espaço</li>
+                            <li>Esportes</li>
+                            <li>Entre outros</li>
+                        </ul>
+                    </li>
+                    <li>Clique em um cenário para adicionar</li>
+                </ol>
+
+                <h4>Programando Mudanças de Cenário</h4>
+                <ol>
+                    <li>Na categoria "Aparência" (roxo)</li>
+                    <li>Encontre o bloco "mude para o cenário [ ]"</li>
+                    <li>Arraste para a área de scripts</li>
+                    <li>Clique na setinha para escolher um cenário</li>
+                </ol>
+            </div>
+
+            <!-- SEÇÃO 5: SALVAMENTO E COMPARTILHAMENTO -->
+            <div class="content-section">
+                <h2>5. SALVANDO E COMPARTILHANDO PROJETOS</h2>
+
+                <h3>Salvando pela Primeira Vez</h3>
+                <ol>
+                    <li>Clique em "Arquivo" (menu superior)</li>
+                    <li>Selecione "Salvar agora"</li>
+                    <li>Digite um nome para o projeto:
+                        <br><em>Ex: "Meu Primeiro Projeto - Gato Dançante"</em>
+                        <!-- ELEMENTO EM: Para texto em itálico com ênfase -->
+                    </li>
+                    <li>Clique em "OK"</li>
+                </ol>
+
+                <h3>Salvamento Automático</h3>
+                <ul>
+                    <li>Scratch salva automaticamente a cada minuto</li>
+                    <li>Sempre verifique se está logado para não perder trabalho</li>
+                </ul>
+
+                <h3>Compartilhando Projetos (Opcional)</h3>
+                <ol>
+                    <li>Clique em "Compartilhar" (canto superior direito)</li>
+                    <li>O projeto ficará público</li>
+                    <li>Outros poderão ver, mas não editar</li>
+                    <li>Receba um link para compartilhar</li>
+                </ol>
+
+                <p><strong>Atenção:</strong> Só compartilhe se for permitido pela escola!</p>
+
+                <h4>Dica para Professores:</h4>
+                <ul>
+                    <li>Crie uma pasta de projetos para cada turma</li>
+                    <li>Use nomes padronizados: "5A_Joao_Projeto1"</li>
+                    <li>Faça backups regulares dos projetos importantes</li>
+                </ul>
+            </div>
+
+            <!-- SEÇÃO 6: SOLUÇÃO DE PROBLEMAS -->
+            <div class="content-section">
+                <h2>6. RESOLVENDO PROBLEMAS COMUNS</h2>
+
+                <h3>Problema 1: Blocos Não Encaixam</h3>
+                <p><strong>Solução:</strong></p>
+                <ul>
+                    <li>Arraste o bloco até aparecer a linha branca entre outros blocos</li>
+                    <li>Solte apenas quando ver a linha de conexão</li>
+                    <li>Blocos soltos não funcionam - devem estar conectados</li>
+                </ul>
+
+                <h3>Problema 2: Programa Não Inicia</h3>
+                <p><strong>Verifique:</strong></p>
+                <ul>
+                    <li>Tem o bloco "quando ⚑ for clicado" no topo?</li>
+                    <li>Clicou na bandeira verde e não nos blocos?</li>
+                    <li>O stop vermelho não está ativado?</li>
+                </ul>
+
+                <h3>Problema 3: Sprite Some ou Some do Palco</h3>
+                <p><strong>Soluções:</strong></p>
+                <ul>
+                    <li>Use "mostre" (aparência) para tornar visível</li>
+                    <li>Use "vá para x: 0 y: 0" (movimento) para centralizar</li>
+                    <li>Verifique se não usou "esconda" sem "mostre"</li>
+                </ul>
+
+                <h3>Problema 4: Som Não Funciona</h3>
+                <p><strong>Verifique:</strong></p>
+                <ul>
+                    <li>O volume do computador está ligado?</li>
+                    <li>Usou o bloco "toque o som [som]"?</li>
+                    <li>O som existe na biblioteca? Teste clicando no bloco</li>
+                </ul>
+            </div>
+
+            <!-- SEÇÃO 7: ATIVIDADE PRÁTICA FINAL -->
+            <div class="content-section">
+                <h2>7. ATIVIDADE PRÁTICA FINAL: "ANIMAÇÃO COMPLETA"</h2>
+
+                <p><strong>Desafio Guiado:</strong></p>
+                <p>Crie uma animação com:</p>
+                <ul>
+                    <li>2 sprites diferentes</li>
+                    <li>1 cenário</li>
+                    <li>Movimento</li>
+                    <li>Fala</li>
+                    <li>Esperas</li>
+                    <li>Sons</li>
+                </ul>
+
+                <h3>Sequência Sugerida:</h3>
+
+                <h4>SPRITE 1 (Gato):</h4>
+                <div class="scratch-code-block">
+                    quando ⚑ for clicado<br>
+                    mova 50 passos<br>
+                    diga [Olá, eu sou o gato!] por 2 segundos<br>
+                    toque o som [meow]<br>
+                    espere 1 segundos
+                </div>
+
+                <h4>SPRITE 2 (Outro animal):</h4>
+                <div class="scratch-code-block">
+                    quando ⚑ for clicado<br>
+                    espere 3 segundos<br>
+                    diga [E eu sou o cachorro!] por 2 segundos<br>
+                    toque o som [dog1]<br>
+                    mova 30 passos<br>
+                </div>
+
+                <h3>Teste Final:</h3>
+                <ol>
+                    <li>Clique na bandeira verde</li>
+                    <li>Observe a sequência de eventos</li>
+                    <li>Ajuste tempos se necessário</li>
+                    <li>Salve o projeto com nome significativo</li>
+                </ol>
+            </div>
+
+            <!-- SEÇÃO 8: MATERIAL DE APOIO AO PROFESSOR -->
+            <div class="content-section">
+                <h2>MATERIAL DE APOIO AO PROFESSOR</h2>
+
+                <h3>Plano de Aula - Primeira Sessão (50 minutos)</h3>
+                <ul>
+                    <li><strong>0-10 min:</strong> Apresentação e criação de contas</li>
+                    <li><strong>10-25 min:</strong> Exploração guiada da interface</li>
+                    <li><strong>25-40 min:</strong> Projeto "Gato Dançante"</li>
+                    <li><strong>40-50 min:</strong> Exploração livre e dúvidas</li>
+                </ul>
+
+                <h3>Dicas para o Primeiro Dia:</h3>
+                <ul>
+                    <li>Comece simples: Um bloco de cada vez</li>
+                    <li>Demonstre antes: Mostre o resultado esperado</li>
+                    <li>Circule pela sala: Ajude individualmente</li>
+                    <li>Celebre pequenos sucessos: Aluno conseguiu encaixar o primeiro bloco? Parabenize!</li>
+                </ul>
+
+                <h3>Problemas Comuns de Iniciantes:</h3>
+                <ul>
+                    <li>Clicam nos blocos em vez da bandeira verde</li>
+                    <li>Esquecem de conectar os blocos</li>
+                    <li>Não salvam o trabalho</li>
+                    <li>Fecham a aba sem salvar</li>
+                </ul>
+
+                <h3>Solução:</h3>
+                <ul>
+                    <li>Lembrete visual: Cartaz com "Sempre clique na BANDEIRA VERDE!"</li>
+                    <li>Rotina de encerramento: "Salvar, Sair, Fechar"</li>
+                    <li>Backup: Professor salva cópia dos projetos importantes</li>
+                </ul>
+
+                <p><strong>Próxima etapa:</strong> Na próxima sessão, exploraremos os Blocos Fundamentais em
+                    profundidade!</p>
+            </div>
+
+            <!-- SEÇÃO DE NAVEGAÇÃO ENTRE PÁGINAS -->
+            <div class="content-section">
+                <h2>Navegação</h2>
+                <div class="card-grid">
+                    <!-- GRADE DE CARDS: Layout responsivo para links de navegação relacionados -->
+                    <a href="index.html" class="nav-card">
+                        <!-- CARD DE NAVEGAÇÃO: Link estilizado como card clicável -->
+                        <h3>Página Inicial</h3>
+                        <!-- TÍTULO DO CARD -->
+                        <p>Voltar para a cartilha principal</p>
+                        <!-- DESCRIÇÃO DO CARD -->
+                    </a>
+                    <a href="cartoes-scratch.html" class="nav-card">
+                        <h3>Cartões Scratch</h3>
+                        <p>Material para atividades offline</p>
+                    </a>
+                    <a href="atividades-rapidas.html" class="nav-card">
+                        <h3>Atividades Rápidas</h3>
+                        <p>Exercícios de 15 minutos</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <!-- RODAPÉ DA PÁGINA: Contém informações institucionais, links úteis e direitos autorais -->
+        <div class="container">
+            <div class="footer-content">
+                <!-- CONTEÚDO DO RODAPÉ ORGANIZADO EM SEÇÕES -->
+                <div class="footer-section">
+                    <!-- SEÇÃO DO RODAPÉ: Agrupa informações relacionadas -->
+                    <h3>UTFPR - Campus Siqueira Campos</h3>
+                    <!-- TÍTULO DA SEÇÃO DO RODAPÉ -->
+                    <p>Universidade Tecnológica Federal do Paraná</p>
+                    <p>Departamento de Computação</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Recursos Scratch</h3>
+                    <ul>
+                        <li><a href="https://scratch.mit.edu">Site Oficial do Scratch</a></li>
+                        <!-- LINK EXTERNO: Para recursos online do Scratch -->
+                        <li><a href="https://scratch.mit.edu/educators">Para Educadores</a></li>
+                        <li><a href="https://scratch.mit.edu/parents">Para Pais</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Email: giseleacn@gmail.com</p>
+                    <p>Email: barbosa.rodrigo.1979@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                <!-- ÁREA DE DIREITOS AUTORAIS -->
+                &copy; 2025 UTFPR - Desenvolvido por Gisele Nunes e Rodrigo Barbosa. Todos os direitos reservados.
+                <!-- SÍMBOLO DE COPYRIGHT (entidade HTML) e texto legal -->
+            </div>
+        </div>
+    </footer>
+
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+    <!-- BOTÃO DE ALTERNÂNCIA DE TEMA: 
+         - Permite mudar entre modo claro e escuro
+         - ID único 'themeToggle' para manipulação via JavaScript
+         - Classe 'theme-toggle' para estilização CSS
+         - Emoji de lua como indicador visual -->
+
+    <script src="script.js"></script>
+    <!-- SCRIPT JAVASCRIPT EXTERNO: Adiciona interatividade à página (toggle de tema, etc.) -->
+</body>
+<!-- FIM DO CORPO DO DOCUMENTO -->
+
+</html>
+<!-- FIM DO DOCUMENTO HTML -->

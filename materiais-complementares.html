@@ -1,0 +1,2160 @@
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+CABEÇALHO DO DOCUMENTO - INFORMAÇÕES SOBRE O PROJETO
+═══════════════════════════════════════════════════════════════════════════════
+Este bloco de comentário inicial documenta o propósito e autoria do arquivo.
+É uma boa prática incluir essas informações para facilitar manutenção futura.
+-->
+
+<!--
+Objetivo: Apresentar boas práticas de desenvolvimento web e organização de conteúdo educacional - projeto Scratch na Educação Básica
+
+Desenvolvido por: Gisele Nunes, Rodrigo Barbosa
+- Identifica os autores responsáveis pelo desenvolvimento do material
+
+Data: Segundo semestre de 2025
+- Registra quando o material foi criado para controle de versão
+-->
+
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+DECLARAÇÃO DO TIPO DE DOCUMENTO (DOCTYPE)
+═══════════════════════════════════════════════════════════════════════════════
+-->
+<!DOCTYPE html>
+<!-- 
+A tag DOCTYPE informa ao navegador qual versão do HTML está sendo usada.
+"html" indica HTML5, a versão mais moderna e recomendada.
+Deve ser SEMPRE a primeira linha de um documento HTML.
+-->
+
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+TAG HTML RAIZ - INÍCIO DO DOCUMENTO
+═══════════════════════════════════════════════════════════════════════════════
+-->
+<html lang="pt-BR">
+<!-- 
+<html> é o elemento raiz que contém todo o conteúdo da página.
+Atributo "lang": Define o idioma principal do documento
+- "pt-BR" = Português do Brasil
+- Importante para acessibilidade (leitores de tela)
+- Ajuda mecanismos de busca a identificar o idioma
+- Melhora a indexação do conteúdo
+-->
+
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+SEÇÃO HEAD - METADADOS E CONFIGURAÇÕES DA PÁGINA
+═══════════════════════════════════════════════════════════════════════════════
+A seção <head> contém informações SOBRE a página, mas não são exibidas diretamente.
+Inclui: configurações, links para recursos externos, metadados, etc.
+-->
+
+<head>
+    <!-- 
+    ═══════════════════════════════════════════════════════════════════════
+    CONFIGURAÇÃO DE CODIFICAÇÃO DE CARACTERES
+    ═══════════════════════════════════════════════════════════════════════
+    -->
+    <meta charset="UTF-8">
+    <!-- 
+    Define a codificação de caracteres do documento como UTF-8
+    UTF-8 é o padrão universal que suporta:
+    - Todos os caracteres do português (á, é, ã, ç, etc.)
+    - Caracteres especiais e símbolos
+    - Múltiplos idiomas simultaneamente
+    - Emojis e caracteres Unicode
+    SEMPRE use UTF-8 para garantir compatibilidade internacional
+    -->
+
+    <!-- 
+    ═══════════════════════════════════════════════════════════════════════
+    CONFIGURAÇÃO DE RESPONSIVIDADE (DESIGN ADAPTÁVEL)
+    ═══════════════════════════════════════════════════════════════════════
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 
+    Esta meta tag é ESSENCIAL para sites responsivos (que se adaptam a diferentes telas)
+    
+    Atributos explicados:
+    - name="viewport": Define que estamos configurando a área visível
+    - content="width=device-width": A largura da página será igual à largura do dispositivo
+    - initial-scale=1.0: Zoom inicial de 100% (sem zoom aplicado)
+    
+    Sem esta tag, sites podem aparecer "zoomed out" em dispositivos móveis
+    Com ela, o site se adapta automaticamente a smartphones, tablets e desktops
+    -->
+
+    <!-- 
+    ═══════════════════════════════════════════════════════════════════════
+    TÍTULO DA PÁGINA (APARECE NA ABA DO NAVEGADOR)
+    ═══════════════════════════════════════════════════════════════════════
+    -->
+    <title>Materiais Complementares | Cartilha Pedagógica</title>
+    <!-- 
+    O conteúdo entre <title></title> define:
+    1. O texto que aparece na aba/guia do navegador
+    2. O título nos resultados de busca do Google
+    3. O nome quando a página é favoritada/marcada
+    
+    Boas práticas:
+    - Seja descritivo e específico
+    - Inclua palavras-chave relevantes
+    - Use separador "|" ou "-" para hierarquia
+    - Limite: 50-60 caracteres para não ser cortado
+    -->
+
+    <!-- 
+    ═══════════════════════════════════════════════════════════════════════
+    LINK PARA ARQUIVO CSS EXTERNO (ESTILOS VISUAIS)
+    ═══════════════════════════════════════════════════════════════════════
+    -->
+    <link rel="stylesheet" href="style.css">
+    <!-- 
+    Conecta este documento HTML a um arquivo CSS externo
+    
+    Atributos:
+    - rel="stylesheet": Define o relacionamento como "folha de estilos"
+    - href="style.css": Caminho para o arquivo CSS
+    
+    O CSS (Cascading Style Sheets) controla:
+    - Cores, fontes, tamanhos
+    - Layout e posicionamento
+    - Animações e transições
+    - Responsividade
+    
+    Vantagem de CSS externo:
+    - Reutilização em múltiplas páginas
+    - Manutenção centralizada
+    - Melhor organização do código
+    - Cache do navegador (carrega mais rápido)
+    -->
+</head>
+<!-- Fim da seção <head> -->
+
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+SEÇÃO BODY - CONTEÚDO VISÍVEL DA PÁGINA
+═══════════════════════════════════════════════════════════════════════════════
+Tudo dentro de <body></body> é o que o usuário VÊ e INTERAGE
+-->
+
+<body>
+    <!--
+    ═══════════════════════════════════════════════════════════════════════════
+    CABEÇALHO DA PÁGINA (HEADER)
+    ═══════════════════════════════════════════════════════════════════════════
+    Elemento semântico HTML5 que representa o topo da página
+    Geralmente contém: logo, título, navegação principal
+    -->
+    <header>
+        <!-- 
+        ═══════════════════════════════════════════════════════════════════
+        PARTE SUPERIOR DO CABEÇALHO
+        ═══════════════════════════════════════════════════════════════════
+        -->
+        <div class="header-top">
+            <!-- 
+        <div> é um container genérico (divisão) usado para agrupar elementos
+        class="header-top": Identificador CSS para estilizar esta seção específica
+        Classes permitem aplicar estilos consistentes a múltiplos elementos
+        -->
+
+            <div class="container">
+                <!-- 
+            Div "container" é um padrão comum em web design
+            Geralmente define:
+            - Largura máxima do conteúdo
+            - Centralização horizontal
+            - Padding/margem consistentes
+            Mantém o conteúdo organizado e não "colado" nas bordas
+            -->
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                CONTAINER DO LOGOTIPO E NOME DA INSTITUIÇÃO
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="logo-container">
+                    <!-- 
+                Agrupa logotipo e texto relacionado
+                Facilita posicionamento lado a lado (geralmente com flexbox)
+                -->
+                    <img src="UTFPR_logo.png" alt="UTFPR Logo" class="logo">
+                    <!-- 
+                    Tag <img> para inserir imagens
+                    
+                    Atributos OBRIGATÓRIOS:
+                    - src="UTFPR_logo.png": Caminho/URL da imagem
+                      (neste caso, arquivo na mesma pasta)
+                    - alt="UTFPR Logo": Texto alternativo
+                      * Exibido se a imagem não carregar
+                      * Lido por leitores de tela (acessibilidade)
+                      * Importante para SEO
+                      * SEMPRE descreva o conteúdo da imagem
+                    
+                    Atributo OPCIONAL:
+                    - class="logo": Para estilização CSS
+                    
+                    Formatos de imagem recomendados:
+                    - PNG: Transparência, logos, ícones
+                    - JPG: Fotos, imagens complexas
+                    - SVG: Gráficos vetoriais, escaláveis
+                    - WebP: Moderno, menor tamanho
+                    -->
+
+                    <div class="institution-name">
+                        <!-- 
+                    Container para o nome da instituição
+                    Permite estilização independente do logo
+                    -->
+
+                        Universidade Tecnológica Federal do Paraná<br>
+                        <!-- 
+                        Texto simples (conteúdo textual)
+                        <br> = Line Break (quebra de linha)
+                        - Tag auto-fechada (não precisa de </br>)
+                        - Força nova linha no mesmo parágrafo
+                        - Use com moderação (preferir CSS para espaçamento)
+                        -->
+
+                        <small>Campus Siqueira Campos</small>
+                        <!-- 
+                        Tag <small> indica texto de menor importância/tamanho
+                        Semântica HTML5: representa "letras miúdas"
+                        Navegadores geralmente renderizam em fonte menor
+                        Útil para: subtítulos, notas de rodapé, disclaimers
+                        -->
+                    </div>
+                    <!-- Fim do div.institution-name -->
+                </div>
+                <!-- Fim do div.logo-container -->
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                TÍTULO PRINCIPAL DO CABEÇALHO
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="header-title">
+                    Scratch na Educação Básica<br>
+                    <!-- Título principal do projeto -->
+
+                    <small>Material Didático para Professores</small>
+                    <!-- Subtítulo explicativo -->
+                </div>
+                <!-- Fim do div.header-title -->
+            </div>
+            <!-- Fim do div.container -->
+        </div>
+        <!-- Fim do div.header-top -->
+
+        <!-- 
+        ═══════════════════════════════════════════════════════════════════
+        PARTE INFERIOR DO CABEÇALHO - MENU DE NAVEGAÇÃO
+        ═══════════════════════════════════════════════════════════════════
+        -->
+        <div class="header-bottom">
+            <div class="container">
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                ELEMENTO DE NAVEGAÇÃO SEMÂNTICO
+                ═══════════════════════════════════════════════════════════
+                -->
+                <nav>
+                    <!-- 
+                <nav> é um elemento semântico HTML5
+                Indica que esta seção contém links de navegação principais
+                Benefícios:
+                - Melhora acessibilidade (leitores de tela identificam)
+                - Melhora SEO (mecanismos de busca entendem estrutura)
+                - Código mais legível e manutenível
+                -->
+
+                    <ul>
+                        <!-- 
+                    <ul> = Unordered List (Lista Não Ordenada)
+                    Cria uma lista com marcadores (bullets)
+                    Perfeito para menus de navegação
+                    
+                    Alternativa: <ol> (Ordered List) para listas numeradas
+                    -->
+
+                        <!-- 
+                        ═══════════════════════════════════════════════════
+                        ITENS DO MENU DE NAVEGAÇÃO
+                        ═══════════════════════════════════════════════════
+                        Cada <li> representa um item da lista/menu
+                        -->
+
+                        <li><a href="index.html">Página Inicial</a></li>
+                        <!-- 
+                        <li> = List Item (Item de Lista)
+                        <a> = Anchor (Âncora/Link)
+                        
+                        Atributo href="index.html":
+                        - Hypertext Reference (referência de hipertexto)
+                        - Define o destino do link
+                        - Pode ser:
+                          * Arquivo local: "pagina.html"
+                          * URL completa: "https://exemplo.com"
+                          * Âncora na mesma página: "#secao"
+                          * Email: "mailto:email@exemplo.com"
+                          * Telefone: "tel:+5511999999999"
+                        
+                        Texto entre <a></a>: O que o usuário clica/vê
+                        -->
+
+                        <li><a href="primeiros-passos.html">Primeiros Passos</a></li>
+                        <!-- Link para página de introdução -->
+
+                        <li><a href="cartoes-scratch.html">Cartões Scratch</a></li>
+                        <!-- Link para recursos de cartões -->
+
+                        <li><a href="sugestoes-atividades.html">Sugestões de Atividades</a></li>
+                        <!-- Link para ideias de atividades -->
+
+                        <li><a href="atividades-rapidas.html">Atividades Rápidas</a></li>
+                        <!-- Link para exercícios curtos -->
+
+                        <li><a href="fichas-atividades.html">Fichas de Atividades</a></li>
+                        <!-- Link para material complementar -->
+
+                        <li><a href="projetos-didaticos.html">Projetos Didáticos</a></li>
+                        <!-- Link para projetos educacionais -->
+
+                        <li><a href="modelos-projetos.html">Modelos de Projetos</a></li>
+                        <!-- Link para templates prontos -->
+
+                        <li><a href="planos-aula.html">Planos de Aula</a></li>
+                        <!-- Link para planejamentos de aula -->
+
+                        <li><a href="materiais-complementares.html" class="active">Materiais Complementares</a></li>
+                        <li><a href="referencias-bibliograficas.html">Referências Bibliográficas</a></li>
+                        <!-- 
+                        PÁGINA ATUAL - Note a classe "active"
+                        
+                        class="active": Indica visualmente qual página está sendo visualizada
+                        No CSS, esta classe geralmente recebe:
+                        - Cor diferente
+                        - Negrito
+                        - Sublinhado
+                        - Fundo destacado
+                        
+                        Melhora a experiência do usuário (UX) mostrando onde ele está
+                        -->
+                    </ul>
+                    <!-- Fim da lista de navegação -->
+                </nav>
+                <!-- Fim do elemento de navegação -->
+            </div>
+            <!-- Fim do container -->
+        </div>
+        <!-- Fim do header-bottom -->
+    </header>
+    <!-- Fim do cabeçalho completo -->
+
+    <!--
+    ═══════════════════════════════════════════════════════════════════════════
+    CONTEÚDO PRINCIPAL DA PÁGINA (MAIN)
+    ═══════════════════════════════════════════════════════════════════════════
+    -->
+    <main>
+        <!-- 
+    <main> é um elemento semântico HTML5
+    Representa o conteúdo PRINCIPAL e ÚNICO desta página
+    
+    Regras importantes:
+    - Só pode haver UM <main> por página
+    - Não deve estar dentro de <article>, <aside>, <header>, <footer>, <nav>
+    - Conteúdo que se repete em todas as páginas vai FORA do <main>
+    
+    Benefícios:
+    - Leitores de tela podem pular direto para o conteúdo principal
+    - Mecanismos de busca identificam o conteúdo mais relevante
+    - Melhora a estrutura e organização do código
+    -->
+
+        <div class="container">
+            <!-- Container para manter margens e largura consistentes -->
+
+            <!-- 
+            ═══════════════════════════════════════════════════════════════
+            CABEÇALHO DA PÁGINA (TÍTULO E SUBTÍTULO)
+            ═══════════════════════════════════════════════════════════════
+            -->
+            <div class="page-header">
+                <!-- Agrupa título e subtítulo da página -->
+
+                <h1>Materiais Complementares Scratch</h1>
+                <!-- 
+                <h1> = Heading 1 (Cabeçalho de Nível 1)
+                
+                Hierarquia de cabeçalhos HTML:
+                - <h1>: Título principal (MAIS importante) - Use APENAS UM por página
+                - <h2>: Seções principais
+                - <h3>: Subseções
+                - <h4>: Sub-subseções
+                - <h5>: Níveis ainda menores
+                - <h6>: Menor nível de cabeçalho
+                
+                Importância:
+                - Define estrutura hierárquica do documento
+                - SEO: mecanismos de busca dão peso aos cabeçalhos
+                - Acessibilidade: leitores de tela usam para navegação
+                - NUNCA pule níveis (não vá de h1 direto para h3)
+                - Use pela IMPORTÂNCIA, não pelo tamanho visual (CSS controla aparência)
+                -->
+
+                <p class="subtitle">Recursos para Professores</p>
+                <!-- 
+                <p> = Paragraph (Parágrafo)
+                Tag mais comum para texto corrido
+                
+                class="subtitle": Classe CSS para estilizar como subtítulo
+                (provavelmente fonte menor, cor diferente, etc.)
+                
+                Boas práticas com parágrafos:
+                - Use para blocos de texto
+                - Não use para elementos que não sejam texto
+                - Navegadores adicionam espaçamento automático entre <p>
+                - Evite <p> vazios para espaçamento (use CSS margin/padding)
+                -->
+            </div>
+            <!-- Fim do page-header -->
+
+            <!-- 
+            ═══════════════════════════════════════════════════════════════════
+            SEÇÃO 1: GLOSSÁRIO DE TERMOS
+            ═══════════════════════════════════════════════════════════════════
+            -->
+            <div class="content-section">
+                <!-- 
+            Div com classe "content-section" para agrupar uma seção completa
+            Permite estilização consistente de todas as seções
+            Facilita espaçamento e organização visual
+            -->
+
+                <h2>1. GLOSSÁRIO DE TERMOS SCRATCH</h2>
+                <!-- 
+                <h2> = Cabeçalho de Nível 2
+                Indica uma seção principal dentro da página
+                Hierarquia: h1 (página) > h2 (seções) > h3 (subseções)
+                -->
+
+                <h3>Termos Técnicos Básicos</h3>
+                <!-- 
+                <h3> = Cabeçalho de Nível 3
+                Subsecção dentro da seção h2
+                -->
+
+                <h4>A. Interface e Plataforma</h4>
+                <!-- 
+                <h4> = Cabeçalho de Nível 4
+                Categoria dentro da subsecção h3
+                Hierarquia clara: h2 > h3 > h4
+                -->
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                TERMO DO GLOSSÁRIO 1: SCRATCH
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="glossario-termo">
+                    <!-- 
+                Div específica para cada termo do glossário
+                Classe permite estilização consistente:
+                - Bordas
+                - Fundo colorido
+                - Espaçamento interno
+                - Ícones
+                -->
+
+                    <h5>Scratch</h5>
+                    <!-- 
+                    <h5> = Cabeçalho de Nível 5
+                    Nome do termo sendo definido
+                    Hierarquia: h2 > h3 > h4 > h5
+                    -->
+
+                    <ul>
+                        <!-- Lista não ordenada para as características -->
+
+                        <li>Plataforma de programação visual desenvolvida pelo MIT</li>
+                        <!-- 
+                        <li> = List Item
+                        Cada característica é um item da lista
+                        Marcadores (bullets) são adicionados automaticamente
+                        -->
+
+                        <li>Utiliza blocos coloridos que se encaixam como LEGO</li>
+                        <!-- Segunda característica -->
+
+                        <li>Disponível online e offline</li>
+                        <!-- Terceira característica -->
+                    </ul>
+                    <!-- Fim da lista de características -->
+                </div>
+                <!-- Fim do termo "Scratch" -->
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                TERMO DO GLOSSÁRIO 2: PALCO
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="glossario-termo">
+                    <h5>Palco</h5>
+                    <ul>
+                        <li>Área onde os sprites se movem e interagem</li>
+                        <li>Localizado no canto superior direito da tela</li>
+                        <li>Dimensões: 480x360 pixels</li>
+                        <!-- 
+                        Note a informação técnica específica (dimensões)
+                        Importante para entendimento completo
+                        -->
+                    </ul>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                TERMO DO GLOSSÁRIO 3: ÁREA DE SCRIPTS
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="glossario-termo">
+                    <h5>Área de Scripts</h5>
+                    <ul>
+                        <li>Espaço central onde os blocos são arrastados e encaixados</li>
+                        <li>Onde os programas são montados</li>
+                        <li>Pode conter múltiplos scripts para o mesmo sprite</li>
+                    </ul>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                NOVA CATEGORIA: ELEMENTOS DE PROGRAMAÇÃO
+                ═══════════════════════════════════════════════════════════
+                -->
+                <h4>B. Elementos de Programação</h4>
+                <!-- Novo agrupamento de termos relacionados -->
+
+                <div class="glossario-termo">
+                    <h5>Sprite</h5>
+                    <ul>
+                        <li>Personagem ou objeto que realiza ações no projeto</li>
+                        <li>Pode ter múltiplos trajes (aparências)</li>
+                        <li>Cada sprite tem seus próprios scripts</li>
+
+                        <li><strong>Exemplos de sprites:</strong></li>
+                        <!-- 
+                        <strong> = Strong (Forte/Importante)
+                        Elemento semântico que indica importância
+                        Navegadores geralmente renderizam em negrito
+                        
+                        Diferença entre <strong> e <b>:
+                        - <strong>: Importância semântica (recomendado)
+                        - <b>: Apenas visual (evitar)
+                        
+                        Similar: <em> (ênfase) vs <i> (itálico)
+                        -->
+
+                        <ul>
+                            <!-- 
+                        LISTA ANINHADA (nested list)
+                        Uma lista dentro de outra lista
+                        Cria hierarquia visual com indentação
+                        Navegadores automaticamente indentem listas aninhadas
+                        -->
+
+                            <li>Personagens (gato, pessoa, monstro)</li>
+                            <li>Objetos (bola, carro, árvore)</li>
+                            <li>Letras e números</li>
+                            <li>Formas geométricas</li>
+                        </ul>
+                        <!-- Fim da lista aninhada -->
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Bloco</h5>
+                    <ul>
+                        <li>Unidade básica de programação no Scratch</li>
+                        <li>Categorizado por cores e funções</li>
+                        <li>Encaixa-se verticalmente com outros blocos</li>
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Script</h5>
+                    <ul>
+                        <li>Conjunto de blocos encaixados que formam um programa</li>
+                        <li>Executa sequencialmente de cima para baixo</li>
+                        <li>Pode ser iniciado por eventos</li>
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Backdrop (Cenário)</h5>
+                    <ul>
+                        <li>Imagem de fundo do palco</li>
+                        <li>Pode ser programado para mudar durante a animação</li>
+                        <li>Múltiplos cenários podem ser usados no mesmo projeto</li>
+                    </ul>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                CATEGORIA: CATEGORIAS DE BLOCOS
+                ═══════════════════════════════════════════════════════════
+                -->
+                <h4>C. Categorias de Blocos</h4>
+
+                <div class="glossario-termo">
+                    <h5>Blocos de Movimento (Azul)</h5>
+                    <ul>
+                        <li>Controlam posição, direção e rotação dos sprites</li>
+
+                        <li>Ex: <code>mova 10 passos</code>, <code>gire 15 graus</code></li>
+                        <!-- 
+                        <code> = Code (Código)
+                        Elemento semântico para representar código de computador
+                        
+                        Características:
+                        - Navegadores usam fonte monoespaçada (monospace)
+                        - Indica que o texto é código/comando
+                        - Útil para: comandos, nomes de variáveis, funções
+                        
+                        Para blocos de código maiores, use <pre><code>...</code></pre>
+                        <pre> preserva espaços e quebras de linha
+                        -->
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Blocos de Aparência (Roxo)</h5>
+                    <ul>
+                        <li>Alteram visualização dos sprites</li>
+                        <li>Ex: <code>diga Olá!</code>, <code>mude o efeito cor</code></li>
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Blocos de Som (Magenta)</h5>
+                    <ul>
+                        <li>Controlam áudio e efeitos sonoros</li>
+                        <li>Ex: <code>toque o som meow</code>, <code>toque a nota 60</code></li>
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Blocos de Eventos (Amarelo)</h5>
+                    <ul>
+                        <li>Iniciam a execução dos scripts</li>
+                        <li>Ex: <code>quando ⚑ for clicado</code>, <code>quando a tecla espaço for pressionada</code>
+                        </li>
+                        <!-- 
+                        Note o uso de emoji ⚑ (bandeira)
+                        UTF-8 permite usar emojis diretamente no HTML
+                        Torna o conteúdo mais visual e compreensível
+                        -->
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Blocos de Controle (Laranja)</h5>
+                    <ul>
+                        <li>Gerenciam fluxo do programa</li>
+                        <li>Ex: <code>espere 1 segundos</code>, <code>repita 10 vezes</code>, <code>se então</code></li>
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Blocos de Sensores (Azul Claro)</h5>
+                    <ul>
+                        <li>Detectam interações e condições</li>
+                        <li>Ex: <code>tocando na cor?</code>, <code>tecla espaço pressionada?</code></li>
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Blocos de Operadores (Verde)</h5>
+                    <ul>
+                        <li>Realizam cálculos e operações lógicas</li>
+                        <li>Ex: <code>+</code>, <code>-</code>, <code>e</code>, <code>ou</code>, <code>não</code></li>
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Blocos de Variáveis (Laranja)</h5>
+                    <ul>
+                        <li>Armazenam e manipulam dados</li>
+                        <li>Ex: <code>mude pontos para 1</code>, <code>adicione 1 a pontos</code></li>
+                    </ul>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                NOVA SUBSECÇÃO: TERMOS AVANÇADOS
+                ═══════════════════════════════════════════════════════════
+                -->
+                <h3>Termos Avançados</h3>
+
+                <h4>D. Conceitos de Programação</h4>
+
+                <div class="glossario-termo">
+                    <h5>Variável</h5>
+                    <ul>
+                        <li>Container que armazena um valor</li>
+                        <li>Pode ser número, texto ou booleano (verdadeiro/falso)</li>
+                        <li>Ex: <code>pontuação</code>, <code>vidas</code>, <code>nome_jogador</code></li>
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Lista</h5>
+                    <ul>
+                        <li>Coleção ordenada de valores</li>
+                        <li>Similar a variável, mas armazena múltiplos itens</li>
+                        <li>Ex: <code>lista_de_alunos</code>, <code>pontuações_altas</code></li>
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Clone</h5>
+                    <ul>
+                        <li>Cópia temporária de um sprite</li>
+                        <li>Herda scripts e características do original</li>
+                        <li>Pode ser criado e destruído durante a execução</li>
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Broadcast (Transmissão)</h5>
+                    <ul>
+                        <li>Mensagem enviada entre sprites</li>
+                        <li>Permite comunicação e sincronização</li>
+                        <li>Ex: <code>transmita game_over</code>, <code>quando eu receber inicio</code></li>
+                    </ul>
+                </div>
+
+                <div class="glossario-termo">
+                    <h5>Coordenadas X e Y</h5>
+                    <ul>
+                        <li>Sistema de posicionamento no palco</li>
+                        <li>X: horizontal (-240 esquerda, 240 direita)</li>
+                        <li>Y: vertical (-180 baixo, 180 cima)</li>
+                        <li>Centro: (0, 0)</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Fim da Seção 1: Glossário -->
+
+            <!-- 
+            ═══════════════════════════════════════════════════════════════════
+            SEÇÃO 2: REFERÊNCIAS E LINKS ÚTEIS
+            ═══════════════════════════════════════════════════════════════════
+            -->
+            <div class="content-section">
+                <h2>2. REFERÊNCIAS E LINKS ÚTEIS</h2>
+
+                <h3>Recursos Oficiais Scratch</h3>
+
+                <h4>A. Sites Principais</h4>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                ITEM DE REFERÊNCIA 1: SCRATCH OFICIAL
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="referencia-item">
+                    <!-- Classe específica para itens de referência -->
+
+                    <h5>Scratch Oficial (MIT)</h5>
+
+                    <p>🌐 <a href="https://scratch.mit.edu" target="_blank"
+                            rel="noopener noreferrer">https://scratch.mit.edu</a></p>
+                    <!-- 
+                    Link externo com atributos de segurança
+                    
+                    Atributos importantes:
+                    
+                    1. target="_blank"
+                       - Abre o link em uma NOVA aba/janela
+                       - Mantém a página atual aberta
+                       - Útil para links externos
+                       - SEMPRE combine com rel="noopener noreferrer"
+                    
+                    2. rel="noopener noreferrer"
+                       - SEGURANÇA: Previne vulnerabilidades
+                       - noopener: Impede que a nova página acesse window.opener
+                       - noreferrer: Não envia informações de referência
+                       - SEMPRE use quando target="_blank"
+                       - Protege contra ataques de "tabnabbing"
+                    
+                    Emoji 🌐 indica link para site externo
+                    Melhora a experiência visual do usuário
+                    -->
+
+                    <ul>
+                        <li>Plataforma principal</li>
+                        <li>Comunidade de projetos</li>
+                        <li>Contas gratuitas</li>
+                        <li>Tutoriais interativos</li>
+                    </ul>
+                </div>
+
+                <div class="referencia-item">
+                    <h5>Scratch para Educadores</h5>
+                    <p>🌐 <a href="https://scratch.mit.edu/educators" target="_blank"
+                            rel="noopener noreferrer">https://scratch.mit.edu/educators</a></p>
+                    <ul>
+                        <li>Recursos específicos para professores</li>
+                        <li>Planos de aula</li>
+                        <li>Materiais de formação</li>
+                        <li>Histórias de sucesso</li>
+                    </ul>
+                </div>
+
+                <div class="referencia-item">
+                    <h5>Scratch Wiki</h5>
+                    <p>🌐 <a href="https://en.scratch-wiki.info" target="_blank"
+                            rel="noopener noreferrer">https://en.scratch-wiki.info</a></p>
+                    <ul>
+                        <li>Enciclopédia colaborativa</li>
+                        <li>Tutoriais detalhados</li>
+                        <li>Solução de problemas</li>
+                        <li>Exemplos avançados</li>
+                    </ul>
+                </div>
+
+                <h4>B. Downloads e Versões</h4>
+
+                <div class="referencia-item">
+                    <h5>Scratch Desktop (Offline)</h5>
+                    <p>📥 <a href="https://scratch.mit.edu/download" target="_blank"
+                            rel="noopener noreferrer">https://scratch.mit.edu/download</a></p>
+                    <!-- Emoji 📥 indica download -->
+                    <ul>
+                        <li>Versão para instalação local</li>
+                        <li>Não requer internet</li>
+                        <li>Windows, Mac, Linux</li>
+                        <li>Ideal para escolas com conectividade limitada</li>
+                    </ul>
+                </div>
+
+                <div class="referencia-item">
+                    <h5>Scratch App</h5>
+                    <p>📱 Disponível nas lojas de aplicativos</p>
+                    <!-- 
+                    Emoji 📱 indica aplicativo móvel
+                    Note que este item NÃO tem link (apenas texto)
+                    -->
+                    <ul>
+                        <li>Versão móvel simplificada</li>
+                        <li>Tablets e smartphones</li>
+                        <li>Funcionalidades básicas</li>
+                    </ul>
+                </div>
+
+                <h3>Recursos em Português</h3>
+
+                <h4>C. Materiais Traduzidos</h4>
+
+                <div class="referencia-item">
+                    <h5>Scratch Brasil</h5>
+                    <p>🌐 <a href="http://www.scratchbrasil.net" target="_blank"
+                            rel="noopener noreferrer">http://www.scratchbrasil.net</a></p>
+                    <!-- 
+                    Note: Este link usa HTTP (não HTTPS)
+                    HTTPS é mais seguro e recomendado
+                    Mas alguns sites antigos ainda usam HTTP
+                    -->
+                    <ul>
+                        <li>Comunidade brasileira</li>
+                        <li>Tutoriais em português</li>
+                        <li>Eventos e competições</li>
+                        <li>Fórum de discussão</li>
+                    </ul>
+                </div>
+
+                <div class="referencia-item">
+                    <h5>Cartilhas em Português</h5>
+                    <p>📚 Materiais recomendados:</p>
+                    <!-- Emoji 📚 indica livros/materiais educacionais -->
+                    <ul>
+                        <li>"Aprendendo com Scratch" - MEC</li>
+                        <li>"Scratch para Professores" - Fundação Lemann</li>
+                        <li>"Programação Criativa" - CIEB</li>
+                        <!-- 
+                        Note o uso de aspas tipográficas " "
+                        Mais elegante que aspas retas " "
+                        -->
+                    </ul>
+                </div>
+
+                <h3>Recursos para Sala de Aula</h3>
+
+                <h4>D. Planos de Aula Prontos</h4>
+
+                <div class="referencia-item">
+                    <h5>ScratchEd (Harvard)</h5>
+                    <p>🌐 <a href="http://scratched.gse.harvard.edu" target="_blank"
+                            rel="noopener noreferrer">http://scratched.gse.harvard.edu</a></p>
+                    <ul>
+                        <li>Banco de atividades</li>
+                        <li>Planos por série e disciplina</li>
+                        <li>Avaliações e rubricas</li>
+                        <li>Comunidade de educadores</li>
+                    </ul>
+                </div>
+
+                <div class="referencia-item">
+                    <h5>Code.org Integração</h5>
+                    <p>🌐 <a href="https://code.org/educate/scratch" target="_blank"
+                            rel="noopener noreferrer">https://code.org/educate/scratch</a></p>
+                    <ul>
+                        <li>Atividades mapeadas para currículo</li>
+                        <li>Progressão de dificuldade</li>
+                        <li>Conexão com outras linguagens</li>
+                    </ul>
+                </div>
+
+                <h4>E. Projetos Exemplares</h4>
+
+                <div class="referencia-item">
+                    <h5>Galeria de Projetos Educativos</h5>
+                    <p>🔗 <a href="https://scratch.mit.edu/studios/26724098/" target="_blank"
+                            rel="noopener noreferrer">https://scratch.mit.edu/studios/26724098/</a></p>
+                    <!-- Emoji 🔗 indica link/conexão -->
+                    <ul>
+                        <li>Projetos organizados por tema</li>
+                        <li>Matemática, Ciências, História</li>
+                        <li>Arte e Música</li>
+                        <li>Exemplos para diferentes idades</li>
+                    </ul>
+                </div>
+
+                <h3>Ferramentas de Apoio</h3>
+
+                <h4>F. Extensões e Add-ons</h4>
+
+                <div class="referencia-item">
+                    <h5>Scratch Extensions</h5>
+                    <p>⚡ Extensões disponíveis:</p>
+                    <!-- Emoji ⚡ indica funcionalidades/recursos extras -->
+                    <ul>
+                        <li>Pen (Desenho)</li>
+                        <li>Music (Instrumentos musicais)</li>
+                        <li>Text to Speech (Texto para fala)</li>
+                        <li>Translate (Tradução)</li>
+                        <li>Micro:bit (Hardware)</li>
+                        <li>LEGO Education</li>
+                    </ul>
+                </div>
+
+                <div class="referencia-item">
+                    <h5>Editores de Imagem Integrados</h5>
+                    <p>🎨 Ferramentas incluídas:</p>
+                    <!-- Emoji 🎨 indica ferramentas de arte/design -->
+                    <ul>
+                        <li>Editor de Paint (básico)</li>
+                        <li>Conversor de SVG</li>
+                        <li>Editor de vetores</li>
+                        <li>Ferramentas de texto</li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Fim da Seção 2: Referências -->
+
+            <!-- 
+            ═══════════════════════════════════════════════════════════════════
+            SEÇÃO 3: FICHAS DE ATIVIDADE RÁPIDA
+            ═══════════════════════════════════════════════════════════════════
+            -->
+            <div class="content-section">
+                <h2>3. FICHAS DE ATIVIDADE RÁPIDA</h2>
+                <p>Cartões de Desafio Relâmpago (15 minutos cada)</p>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                FICHA RÁPIDA 1: ANIMAÇÃO SIMPLES
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="ficha-rapida">
+                    <!-- Classe específica para fichas de atividade rápida -->
+
+                    <div class="ficha-header">
+                        <!-- Cabeçalho da ficha com título e tempo -->
+
+                        <h3>Desafio 1: "Animação Simples"</h3>
+
+                        <div class="ficha-tempo">15 minutos</div>
+                        <!-- 
+                        Div separado para o tempo
+                        Permite posicionamento independente (ex: canto superior direito)
+                        Pode ter estilo visual diferenciado (badge, cor de destaque)
+                        -->
+                    </div>
+
+                    <p><strong>Objetivo:</strong> Criar movimento básico</p>
+                    <!-- Objetivo claro e conciso -->
+
+                    <h4>TAREFA:</h4>
+
+                    <ol>
+                        <!-- 
+                    <ol> = Ordered List (Lista Ordenada)
+                    Cria lista NUMERADA automaticamente
+                    Perfeita para passos sequenciais/instruções
+                    
+                    Diferença entre <ul> e <ol>:
+                    - <ul>: Bullets (•), ordem não importa
+                    - <ol>: Números (1,2,3), ordem importa
+                    -->
+
+                        <li>Adicione um sprite animal</li>
+                        <!-- Passo 1 - será numerado automaticamente como "1." -->
+
+                        <li>Faça-o andar 50 passos</li>
+                        <!-- Passo 2 - numerado como "2." -->
+
+                        <li>Gire 90 graus</li>
+                        <!-- Passo 3 -->
+
+                        <li>Repita 4 vezes</li>
+                        <!-- Passo 4 -->
+                    </ol>
+
+                    <h4>BLOCOS SUGERIDOS:</h4>
+
+                    <div class="scratch-code">
+                        <!-- 
+                    Div com classe específica para código Scratch
+                    CSS provavelmente aplica:
+                    - Fonte monoespaçada
+                    - Fundo diferenciado
+                    - Bordas
+                    - Preservação de espaços
+                    -->
+                        quando ⚑ for clicado
+                        repita 4 vezes
+                        mova 50 passos
+                        gire ↻ 90 graus
+                        <!-- 
+                    Note a preservação da indentação
+                    Emojis usados para símbolos do Scratch (⚑ ↻)
+                    Torna o código mais visual e reconhecível
+                    -->
+                    </div>
+                </div>
+                <!-- Fim da Ficha Rápida 1 -->
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                FICHA RÁPIDA 2: DIÁLOGO ENTRE PERSONAGENS
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="ficha-rapida">
+                    <div class="ficha-header">
+                        <h3>Desafio 2: "Diálogo entre Personagens"</h3>
+                        <div class="ficha-tempo">15 minutos</div>
+                    </div>
+                    <p><strong>Objetivo:</strong> Sincronizar falas</p>
+
+                    <h4>TAREFA:</h4>
+                    <ol>
+                        <li>Use 2 sprites diferentes</li>
+                        <li>Sprite 1: "Olá, como você está?"</li>
+                        <li>Sprite 2: "Estou bem, obrigado!"</li>
+                        <li>Use blocos de espera para timing</li>
+                    </ol>
+
+                    <h4>BLOCOS-CHAVE:</h4>
+                    <div class="scratch-code">
+                        diga [texto] por [2] segundos
+                        espere [1] segundos
+                        <!-- 
+                    Uso de colchetes [] para indicar parâmetros editáveis
+                    Convenção comum em documentação de programação
+                    -->
+                    </div>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                FICHA RÁPIDA 3: EFEITOS VISUAIS
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="ficha-rapida">
+                    <div class="ficha-header">
+                        <h3>Desafio 3: "Efeitos Visuais"</h3>
+                        <div class="ficha-tempo">15 minutos</div>
+                    </div>
+                    <p><strong>Objetivo:</strong> Explorar aparência</p>
+
+                    <h4>TAREFA:</h4>
+                    <ol>
+                        <li>Escolha um sprite</li>
+                        <li>Mude o efeito cor gradualmente</li>
+                        <li>Aumente o tamanho</li>
+                        <li>Adicione um som</li>
+                    </ol>
+
+                    <h4>BLOCOS EXPERIMENTAIS:</h4>
+                    <div class="scratch-code">
+                        mude o efeito [cor] para [25]
+                        mude o tamanho para [110]%
+                        toque o som [pop]
+                    </div>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                RUBRICA DE AVALIAÇÃO
+                ═══════════════════════════════════════════════════════════
+                -->
+                <h3>Rubrica de Avaliação Rápida</h3>
+
+                <div class="rubrica-avaliacao">
+                    <!-- Classe para estilizar a rubrica de avaliação -->
+
+                    <div>
+                        <!-- Primeira coluna/seção da rubrica -->
+
+                        <h4>Critérios Básicos (1º-3º ano)</h4>
+                        <!-- Rubrica adaptada para anos iniciais -->
+
+                        <p><strong>✅ FUNCIONAMENTO (3 pontos)</strong></p>
+                        <!-- Emoji ✅ indica critério de avaliação -->
+                        <ul>
+                            <li>Projeto inicia com bandeira verde</li>
+                            <li>Executa sem erros</li>
+                            <li>Faz o que foi proposto</li>
+                        </ul>
+
+                        <p><strong>✅ CRIATIVIDADE (2 pontos)</strong></p>
+                        <ul>
+                            <li>Elementos pessoais adicionados</li>
+                            <li>Cores e sons escolhidos</li>
+                            <li>Originalidade na solução</li>
+                        </ul>
+
+                        <p><strong>✅ ORGANIZAÇÃO (1 ponto)</strong></p>
+                        <ul>
+                            <li>Scripts organizados</li>
+                            <li>Nomes apropriados</li>
+                            <li>Projeto salvo corretamente</li>
+                        </ul>
+                    </div>
+
+                    <div>
+                        <!-- Segunda coluna/seção da rubrica -->
+
+                        <h4>Critérios Avançados (4º-5º ano)</h4>
+                        <!-- Rubrica para anos mais avançados -->
+
+                        <p><strong>✅ LÓGICA E ESTRUTURA (3 pontos)</strong></p>
+                        <ul>
+                            <li>Uso adequado de loops</li>
+                            <li>Condicionais quando necessário</li>
+                            <li>Variáveis bem empregadas</li>
+                        </ul>
+
+                        <p><strong>✅ INTERATIVIDADE (2 pontos)</strong></p>
+                        <ul>
+                            <li>Responde a entradas do usuário</li>
+                            <li>Feedback claro</li>
+                            <li>Múltiplas ações possíveis</li>
+                        </ul>
+
+                        <p><strong>✅ OTIMIZAÇÃO (1 ponto)</strong></p>
+                        <ul>
+                            <li>Código eficiente</li>
+                            <li>Sem repetições desnecessárias</li>
+                            <li>Uso apropriado de eventos</li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- Fim da rubrica de avaliação -->
+            </div>
+            <!-- Fim da Seção 3: Fichas de Atividade Rápida -->
+
+            <!-- 
+            ═══════════════════════════════════════════════════════════════════
+            SEÇÃO 4: GUIA DE SOLUÇÃO DE PROBLEMAS
+            ═══════════════════════════════════════════════════════════════════
+            -->
+            <div class="content-section">
+                <h2>4. GUIA DE SOLUÇÃO DE PROBLEMAS</h2>
+
+                <h3>Problemas Comuns e Soluções</h3>
+
+                <h4>A. Problemas de Acesso</h4>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                PROBLEMA-SOLUÇÃO 1: LOGIN
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="problema-solucao">
+                    <!-- Classe específica para blocos de problema-solução -->
+
+                    <h5>"Não consigo fazer login"</h5>
+                    <!-- Título do problema entre aspas -->
+
+                    <p><strong>CAUSAS POSSÍVEIS:</strong></p>
+                    <ul>
+                        <li>Senha incorreta</li>
+                        <li>Conta não verificada</li>
+                        <li>Problema de conexão</li>
+                        <li>Navegador desatualizado</li>
+                    </ul>
+
+                    <p><strong>SOLUÇÕES:</strong></p>
+                    <ol>
+                        <!-- Lista ordenada para passos de solução -->
+                        <li>Use "Esqueci minha senha"</li>
+                        <li>Verifique email de confirmação</li>
+                        <li>Tente outro navegador (Chrome/Firefox)</li>
+                        <li>Limpe cache e cookies</li>
+                    </ol>
+                </div>
+
+                <div class="problema-solucao">
+                    <h5>"Scratch está lento"</h5>
+
+                    <p><strong>OTIMIZAÇÕES:</strong></p>
+                    <ul>
+                        <li>Feche abas não usadas</li>
+                        <li>Use modo offline se disponível</li>
+                        <li>Reinicie o navegador</li>
+                        <li>Verifique conexão de internet</li>
+                    </ul>
+                </div>
+
+                <h4>B. Problemas Técnicos</h4>
+
+                <div class="problema-solucao">
+                    <h5>"Blocos não encaixam"</h5>
+
+                    <p><strong>VERIFIQUE:</strong></p>
+                    <ul>
+                        <li>Está arrastando para área de scripts?</li>
+                        <li>Aparece linha branca de conexão?</li>
+                        <li>Bloco é compatível com a categoria?</li>
+                        <li>Não está tentando encaixar horizontalmente?</li>
+                    </ul>
+
+                    <p><strong>SOLUÇÃO:</strong></p>
+                    <p>Arraste o bloco lentamente entre outros blocos até aparecer a linha branca de conexão</p>
+                    <!-- Parágrafo único para solução direta -->
+                </div>
+
+                <div class="problema-solucao">
+                    <h5>"Sprite não aparece"</h5>
+
+                    <p><strong>COMANDOS PARA VISIBILIDADE:</strong></p>
+                    <ul>
+                        <li><code>mostre</code> (torna visível)</li>
+                        <li><code>esconda</code> (torna invisível)</li>
+                        <li><code>vá para x: 0 y: 0</code> (centraliza)</li>
+                        <!-- 
+                        Comandos em <code> com explicações entre parênteses
+                        Formato claro e educativo
+                        -->
+                    </ul>
+
+                    <p><strong>VERIFIQUE SE:</strong></p>
+                    <ul>
+                        <li>Não usou "esconda" sem "mostre"</li>
+                        <li>Sprite não está fora do palco</li>
+                        <li>Efeitos de transparência não estão ativos</li>
+                    </ul>
+                </div>
+
+                <div class="problema-solucao">
+                    <h5>"Som não toca"</h5>
+
+                    <p><strong>CHECKLIST DE ÁUDIO:</strong></p>
+                    <ul>
+                        <li>Volume do computador está ligado?</li>
+                        <li>Usou bloco "toque o som [som]"?</li>
+                        <li>O som existe na biblioteca?</li>
+                        <li>Teste clicando diretamente no bloco de som</li>
+                    </ul>
+
+                    <p><strong>SOLUÇÃO ALTERNATIVA:</strong></p>
+                    <p>Use "toque a nota [60]" para teste rápido</p>
+                </div>
+
+                <h4>C. Problemas de Lógica</h4>
+
+                <div class="problema-solucao">
+                    <h5>"Programa não faz o que eu quero"</h5>
+
+                    <p><strong>ETAPAS DE DEBUG:</strong></p>
+                    <!-- Debug = Depuração (encontrar e corrigir erros) -->
+                    <ol>
+                        <li>Teste cada bloco individualmente</li>
+                        <li>Verifique a ordem dos blocos</li>
+                        <li>Use "diga [texto]" para verificar valores</li>
+                        <li>Confirme condições em blocos "se"</li>
+                    </ol>
+
+                    <p><strong>EXEMPLO:</strong></p>
+                    <p>Em vez de:</p>
+                    <div class="scratch-code">
+                        mova 10 passos
+                        espere 1 segundos
+                    </div>
+                    <p>Tente:</p>
+                    <div class="scratch-code">
+                        diga [Vou me mover agora!]
+                        mova 10 passos
+                        diga [Me movi!]
+                    </div>
+                    <!-- 
+                    Exemplo prático de debugging
+                    Mostra ANTES e DEPOIS
+                    Técnica pedagógica eficaz
+                    -->
+                </div>
+
+                <div class="problema-solucao">
+                    <h5>"Variáveis não atualizam"</h5>
+
+                    <p><strong>VERIFICAÇÕES:</strong></p>
+                    <ul>
+                        <li>A variável está visível no palco?</li>
+                        <li>Usou "mude [var] para [valor]"?</li>
+                        <li>Ou "adicione [1] a [var]"?</li>
+                        <li>Não está reiniciando acidentalmente?</li>
+                    </ul>
+
+                    <p><strong>EXEMPLO CORRETO:</strong></p>
+                    <div class="scratch-code">
+                        quando ⚑ for clicado
+                        mude [pontuação] para [0] // Inicializa
+
+                        quando a tecla [espaço] for pressionada
+                        adicione [1] a [pontuação] // Atualiza
+                        <!-- 
+                    Uso de comentários no código com //
+                    Explica o propósito de cada bloco
+                    Boa prática de programação
+                    -->
+                    </div>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                TÉCNICAS DE DEBUG PARA PROFESSORES
+                ═══════════════════════════════════════════════════════════
+                -->
+                <h3>Técnicas de Debug para Professores</h3>
+
+                <div class="problema-solucao">
+                    <h5>Método "Divide e Conquiste"</h5>
+                    <ol>
+                        <li><strong>ISOLAR:</strong> Teste pequenas partes do código</li>
+                        <li><strong>IDENTIFICAR:</strong> Encontre onde o problema começa</li>
+                        <li><strong>CORRIGIR:</strong> Ajuste apenas essa parte</li>
+                        <li><strong>TESTAR:</strong> Verifique se resolveu sem quebrar outras coisas</li>
+                        <!-- 
+                        Metodologia clássica de debugging
+                        Aplicável a qualquer linguagem de programação
+                        Ensina pensamento sistemático
+                        -->
+                    </ol>
+                </div>
+
+                <div class="problema-solucao">
+                    <h5>Método "Rastreamento Visual"</h5>
+                    <p>Use blocos de aparência para debugging:</p>
+                    <div class="scratch-code">
+                        diga (juntar [Valor da variável: ] (pontuação))
+                        diga [Cheguei neste ponto do código]
+                        espere 1 segundos // Para ver mensagens
+                        <!-- 
+                    Técnica de "print debugging"
+                    Adaptada para Scratch usando blocos "diga"
+                    Muito útil para iniciantes
+                    -->
+                    </div>
+                </div>
+            </div>
+            <!-- Fim da Seção 4: Guia de Solução de Problemas -->
+
+            <!-- 
+            ═══════════════════════════════════════════════════════════════════
+            SEÇÃO 5: CARTAZES PARA SALA DE AULA
+            ═══════════════════════════════════════════════════════════════════
+            -->
+            <div class="content-section">
+                <h2>5. CARTAZES PARA SALA DE AULA</h2>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                PÔSTER 1: BLOCOS BÁSICOS
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="cartaz-box">
+                    <!-- Classe específica para caixas de cartaz -->
+
+                    <div class="cartaz-header">Pôster 1: "Blocos Básicos do Scratch"</div>
+                    <!-- Cabeçalho do cartaz -->
+
+                    <div class="cartaz-content">
+                        <!-- Conteúdo do cartaz -->
+
+                        <p><strong>🟨 EVENTOS (Iniciar programas)</strong></p>
+                        <!-- Emoji colorido 🟨 representa a cor dos blocos -->
+                        <p>quando ⚑ for clicado</p>
+                        <p>quando a tecla [espaço] for pressionada</p>
+                        <p>quando este sprite for clicado</p>
+                        <!-- 
+                        Cada comando em um parágrafo separado
+                        Facilita leitura e visualização
+                        -->
+
+                        <p><strong>🟦 MOVIMENTO (Mover sprites)</strong></p>
+                        <p>mova 10 passos</p>
+                        <p>gire ↻ 15 graus</p>
+                        <p>vá para x: 0 y: 0</p>
+
+                        <p><strong>🟪 APARÊNCIA (Mudar visual)</strong></p>
+                        <p>diga Olá! por 2 segundos</p>
+                        <p>mude o efeito cor para 25</p>
+                        <p>mostre / esconda</p>
+
+                        <p><strong>🟧 CONTROLE (Repetir e Esperar)</strong></p>
+                        <p>espere 1 segundos</p>
+                        <p>repita 10 vezes</p>
+                        <p>se [condição] então</p>
+                        <!-- 
+                        Organização por categoria de blocos
+                        Cores dos emojis correspondem às cores no Scratch
+                        Recurso visual pedagógico importante
+                        -->
+                    </div>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                PÔSTER 2: FLUXO DE TRABALHO
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="cartaz-box">
+                    <div class="cartaz-header">Pôster 2: "Fluxo de Trabalho Scratch"</div>
+                    <div class="cartaz-content">
+                        <p><strong>1. PLANEJAR 💭</strong></p>
+                        <!-- Emoji 💭 representa pensamento/planejamento -->
+                        <p>- O que quero criar?</p>
+                        <p>- Quais sprites preciso?</p>
+                        <p>- Como será a interação?</p>
+
+                        <p><strong>2. IMPLEMENTAR 🛠️</strong></p>
+                        <!-- Emoji 🛠️ representa construção/trabalho -->
+                        <p>- Adicionar sprites e cenários</p>
+                        <p>- Programar blocos lógicos</p>
+                        <p>- Testar frequentemente</p>
+
+                        <p><strong>3. TESTAR 🧪</strong></p>
+                        <!-- Emoji 🧪 representa experimentação/teste -->
+                        <p>- Clicar na bandeira verde</p>
+                        <p>- Verificar se tudo funciona</p>
+                        <p>- Corrigir problemas (debug)</p>
+
+                        <p><strong>4. COMPARTILHAR 🌟</strong></p>
+                        <!-- Emoji 🌟 representa destaque/compartilhamento -->
+                        <p>- Salvar projeto</p>
+                        <p>- Colocar um nome significativo</p>
+                        <p>- Compartilhar com colegas</p>
+
+                        <p><strong>5. REFLETIR 📝</strong></p>
+                        <!-- Emoji 📝 representa reflexão/anotação -->
+                        <p>- O que aprendi?</p>
+                        <p>- O que posso melhorar?</p>
+                        <p>- Qual próximo desafio?</p>
+                        <!-- 
+                        Metodologia de design thinking aplicada ao Scratch
+                        Processo iterativo de aprendizagem
+                        Incentiva metacognição (pensar sobre o próprio pensamento)
+                        -->
+                    </div>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                PÔSTER 3: DICAS PARA PROGRAMAR MELHOR
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="cartaz-box">
+                    <div class="cartaz-header">Pôster 3: "Dicas para Programar Melhor"</div>
+                    <div class="cartaz-content">
+                        <p><strong>🎯 COMEÇE SIMPLES</strong></p>
+                        <p>Funcionalidade básica primeiro</p>
+                        <p>Depois adicione complexidade</p>
+
+                        <p><strong>🔍 TESTE COM FREQUÊNCIA</strong></p>
+                        <p>A cada novo bloco adicionado</p>
+                        <p>Use a bandeira verde sempre</p>
+
+                        <p><strong>🏷️ USE NOMES SIGNIFICATIVOS</strong></p>
+                        <p>"pontuacao" em vez de "var1"</p>
+                        <p>"inimigo" em vez de "sprite2"</p>
+
+                        <p><strong>🗂️ ORGANIZE SEUS SCRIPTS</strong></p>
+                        <p>Agrupe blocos relacionados</p>
+                        <p>Use comentários para explicar</p>
+
+                        <p><strong>🐛 NÃO TENHA MEDO DE ERRAR</strong></p>
+                        <!-- Emoji 🐛 representa bug (erro de programação) -->
+                        <p>Erros são oportunidades</p>
+                        <p>Debugging faz parte do processo</p>
+
+                        <p><strong>🤝 COLABORE E COMPARTILHE</strong></p>
+                        <p>Peça ajuda aos colegas</p>
+                        <p>Mostre suas descobertas</p>
+                        <!-- 
+                        Boas práticas de programação adaptadas para crianças
+                        Linguagem acessível e motivadora
+                        Incentiva mentalidade de crescimento (growth mindset)
+                        -->
+                    </div>
+                </div>
+            </div>
+            <!-- Fim da Seção 5: Cartazes -->
+
+            <!-- 
+            ═══════════════════════════════════════════════════════════════════
+            SEÇÃO 6: MODELOS DE PROJETOS PRONTOS
+            ═══════════════════════════════════════════════════════════════════
+            -->
+            <div class="content-section">
+                <h2>6. MODELOS DE PROJETOS PRONTOS</h2>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                TEMPLATE 1: APRESENTAÇÃO
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="modelo-projeto">
+                    <!-- Classe para modelos de projeto -->
+
+                    <h3>Template 1: Projeto de Apresentação</h3>
+                    <div class="scratch-code">
+                        // SPRITE PRINCIPAL
+                        quando ⚑ for clicado
+                        diga [Olá! Meu nome é ______] por 3 segundos
+                        diga [Eu tenho ____ anos] por 3 segundos
+                        diga [Minha matéria favorita é ______] por 3 segundos
+
+                        // CENÁRIO
+                        quando ⚑ for clicado
+                        mude para o cenário [cenario_casa]
+                        espere 9 segundos
+                        mude para o cenário [cenario_escola]
+                        <!-- 
+                    Template com espaços em branco (______) para personalização
+                    Comentários // indicam diferentes partes do código
+                    Estrutura clara para alunos seguirem
+                    -->
+                    </div>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                TEMPLATE 2: QUIZ
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="modelo-projeto">
+                    <h3>Template 2: Quiz Básico</h3>
+                    <div class="scratch-code">
+                        // VARIÁVEIS: pontuacao, pergunta_atual
+                        quando ⚑ for clicado
+                        mude [pontuacao] para [0]
+                        mude [pergunta_atual] para [1]
+                        transmita [fazer_pergunta1]
+
+                        quando eu receber [fazer_pergunta1]
+                        pergunte [Qual é a capital do Brasil?] e espere
+                        se &lt;(resposta) = [Brasília]&gt; então
+                        adicione [1] a [pontuacao]
+                        diga [Correto!] por 2 segundos
+                        <!-- 
+                    Note o uso de &lt; e &gt; para < e >
+                    Entidades HTML para caracteres especiais:
+                    - &lt; representa <
+                    - &gt; representa >
+                    - &amp; representa &
+                    - &quot; representa "
+                    - &apos; representa '
+                    
+                    Necessário porque < e > são caracteres especiais em HTML
+                    Sem isso, o navegador tentaria interpretar como tags
+                    -->
+                    </div>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                TEMPLATE 3: ANIMAÇÃO COM MÚLTIPLOS SPRITES
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="modelo-projeto">
+                    <h3>Template 3: Animação com Múltiplos Sprites</h3>
+                    <div class="scratch-code">
+                        // SPRITE 1
+                        quando ⚑ for clicado
+                        diga [Eu começo primeiro!] por 2 segundos
+                        transmita [sprite2_acao]
+
+                        // SPRITE 2
+                        quando eu receber [sprite2_acao]
+                        espere 1 segundos
+                        diga [Agora é minha vez!] por 2 segundos
+                        <!-- 
+                    Demonstra comunicação entre sprites
+                    Uso de broadcast (transmissão de mensagens)
+                    Conceito fundamental do Scratch
+                    -->
+                    </div>
+                </div>
+            </div>
+            <!-- Fim da Seção 6: Modelos de Projetos -->
+
+            <!-- 
+            ═══════════════════════════════════════════════════════════════════
+            SEÇÃO 7: CHECKLIST PARA O PROFESSOR
+            ═══════════════════════════════════════════════════════════════════
+            -->
+            <div class="content-section">
+                <h2>7. CHECKLIST PARA O PROFESSOR</h2>
+
+                <h3>Preparação da Aula</h3>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                CHECKLIST INTERATIVO - ANTES DA AULA
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="checklist-professor">
+                    <!-- Classe para estilizar checklists -->
+
+                    <p><strong>✅ ANTES DA AULA:</strong></p>
+
+                    <div class="checklist-item">
+                        <!-- Container para cada item do checklist -->
+
+                        <input type="checkbox" id="check1">
+                        <!-- 
+                        <input> = Campo de entrada
+                        type="checkbox": Cria uma caixa de seleção (☐/☑)
+                        id="check1": Identificador único
+                        
+                        Atributos de checkbox:
+                        - checked: Marca como selecionado por padrão
+                        - disabled: Desabilita interação
+                        - name: Agrupa checkboxes relacionados
+                        - value: Valor enviado em formulários
+                        
+                        Note: <input> é auto-fechada (sem </input>)
+                        -->
+
+                        <label for="check1">Testar acesso à internet</label>
+                        <!-- 
+                        <label> = Rótulo
+                        Associa texto ao campo de entrada
+                        
+                        Atributo for="check1":
+                        - Conecta o label ao input com id="check1"
+                        - Clicar no texto marca/desmarca o checkbox
+                        - Melhora acessibilidade
+                        - Aumenta área clicável
+                        
+                        SEMPRE use <label> com campos de formulário
+                        -->
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check2">
+                        <label for="check2">Verificar contas Scratch funcionando</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check3">
+                        <label for="check3">Preparar exemplos demonstrativos</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check4">
+                        <label for="check4">Imprimir materiais de apoio</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check5">
+                        <label for="check5">Definir objetivos claros</label>
+                    </div>
+
+                    <p><strong>✅ MATERIAIS NECESSÁRIOS:</strong></p>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check6">
+                        <label for="check6">Computadores/laptops carregados</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check7">
+                        <label for="check7">Headphones (para atividades com som)</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check8">
+                        <label for="check8">Cartazes de referência</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check9">
+                        <label for="check9">Fichas de atividade</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check10">
+                        <label for="check10">Projetor para demonstrações</label>
+                    </div>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                CHECKLIST - DURANTE A AULA
+                ═══════════════════════════════════════════════════════════
+                -->
+                <h3>Durante a Aula</h3>
+
+                <div class="checklist-professor">
+                    <p><strong>✅ INTRODUÇÃO (10 min):</strong></p>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check11">
+                        <label for="check11">Apresentar objetivos do dia</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check12">
+                        <label for="check12">Demonstrar projeto exemplo</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check13">
+                        <label for="check13">Explicar conceitos novos</label>
+                    </div>
+
+                    <p><strong>✅ ATIVIDADE PRÁTICA (30 min):</strong></p>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check14">
+                        <label for="check14">Circulação para ajudar alunos</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check15">
+                        <label for="check15">Incentivar colaboração</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check16">
+                        <label for="check16">Identificar dificuldades comuns</label>
+                    </div>
+
+                    <p><strong>✅ ENCERRAMENTO (10 min):</strong></p>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check17">
+                        <label for="check17">Compartilhar projetos</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check18">
+                        <label for="check18">Revisar conceitos aprendidos</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check19">
+                        <label for="check19">Atribuir desafio para casa</label>
+                    </div>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                CHECKLIST - AVALIAÇÃO E ACOMPANHAMENTO
+                ═══════════════════════════════════════════════════════════
+                -->
+                <h3>Avaliação e Acompanhamento</h3>
+
+                <div class="checklist-professor">
+                    <p><strong>✅ INDICADORES DE SUCESSO:</strong></p>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check20">
+                        <label for="check20">Alunos conseguem criar projetos básicos</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check21">
+                        <label for="check21">Compreendem relação causa-efeito nos blocos</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check22">
+                        <label for="check22">Conseguem identificar e corrigir erros simples</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check23">
+                        <label for="check23">Demonstram criatividade nas soluções</label>
+                    </div>
+
+                    <p><strong>✅ REGISTRO DO PROFESSOR:</strong></p>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check24">
+                        <label for="check24">Anotar conceitos que precisam de reforço</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check25">
+                        <label for="check25">Listar projetos exemplares para compartilhar</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check26">
+                        <label for="check26">Identificar alunos para monitorar</label>
+                    </div>
+
+                    <div class="checklist-item">
+                        <input type="checkbox" id="check27">
+                        <label for="check27">Planejar próxima aula baseada no progresso</label>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Fim da Seção 7: Checklist -->
+
+            <!-- 
+            ═══════════════════════════════════════════════════════════════════
+            SEÇÃO DE NAVEGAÇÃO ENTRE PÁGINAS
+            ═══════════════════════════════════════════════════════════════════
+            -->
+            <div class="content-section">
+                <h2>Navegação</h2>
+
+                <div class="card-grid">
+                    <!-- 
+                Classe "card-grid" provavelmente usa CSS Grid ou Flexbox
+                Para organizar os cards em grade responsiva
+                -->
+
+                    <a href="atividades-rapidas.html" class="nav-card">
+                        <!-- 
+                    Link estilizado como card
+                    Toda a área do card é clicável
+                    Melhor UX que apenas o texto do link
+                    -->
+
+                        <h3>Atividades Rápidas</h3>
+                        <p>Exercícios de 15 minutos</p>
+                    </a>
+
+                    <a href="fichas-atividades.html" class="nav-card">
+                        <h3>Fichas de Atividades</h3>
+                        <p>Material complementar</p>
+                    </a>
+
+                    <a href="planos-aula.html" class="nav-card">
+                        <h3>Planos de Aula</h3>
+                        <p>Planos completos</p>
+                    </a>
+                </div>
+                <!-- Fim do card-grid -->
+            </div>
+            <!-- Fim da seção de navegação -->
+        </div>
+        <!-- Fim do container principal -->
+    </main>
+    <!-- Fim do conteúdo principal -->
+
+    <!--
+    ═══════════════════════════════════════════════════════════════════════════
+    RODAPÉ DA PÁGINA (FOOTER)
+    ═══════════════════════════════════════════════════════════════════════════
+    -->
+    <footer>
+        <!-- 
+    <footer> é um elemento semântico HTML5
+    Representa o rodapé do documento ou seção
+    Geralmente contém:
+    - Informações de copyright
+    - Links de contato
+    - Links para redes sociais
+    - Mapa do site
+    - Informações legais
+    -->
+
+        <div class="container">
+            <div class="footer-content">
+                <!-- Container para organizar conteúdo do footer -->
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                SEÇÃO 1 DO FOOTER: INFORMAÇÕES DA INSTITUIÇÃO
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="footer-section">
+                    <!-- Divisão do footer em seções -->
+
+                    <h3>UTFPR - Campus Siqueira Campos</h3>
+                    <p>Universidade Tecnológica Federal do Paraná</p>
+                    <p>Departamento de Computação</p>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                SEÇÃO 2 DO FOOTER: RECURSOS SCRATCH
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="footer-section">
+                    <h3>Recursos Scratch</h3>
+                    <ul>
+                        <li><a href="https://scratch.mit.edu" target="_blank" rel="noopener noreferrer">Site Oficial do
+                                Scratch</a></li>
+                        <li><a href="https://scratch.mit.edu/educators" target="_blank" rel="noopener noreferrer">Para
+                                Educadores</a></li>
+                        <li><a href="https://scratch.mit.edu/parents" target="_blank" rel="noopener noreferrer">Para
+                                Pais</a></li>
+                        <!-- 
+                        Links úteis no footer
+                        Facilita acesso rápido a recursos importantes
+                        Presente em todas as páginas do site
+                        -->
+                    </ul>
+                </div>
+
+                <!-- 
+                ═══════════════════════════════════════════════════════════
+                SEÇÃO 3 DO FOOTER: CONTATO
+                ═══════════════════════════════════════════════════════════
+                -->
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Email: giseleacn@gmail.com</p>
+                    <p>Email: barbosa.rodrigo.1979@gmail.com</p>
+                    <!-- 
+                    Informações de contato
+                    Poderiam ser links mailto: para abrir cliente de email
+                    Exemplo: <a href="mailto:giseleacn@gmail.com">giseleacn@gmail.com</a>
+                    -->
+                </div>
+            </div>
+            <!-- Fim do footer-content -->
+
+            <!-- 
+            ═══════════════════════════════════════════════════════════════
+            COPYRIGHT E CRÉDITOS
+            ═══════════════════════════════════════════════════════════════
+            -->
+            <div class="copyright">
+                &copy; 2025 UTFPR - Desenvolvido por Gisele Nunes e Rodrigo Barbosa. Todos os direitos reservados.
+                <!-- 
+                &copy; é uma entidade HTML que representa ©
+                Símbolo de copyright
+                
+                Outras entidades úteis:
+                - &reg; = ® (marca registrada)
+                - &trade; = ™ (trademark)
+                - &nbsp; = espaço não-quebrável
+                - &mdash; = — (travessão)
+                - &ndash; = – (traço)
+                -->
+            </div>
+        </div>
+        <!-- Fim do container do footer -->
+    </footer>
+    <!-- Fim do rodapé -->
+
+    <!-- 
+    ═══════════════════════════════════════════════════════════════════════════
+    BOTÃO DE ALTERNÂNCIA DE TEMA (CLARO/ESCURO)
+    ═══════════════════════════════════════════════════════════════════════════
+    -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Alternar entre tema claro e escuro">🌙</button>
+    <!-- 
+    <button> = Botão clicável
+    
+    Atributos:
+    - class="theme-toggle": Para estilização CSS
+    - id="themeToggle": Identificador único para JavaScript manipular
+    - aria-label: Descrição para leitores de tela (acessibilidade)
+      * CRUCIAL para botões que só têm ícones/emojis
+      * Descreve a função do botão para usuários com deficiência visual
+    
+    Emoji 🌙 (lua) indica modo escuro
+    JavaScript provavelmente alterna entre 🌙 (escuro) e ☀️ (claro)
+    
+    Boas práticas para botões:
+    - Sempre use <button> para ações, não <a>
+    - <a> é para navegação (ir para outro lugar)
+    - <button> é para ações (fazer algo na página atual)
+    - Sempre inclua aria-label quando não há texto visível
+    -->
+
+    <!-- 
+    ═══════════════════════════════════════════════════════════════════════════
+    LINK PARA ARQUIVO JAVASCRIPT EXTERNO
+    ═══════════════════════════════════════════════════════════════════════════
+    -->
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script src="script.js"></script>
+    <!-- 
+    <script> = Tag para incluir JavaScript
+    
+    Atributo src="script.js":
+    - Caminho para arquivo JavaScript externo
+    - Contém toda a lógica interativa da página
+    
+    JavaScript pode:
+    - Manipular o DOM (adicionar/remover/modificar elementos)
+    - Responder a eventos (cliques, teclado, scroll)
+    - Fazer requisições a servidores (AJAX)
+    - Validar formulários
+    - Criar animações
+    - Armazenar dados localmente
+    - E muito mais!
+    
+    Posicionamento:
+    - Colocado ANTES de </body> (no final)
+    - Garante que todo o HTML foi carregado antes do JS executar
+    - Melhora performance de carregamento da página
+    
+    Alternativas:
+    - <script defer src="...">: Carrega em paralelo, executa após HTML
+    - <script async src="...">: Carrega e executa assim que possível
+    - <script>código aqui</script>: JavaScript inline (evitar)
+    
+    Vantagens de JS externo:
+    - Reutilização em múltiplas páginas
+    - Cache do navegador
+    - Separação de responsabilidades (HTML/CSS/JS)
+    - Código mais organizado e manutenível
+    -->
+</body>
+<!-- 
+Fim do corpo do documento
+Tudo que o usuário vê e interage está dentro de <body></body>
+-->
+
+</html>
+<!-- 
+Fim do documento HTML
+Fecha a tag raiz que iniciou no começo do arquivo
+Todo documento HTML válido deve ter estrutura:
+<!DOCTYPE html>
+<html>
+  <head>...</head>
+  <body>...</body>
+</html>
+-->
+
+<!--
+═══════════════════════════════════════════════════════════════════════════════
+RESUMO DAS PRINCIPAIS TAGS E CONCEITOS UTILIZADOS
+═══════════════════════════════════════════════════════════════════════════════
+
+ESTRUTURA BÁSICA:
+- <!DOCTYPE html>: Declara HTML5
+- <html lang="pt-BR">: Elemento raiz com idioma
+- <head>: Metadados e configurações
+- <body>: Conteúdo visível
+
+METADADOS:
+- <meta charset="UTF-8">: Codificação de caracteres
+- <meta name="viewport">: Responsividade
+- <title>: Título da página
+- <link rel="stylesheet">: CSS externo
+
+ELEMENTOS SEMÂNTICOS HTML5:
+- <header>: Cabeçalho
+- <nav>: Navegação
+- <main>: Conteúdo principal
+- <footer>: Rodapé
+- <section>: Seção genérica
+- <article>: Conteúdo independente
+
+HIERARQUIA DE CABEÇALHOS:
+- <h1>: Título principal (único por página)
+- <h2>: Seções principais
+- <h3>: Subseções
+- <h4>, <h5>, <h6>: Níveis menores
+
+TEXTO E FORMATAÇÃO:
+- <p>: Parágrafo
+- <strong>: Importância (negrito)
+- <em>: Ênfase (itálico)
+- <small>: Texto menor
+- <code>: Código inline
+- <br>: Quebra de linha
+
+LISTAS:
+- <ul>: Lista não ordenada (bullets)
+- <ol>: Lista ordenada (números)
+- <li>: Item de lista
+
+LINKS E NAVEGAÇÃO:
+- <a href="...">: Link/âncora
+- target="_blank": Nova aba
+- rel="noopener noreferrer": Segurança
+
+CONTAINERS E ORGANIZAÇÃO:
+- <div>: Container genérico
+- class="...": Identificador CSS (múltiplos elementos)
+- id="...": Identificador único
+
+FORMULÁRIOS:
+- <input type="checkbox">: Caixa de seleção
+- <label for="...">: Rótulo de campo
+- <button>: Botão de ação
+
+IMAGENS:
+- <img src="..." alt="...">: Inserir imagem
+- alt: Texto alternativo (acessibilidade)
+
+SCRIPTS:
+- <script src="...">: JavaScript externo
+
+ENTIDADES HTML:
+- &copy; = ©
+- &lt; = <
+- &gt; = >
+- &amp; = &
+- &nbsp; = espaço não-quebrável
+
+ACESSIBILIDADE:
+- aria-label: Descrição para leitores de tela
+- lang: Idioma do conteúdo
+- alt: Texto alternativo para imagens
+- <label> associado a campos
+
+BOAS PRÁTICAS:
+✓ Use elementos semânticos HTML5
+✓ Mantenha hierarquia de cabeçalhos
+✓ Sempre use alt em imagens
+✓ Associe labels a inputs
+✓ Use rel="noopener noreferrer" com target="_blank"
+✓ Separe conteúdo (HTML), apresentação (CSS) e comportamento (JS)
+✓ Indente código para legibilidade
+✓ Comente seções importantes
+✓ Valide seu HTML (https://validator.w3.org/)
+
+═══════════════════════════════════════════════════════════════════════════════
+FIM DA ANÁLISE DETALHADA
+═══════════════════════════════════════════════════════════════════════════════
+-->

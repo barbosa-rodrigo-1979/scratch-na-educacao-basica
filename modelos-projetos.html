@@ -1,0 +1,1089 @@
+<!--
+  Arquivo: modelos-projetos.html
+  Análise: Comentários didáticos linha-a-linha adicionados por ChatGPT.
+  Objetivo do HTML: fornecer templates de projetos Scratch prontos para professores.
+  Nota: revise caminhos de recursos (style.css, script.js, imagens) ao publicar.
+-->
+<!DOCTYPE html>
+<!--
+  <!DOCTYPE html> declara que este documento segue o padrão HTML5.
+  Por quê: garante que navegadores renderizem o documento no modo padrão (standards mode).
+-->
+<html lang="pt-BR">
+<!--
+  <html lang="pt-BR">: define o elemento raiz do documento e a língua principal (Português - Brasil).
+  Importância: ajuda leitores de tela, motores de busca e navegadores a aplicar regras de idioma/correção ortográfica.
+-->
+
+<head>
+    <!-- O <head> contém metadados e recursos necessários antes do corpo da página. -->
+    <meta charset="UTF-8">
+    <!--
+      Declaração da codificação de caracteres UTF-8.
+      Importância: suporte a todos os caracteres Unicode (acentos, cedilha, etc.). Deve sempre ser a primeira declaração possível.
+    -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+      Meta viewport: torna o layout responsivo em dispositivos móveis.
+      width=device-width -> largura do layout corresponde à largura do dispositivo.
+      initial-scale=1.0 -> escala inicial.
+      Sem isso, o site pode ficar com zoom ou layout "quebrado" em celulares.
+    -->
+    <title>Modelos de Projetos Prontos Scratch | Cartilha Pedagógica</title>
+    <!--
+      Texto mostrado na aba do navegador e usado por motores de busca como título da página.
+      Recomendo manter curto e incluir palavras-chave relevantes (ex.: "Scratch", "Modelos", "Professores").
+    -->
+    <link rel="stylesheet" href="style.css">
+    <!--
+      Link para arquivo CSS externo.
+      Observações:
+      - Verifique se 'style.css' está no mesmo diretório do HTML ou ajuste o caminho.
+      - Para cache: considere usar querystring com versão (ex: style.css?v=1.2) durante deploy.
+      - Para acessibilidade: assegure contraste e tamanhos de fonte via CSS.
+    -->
+</head>
+
+<body>
+    <!-- Início do conteúdo visível da página. -->
+    <header>
+        <!-- Cabeçalho principal com topo institucional e menu de navegação. -->
+        <div class="header-top">
+            <div class="container">
+                <div class="logo-container">
+                    <img src="UTFPR_logo.png" alt="UTFPR Logo" class="logo">
+                    <!--
+                      <img>: imagem do logo da instituição.
+                      - src relativo: assegure que UTFPR_logo.png exista onde se espera.
+                      - alt: texto alternativo importante para leitores de tela; descreve a imagem quando ela não é carregada.
+                      - class="logo": estilização via CSS.
+                      Sugestão: incluir width/height ou usar atributos de dimensionamento no CSS para evitar reflow.
+                    -->
+                    <div class="institution-name">
+                        Universidade Tecnológica Federal do Paraná<br>
+                        <small>Campus Siqueira Campos</small>
+                    </div>
+                    <!--
+                      Nome da instituição; usar tags semânticas (ex: <address> ou <p>) pode melhorar a estrutura,
+                      mas aqui está claro e legível. <small> reduz a tipografia via CSS.
+                    -->
+                </div>
+                <div class="header-title">
+                    Scratch na Educação Básica<br>
+                    <small>Material Didático para Professores</small>
+                </div>
+                <!--
+                  Título do projeto / material. Recomendo usar um elemento semântico (<h1>) caso o layout permita,
+                  mas há um <h1> principal no <main> — evite múltiplos <h1> por boas práticas de SEO, a menos que controlado.
+                -->
+            </div>
+        </div>
+        <div class="header-bottom">
+            <div class="container">
+                <nav>
+                    <!--
+                      Navegação principal. Repare que os links são relativos (páginas locais).
+                      Para acessibilidade:
+                        - considerar usar role="navigation"
+                        - adicionar aria-label="Navegação principal"
+                        - garantir foco visível (outline) via CSS
+                    -->
+                    <ul>
+                        <li><a href="index.html">Página Inicial</a></li>
+                        <li><a href="primeiros-passos.html">Primeiros Passos</a></li>
+                        <li><a href="cartoes-scratch.html">Cartões Scratch</a></li>
+                        <li><a href="sugestoes-atividades.html">Sugestões de Atividades</a></li>
+                        <li><a href="atividades-rapidas.html">Atividades Rápidas</a></li>
+                        <li><a href="fichas-atividades.html">Fichas de Atividades</a></li>
+                        <li><a href="projetos-didaticos.html">Projetos Didáticos</a></li>
+                        <li><a href="modelos-projetos.html" class="active">Modelos de Projetos</a></li>
+                        <li><a href="planos-aula.html">Planos de Aula</a></li>
+                        <li><a href="materiais-complementares.html">Materiais Complementares</a></li>
+                        <li><a href="referencias-bibliograficas.html">Referências Bibliográficas</a></li>
+                    </ul>
+                    <!--
+                      Observações sobre o menu:
+                        - class="active" no link atual ajuda a destacar a página corrente via CSS.
+                        - Para navegação maior, pense em versões responsivas: um botão "hamburger" para telas pequenas.
+                        - Se este menu for replicado em todas as páginas, considerar extraí-lo para um include ou template.
+                    -->
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--
+          <main> contém o conteúdo principal do documento — bom para semântica e leitores de tela.
+          Vamos detalhar seções com títulos <h1>, <h2>, etc.
+        -->
+        <div class="container">
+            <div class="page-header">
+                <h1>Modelos de Projetos Prontos Scratch</h1>
+                <!--
+                  Título principal da página. Ideal ter apenas um <h1> por página (boa prática de SEO).
+                -->
+                <p class="subtitle">Templates para Professores</p>
+                <!-- Subtítulo complementar -->
+            </div>
+
+            <!-- ===================== CONTENT SECTION: TEMPLATE 1 ===================== -->
+            <div class="content-section">
+                <h2>TEMPLATE 1: APRESENTAÇÃO PESSOAL INTERATIVA</h2>
+
+                <h3>Descrição do Projeto</h3>
+                <p>Modelo completo para alunos criarem sua própria apresentação interativa, ideal para primeiras aulas e
+                    quebra-gelo.</p>
+
+                <h3>Estrutura Completa do Projeto</h3>
+
+                <h4>A. Configuração Inicial</h4>
+                <div class="scratch-code">
+                    <!--
+                      EXPLICAÇÃO DO BLOCO: "QUANDO ⚑ FOR CLICADO" representa o bloco 'quando bandeira verde clicada' no Scratch.
+                      O trecho abaixo inicializa contador/slide_atual e troca cenário.
+                      Observações pedagógicas:
+                        - slide_atual deve ser variável global do projeto.
+                        - garantir que os cenários mencionados ('minha_casa' etc.) existam no projeto Scratch.
+                    -->
+                    QUANDO ⚑ FOR CLICADO
+                    ESCONDA <!-- Esconde sprite inicial para mostrar só depois se necessário -->
+                    MUDE PARA O CENÁRIO [minha_casa] <!-- Define cenário inicial -->
+                    MUDE [slide_atual] PARA [1] <!-- Inicializa a variável de controle de slides -->
+                    TRANSMITA [iniciar_apresentacao] <!-- Dispara evento para outros sprites reagirem -->
+                </div>
+
+                <h4>B. Sprite Principal - Aluno</h4>
+                <div class="scratch-code">
+                    <!--
+                      Esse bloco representa o comportamento de um sprite principal quando recebe a transmissão.
+                      Sugestões:
+                        - evitar usar 'DIG A' por muito tempo se desejar que o texto permaneça; use 'MOSTRE' e 'ESQUEÇA' adequados.
+                        - 'ESCREVA_SEU_NOME_AQUI' deve ser substituído pelos alunos ao personalizar.
+                    -->
+                    QUANDO EU RECEBER [iniciar_apresentacao]
+                    MOSTRE
+                    DIGA [Olá! Meu nome é...] POR 2 SEGUNDOS
+                    ESPERA 0.5 SEGUNDOS
+                    DIGA [ESCREVA_SEU_NOME_AQUI] POR 3 SEGUNDOS <!-- Campo para edição -->
+                    ESPERA 1 SEGUNDO
+                    TRANSMITA [proximo_slide]
+                </div>
+
+                <h4>C. Slides de Apresentação</h4>
+
+                <h5>Slide 1 - Idade:</h5>
+                <div class="scratch-code">
+                    <!--
+                      Padrão para checagem de slide atual e avanço sequencial.
+                      Atenção: garantir sequência correta e evitar loops infinitos.
+                    -->
+                    QUANDO EU RECEBER [proximo_slide]
+                    SE <(slide_atual)=[1]> ENTAO
+                        MUDE [slide_atual] PARA [2]
+                        DIGA [Eu tenho _____ anos] POR 3 SEGUNDOS <!-- Aluno completa -->
+                        ESPERA 2 SEGUNDOS
+                        TRANSMITA [proximo_slide]
+                </div>
+
+                <h5>Slide 2 - Família:</h5>
+                <div class="scratch-code">
+                    SE <(slide_atual)=[2]> ENTAO
+                        MUDE [slide_atual] PARA [3]
+                        MUDE PARA O CENÁRIO [familia] <!-- Troca o fundo para reforçar o conteúdo -->
+                        DIGA [Minha família tem _____ pessoas] POR 3 SEGUNDOS
+                        ESPERA 2 SEGUNDOS
+                        TRANSMITA [proximo_slide]
+                </div>
+
+                <h5>Slide 3 - Matéria Favorita:</h5>
+                <div class="scratch-code">
+                    SE <(slide_atual)=[3]> ENTAO
+                        MUDE [slide_atual] PARA [4]
+                        MUDE PARA O CENÁRIO [escola]
+                        DIGA [Minha matéria favorita é _____] POR 3 SEGUNDOS
+                        ESPERA 2 SEGUNDOS
+                        TRANSMITA [proximo_slide]
+                </div>
+
+                <h5>Slide 4 - Hobbies:</h5>
+                <div class="scratch-code">
+                    SE <(slide_atual)=[4]> ENTAO
+                        MUDE [slide_atual] PARA [5]
+                        MUDE PARA O CENÁRIO [hobbies]
+                        DIGA [Gosto de _____ e _____] POR 3 SEGUNDOS
+                        ESPERA 2 SEGUNDOS
+                        TRANSMITA [proximo_slide]
+                </div>
+
+                <h5>Slide 5 - Sonho:</h5>
+                <div class="scratch-code">
+                    SE <(slide_atual)=[5]> ENTAO
+                        DIGA [Quando crescer, quero ser _____] POR 3 SEGUNDOS
+                        TOQUE O SOM [cheer] <!-- Efeito sonoro de celebração -->
+                        MUDE O EFEITO [COR] PARA [50] <!-- Efeito visual temporário -->
+                        ESPERA 1 SEGUNDO
+                        MUDE O EFEITO [COR] PARA [0] <!-- Reseta o efeito -->
+                </div>
+
+                <h4>D. Sprites Adicionais</h4>
+
+                <h5>Sprite Botão "Próximo":</h5>
+                <div class="scratch-code">
+                    QUANDO ESTE SPRITE FOR CLICADO
+                    TRANSMITA [proximo_slide] <!-- Interatividade manual -->
+                    TOQUE O SOM [pop] <!-- Feedback sonoro no clique -->
+                </div>
+
+                <h5>Sprite Mascote (opcional):</h5>
+                <div class="scratch-code">
+                    QUANDO EU RECEBER [proximo_slide]
+                    ESPERA 0.3 SEGUNDOS
+                    TOQUE O SOM [meow] // Ou outro som apropriado
+                    GIRE ↻ 360 GRAUS
+                </div>
+
+                <h3>Instruções para Personalização</h3>
+
+                <h4>ÁREAS PARA EDIÇÃO DO ALUNO:</h4>
+                <ol>
+                    <li><strong>NOME:</strong> Substituir "ESCREVA_SEU_NOME_AQUI"</li>
+                    <li><strong>IDADE:</strong> Completar número de anos</li>
+                    <li><strong>FAMÍLIA:</strong> Número de pessoas na família</li>
+                    <li><strong>MATÉRIA:</strong> Nome da matéria favorita</li>
+                    <li><strong>HOBBIES:</strong> Duas atividades que gosta</li>
+                    <li><strong>SONHO:</strong> Profissão desejada</li>
+                </ol>
+
+                <h4>CENÁRIOS PARA ADICIONAR:</h4>
+                <ul>
+                    <li>Minha casa</li>
+                    <li>Minha família</li>
+                    <li>Minha escola</li>
+                    <li>Meus hobbies</li>
+                    <li>Meus sonhos</li>
+                </ul>
+
+                <h3>Versões Adaptadas por Idade</h3>
+
+                <h4>1º-2º Ano (Simplificado):</h4>
+                <div class="scratch-code">
+                    <!-- Versão compacta para anos iniciais: menos slides e instruções mais simples -->
+                    QUANDO ⚑ FOR CLICADO
+                    DIGA [Meu nome é _____] POR 3 SEGUNDOS
+                    ESPERA 2 SEGUNDOS
+                    DIGA [Tenho _____ anos] POR 3 SEGUNDOS
+                    ESPERA 2 SEGUNDOS
+                    DIGA [Gosto de _____] POR 3 SEGUNDOS
+                </div>
+
+                <h4>3º-5º Ano (Completo):</h4>
+                <div class="scratch-code">
+                    <!--
+                      Indica que a versão completa inclui navegação e efeitos.
+                      Sugestão: exemplificar a adição de botões voltar/próximo para aumentar autonomia.
+                    -->
+                    // Incluir todos os 5 slides + interatividade
+                    // Adicionar botões de navegação
+                    // Incluir efeitos especiais
+                </div>
+            </div>
+
+            <!-- ===================== CONTENT SECTION: TEMPLATE 2 (QUIZ) ===================== -->
+            <div class="content-section">
+                <h2>TEMPLATE 2: QUIZ EDUCATIVO COMPLETO</h2>
+
+                <h3>Descrição do Projeto</h3>
+                <p>Template para criação de quizzes educativos com sistema de pontuação, feedback e tela final.</p>
+
+                <h3>Estrutura Completa do Sistema</h3>
+
+                <h4>A. Variáveis Necessárias</h4>
+                <div class="scratch-code">
+                    <!-- Lista de variáveis globais recomendadas para controlar estado do quiz -->
+                    // CRIAR ESTAS VARIÁVEIS:
+                    pontuacao_total
+                    pergunta_atual
+                    resposta_correta
+                    tempo_restante
+                </div>
+
+                <h4>B. Inicialização do Quiz</h4>
+                <div class="scratch-code">
+                    <!--
+                      Bloco que reseta variáveis e define cenário inicial.
+                      Observação: usar valores padrão testados para evitar comportamento indefinido.
+                    -->
+                    QUANDO ⚑ FOR CLICADO
+                    MUDE [pontuacao_total] PARA [0]
+                    MUDE [pergunta_atual] PARA [1]
+                    MUDE [tempo_restante] PARA [60] <!-- Tempo total em segundos -->
+                    MUDE PARA O CENÁRIO [tela_inicial]
+                    TRANSMITA [iniciar_quiz]
+                </div>
+
+                <h4>C. Sistema de Temporizador</h4>
+                <div class="scratch-code">
+                    <!--
+                      Temporizador decremental.
+                      Atenção: no Scratch, usar 'SEMPR E' com cuidado — evite scripts que nunca param se não for desejado.
+                      O bloco 'PARE [ESTE SCRIPT]' é importante para interromper o contador ao fim.
+                    -->
+                    QUANDO EU RECEBER [iniciar_quiz]
+                    SEMPRE
+                    ESPERA 1 SEGUNDOS
+                    MUDE [tempo_restante] PARA ((tempo_restante) - (1))
+                    SE <(tempo_restante)=[0]> ENTAO
+                        TRANSMITA [fim_do_quiz]
+                        PARE [ESTE SCRIPT]
+                </div>
+
+                <h4>D. Banco de Perguntas</h4>
+
+                <h5>Pergunta 1 - Matemática:</h5>
+                <div class="scratch-code">
+                    <!--
+                      Exemplo de question block com verificação de resposta.
+                      Observações:
+                      - 'resposta' é a variável interna que armazena o texto digitado pelo aluno.
+                      - Ao comparar números, garantir coerência de tipos (texto vs número) no Scratch.
+                    -->
+                    QUANDO EU RECEBER [fazer_pergunta1]
+                    SE <(pergunta_atual)=[1]> ENTAO
+                        MUDE [resposta_correta] PARA [15] <!-- Resposta esperada -->
+                        PERGUNTE [Quanto é 8 + 7?] E ESPERE
+                        SE <(resposta)=[15]> ENTAO
+                            ADICIONE [10] A [pontuacao_total]
+                            DIGA [✅ Correto! +10 pontos] POR 2 SEGUNDOS
+                            SENAO
+                            DIGA [❌ Resposta: 15] POR 2 SEGUNDOS
+                            MUDE [pergunta_atual] PARA [2]
+                            ESPERA 2 SEGUNDOS
+                            TRANSMITA [proxima_pergunta]
+                </div>
+
+                <h5>Pergunta 2 - Ciências:</h5>
+                <div class="scratch-code">
+                    <!--
+                      Exemplo textual: 'oxigenio' — cuidado com acentuação e letras maiúsculas/minúsculas
+                      no Scratch a comparação exata é sensível a caixa; considerar normalizar (toLowerCase) se disponível.
+                    -->
+                    QUANDO EU RECEBER [fazer_pergunta2]
+                    SE <(pergunta_atual)=[2]> ENTAO
+                        MUDE [resposta_correta] PARA [oxigenio]
+                        PERGUNTE [Qual gás as plantas produzem?] E ESPERE
+                        SE <(resposta)=[oxigenio]> ENTAO
+                            ADICIONE [10] A [pontuacao_total]
+                            DIGA [✅ Excelente! +10 pontos] POR 2 SEGUNDOS
+                            SENAO
+                            DIGA [❌ É oxigênio] POR 2 SEGUNDOS
+                            MUDE [pergunta_atual] PARA [3]
+                            ESPERA 2 SEGUNDOS
+                            TRANSMITA [proxima_pergunta]
+                </div>
+
+                <h5>Pergunta 3 - Geografia:</h5>
+                <div class="scratch-code">
+                    <!--
+                      Exemplo com capital do Brasil.
+                      Observação: 'brasilia' sem acento na resposta; se os alunos digitarem 'Brasília' com acento, poderá dar errado.
+                      Sugestão: oferecer opções (botões) em vez de texto livre para evitar problemas de digitação.
+                    -->
+                    QUANDO EU RECEBER [fazer_pergunta3]
+                    SE <(pergunta_atual)=[3]> ENTAO
+                        MUDE [resposta_correta] PARA [brasilia]
+                        PERGUNTE [Qual a capital do Brasil?] E ESPERE
+                        SE <(resposta)=[brasilia]> ENTAO
+                            ADICIONE [10] A [pontuacao_total]
+                            DIGA [✅ Muito bem! +10 pontos] POR 2 SEGUNDOS
+                            SENAO
+                            DIGA [❌ É Brasília] POR 2 SEGUNDOS
+                            MUDE [pergunta_atual] PARA [4]
+                            ESPERA 2 SEGUNDOS
+                            TRANSMITA [proxima_pergunta]
+                </div>
+
+                <h4>E. Controlador de Perguntas</h4>
+                <div class="scratch-code">
+                    <!--
+                      Controlador que decide qual pergunta executar.
+                      Nota: há um pequeno erro lógico no último 'SENAO SE' — veremos correção abaixo.
+                    -->
+                    QUANDO EU RECEBER [proxima_pergunta]
+                    SE <(pergunta_atual)=[1]> ENTAO
+                        TRANSMITA [fazer_pergunta1]
+                        SENAO SE <(pergunta_atual)=[2]> ENTAO
+                            TRANSMITA [fazer_pergunta2]
+                            SENAO SE <(pergunta_atual)=[3]> ENTAO
+                                TRANSMITA [fazer_pergunta3]
+                                SENAO SE <(pergunta_atual)> [3]> ENTAO
+                                    TRANSMITA [fim_do_quiz]
+                    <!--
+                      Observação de correção:
+                        - A última condição "SENAO SE <(pergunta_atual)> [3]>" está mal formada.
+                        - Provavelmente a intenção era "SE (pergunta_atual) > [3] ENTAO TRANSMITA [fim_do_quiz]" ou
+                          simplesmente usar 'SENAO' para finalizar.
+                      Sugestão prática:
+                        - Substituir as últimas linhas por:
+                          SENAO
+                            TRANSMITA [fim_do_quiz]
+                    -->
+                </div>
+
+                <h4>F. Tela Final com Resultados</h4>
+                <div class="scratch-code">
+                    <!--
+                      Exibe diferentes mensagens de acordo com a pontuação.
+                      Observações:
+                        - Verificar ordens de comparação; nos exemplos com 'SENAO SE <(pontuacao_total)> [20]>' a sintaxe está inconsistente:
+                          no Scratch se escreve: 'SE <(pontuacao_total) > (20)> ENTAO', por ex.
+                        - Recomendo usar comparações bem definidas: (==), (>), (>=).
+                    -->
+                    QUANDO EU RECEBER [fim_do_quiz]
+                    MUDE PARA O CENÁRIO [tela_final]
+                    APAGUE TODOS OS EFEITOS
+                    SE <(pontuacao_total)=[30]> ENTAO
+                        DIGA [🎉 PERFEITO! 30/30 pontos!] POR 4 SEGUNDOS
+                        TOQUE O SOM [cheer]
+                        SENAO SE <(pontuacao_total)> [20]> ENTAO
+                            DIGA [👏 Ótimo trabalho!] POR 4 SEGUNDOS
+                            TOQUE O SOM [dance celebrate]
+                            SENAO SE <(pontuacao_total)> [10]> ENTAO
+                                DIGA [👍 Bom esforço!] POR 4 SEGUNDOS
+                                TOQUE O SOM [meow]
+                                SENAO
+                                DIGA [💪 Continue praticando!] POR 4 SEGUNDOS
+                                TOQUE O SOM [drum]
+
+                                DIGA (JUNTAR [Sua pontuação: ] (pontuacao_total)) POR 5 SEGUNDOS
+                </div>
+
+                <h5>Sprite Display de Informações</h5>
+                <div class="scratch-code">
+                    <!--
+                      Sprites que mostram pontuação e tempo permanentemente.
+                      Observação: scripts 'SEMPRE' exibem texto continuamente; certifique-se que não consumam muita performance.
+                    -->
+                    // Mostra pontuação e tempo
+                    SEMPRE
+                    DIGA (JUNTAR [Pontos: ] (pontuacao_total))
+
+                    // Outro sprite para tempo
+                    SEMPRE
+                    DIGA (JUNTAR [Tempo: ] (tempo_restante))
+                </div>
+
+                <h3>Instruções para Customização</h3>
+
+                <h4>Para Adicionar Mais Perguntas:</h4>
+                <ol>
+                    <li>CRIAR nova transmissão "fazer_pergunta4"</li>
+                    <li>ADICIONAR código seguindo padrão anterior</li>
+                    <li>ATUALIZAR controlador para incluir pergunta 4</li>
+                    <li>AJUSTAR condições do fim do quiz</li>
+                </ol>
+
+                <h4>Áreas de Personalização:</h4>
+                <div class="scratch-code">
+                    <!--
+                      Itens editáveis pelos professores para adaptar disciplina/nível.
+                      Incluir instruções sobre consistência de respostas (maiúsculas, acentos).
+                    -->
+                    // EDITAR ESTES VALORES:
+                    - Texto das perguntas
+                    - Respostas corretas
+                    - Pontuação por pergunta
+                    - Tempo total do quiz
+                    - Mensagens de feedback
+                    - Sons e efeitos visuais
+                </div>
+
+                <h3>Versões por Disciplina</h3>
+
+                <h4>Matemática:</h4>
+                <div class="scratch-code">
+                    PERGUNTA: [Quanto é 12 × 4?]
+                    RESPOSTA_CORRETA: [48]
+                    FEEDBACK: [✅ Tabuada certa!]
+                </div>
+
+                <h4>Português:</h4>
+                <div class="scratch-code">
+                    PERGUNTA: [Complete: O _____ saltou o muro]
+                    RESPOSTA_CORRETA: [gato]
+                    FEEDBACK: [✅ Gramática correta!]
+                </div>
+
+                <h4>Ciências:</h4>
+                <div class="scratch-code">
+                    PERGUNTA: [Quantos planetas tem nosso sistema solar?]
+                    RESPOSTA_CORRETA: [8]
+                    FEEDBACK: [✅ Conhece o sistema solar!]
+                </div>
+            </div>
+
+            <!-- ===================== CONTENT SECTION: TEMPLATE 3 (ANIMATION) ===================== -->
+            <div class="content-section">
+                <h2>TEMPLATE 3: ANIMAÇÃO COM MÚLTIPLOS SPRITES</h2>
+
+                <h3>Descrição do Projeto</h3>
+                <p>Template para criar animações coordenadas entre vários personagens, ideal para contar histórias.</p>
+
+                <h3>Estrutura de Coordenação</h3>
+
+                <h4>A. Sistema de Sincronização</h4>
+                <div class="scratch-code">
+                    <!--
+                      Variáveis de controle que permitem mudar de cena e estabelecer qual personagem está ativo.
+                      Boa prática: inicializar variáveis claramente ao iniciar o projeto.
+                    -->
+                    // VARIÁVEIS GLOBAIS:
+                    cena_atual
+                    personagem_ativo
+
+                    // INICIALIZAÇÃO:
+                    QUANDO ⚑ FOR CLICADO
+                    MUDE [cena_atual] PARA [1]
+                    MUDE [personagem_ativo] PARA [nenhum]
+                    TRANSMITA [cena1_inicio]
+                </div>
+
+                <h4>B. Personagem Principal - Herói</h4>
+                <div class="scratch-code">
+                    QUANDO EU RECEBER [cena1_inicio]
+                    MOSTRE
+                    VÁ PARA X: [-150] Y: [0]
+                    DIGA [Olá, eu sou o herói desta história!] POR 3 SEGUNDOS
+                    ESPERA 0.5 SEGUNDOS
+                    MOVA 100 PASSOS // Anda para o centro
+                    TRANSMITA [heroi_pronto]
+                </div>
+
+                <h4>C. Personagem Secundário - Amigo</h4>
+                <div class="scratch-code">
+                    QUANDO EU RECEBER [heroi_pronto]
+                    ESPERA 1 SEGUNDO // Pequena pausa dramática
+                    MOSTRE
+                    VÁ PARA X: [150] Y: [0]
+                    DIGA [E eu sou o amigo que ajuda!] POR 3 SEGUNDOS
+                    MOVA -80 PASSOS // Anda em direção ao herói
+                    TRANSMITA [amigo_pronto]
+                </div>
+
+                <h4>D. Personagem Cômico - Alívio Cômico</h4>
+                <div class="scratch-code">
+                    QUANDO EU RECEBER [amigo_pronto]
+                    ESPERA 0.5 SEGUNDOS
+                    MOSTRE
+                    VÁ PARA X: [0] Y: [-100]
+                    DIGA [E eu caí de paraquedas!] POR 2 SEGUNDOS
+                    TOQUE O SOM [boing]
+                    GIRE ↻ 360 GRAUS
+                    TRANSMITA [comico_pronto]
+                </div>
+
+                <h4>E. Interação entre Personagens</h4>
+
+                <h5>Diálogo Coordenado:</h5>
+                <div class="scratch-code">
+                    QUANDO EU RECEBER [comico_pronto]
+                    ESPERA 1 SEGUNDO
+                    // Herói responde
+                    DIGA [Que surpresa te ver aqui!] POR 2 SEGUNDOS
+                    TRANSMITA [heroi_respondeu]
+
+                    QUANDO EU RECEBER [heroi_respondeu]
+                    ESPERA 0.5 SEGUNDOS
+                    // Amigo comenta
+                    DIGA [Sempre aparecendo do nada!] POR 2 SEGUNDOS
+                    TRANSMITA [amigo_respondeu]
+
+                    QUANDO EU RECEBER [amigo_respondeu]
+                    ESPERA 0.5 SEGUNDOS
+                    // Cômico finaliza
+                    DIGA [Essa é a minha especialidade!] POR 2 SEGUNDOS
+                    TOQUE O SOM [laugh1]
+                    TRANSMITA [dialogo_completo]
+                </div>
+
+                <h4>F. Sequência de Ações em Grupo</h4>
+
+                <h5>Animação Sincronizada:</h5>
+                <div class="scratch-code">
+                    QUANDO EU RECEBER [dialogo_completo]
+                    ESPERA 1 SEGUNDO
+                    // Todos se movem juntos
+                    REPITA 5 VEZES
+                    TRANSMITA [pular]
+                    ESPERA 0.3 SEGUNDOS
+                    TRANSMITA [animacao_final]
+                </div>
+
+                <h5>Ação de Pular (para todos os personagens):</h5>
+                <div class="scratch-code">
+                    QUANDO EU RECEBER [pular]
+                    MUDE Y POR 30
+                    ESPERA 0.1 SEGUNDOS
+                    MUDE Y POR -30
+                    TOQUE O SOM [pop]
+                </div>
+
+                <h4>G. Finalização da Animação</h4>
+                <div class="scratch-code">
+                    QUANDO EU RECEBER [animacao_final]
+                    ESPERA 1 SEGUNDO
+                    // Formação final
+                    VÁ PARA X: [-100] Y: [0] // Herói
+                    VÁ PARA X: [100] Y: [0] // Amigo
+                    VÁ PARA X: [0] Y: [50] // Cômico
+                    DIGA [Fim da nossa aventura!] POR 3 SEGUNDOS
+                    TOQUE O SOM [drum roll]
+                </div>
+
+                <h5>Sprite Narrador (Opcional)</h5>
+                <div class="scratch-code">
+                    QUANDO EU RECEBER [cena1_inicio]
+                    ESCONDA
+                    ESPERA 2 SEGUNDOS
+                    MOSTRE
+                    DIGA [Numa terra distante...] POR 2 SEGUNDOS
+                    ESCONDA
+                </div>
+
+                <h5>Sistema de Controle de Cenas</h5>
+                <div class="scratch-code">
+                    <!--
+                      Alterna cenas com a tecla espaço.
+                      Observação: confirme que 'cena_atual' é alterada sincronizadamente por todos os scripts.
+                    -->
+                    QUANDO A TECLA [ESPAÇO] FOR PRESSIONADA
+                    SE <(cena_atual)=[1]> ENTAO
+                        TRANSMITA [cena2_inicio]
+                        MUDE [cena_atual] PARA [2]
+                        SENAO SE <(cena_atual)=[2]> ENTAO
+                            TRANSMITA [cena3_inicio]
+                            MUDE [cena_atual] PARA [3]
+                </div>
+
+                <h3>Instruções para Personalização</h3>
+
+                <h4>Customização de Personagens:</h4>
+                <ul>
+                    <li><strong>HERÓI:</strong> Nome e características, Diálogos personalizados, Movimentos específicos
+                    </li>
+                    <li><strong>AMIGO:</strong> Relação com herói, Habilidades especiais, Momentos de destaque</li>
+                    <li><strong>ALÍVIO CÔMICO:</strong> Piadas e situações engraçadas, Efeitos especiais, Surpresas na
+                        história</li>
+                </ul>
+
+                <h4>Para Expandir a História:</h4>
+                <div class="scratch-code">
+                    // ADICIONAR novas cenas:
+                    QUANDO EU RECEBER [cena2_inicio]
+                    // Programar ações da cena 2
+
+                    QUANDO EU RECEBER [cena3_inicio]
+                    // Programar ações da cena 3
+                </div>
+            </div>
+
+            <!-- ===================== CONTENT SECTION: TEMPLATE 4 (SIMULATOR) ===================== -->
+            <div class="content-section">
+                <h2>TEMPLATE 4: SIMULADOR MATEMÁTICO INTERATIVO</h2>
+
+                <h3>Descrição do Projeto</h3>
+                <p>Template para criar ferramentas interativas de aprendizado matemático com feedback visual.</p>
+
+                <h3>Sistema Completo de Cálculo</h3>
+
+                <h4>A. Variáveis Matemáticas</h4>
+                <div class="scratch-code">
+                    <!-- Variáveis sugeridas para cálculos geométricos -->
+                    // VARIÁVEIS PARA CÁLCULOS:
+                    base
+                    altura
+                    raio
+                    area_calculada
+                    perimetro_calculado
+                    lado
+                    forma_selecionada
+                </div>
+
+                <h4>B. Interface do Usuário</h4>
+
+                <h5>Botão Quadrado:</h5>
+                <div class="scratch-code">
+                    QUANDO ESTE SPRITE FOR CLICADO
+                    MUDE [forma_selecionada] PARA [quadrado]
+                    PERGUNTE [Qual o tamanho do lado?] E ESPERE
+                    SE <(resposta)> [0]> ENTAO
+                        MUDE [lado] PARA (resposta)
+                        MUDE [area_calculada] PARA ((lado) * (lado))
+                        MUDE [perimetro_calculado] PARA ((4) * (lado))
+                        TRANSMITA [desenhar_quadrado]
+                        TRANSMITA [mostrar_resultados]
+                        SENAO
+                        DIGA [⚠️ Use números positivos!] POR 2 SEGUNDOS
+                    <!--
+                      Observação: condição SE <(resposta)> [0]> parece invertida — normalmente checamos se resposta > 0.
+                      Sugestão: usar 'SE <(resposta) > (0)>' para aceitar somente valores positivos.
+                    -->
+                </div>
+
+                <h5>Botão Retângulo:</h5>
+                <div class="scratch-code">
+                    QUANDO ESTE SPRITE FOR CLICADO
+                    MUDE [forma_selecionada] PARA [retangulo]
+                    PERGUNTE [Qual a base?] E ESPERE
+                    MUDE [base] PARA (resposta)
+                    PERGUNTE [Qual a altura?] E ESPERE
+                    MUDE [altura] PARA (resposta)
+                    SE <<(base)> [0]> E <(altura)> [0]>> ENTAO
+                            MUDE [area_calculada] PARA ((base) * (altura))
+                            MUDE [perimetro_calculado] PARA ((2) * ((base) + (altura)))
+                            TRANSMITA [desenhar_retangulo]
+                            TRANSMITA [mostrar_resultados]
+                            SENAO
+                            DIGA [⚠️ Medidas devem ser positivas!] POR 2 SEGUNDOS
+                    <!--
+                      Observação: a sintaxe das condições compostas deve usar operadores corretamente: por exemplo
+                      SE <((base) > (0)) E ((altura) > (0))> ENTAO ...
+                    -->
+                </div>
+
+                <h5>Botão Círculo:</h5>
+                <div class="scratch-code">
+                    QUANDO ESTE SPRITE FOR CLICADO
+                    MUDE [forma_selecionada] PARA [circulo]
+                    PERGUNTE [Qual o raio?] E ESPERE
+                    MUDE [raio] PARA (resposta)
+                    SE <(raio)> [0]> ENTAO
+                        MUDE [area_calculada] PARA ((3.14) * ((raio) * (raio)))
+                        MUDE [perimetro_calculado] PARA ((2) * (3.14) * (raio))
+                        TRANSMITA [desenhar_circulo]
+                        TRANSMITA [mostrar_resultados]
+                        SENAO
+                        DIGA [⚠️ Raio deve ser positivo!] POR 2 SEGUNDOS
+                    <!--
+                      Observação: usa-se pi ≈ 3.14; para melhor precisão, considerar usar variável PI = 3.14159.
+                    -->
+                </div>
+
+                <h4>C. Sistema de Desenho</h4>
+
+                <h5>Desenhando Quadrado:</h5>
+                <div class="scratch-code">
+                    QUANDO EU RECEBER [desenhar_quadrado]
+                    APAGUE TODOS OS DESENHOS
+                ABAIXE A CANETA
+                    DEFINA A COR DA CANETA PARA [azul]
+                    DEFINA O TAMANHO DA CANETA PARA [3]
+                    VÁ PARA X: [-50] Y: [-50] // Posição inicial
+                    REPITA 4 VEZES
+                    MOVA (lado) PASSOS
+                    GIRE ↻ 90 GRAUS
+                    LEVANTE A CANETA
+                    <!--
+                      Observações:
+                        - Ajuste coordenadas iniciais para centralizar a figura dependendo do valor de 'lado'.
+                        - Se 'lado' for muito grande, o desenho pode sair da tela; considerar escalonamento.
+                    -->
+                </div>
+
+                <h5>Desenhando Retângulo:</h5>
+                <div class="scratch-code">
+                    QUANDO EU RECEBER [desenhar_retangulo]
+                    APAGUE TODOS OS DESENHOS
+                    ABAIXE A CANETA
+                    DEFINA A COR DA CANETA PARA [verde]
+                    DEFINA O TAMANHO DA CANETA PARA [3]
+                    VÁ PARA X: [-60] Y: [-40]
+                    // Lados maiores (base)
+                    REPITA 2 VEZES
+                    MOVA (base) PASSOS
+                    GIRE ↻ 90 GRAUS
+                    MOVA (altura) PASSOS
+                    GIRE ↻ 90 GRAUS
+                    LEVANTE A CANETA
+                    <!--
+                      Observação: estrutura correta para retângulo (base, altura repetidos).
+                      Verificar se base/altura são números e tratar números decimais se necessário.
+                    -->
+                </div>
+
+                <h5>Desenhando Círculo:</h5>
+                <div class="scratch-code">
+                    QUANDO EU RECEBER [desenhar_circulo]
+                    APAGUE TODOS OS DESENHOS
+                    ABAIXE A CANETA
+                    DEFINA A COR DA CANETA PARA [vermelho]
+                    DEFINA O TAMANHO DA CANETA PARA [3]
+                    VÁ PARA X: (0) Y: (0 - (raio))
+                    // Aproximação de círculo com 36 segmentos
+                    REPITA 36 VEZES
+                    MOVA (((2) * (3.14) * (raio)) / (36)) PASSOS
+                    GIRE ↻ (360 / 36) GRAUS
+                    LEVANTE A CANETA
+                    <!--
+                      Observação:
+                        - Aproximação poligonal do círculo com 36 segmentos. Mais segmentos = círculo mais suave.
+                        - Garantir que (raio) seja coerente em pixels/passos no estágio do Scratch.
+                    -->
+                </div>
+
+                <h4>D. Display de Resultados</h4>
+                <div class="scratch-code">
+                    QUANDO EU RECEBER [mostrar_resultados]
+                    ESPERA 0.5 SEGUNDOS // Tempo para desenhar
+                    DIGA (JUNTAR [Forma: ] (forma_selecionada)) POR 4 SEGUNDOS
+                    ESPERA 0.2 SEGUNDOS
+                    DIGA (JUNTAR [Área: ] (ARREDONDAR (area_calculada))) POR 4 SEGUNDOS
+                    ESPERA 0.2 SEGUNDOS
+                    DIGA (JUNTAR [Perímetro: ] (ARREDONDAR (perimetro_calculado))) POR 4 SEGUNDOS
+                    TOQUE O SOM [pop]
+                    <!--
+                      Observações:
+                        - 'ARREDONDAR' ajuda na apresentação, mas mantenha a precisão interna se for usar resultados para outras contas.
+                        - Considere mostrar unidades (ex.: 'Área: 25 cm²') caso o projeto trabalhe com medidas reais.
+                    -->
+                </div>
+
+                <h5>Sprite Calculadora (Display Permanente)</h5>
+                <div class="scratch-code">
+                    SEMPRE
+                    DIGA (JUNTAR [Área: ] (area_calculada))
+
+                    // Outro sprite para perímetro
+                    SEMPRE
+                    DIGA (JUNTAR [Perímetro: ] (perimetro_calculado))
+                    <!--
+                      Observação: exibir em tempo real ajuda alunos a acompanhar variáveis.
+                      Performance: evite atualizações excessivamente rápidas; 'SEMPRE' em Scratch roda a cada frame.
+                    -->
+                </div>
+
+                <h5>Botão de Limpar</h5>
+                <div class="scratch-code">
+                    QUANDO ESTE SPRITE FOR CLICADO
+                    APAGUE TODOS OS DESENHOS
+                    MUDE [area_calculada] PARA [0]
+                    MUDE [perimetro_calculado] PARA [0]
+                    MUDE [forma_selecionada] PARA [nenhuma]
+                    DIGA [Tela limpa!] POR 1 SEGUNDOS
+                    TOQUE O SOM [computer beeps]
+                </div>
+
+                <h3>Instruções para Expansão</h3>
+
+                <h4>Adicionar Novas Formas:</h4>
+
+                <h5>Triângulo:</h5>
+                <div class="scratch-code">
+                    <!-- Fórmulas e sugestões para adicionar triângulo equilátero -->
+                    // Fórmulas para triângulo equilátero
+                    AREA: ((base) * (altura)) / (2)
+                    PERIMETRO: (3) * (lado)
+                    // Sistema de desenho específico
+                </div>
+
+                <h5>Trapézio:</h5>
+                <div class="scratch-code">
+                    // Fórmulas para trapézio
+                    AREA: ((base_maior) + (base_menor)) * (altura) / (2)
+                    PERIMETRO: (base_maior) + (base_menor) + (2) * (lado)
+                </div>
+
+                <h4>Personalização por Nível:</h4>
+
+                <h5>1º-2º Ano (Formas Básicas):</h5>
+                <div class="scratch-code">
+                    - Apenas quadrado e retângulo
+                    - Números inteiros pequenos
+                    - Cálculos simples
+                </div>
+
+                <h5>3º-4º Ano (Formas Intermediárias):</h5>
+                <div class="scratch-code">
+                    - Adicionar triângulo e círculo
+                    - Trabalhar com decimais
+                    - Incluir unidades de medida
+                </div>
+
+                <h5>5º Ano (Formas Complexas):</h5>
+                <div class="scratch-code">
+                    - Adicionar trapézio, losango
+                    - Trabalhar com fórmulas complexas
+                    - Incluir conversão de unidades
+                </div>
+
+                <h3>Recursos de Aprendizado Integrados</h3>
+
+                <h4>Dicas de Fórmulas:</h4>
+                <div class="scratch-code">
+                    QUANDO ESTE SPRITE FOR CLICADO // Botão Ajuda
+                    DIGA [📐 Dicas de Fórmulas:] POR 2 SEGUNDOS
+                    ESPERA 0.5 SEGUNDOS
+                    DIGA [Quadrado: A = lado × lado] POR 3 SEGUNDOS
+                    ESPERA 0.3 SEGUNDOS
+                    DIGA [Retângulo: A = base × altura] POR 3 SEGUNDOS
+                    ESPERA 0.3 SEGUNDOS
+                    DIGA [Círculo: A = π × raio²] POR 3 SEGUNDOS
+                </div>
+
+                <h4>Exemplos Práticos:</h4>
+                <div class="scratch-code">
+                    QUANDO ESTE SPRITE FOR CLICADO // Botão Exemplos
+                    DIGA [📏 Exemplos do dia a dia:] POR 2 SEGUNDOS
+                    ESPERA 0.5 SEGUNDOS
+                    DIGA [Quadrado: piso da sala] POR 2 SEGUNDOS
+                    ESPERA 0.3 SEGUNDOS
+                    DIGA [Retângulo: porta, janela] POR 2 SEGUNDOS
+                    ESPERA 0.3 SEGUNDOS
+                    DIGA [Círculo: pizza, relógio] POR 2 SEGUNDOS
+                </div>
+            </div>
+
+            <!-- ===================== INSTRUÇÕES DE USO E NAVEGAÇÃO ===================== -->
+            <div class="content-section">
+                <h2>INSTRUÇÕES DE USO PARA PROFESSORES</h2>
+
+                <h3>Como Implementar os Templates</h3>
+
+                <h4>Passo a Passo Básico:</h4>
+                <ol>
+                    <li>BAIXAR o template desejado</li>
+                    <li>ABRIR no Scratch Online/Desktop</li>
+                    <li>PERSONALIZAR áreas marcadas</li>
+                    <li>TESTAR todas as funcionalidades</li>
+                    <li>COMPARTILHAR com alunos</li>
+                </ol>
+
+                <h4>Gestão em Sala de Aula:</h4>
+                <ul>
+                    <li><strong>Demonstração:</strong> Mostrar template funcionando</li>
+                    <li><strong>Personalização guiada:</strong> Ajudar alunos a customizar</li>
+                    <li><strong>Expansão criativa:</strong> Incentivar melhorias originais</li>
+                    <li><strong>Compartilhamento:</strong> Apresentar projetos finalizados</li>
+                </ul>
+
+                <h3>Dicas para Personalização Criativa</h3>
+
+                <h4>Para Alunos Criativos:</h4>
+                <ul>
+                    <li>Adicionar personagens extras</li>
+                    <li>Criar histórias originais</li>
+                    <li>Desenvolver novos desafios</li>
+                    <li>Implementar efeitos especiais únicos</li>
+                </ul>
+
+                <h4>Para Diferentes Disciplinas:</h4>
+                <ul>
+                    <li><strong>Matemática:</strong> Novas fórmulas e cálculos</li>
+                    <li><strong>Português:</strong> Diálogos e narrativas complexas</li>
+                    <li><strong>Ciências:</strong> Simulações de fenômenos naturais</li>
+                    <li><strong>História:</strong> Reconstituições de eventos históricos</li>
+                    <li><strong>Artes:</strong> Animações e composições visuais</li>
+                </ul>
+
+                <h3>Avaliação com Templates</h3>
+
+                <h4>Critérios de Avaliação:</h4>
+                <ul>
+                    <li><strong>✅ PERSONALIZAÇÃO (40%)</strong>
+                        <ul>
+                            <li>Elementos pessoais adicionados</li>
+                            <li>Customização criativa</li>
+                            <li>Originalidade nas modificações</li>
+                        </ul>
+                    </li>
+                    <li><strong>✅ FUNCIONALIDADE (30%)</strong>
+                        <ul>
+                            <li>Todas as funções working</li>
+                            <li>Sem erros de programação</li>
+                            <li>Experiência do usuário fluida</li>
+                        </ul>
+                    </li>
+                    <li><strong>✅ CONTEÚDO (30%)</strong>
+                        <ul>
+                            <li>Qualidade do conteúdo educacional</li>
+                            <li>Precisão das informações</li>
+                            <li>Valor educacional agregado</li>
+                        </ul>
+                    </li>
+                </ul>
+
+            </div>
+
+            <div class="content-section">
+                <h2>Navegação</h2>
+                <div class="card-grid">
+                    <a href="projetos-didaticos.html" class="nav-card">
+                        <h3>Projetos Didáticos</h3>
+                        <p>Projetos por ano escolar</p>
+                    </a>
+                    <a href="planos-aula.html" class="nav-card">
+                        <h3>Planos de Aula</h3>
+                        <p>Planos completos</p>
+                    </a>
+                    <a href="materiais-complementares.html" class="nav-card">
+                        <h3>Materiais Complementares</h3>
+                        <p>Recursos adicionais</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>UTFPR - Campus Siqueira Campos</h3>
+                    <p>Universidade Tecnológica Federal do Paraná</p>
+                    <p>Departamento de Computação</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Recursos Scratch</h3>
+                    <ul>
+                        <li><a href="https://scratch.mit.edu">Site Oficial do Scratch</a></li>
+                        <li><a href="https://scratch.mit.edu/educators">Para Educadores</a></li>
+                        <li><a href="https://scratch.mit.edu/parents">Para Pais</a></li>
+                    </ul>
+                    <!--
+                      Links externos: considerar target="_blank" rel="noopener" se quiser abri-los em nova aba,
+                      e adicionar rel="noopener noreferrer" por segurança.
+                    -->
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Email: giseleacn@gmail.com</p>
+                    <p>Email: barbosa.rodrigo.1979@gmail.com</p>
+                    <!--
+                      Recomendo substituir por contato real ou criar formulário de contato para evitar spam.
+                    -->
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 UTFPR - Desenvolvido por Gisele Nunes e Rodrigo Barbosa. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+    <!--
+      Botão para alternar tema (claro/escuro). Necessita de script para funcionar.
+      Sugestões de melhoria:
+        - Adicionar aria-pressed/aria-label para acessibilidade
+        - Persistir preferência em localStorage
+    -->
+
+    <script src="script.js"></script>
+    <!--
+      Inclusão de script JS externo. Verifique:
+        - script.js existe e não contém erros
+        - colocar scripts no fim do body (como aqui) para melhorar carregamento
+        - se o script manipula elementos do DOM, garantir que sejam referenciados após o carregamento
+    -->
+</body>
+
+</html>

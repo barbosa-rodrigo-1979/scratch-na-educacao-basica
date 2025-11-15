@@ -1,0 +1,586 @@
+<!--
+  Objetivo: Portal de introdução ao professor que deseja incorporar o Scratch na prática pedagógica.
+  Autores: Gisele Nunes, Rodrigo Barbosa
+  Data: Segundo semestre de 2025
+-->
+
+<!DOCTYPE html>
+<!--
+  Linha 1: <!DOCTYPE html>
+  Declara que o documento usa HTML5. Deve ser a primeira linha do arquivo para que os navegadores
+  interpretem corretamente o HTML moderno.
+-->
+
+<html lang="pt-BR">
+<!--
+  Linha 2: <html lang="pt-BR">
+  Elemento raiz do documento HTML.
+  - lang="pt-BR" informa o idioma primário da página (bom para acessibilidade, leitores de tela e SEO).
+  - Qualquer tradução futura ou multi-idioma deve atualizar este atributo dinamicamente.
+-->
+
+<head>
+    <!--
+      Linha 4: <head>
+      Contém metadados (não exibidos diretamente), como título, links de CSS/JS e meta tags.
+    -->
+
+    <meta charset="UTF-8">
+    <!--
+      Linha 6: <meta charset="UTF-8">
+      Define a codificação de caracteres como UTF-8, necessária para suportar acentos e símbolos de forma correta.
+    -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!--
+      Linha 8: viewport
+      Torna a página responsiva em dispositivos móveis:
+      - width=device-width -> largura da viewport igual à largura do dispositivo
+      - initial-scale=1.0 -> zoom inicial
+      Essencial para layouts adaptativos em celular/tablet.
+    -->
+
+    <title>Cartilha Pedagógica: Scratch na Educação Básica | UTFPR</title>
+    <!--
+      Linha 10: <title>
+      Texto exibido na aba do navegador e usado por mecanismos de busca.
+      Deve ser claro e conter palavras-chave relevantes (ex.: "Scratch", "Educação Básica", "UTFPR").
+    -->
+
+    <link rel="stylesheet" href="style.css">
+    <!--
+      Linha 12: Link para CSS externo.
+      - Garante separação de responsabilidades (HTML estrutura, CSS estilo).
+      - Confirmar que 'style.css' existe no mesmo diretório.
+      - Para performance, considerar adicionar 'media' ou usar 'preload' se necessário.
+    -->
+</head>
+
+<body>
+    <!--
+      Linha 16: <body>
+      Conteúdo visível ao usuário. Todo o markup que os visitantes veem deve estar aqui.
+    -->
+
+    <header>
+        <!--
+          Linha 18: Cabeçalho do site. Bom local para logo, título e navegação principal.
+          Usar <header> é semântico e ajuda tecnologias assistivas e motores de busca.
+        -->
+
+        <div class="header-top">
+            <div class="container">
+                <div class="logo-container">
+                    <!--
+                      Linha 22-23: Logo e identificação institucional
+                      - Verificar existência do arquivo 'UTFPR_logo.png'.
+                      - Atributo alt fornece descrição alternativa (importante para acessibilidade).
+                      - Considerar adicionar width/height para evitar reflow ao carregar a imagem.
+                    -->
+                    <img src="UTFPR_logo.png" alt="UTFPR Logo" class="logo">
+                    <div class="institution-name">
+                        Universidade Tecnológica Federal do Paraná<br>
+                        <small>Campus Siqueira Campos</small>
+                    </div>
+                    <!--
+                      Linha 29-32: Nome da instituição.
+                      - Poderia ser um <address> ou <p> se quiser semântica diferente.
+                      - Evitar quebra de linha forçada se o CSS puder controlar espaçamento.
+                    -->
+                </div>
+
+                <div class="header-title">
+                    Scratch na Educação Básica<br>
+                    <small>Material Didático para Professores</small>
+                </div>
+                <!--
+                  Linha 37-40: Título do portal.
+                  - Se esta for a página principal do material, certifique-se de ter hierarquia clara de headings:
+                    normalmente <h1> principal dentro do <main>, mas um título visual aqui é aceitável.
+                  - Para SEO, meta description no head também ajuda (sugestão: adicionar).
+                -->
+            </div>
+        </div>
+
+        <div class="header-bottom">
+            <div class="container">
+                <nav>
+                    <!--
+                      Linha 50: Elemento <nav> envolve a navegação principal.
+                      - Bom para leitores de tela entenderem que esta é a navegação do site.
+                      - Em mobile, implementar comportamento de menu colapsável via JS/CSS.
+                    -->
+                    <ul>
+                        <!--
+                          Lista não ordenada com links de navegação.
+                          - O link com class="active" indica a página atual; também adicionar aria-current="page"
+                            para acessibilidade (ex.: <a aria-current="page"...>).
+                          - Se algum link abre em nova aba, usar rel="noopener noreferrer" com target="_blank".
+                        -->
+                        <li><a href="index.html" class="active" aria-current="page">Página Inicial</a></li>
+                        <li><a href="primeiros-passos.html">Primeiros Passos</a></li>
+                        <li><a href="cartoes-scratch.html">Cartões Scratch</a></li>
+                        <li><a href="sugestoes-atividades.html">Sugestões de Atividades</a></li>
+                        <li><a href="atividades-rapidas.html">Atividades Rápidas</a></li>
+                        <li><a href="fichas-atividades.html">Fichas de Atividades</a></li>
+                        <li><a href="projetos-didaticos.html">Projetos Didáticos</a></li>
+                        <li><a href="modelos-projetos.html">Modelos de Projetos</a></li>
+                        <li><a href="planos-aula.html">Planos de Aula</a></li>
+                        <li><a href="materiais-complementares.html">Materiais Complementares</a></li>
+                        <li><a href="referencias-bibliograficas.html">Referências Bibliográficas</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!--
+          Linha 76: <main> contém o conteúdo principal da página.
+          - Deve existir no máximo um <main> por documento.
+          - Seu conteúdo é o foco principal para acessibilidade e indexação.
+        -->
+
+        <div class="container">
+            <div class="page-header">
+                <!--
+                  Título principal e metadados do documento.
+                  - Aqui está um <h1> (adequado para indicar o assunto principal da página).
+                -->
+                <h1>Cartilha Pedagógica</h1>
+                <p class="subtitle">Introdução ao Scratch para Professores da Educação Básica (1º ao 5º Ano)</p>
+
+                <div class="authors">
+                    <!--
+                      Bloco com autoria e informações institucionais.
+                      - Estas informações são úteis para credibilidade e citação.
+                    -->
+                    Autores: Gisele Nunes, Rodrigo Barbosa<br>
+                    Orientador: Alexandre Busquim<br>
+                    Instituição: UTFPR Polo Siqueira Campos<br>
+                    Ano: 2025
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h2>APRESENTAÇÃO</h2>
+                <!--
+                  Seção de apresentação: objetivo do material.
+                  - Texto corrido explicando finalidade, público-alvo e abordagem pedagógica.
+                -->
+                <p>Esta cartilha tem como objetivo capacitar professores da educação básica (1º ao 5º ano) no uso da
+                    ferramenta Scratch como recurso pedagógico interdisciplinar. Desenvolvida por Gisele Nunes, Rodrigo
+                    Barbosa, sob orientação de Prof. Alexandre Busquim, no âmbito da Universidade Tecnológica Federal do
+                    Paraná, o material alia fundamentação teórica à prática docente, oferecendo planos de aula,
+                    atividades e recursos didáticos prontos para aplicação em sala de aula.</p>
+
+                <p>Acreditamos que a programação criativa desenvolve habilidades cognitivas essenciais para o século
+                    XXI, incluindo resolução de problemas, pensamento computacional e trabalho colaborativo. Esta
+                    cartilha foi elaborada com linguagem acessível e exemplos práticos adaptados à realidade das séries
+                    iniciais.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>RESUMO ACADÊMICO</h2>
+                <!--
+                  Resumo com abordagem metodológica e resultados esperados.
+                  - Útil caso o professor precise justificar uso do material em relatórios.
+                -->
+                <p>Esta cartilha apresenta o Scratch como ferramenta pedagógica para professores do 1º ao 5º ano do
+                    ensino básico. O material aborda desde conceitos básicos de programação até projetos específicos por
+                    ano escolar, incluindo planos de aula prontos. Metodologicamente, utiliza abordagem construtivista
+                    aliada ao desenvolvimento do pensamento computacional. Resultados esperados incluem a capacitação
+                    docente e o engajamento discente através de projetos interdisciplinares. Conclui-se que o Scratch é
+                    recurso valioso para desenvolvimento de habilidades cognitivas e socioemocionais.</p>
+            </div>
+
+            <div class="content-section">
+                <h2>SUMÁRIO</h2>
+                <!--
+                  Índice interno com links âncora para as seções.
+                  - Garante navegação rápida dentro da página.
+                  - Certifique-se de que os ids referenciados existam (ex.: #introducao).
+                -->
+                <ol class="sumario">
+                    <li><a href="#introducao">Introdução ao Scratch</a></li>
+                    <li><a href="#primeiros-passos">Primeiros Passos</a></li>
+                    <li><a href="#blocos-fundamentais">Blocos Fundamentais</a></li>
+                    <li><a href="#projetos-por-ano">Projetos Didáticos por Ano Escolar</a></li>
+                    <li><a href="planos-aula.html">Planos de Aula Prontos</a></li>
+                    <li><a href="materiais-complementares.html">Materiais Complementares</a></li>
+                    <li><a href="referencias-bibliograficas.html">Referências</a></li>
+                </ol>
+            </div>
+
+            <div class="content-section" id="introducao">
+                <h2>1. INTRODUÇÃO AO SCRATCH</h2>
+                <!--
+                  Início da seção "Introdução".
+                  - id="introducao" usado pelo sumário para navegação interna.
+                -->
+
+                <h3>O que é Scratch?</h3>
+                <div class="image-container">
+                    <!--
+                      Inserção de imagem ilustrativa do logo do Scratch.
+                      - Verificar se 'Logo_scratch.png' existe e tem alt descritivo.
+                      - Para melhor desempenho: usar formatos modernos (webp) e srcset para responsividade.
+                    -->
+                    <img src="Logo_scratch.png" alt="Logo do Scratch" class="content-image logo-image">
+                </div>
+
+                <p>Scratch é uma linguagem de programação visual desenvolvida pelo MIT Media Lab, destinada
+                    especialmente a crianças e adolescentes. Através de blocos coloridos que se encaixam como peças de
+                    lego, os usuários podem criar histórias interativas, jogos, animações e simulações.</p>
+
+                <h4>Características principais:</h4>
+                <ul>
+                    <li>Interface visual e intuitiva</li>
+                    <li>Blocos de programação por categorias</li>
+                    <li>Biblioteca gratuita de sprites e cenários</li>
+                    <li>Compartilhamento de projetos online</li>
+                    <li>Disponível em português brasileiro</li>
+                </ul>
+
+                <h3>Por que usar na educação básica?</h3>
+                <div class="image-container">
+                    <img src="Crianças usando Scratch.png" alt="Crianças usando Scratch"
+                        class="content-image contextual-image">
+                </div>
+
+                <h4>Benefícios pedagógicos:</h4>
+                <ul>
+                    <li>Desenvolve pensamento computacional</li>
+                    <li>Estimula criatividade e expressão</li>
+                    <li>Trabalha resolução de problemas</li>
+                    <li>Promove colaboração e compartilhamento</li>
+                    <li>Integra diferentes áreas do conhecimento</li>
+                </ul>
+
+                <h4>Benefícios para o desenvolvimento cognitivo</h4>
+                <ul>
+                    <li><strong>Raciocínio lógico:</strong> Sequenciamento e estruturação de ideias</li>
+                    <li><strong>Abstração:</strong> Identificação de padrões e generalizações</li>
+                    <li><strong>Algoritmos:</strong> Criação de sequências passo a passo</li>
+                    <li><strong>Debugging:</strong> Desenvolvimento da resiliência ao corrigir erros</li>
+                </ul>
+            </div>
+
+            <div class="content-section" id="primeiros-passos">
+                <h2>2. PRIMEIROS PASSOS</h2>
+                <!--
+                  Seção que orienta como acessar e usar a interface do Scratch.
+                  - id="primeiros-passos" usado pelo sumário.
+                -->
+
+                <h3>Acessando a plataforma</h3>
+                <div class="image-container">
+                    <img src="Tela_de_login_do_Scratch.png" alt="Tela de login do Scratch"
+                        class="content-image interface-image">
+                </div>
+                <ol>
+                    <li>Acesse scratch.mit.edu</li>
+                    <li>Clique em "Entrar" (canto superior direito)</li>
+                    <li>Crie uma conta gratuita (para professores)</li>
+                    <li>Explore a interface</li>
+                </ol>
+
+                <h3>Conhecendo a interface</h3>
+                <div class="image-container">
+                    <img src="Interface_do_Scratch.png" alt="Interface do Scratch"
+                        class="content-image interface-image">
+                </div>
+
+                <h4>Áreas principais:</h4>
+                <ul>
+                    <li><strong>Palco:</strong> Onde a animação/jogo acontece (lado superior direito)</li>
+                    <li><strong>Área de Sprites:</strong> Onde os personagens são gerenciados (inferior direito)</li>
+                    <li><strong>Blocos de Programação:</strong> Categorizados por cores (lado esquerdo)</li>
+                    <li><strong>Área de Scripts:</strong> Onde os blocos são arrastados e encaixados (centro)</li>
+                </ul>
+
+                <h3>Biblioteca de sprites e cenários</h3>
+                <div class="image-container">
+                    <img src="Biblioteca_do_Scratch_mostrando_sprites_e_cenários.png" alt="Biblioteca do Scratch"
+                        class="content-image interface-image">
+                </div>
+                <ul>
+                    <li><strong>Sprites:</strong> Personagens/objetos que realizam ações</li>
+                    <li><strong>Cenários:</strong> Fundos onde os sprites interagem</li>
+                    <li><strong>Como adicionar:</strong> Clique nos ícones "+" ao lado de "Novo Sprite" e "Novo Cenário"
+                    </li>
+                </ul>
+            </div>
+
+            <div class="content-section" id="blocos-fundamentais">
+                <h2>3. BLOCOS FUNDAMENTAIS</h2>
+                <!--
+                  Descrição dos blocos básicos do Scratch por categorias (movimento, aparência, som, etc.)
+                  - id="blocos-fundamentais" referenciado no sumário.
+                -->
+
+                <h3>Movimento (blocos azuis)</h3>
+                <div class="image-container">
+                    <img src="Blocos_de_movimento_do_Scratch.png" alt="Blocos de movimento"
+                        class="content-image blocks-image">
+                </div>
+                <ul>
+                    <li><code>mova 10 passos</code> - Movimenta o sprite</li>
+                    <li><code>gire ↻ 15 graus</code> - Rotaciona o sprite</li>
+                    <li><code>aponte para a direção 90</code> - Define direção</li>
+                    <li><code>vá para x: 0 y: 0</code> - Posiciona em coordenadas específicas</li>
+                </ul>
+
+                <h3>Aparência (blocos roxos)</h3>
+                <div class="image-container">
+                    <img src="Blocos_de_aparência_do_Scratch.png" alt="Blocos de aparência"
+                        class="content-image blocks-image">
+                </div>
+                <ul>
+                    <li><code>diga Olá! por 2 segundos</code> - Exibe balão de fala</li>
+                    <li><code>mude o efeito cor para 25</code> - Altera aparência</li>
+                    <li><code>mostre</code> / <code>esconda</code> - Controla visibilidade do sprite</li>
+                </ul>
+
+                <h3>Som (blocos magenta)</h3>
+                <div class="image-container">
+                    <img src="Blocos_de_som_do_Scratch.png" alt="Blocos de som" class="content-image blocks-image">
+                </div>
+                <ul>
+                    <li><code>toque o som meow</code> - Reproduz som da biblioteca</li>
+                    <li><code>toque a nota 60 por 0.5 batidas</code> - Toca nota musical</li>
+                    <li><code>parar todos os sons</code> - Interrompe sons</li>
+                </ul>
+
+                <h3>Eventos (blocos amarelos)</h3>
+                <div class="image-container">
+                    <img src="Blocos_amarelos_de_eventos_do_Scratch.png" alt="Blocos de eventos"
+                        class="content-image blocks-image">
+                </div>
+                <ul>
+                    <li><code>quando ⚑ for clicado</code> - Inicia o programa</li>
+                    <li><code>quando a tecla espaço for pressionada</code> - Acionado por tecla</li>
+                    <li><code>quando este sprite for clicado</code> - Interação direta</li>
+                </ul>
+
+                <h3>Controle (blocos laranja)</h3>
+                <div class="image-container">
+                    <img src="Blocos_de_controle_do_Scratch.png" alt="Blocos de controle"
+                        class="content-image blocks-image">
+                </div>
+                <ul>
+                    <li><code>espere 1 segundos</code> - Pausa a execução</li>
+                    <li><code>repita 10 vezes</code> - Loop com contador</li>
+                    <li><code>se então</code> - Condicional simples</li>
+                    <li><code>sempre</code> - Loop infinito</li>
+                </ul>
+            </div>
+
+            <div class="content-section" id="projetos-por-ano">
+                <h2>4. PROJETOS DIDÁTICOS POR ANO ESCOLAR</h2>
+                <!--
+                  Seção com sugestões de projetos por ano (1º ao 5º).
+                  - id="projetos-por-ano" referenciado no sumário.
+                -->
+
+                <div class="projeto-ano">
+                    <h3>1º ANO: Animação Simples</h3>
+                    <div class="image-container">
+                        <img src="meu_nome_animado.png" alt="Projeto Meu nome animado"
+                            class="content-image project-image">
+                    </div>
+                    <p><strong>Objetivo:</strong> Apresentar conceitos básicos de movimento e sequência</p>
+                    <p><strong>Projeto:</strong> "Meu nome animado"</p>
+                    <ol>
+                        <li>Cada letra do nome é um sprite diferente</li>
+                        <li>Letras entram em sequência no palco</li>
+                        <li>Efeito simples de mudança de cor</li>
+                        <li>Som ao final da animação</li>
+                    </ol>
+                    <h4>Conceitos trabalhados:</h4>
+                    <ul>
+                        <li>Ordem sequencial</li>
+                        <li>Coordenadas simples</li>
+                        <li>Início e término de ações</li>
+                    </ul>
+                </div>
+
+                <div class="projeto-ano">
+                    <h3>2º ANO: Histórias Interativas</h3>
+                    <div class="image-container">
+                        <img src="conto_com_final_alternativo.png" alt="Projeto Conto com final alternativo"
+                            class="content-image project-image">
+                    </div>
+                    <p><strong>Objetivo:</strong> Desenvolver narrativas com elementos interativos</p>
+                    <p><strong>Projeto:</strong> "Conto com final alternativo"</p>
+                    <ol>
+                        <li>Personagem principal enfrenta decisão</li>
+                        <li>Dois finais possíveis baseados na escolha do usuário</li>
+                        <li>Uso de blocos <code>pergunte e espere</code></li>
+                        <li>Mudança de cenário conforme a escolha</li>
+                    </ol>
+                    <h4>Conceitos trabalhados:</h4>
+                    <ul>
+                        <li>Estrutura narrativa</li>
+                        <li>Tomada de decisão</li>
+                        <li>Condicionais simples</li>
+                    </ul>
+                </div>
+
+                <div class="projeto-ano">
+                    <h3>3º ANO: Jogos Educativos Básicos</h3>
+                    <div class="image-container">
+                        <img src="quiz_de_matematica.png" alt="Projeto Quiz de matemática"
+                            class="content-image project-image">
+                    </div>
+                    <p><strong>Objetivo:</strong> Criar jogos simples com conteúdo educativo</p>
+                    <p><strong>Projeto:</strong> "Quiz de matemática"</p>
+                    <ol>
+                        <li>Personagem faz perguntas de matemática</li>
+                        <li>Jogador responde usando teclado</li>
+                        <li>Feedback imediato (acerto/erro)</li>
+                        <li>Sistema simples de pontuação</li>
+                    </ol>
+                    <h4>Conceitos trabalhados:</h4>
+                    <ul>
+                        <li>Operações matemáticas básicas</li>
+                        <li>Variáveis simples</li>
+                        <li>Condicionais com respostas</li>
+                    </ul>
+                </div>
+
+                <div class="projeto-ano">
+                    <h3>4º ANO: Quiz Interativo</h3>
+                    <div class="image-container">
+                        <img src="quiz_com_timer_e_pontuacao.png" alt="Projeto Quiz com timer"
+                            class="content-image project-image">
+                    </div>
+                    <p><strong>Objetivo:</strong> Desenvolver questionários com múltiplas categorias</p>
+                    <p><strong>Projeto:</strong> "Desafio do conhecimento"</p>
+                    <ol>
+                        <li>Múltiplas categorias (Ciências, Geografia, História)</li>
+                        <li>Timer para respostas</li>
+                        <li>Sistema de pontuação avançado</li>
+                        <li>Tela de resultados final</li>
+                    </ol>
+                    <h4>Conceitos trabalhados:</h4>
+                    <ul>
+                        <li>Variáveis múltiplas</li>
+                        <li>Operadores lógicos</li>
+                        <li>Estruturas de repetição complexas</li>
+                    </ul>
+                </div>
+
+                <div class="projeto-ano">
+                    <h3>5º ANO: Simulações Matemáticas</h3>
+                    <div class="image-container">
+                        <img src="calculadora_geométrica.png" alt="Projeto Calculadora geométrica"
+                            class="content-image project-image">
+                    </div>
+                    <p><strong>Objetivo:</strong> Visualizar conceitos matemáticos abstratos</p>
+                    <p><strong>Projeto:</strong> "Calculadora geométrica"</p>
+                    <ol>
+                        <li>Usuário insere medidas</li>
+                        <li>Sprite desenha forma correspondente</li>
+                        <li>Cálculo automático de área e perímetro</li>
+                        <li>Comparação entre diferentes formas</li>
+                    </ol>
+                    <h4>Conceitos trabalhados:</h4>
+                    <ul>
+                        <li>Operações matemáticas complexas</li>
+                        <li>Uso avançado de variáveis</li>
+                        <li>Cálculos com fórmulas</li>
+                    </ul>
+                </div>
+
+                <div class="projeto-ano">
+                    <h3>5º ANO: Projetos Multidisciplinares</h3>
+                    <div class="image-container">
+                        <img src="simulador_de_ecossistema.png" alt="Projeto Simulador de ecossistema"
+                            class="content-image project-image">
+                    </div>
+                    <p><strong>Objetivo:</strong> Integrar diferentes áreas do conhecimento</p>
+                    <p><strong>Projeto:</strong> "Simulador de ecossistema"</p>
+                    <ol>
+                        <li>Múltiplos sprites representando elementos naturais</li>
+                        <li>Relações de alimentação (cadeia alimentar)</li>
+                        <li>Ciclos de vida e reprodução</li>
+                        <li>Interferência humana (positiva e negativa)</li>
+                    </ol>
+                    <h4>Conceitos trabalhados:</h4>
+                    <ul>
+                        <li>Variáveis interdependentes</li>
+                        <li>Múltiplos scripts simultâneos</li>
+                        <li>Simulação de sistemas complexos</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--
+              Nota: o arquivo original contém um comentário "Restante do conteúdo permanece igual".
+              Aqui mantemos essa indicação; caso queira que eu comente também as outras seções
+              (ex.: planos-aula, materiais complementares, referências), envie o restante do arquivo.
+            -->
+            <!-- Restante do conteúdo permanece igual -->
+            <!-- ... (outras seções) ... -->
+
+        </div>
+    </main>
+
+    <footer>
+        <!--
+          Rodapé com informações institucionais e links úteis.
+          - Considere incluir links de política de uso, créditos de imagens e licenças se houver.
+        -->
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>UTFPR - Campus Siqueira Campos</h3>
+                    <p>Universidade Tecnológica Federal do Paraná</p>
+                    <p>Departamento de Computação</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Recursos Scratch</h3>
+                    <ul>
+                        <li><a href="https://scratch.mit.edu" target="_blank" rel="noopener noreferrer">Site Oficial do
+                                Scratch</a></li>
+                        <li><a href="https://scratch.mit.edu/educators" target="_blank" rel="noopener noreferrer">Para
+                                Educadores</a></li>
+                        <li><a href="https://scratch.mit.edu/parents" target="_blank" rel="noopener noreferrer">Para
+                                Pais</a></li>
+                    </ul>
+                    <!--
+                      Abrir links externos em nova aba: target="_blank".
+                      Sempre use rel="noopener noreferrer" para segurança e performance.
+                    -->
+                </div>
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Email: giseleacn@gmail.com</p>
+                    <p>Email: barbosa.rodrigo.1979@gmail.com</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 UTFPR - Desenvolvido por Gisele Nunes e Rodrigo Barbosa. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+
+    <!--
+      Botão de alternância de tema.
+      - O comportamento espera código em 'script.js' que troca classes no <body> e salva preferência em localStorage.
+      - Para acessibilidade, preferir <button> com aria-pressed ou aria-label (já usado abaixo no exemplo).
+    -->
+    <button class="theme-toggle" id="themeToggle" aria-pressed="false"
+        aria-label="Alternar tema claro e escuro">🌙</button>
+
+    <script src="script.js"></script>
+    <!--
+      Inclusão do script no final do body:
+      - Permite que o DOM carregue antes do JS ser executado (sem precisar de defer).
+      - Verifique se script.js existe. Se o script manipula elementos antes de existirem, use defer no head
+        ou verifique document.readyState no script.
+    -->
+</body>
+
+</html>

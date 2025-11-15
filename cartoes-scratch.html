@@ -1,0 +1,491 @@
+<!--
+Objetivo: Apresentar um recurso tangível para atividades de programação desplugada - projeto Scratch na Educação Básica
+Desenvolvido por: Gisele Nunes, Rodrigo Barbosa
+Data: Segundo semestre de 2025
+-->
+<!-- Declaração do tipo de documento como HTML5 -->
+<!DOCTYPE html>
+<!-- Elemento raiz do documento com definição de idioma português do Brasil -->
+<html lang="pt-BR">
+
+<head>
+    <!-- Define o conjunto de caracteres como UTF-8 para suportar acentos e caracteres especiais -->
+    <meta charset="UTF-8">
+    <!-- Configura a viewport para responsividade em dispositivos móveis -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Título da página que aparece na aba do navegador -->
+    <title>Cartões Scratch para Recortar | UTFPR</title>
+    <!-- Link para o arquivo de estilos CSS externo -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<!-- Corpo do documento - conteúdo visível da página -->
+
+<body>
+    <!-- Cabeçalho da página com estrutura semelhante às outras páginas do projeto -->
+    <header>
+        <!-- Seção superior do cabeçalho com informações institucionais -->
+        <div class="header-top">
+            <!-- Container para centralizar e limitar a largura do conteúdo -->
+            <div class="container">
+                <!-- Container para logo e nome da instituição -->
+                <div class="logo-container">
+                    <!-- Imagem do logo da UTFPR com texto alternativo para acessibilidade -->
+                    <img src="UTFPR_logo.png" alt="UTFPR Logo" class="logo">
+                    <!-- Nome da instituição com quebra de linha -->
+                    <div class="institution-name">
+                        Universidade Tecnológica Federal do Paraná<br>
+                        <!-- Texto secundário com tag small para o campus -->
+                        <small>Campus Siqueira Campos</small>
+                    </div>
+                </div>
+                <!-- Título principal do projeto -->
+                <div class="header-title">
+                    Scratch na Educação Básica<br>
+                    <!-- Subtítulo do projeto -->
+                    <small>Material Didático para Professores</small>
+                </div>
+            </div>
+        </div>
+
+        <!-- Seção inferior do cabeçalho - menu de navegação principal -->
+        <div class="header-bottom">
+            <div class="container">
+                <!-- Elemento de navegação semântico -->
+                <nav>
+                    <!-- Lista não ordenada para os itens do menu -->
+                    <ul>
+                        <!-- Itens do menu com links para todas as páginas do projeto -->
+                        <li><a href="index.html">Página Inicial</a></li>
+                        <li><a href="primeiros-passos.html">Primeiros Passos</a></li>
+                        <!-- Link ativo (página atual) com classe para estilização diferenciada -->
+                        <li><a href="cartoes-scratch.html" class="active">Cartões Scratch</a></li>
+                        <li><a href="sugestoes-atividades.html">Sugestões de Atividades</a></li>
+                        <li><a href="atividades-rapidas.html">Atividades Rápidas</a></li>
+                        <li><a href="fichas-atividades.html">Fichas de Atividades</a></li>
+                        <li><a href="projetos-didaticos.html">Projetos Didáticos</a></li>
+                        <li><a href="modelos-projetos.html">Modelos de Projetos</a></li>
+                        <li><a href="planos-aula.html">Planos de Aula</a></li>
+                        <li><a href="materiais-complementares.html">Materiais Complementares</a></li>
+                        <li><a href="referencias-bibliograficas.html">Referências Bibliográficas</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal da página -->
+    <main>
+        <div class="container">
+            <!-- Cabeçalho da página com título principal e subtítulo -->
+            <div class="page-header">
+                <h1>Cartões Scratch para Recortar</h1>
+                <p class="subtitle">Material Complementar para Atividades Offline</p>
+            </div>
+
+            <!-- Seção de instruções de uso dos cartões -->
+            <div class="content-section">
+                <h2>Instruções de Uso</h2>
+                <!-- Lista de instruções para preparação dos materiais -->
+                <ul>
+                    <li><strong>Imprimir</strong> em papel A4 de 180-250g para melhor durabilidade</li>
+                    <li><strong>Recortar</strong> seguindo as linhas pontilhadas</li>
+                    <li><strong>Plastificar</strong> opcional para maior resistência</li>
+                    <li><strong>Utilizar</strong> em atividades offline de planejamento de algoritmos</li>
+                </ul>
+            </div>
+
+            <!-- Seção do Bloco 1: Cartões de Movimento -->
+            <div class="content-section">
+                <!-- Título da seção com badge colorido indicando a cor dos cartões -->
+                <h2>Bloco 1: Cartões de Movimento <span class="badge">Azuis</span></h2>
+                <!-- Grid para organizar os cartões em layout responsivo -->
+                <div class="card-grid">
+                    <!-- Cartão individual com informações específicas -->
+                    <div class="nav-card">
+                        <h3>Cartão 1A - Mover</h3>
+                        <!-- Código do comando Scratch usando tag code para formatação -->
+                        <p><code>mova ██ passos</code></p>
+                        <p>Valor padrão: 10</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 1B - Girar</h3>
+                        <p><code>gire ↺ ██ graus</code></p>
+                        <p>Valor padrão: 15</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 1C - Apontar</h3>
+                        <p><code>aponte para a direção █</code></p>
+                        <p>Valor padrão: 90</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 1D - Ir para posição</h3>
+                        <p><code>vá para x: █ y: █</code></p>
+                        <p>Valores padrão: 0, 0</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 1E - Deslizar</h3>
+                        <p><code>deslize █ segundos para x: █ y: █</code></p>
+                        <p>Valores padrão: 1, 0, 0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção do Bloco 2: Cartões de Aparência -->
+            <div class="content-section">
+                <!-- Título com badge roxo para identificar a categoria -->
+                <h2>Bloco 2: Cartões de Aparência <span class="badge roxo">Roxos</span></h2>
+                <div class="card-grid">
+                    <div class="nav-card">
+                        <h3>Cartão 2A - Dizer</h3>
+                        <p><code>diga Olá!</code></p>
+                        <p>Balão de fala</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 2B - Pensar</h3>
+                        <p><code>pense Uhuu!</code></p>
+                        <p>Balão de pensamento</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 2C - Efeitos</h3>
+                        <p><code>mude o efeito █ para ██</code></p>
+                        <p>Efeitos visuais</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 2D - Mostrar</h3>
+                        <p><code>mostre</code></p>
+                        <p>Personagem visível</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 2E - Esconder</h3>
+                        <p><code>esconda</code></p>
+                        <p>Personagem invisível</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção do Bloco 3: Cartões de Som -->
+            <div class="content-section">
+                <h2>Bloco 3: Cartões de Som <span class="badge magenta">Magenta</span></h2>
+                <div class="card-grid">
+                    <div class="nav-card">
+                        <h3>Cartão 3A - Tocar Som</h3>
+                        <p><code>toque o som █</code></p>
+                        <p>Valor padrão: meow</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 3B - Nota Musical</h3>
+                        <p><code>toque a nota █ por █ batidas</code></p>
+                        <p>Valores: 60, 0.5</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 3C - Silenciar</h3>
+                        <p><code>parar todos os sons</code></p>
+                        <p>Silencia todos os sons</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção do Bloco 4: Cartões de Eventos -->
+            <div class="content-section">
+                <h2>Bloco 4: Cartões de Eventos <span class="badge amarelo">Amarelos</span></h2>
+                <div class="card-grid">
+                    <div class="nav-card">
+                        <h3>Cartão 4A - Bandeira</h3>
+                        <p><code>quando ⚑ for clicado</code></p>
+                        <p>Início do programa</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 4B - Tecla</h3>
+                        <p><code>quando a tecla █ for pressionada</code></p>
+                        <p>Valor padrão: espaço</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 4C - Clique</h3>
+                        <p><code>quando este sprite for clicado</code></p>
+                        <p>Clique no personagem</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 4D - Mensagem</h3>
+                        <p><code>quando eu receber █</code></p>
+                        <p>Valor padrão: mensagem1</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção do Bloco 5: Cartões de Controle -->
+            <div class="content-section">
+                <h2>Bloco 5: Cartões de Controle <span class="badge laranja">Laranjas</span></h2>
+                <div class="card-grid">
+                    <div class="nav-card">
+                        <h3>Cartão 5A - Esperar</h3>
+                        <p><code>espere █ segundos</code></p>
+                        <p>Valor padrão: 1</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 5B - Repetir</h3>
+                        <p><code>repita ██</code></p>
+                        <p>Valor padrão: 10</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 5C - Sempre</h3>
+                        <p><code>sempre</code></p>
+                        <p>Loop infinito</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 5D - Condição Se</h3>
+                        <p><code>se █ então</code></p>
+                        <p>Estrutura condicional</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 5E - Parar</h3>
+                        <p><code>pare █</code></p>
+                        <p>Valor padrão: todos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção do Bloco 6: Operadores e Variáveis -->
+            <div class="content-section">
+                <h2>Bloco 6: Operadores e Variáveis <span class="badge verde">Verdes</span></h2>
+                <div class="card-grid">
+                    <div class="nav-card">
+                        <h3>Cartão 6A - Adição</h3>
+                        <p><code>█ + █</code></p>
+                        <p>Operador de adição</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 6B - Igualdade</h3>
+                        <p><code>█ = █</code></p>
+                        <p>Operador de equivalência</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão 6C - Variável</h3>
+                        <p><code>mude █ para █</code></p>
+                        <p>Exemplo: pontos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção de Cartões Especiais: Valores e Conectores -->
+            <div class="content-section">
+                <h2>Cartões Especiais: Valores e Conectores</h2>
+                <div class="card-grid">
+                    <div class="nav-card">
+                        <h3>Cartão V1 - Valores Numéricos</h3>
+                        <p><code>00 | 05 | 10</code></p>
+                        <p>Valores para preencher campos</p>
+                    </div>
+                    <div class="nav-card">
+                        <h3>Cartão V2 - Valores de Texto</h3>
+                        <p><code>Olá! | Resposta | Parabéns!</code></p>
+                        <p>Textos para preencher campos</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Seção com sugestões de atividades práticas -->
+            <div class="content-section">
+                <h2>Sugestões de Atividades com os Cartões</h2>
+
+                <!-- Atividade 1 para alunos do 1º ano -->
+                <h3>Atividade 1: Sequência Lógica (1º ano)</h3>
+                <ul>
+                    <li><strong>Objetivo:</strong> Ordenar cartões para fazer o gato andar e falar</li>
+                    <li><strong>Cartões necessários:</strong> 1A, 2A, 4A</li>
+                    <li><strong>Sequência exemplo:</strong> 4A → 1A → 2A</li>
+                </ul>
+
+                <!-- Atividade 2 para alunos do 3º ano -->
+                <h3>Atividade 2: Criando Condições (3º ano)</h3>
+                <ul>
+                    <li><strong>Objetivo:</strong> Montar estrutura "se-então" com múltiplas ações</li>
+                    <li><strong>Cartões necessários:</strong> 5D, 1A, 2A, 3A</li>
+                    <li><strong>Exemplo:</strong> Se (condição) então [mova 10 passos + diga "Olá!"]</li>
+                </ul>
+
+                <!-- Atividade 3 para alunos do 5º ano -->
+                <h3>Atividade 3: Loop de Animação (5º ano)</h3>
+                <ul>
+                    <li><strong>Objetivo:</strong> Criar animação repetitiva com mudança de aparência</li>
+                    <li><strong>Cartões necessários:</strong> 5B, 1A, 2C, 5A</li>
+                    <li><strong>Exemplo:</strong> Repita 10 vezes [mova 10 passos + mude efeito cor + espere 1s]</li>
+                </ul>
+            </div>
+
+            <!-- Seção de navegação com links para páginas relacionadas -->
+            <div class="content-section">
+                <h2>Navegação</h2>
+                <div class="card-grid">
+                    <!-- Card de navegação para sugestões de atividades -->
+                    <a href="sugestoes-atividades.html" class="nav-card">
+                        <h3>Sugestões de Atividades</h3>
+                        <p>Ideias detalhadas para usar os cartões em sala</p>
+                    </a>
+                    <!-- Card de navegação para atividades rápidas -->
+                    <a href="atividades-rapidas.html" class="nav-card">
+                        <h3>Atividades Rápidas</h3>
+                        <p>Desafios de 15 minutos usando os cartões</p>
+                    </a>
+                    <!-- Card de navegação para página inicial -->
+                    <a href="index.html" class="nav-card">
+                        <h3>Página Inicial</h3>
+                        <p>Voltar para a Cartilha Pedagógica principal</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé da página com informações institucionais e de contato -->
+    <footer>
+        <div class="container">
+            <!-- Conteúdo do rodapé organizado em seções -->
+            <div class="footer-content">
+                <!-- Seção da instituição -->
+                <div class="footer-section">
+                    <h3>UTFPR - Campus Siqueira Campos</h3>
+                    <p>Universidade Tecnológica Federal do Paraná</p>
+                </div>
+                <!-- Seção de recursos com links úteis -->
+                <div class="footer-section">
+                    <h3>Recursos</h3>
+                    <ul>
+                        <li><a href="https://scratch.mit.edu">Scratch Oficial</a></li>
+                        <li><a href="materiais-complementares.html">Materiais Complementares</a></li>
+                    </ul>
+                </div>
+                <!-- Seção de contato -->
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>Email: giseleacn@gmail.com</p>
+                    <p>Email: barbosa.rodrigo.1979@gmail.com</p>
+                </div>
+            </div>
+            <!-- Copyright e créditos dos desenvolvedores -->
+            <div class="copyright">
+                &copy; 2025 UTFPR - Desenvolvido por Gisele Nunes e Rodrigo Barbosa.
+            </div>
+        </div>
+    </footer>
+
+    <!-- Botão de alternância de tema claro/escuro -->
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+
+    <!-- Script JavaScript para funcionalidades interativas da página -->
+    <script>
+        // =============================================
+        // DARK MODE TOGGLE FUNCTIONALITY
+        // =============================================
+
+        // Obtém referência ao botão de alternância de tema
+        const themeToggle = document.getElementById('themeToggle');
+        // Verifica as preferências de cor do sistema do usuário
+        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+        // Obtém o tema salvo no localStorage (se existir)
+        const currentTheme = localStorage.getItem('theme');
+
+        // Aplica o tema baseado nas preferências salvas ou do sistema
+        // Verificação mais robusta para garantir compatibilidade
+        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+            document.body.classList.add('dark-mode');
+            themeToggle.textContent = '☀️'; // Altera ícone para sol (modo escuro ativo)
+        } else {
+            themeToggle.textContent = '🌙'; // Mantém ícone de lua (modo claro ativo)
+        }
+
+        // Adiciona evento de clique para alternar entre temas
+        themeToggle.addEventListener('click', function () {
+            // Alterna a classe dark-mode no body
+            document.body.classList.toggle('dark-mode');
+            let theme = 'light'; // Tema padrão é claro
+
+            // Verifica se o modo escuro está ativo após o toggle
+            if (document.body.classList.contains('dark-mode')) {
+                theme = 'dark';
+                themeToggle.textContent = '☀️'; // Muda para ícone de sol
+            } else {
+                themeToggle.textContent = '🌙'; // Muda para ícone de lua
+            }
+
+            // Salva a preferência do usuário no localStorage
+            localStorage.setItem('theme', theme);
+        });
+
+        // =============================================
+        // SMOOTH SCROLLING FOR ANCHOR LINKS
+        // =============================================
+
+        // Seleciona todos os links âncora (que começam com #)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault(); // Previne o comportamento padrão do link
+                const target = document.querySelector(this.getAttribute('href'));
+
+                // Se o elemento alvo existir, aplica scroll suave
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth', // Animação suave
+                        block: 'start' // Alinha o topo do elemento com a viewport
+                    });
+                }
+            });
+        });
+
+        // =============================================
+        // ACTIVE NAVIGATION HIGHLIGHTING
+        // =============================================
+
+        // Executa quando o DOM estiver completamente carregado
+        document.addEventListener('DOMContentLoaded', function () {
+            // Obtém o nome do arquivo da página atual
+            const currentPage = window.location.pathname.split('/').pop();
+            // Seleciona todos os links de navegação
+            const navLinks = document.querySelectorAll('nav a');
+
+            // Itera sobre cada link de navegação
+            navLinks.forEach(link => {
+                // Verifica se o link corresponde à página atual
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active'); // Adiciona classe active
+                } else {
+                    link.classList.remove('active'); // Remove classe active
+                }
+            });
+
+            // Define index.html como ativo quando estiver na raiz
+            if (currentPage === '' || currentPage === 'index.html') {
+                document.querySelector('nav a[href="index.html"]').classList.add('active');
+            }
+        });
+
+        // =============================================
+        // LAZY LOADING FOR IMAGES
+        // =============================================
+
+        document.addEventListener('DOMContentLoaded', function () {
+            // Seleciona todas as imagens com atributo data-src (para lazy loading)
+            const images = document.querySelectorAll('img[data-src]');
+
+            // Cria um Intersection Observer para detectar quando as imagens entram na viewport
+            const imageObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    // Se a imagem estiver visível na viewport
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        // Substitui data-src por src para carregar a imagem
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src'); // Remove o atributo data-src
+                        imageObserver.unobserve(img); // Para de observar a imagem
+                    }
+                });
+            });
+
+            // Inicia a observação para cada imagem
+            images.forEach(img => imageObserver.observe(img));
+        });
+    </script>
+</body>
+
+</html>zz
