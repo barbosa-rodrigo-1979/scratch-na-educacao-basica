@@ -526,10 +526,13 @@ main {
 
 /* Caixa de informação */
 .info-box {
+    background: var(--utfpr-gray-light);
+    /* Fundo cinza claro */
     /* Gradiente azul suave */
-    background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
-    border-left: 4px solid var(--scratch-motion);
+    /*background: linear-gradient(135deg, #e3f2fd, #f3e5f5);*/
+    /*border-left: 4px solid var(--scratch-motion);*/
     /* Borda colorida */
+    border-left: 4px solid var(--utfpr-Yellow);
     padding: 20px;
     /* Espaçamento interno */
     border-radius: 8px;
