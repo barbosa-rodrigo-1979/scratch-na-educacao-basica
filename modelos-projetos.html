@@ -1,18 +1,17 @@
 <!--
-  Arquivo: modelos-projetos.html
-  Análise: Comentários didáticos linha-a-linha adicionados por ChatGPT.
-  Objetivo do HTML: fornecer templates de projetos Scratch prontos para professores.
-  Nota: revise caminhos de recursos (style.css, script.js, imagens) ao publicar.
+Objetivo: Apresentar modelos prontos que os professores podem usar diretamente em sala de aula - projeto Scratch na Educação Básica
+Desenvolvido por: Gisele Nunes, Rodrigo Barbosa
+Data: Segundo semestre de 2025
 -->
 <!DOCTYPE html>
 <!--
   <!DOCTYPE html> declara que este documento segue o padrão HTML5.
-  Por quê: garante que navegadores renderizem o documento no modo padrão (standards mode).
+  Garante que navegadores renderizem o documento no modo padrão (standards mode).
 -->
 <html lang="pt-BR">
 <!--
   <html lang="pt-BR">: define o elemento raiz do documento e a língua principal (Português - Brasil).
-  Importância: ajuda leitores de tela, motores de busca e navegadores a aplicar regras de idioma/correção ortográfica.
+  Ajuda leitores de tela, motores de busca e navegadores a aplicar regras de idioma/correção ortográfica.
 -->
 
 <head>
@@ -20,7 +19,7 @@
     <meta charset="UTF-8">
     <!--
       Declaração da codificação de caracteres UTF-8.
-      Importância: suporte a todos os caracteres Unicode (acentos, cedilha, etc.). Deve sempre ser a primeira declaração possível.
+      Suporte a todos os caracteres Unicode (acentos, cedilha, etc.). Deve sempre ser a primeira declaração possível.
     -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!--
@@ -32,15 +31,10 @@
     <title>Modelos de Projetos Prontos Scratch | Cartilha Pedagógica</title>
     <!--
       Texto mostrado na aba do navegador e usado por motores de busca como título da página.
-      Recomendo manter curto e incluir palavras-chave relevantes (ex.: "Scratch", "Modelos", "Professores").
     -->
     <link rel="stylesheet" href="style.css">
     <!--
       Link para arquivo CSS externo.
-      Observações:
-      - Verifique se 'style.css' está no mesmo diretório do HTML ou ajuste o caminho.
-      - Para cache: considere usar querystring com versão (ex: style.css?v=1.2) durante deploy.
-      - Para acessibilidade: assegure contraste e tamanhos de fonte via CSS.
     -->
 </head>
 
@@ -54,18 +48,15 @@
                     <img src="UTFPR_logo.png" alt="UTFPR Logo" class="logo">
                     <!--
                       <img>: imagem do logo da instituição.
-                      - src relativo: assegure que UTFPR_logo.png exista onde se espera.
                       - alt: texto alternativo importante para leitores de tela; descreve a imagem quando ela não é carregada.
                       - class="logo": estilização via CSS.
-                      Sugestão: incluir width/height ou usar atributos de dimensionamento no CSS para evitar reflow.
                     -->
                     <div class="institution-name">
                         Universidade Tecnológica Federal do Paraná<br>
                         <small>Campus Siqueira Campos</small>
                     </div>
                     <!--
-                      Nome da instituição; usar tags semânticas (ex: <address> ou <p>) pode melhorar a estrutura,
-                      mas aqui está claro e legível. <small> reduz a tipografia via CSS.
+                      Nome da instituição; usar tags semânticas (ex: <address> ou <p>) pode melhorar a estrutura. <small> reduz a tipografia via CSS.
                     -->
                 </div>
                 <div class="header-title">
@@ -73,8 +64,7 @@
                     <small>Material Didático para Professores</small>
                 </div>
                 <!--
-                  Título do projeto / material. Recomendo usar um elemento semântico (<h1>) caso o layout permita,
-                  mas há um <h1> principal no <main> — evite múltiplos <h1> por boas práticas de SEO, a menos que controlado.
+                  Título do projeto / material.
                 -->
             </div>
         </div>
@@ -82,12 +72,7 @@
             <div class="container">
                 <nav>
                     <!--
-                      Navegação principal. Repare que os links são relativos (páginas locais).
-                      Para acessibilidade:
-                        - considerar usar role="navigation"
-                        - adicionar aria-label="Navegação principal"
-                        - garantir foco visível (outline) via CSS
-                    -->
+                      Navegação principal.                    -->
                     <ul>
                         <li><a href="index.html">Página Inicial</a></li>
                         <li><a href="primeiros-passos.html">Primeiros Passos</a></li>
@@ -101,12 +86,6 @@
                         <li><a href="materiais-complementares.html">Materiais Complementares</a></li>
                         <li><a href="referencias-bibliograficas.html">Referências Bibliográficas</a></li>
                     </ul>
-                    <!--
-                      Observações sobre o menu:
-                        - class="active" no link atual ajuda a destacar a página corrente via CSS.
-                        - Para navegação maior, pense em versões responsivas: um botão "hamburger" para telas pequenas.
-                        - Se este menu for replicado em todas as páginas, considerar extraí-lo para um include ou template.
-                    -->
                 </nav>
             </div>
         </div>
@@ -141,11 +120,7 @@
                 <div class="scratch-code">
                     <!--
                       EXPLICAÇÃO DO BLOCO: "QUANDO ⚑ FOR CLICADO" representa o bloco 'quando bandeira verde clicada' no Scratch.
-                      O trecho abaixo inicializa contador/slide_atual e troca cenário.
-                      Observações pedagógicas:
-                        - slide_atual deve ser variável global do projeto.
-                        - garantir que os cenários mencionados ('minha_casa' etc.) existam no projeto Scratch.
-                    -->
+                      O trecho abaixo inicializa contador/slide_atual e troca cenário.                    -->
                     QUANDO ⚑ FOR CLICADO
                     ESCONDA <!-- Esconde sprite inicial para mostrar só depois se necessário -->
                     MUDE PARA O CENÁRIO [minha_casa] <!-- Define cenário inicial -->
@@ -157,9 +132,6 @@
                 <div class="scratch-code">
                     <!--
                       Esse bloco representa o comportamento de um sprite principal quando recebe a transmissão.
-                      Sugestões:
-                        - evitar usar 'DIG A' por muito tempo se desejar que o texto permaneça; use 'MOSTRE' e 'ESQUEÇA' adequados.
-                        - 'ESCREVA_SEU_NOME_AQUI' deve ser substituído pelos alunos ao personalizar.
                     -->
                     QUANDO EU RECEBER [iniciar_apresentacao]
                     MOSTRE
@@ -176,7 +148,6 @@
                 <div class="scratch-code">
                     <!--
                       Padrão para checagem de slide atual e avanço sequencial.
-                      Atenção: garantir sequência correta e evitar loops infinitos.
                     -->
                     QUANDO EU RECEBER [proximo_slide]
                     SE <(slide_atual)=[1]> ENTAO
@@ -280,9 +251,7 @@
                 <h4>3º-5º Ano (Completo):</h4>
                 <div class="scratch-code">
                     <!--
-                      Indica que a versão completa inclui navegação e efeitos.
-                      Sugestão: exemplificar a adição de botões voltar/próximo para aumentar autonomia.
-                    -->
+                      Indica que a versão completa inclui navegação e efeitos.                    -->
                     // Incluir todos os 5 slides + interatividade
                     // Adicionar botões de navegação
                     // Incluir efeitos especiais
@@ -311,9 +280,7 @@
                 <h4>B. Inicialização do Quiz</h4>
                 <div class="scratch-code">
                     <!--
-                      Bloco que reseta variáveis e define cenário inicial.
-                      Observação: usar valores padrão testados para evitar comportamento indefinido.
-                    -->
+                      Bloco que reseta variáveis e define cenário inicial.                    -->
                     QUANDO ⚑ FOR CLICADO
                     MUDE [pontuacao_total] PARA [0]
                     MUDE [pergunta_atual] PARA [1]
@@ -343,11 +310,7 @@
                 <h5>Pergunta 1 - Matemática:</h5>
                 <div class="scratch-code">
                     <!--
-                      Exemplo de question block com verificação de resposta.
-                      Observações:
-                      - 'resposta' é a variável interna que armazena o texto digitado pelo aluno.
-                      - Ao comparar números, garantir coerência de tipos (texto vs número) no Scratch.
-                    -->
+                      Exemplo de question block com verificação de resposta.                    -->
                     QUANDO EU RECEBER [fazer_pergunta1]
                     SE <(pergunta_atual)=[1]> ENTAO
                         MUDE [resposta_correta] PARA [15] <!-- Resposta esperada -->
@@ -366,7 +329,7 @@
                 <div class="scratch-code">
                     <!--
                       Exemplo textual: 'oxigenio' — cuidado com acentuação e letras maiúsculas/minúsculas
-                      no Scratch a comparação exata é sensível a caixa; considerar normalizar (toLowerCase) se disponível.
+                      no Scratch a comparação exata é sensível a caixa.
                     -->
                     QUANDO EU RECEBER [fazer_pergunta2]
                     SE <(pergunta_atual)=[2]> ENTAO
@@ -386,9 +349,7 @@
                 <div class="scratch-code">
                     <!--
                       Exemplo com capital do Brasil.
-                      Observação: 'brasilia' sem acento na resposta; se os alunos digitarem 'Brasília' com acento, poderá dar errado.
-                      Sugestão: oferecer opções (botões) em vez de texto livre para evitar problemas de digitação.
-                    -->
+                      Observação: 'brasilia' sem acento na resposta; se os alunos digitarem 'Brasília' com acento, poderá dar errado.                    -->
                     QUANDO EU RECEBER [fazer_pergunta3]
                     SE <(pergunta_atual)=[3]> ENTAO
                         MUDE [resposta_correta] PARA [brasilia]
@@ -407,7 +368,6 @@
                 <div class="scratch-code">
                     <!--
                       Controlador que decide qual pergunta executar.
-                      Nota: há um pequeno erro lógico no último 'SENAO SE' — veremos correção abaixo.
                     -->
                     QUANDO EU RECEBER [proxima_pergunta]
                     SE <(pergunta_atual)=[1]> ENTAO
@@ -418,26 +378,12 @@
                                 TRANSMITA [fazer_pergunta3]
                                 SENAO SE <(pergunta_atual)> [3]> ENTAO
                                     TRANSMITA [fim_do_quiz]
-                    <!--
-                      Observação de correção:
-                        - A última condição "SENAO SE <(pergunta_atual)> [3]>" está mal formada.
-                        - Provavelmente a intenção era "SE (pergunta_atual) > [3] ENTAO TRANSMITA [fim_do_quiz]" ou
-                          simplesmente usar 'SENAO' para finalizar.
-                      Sugestão prática:
-                        - Substituir as últimas linhas por:
-                          SENAO
-                            TRANSMITA [fim_do_quiz]
-                    -->
                 </div>
 
                 <h4>F. Tela Final com Resultados</h4>
                 <div class="scratch-code">
                     <!--
                       Exibe diferentes mensagens de acordo com a pontuação.
-                      Observações:
-                        - Verificar ordens de comparação; nos exemplos com 'SENAO SE <(pontuacao_total)> [20]>' a sintaxe está inconsistente:
-                          no Scratch se escreve: 'SE <(pontuacao_total) > (20)> ENTAO', por ex.
-                        - Recomendo usar comparações bem definidas: (==), (>), (>=).
                     -->
                     QUANDO EU RECEBER [fim_do_quiz]
                     MUDE PARA O CENÁRIO [tela_final]
@@ -462,7 +408,6 @@
                 <div class="scratch-code">
                     <!--
                       Sprites que mostram pontuação e tempo permanentemente.
-                      Observação: scripts 'SEMPRE' exibem texto continuamente; certifique-se que não consumam muita performance.
                     -->
                     // Mostra pontuação e tempo
                     SEMPRE
@@ -487,7 +432,6 @@
                 <div class="scratch-code">
                     <!--
                       Itens editáveis pelos professores para adaptar disciplina/nível.
-                      Incluir instruções sobre consistência de respostas (maiúsculas, acentos).
                     -->
                     // EDITAR ESTES VALORES:
                     - Texto das perguntas
@@ -654,7 +598,6 @@
                 <div class="scratch-code">
                     <!--
                       Alterna cenas com a tecla espaço.
-                      Observação: confirme que 'cena_atual' é alterada sincronizadamente por todos os scripts.
                     -->
                     QUANDO A TECLA [ESPAÇO] FOR PRESSIONADA
                     SE <(cena_atual)=[1]> ENTAO
@@ -723,12 +666,7 @@
                         TRANSMITA [desenhar_quadrado]
                         TRANSMITA [mostrar_resultados]
                         SENAO
-                        DIGA [⚠️ Use números positivos!] POR 2 SEGUNDOS
-                    <!--
-                      Observação: condição SE <(resposta)> [0]> parece invertida — normalmente checamos se resposta > 0.
-                      Sugestão: usar 'SE <(resposta) > (0)>' para aceitar somente valores positivos.
-                    -->
-                </div>
+                        DIGA [⚠️ Use números positivos!] POR 2 SEGUNDOS </div>
 
                 <h5>Botão Retângulo:</h5>
                 <div class="scratch-code">
@@ -745,10 +683,6 @@
                             TRANSMITA [mostrar_resultados]
                             SENAO
                             DIGA [⚠️ Medidas devem ser positivas!] POR 2 SEGUNDOS
-                    <!--
-                      Observação: a sintaxe das condições compostas deve usar operadores corretamente: por exemplo
-                      SE <((base) > (0)) E ((altura) > (0))> ENTAO ...
-                    -->
                 </div>
 
                 <h5>Botão Círculo:</h5>
@@ -763,11 +697,7 @@
                         TRANSMITA [desenhar_circulo]
                         TRANSMITA [mostrar_resultados]
                         SENAO
-                        DIGA [⚠️ Raio deve ser positivo!] POR 2 SEGUNDOS
-                    <!--
-                      Observação: usa-se pi ≈ 3.14; para melhor precisão, considerar usar variável PI = 3.14159.
-                    -->
-                </div>
+                        DIGA [⚠️ Raio deve ser positivo!] POR 2 SEGUNDOS </div>
 
                 <h4>C. Sistema de Desenho</h4>
 
@@ -775,7 +705,7 @@
                 <div class="scratch-code">
                     QUANDO EU RECEBER [desenhar_quadrado]
                     APAGUE TODOS OS DESENHOS
-                ABAIXE A CANETA
+                    ABAIXE A CANETA
                     DEFINA A COR DA CANETA PARA [azul]
                     DEFINA O TAMANHO DA CANETA PARA [3]
                     VÁ PARA X: [-50] Y: [-50] // Posição inicial
@@ -783,11 +713,6 @@
                     MOVA (lado) PASSOS
                     GIRE ↻ 90 GRAUS
                     LEVANTE A CANETA
-                    <!--
-                      Observações:
-                        - Ajuste coordenadas iniciais para centralizar a figura dependendo do valor de 'lado'.
-                        - Se 'lado' for muito grande, o desenho pode sair da tela; considerar escalonamento.
-                    -->
                 </div>
 
                 <h5>Desenhando Retângulo:</h5>
@@ -805,10 +730,6 @@
                     MOVA (altura) PASSOS
                     GIRE ↻ 90 GRAUS
                     LEVANTE A CANETA
-                    <!--
-                      Observação: estrutura correta para retângulo (base, altura repetidos).
-                      Verificar se base/altura são números e tratar números decimais se necessário.
-                    -->
                 </div>
 
                 <h5>Desenhando Círculo:</h5>
@@ -823,13 +744,7 @@
                     REPITA 36 VEZES
                     MOVA (((2) * (3.14) * (raio)) / (36)) PASSOS
                     GIRE ↻ (360 / 36) GRAUS
-                    LEVANTE A CANETA
-                    <!--
-                      Observação:
-                        - Aproximação poligonal do círculo com 36 segmentos. Mais segmentos = círculo mais suave.
-                        - Garantir que (raio) seja coerente em pixels/passos no estágio do Scratch.
-                    -->
-                </div>
+                    LEVANTE A CANETA </div>
 
                 <h4>D. Display de Resultados</h4>
                 <div class="scratch-code">
@@ -841,11 +756,6 @@
                     ESPERA 0.2 SEGUNDOS
                     DIGA (JUNTAR [Perímetro: ] (ARREDONDAR (perimetro_calculado))) POR 4 SEGUNDOS
                     TOQUE O SOM [pop]
-                    <!--
-                      Observações:
-                        - 'ARREDONDAR' ajuda na apresentação, mas mantenha a precisão interna se for usar resultados para outras contas.
-                        - Considere mostrar unidades (ex.: 'Área: 25 cm²') caso o projeto trabalhe com medidas reais.
-                    -->
                 </div>
 
                 <h5>Sprite Calculadora (Display Permanente)</h5>
@@ -858,7 +768,6 @@
                     DIGA (JUNTAR [Perímetro: ] (perimetro_calculado))
                     <!--
                       Observação: exibir em tempo real ajuda alunos a acompanhar variáveis.
-                      Performance: evite atualizações excessivamente rápidas; 'SEMPRE' em Scratch roda a cada frame.
                     -->
                 </div>
 
@@ -1049,18 +958,11 @@
                         <li><a href="https://scratch.mit.edu/educators">Para Educadores</a></li>
                         <li><a href="https://scratch.mit.edu/parents">Para Pais</a></li>
                     </ul>
-                    <!--
-                      Links externos: considerar target="_blank" rel="noopener" se quiser abri-los em nova aba,
-                      e adicionar rel="noopener noreferrer" por segurança.
-                    -->
                 </div>
                 <div class="footer-section">
                     <h3>Contato</h3>
                     <p>Email: giseleacn@gmail.com</p>
                     <p>Email: barbosa.rodrigo.1979@gmail.com</p>
-                    <!--
-                      Recomendo substituir por contato real ou criar formulário de contato para evitar spam.
-                    -->
                 </div>
             </div>
             <div class="copyright">
@@ -1072,17 +974,11 @@
     <button class="theme-toggle" id="themeToggle">🌙</button>
     <!--
       Botão para alternar tema (claro/escuro). Necessita de script para funcionar.
-      Sugestões de melhoria:
-        - Adicionar aria-pressed/aria-label para acessibilidade
-        - Persistir preferência em localStorage
     -->
 
     <script src="script.js"></script>
     <!--
-      Inclusão de script JS externo. Verifique:
-        - script.js existe e não contém erros
-        - colocar scripts no fim do body (como aqui) para melhorar carregamento
-        - se o script manipula elementos do DOM, garantir que sejam referenciados após o carregamento
+      Inclusão de script JS externo.
     -->
 </body>
 

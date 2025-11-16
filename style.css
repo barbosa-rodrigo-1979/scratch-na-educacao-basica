@@ -1397,7 +1397,8 @@ footer {
     right: 20px;
     /* 20px da direita */
     /*background: var(--utfpr-Yellow);  Fundo amarelo */
-    background-color: var(--utfpr-gray-dark); /* Fundo cinza escuro*/
+    background-color: var(--utfpr-gray-dark);
+    /* Fundo cinza escuro*/
     /* Cor de fundo */
     color: var(--utfpr-gray-dark);
     /* Cor cinza escuro */
@@ -2969,7 +2970,8 @@ body.dark-mode .checklist-ficha li {
 /* Botão de tema no modo escuro */
 body.dark-mode .theme-toggle {
     /*background: var(--utfpr-Yellow);  Fundo amarelo */
-    background-color: var(--utfpr-gray-dark);  /* Fundo cinza escuro*/
+    background-color: var(--utfpr-gray-dark);
+    /* Fundo cinza escuro*/
     /* Cor de fundo */
     color: var(--utfpr-white);
     /* Texto escuro */

@@ -166,22 +166,22 @@ Data: Segundo semestre de 2025
                 <!-- DESTAQUE PARA INSTRUÇÃO ESPECÍFICA -->
                 <div class="scratch-code">
                     <!-- DIV PARA CÓDIGO SCRATCH COM FORMATAÇÃO ESPECIAL -->
-quando ⚑ for clicado
-esconda
-espere 1 segundos
-mostre
-toque o som pop
-mova 50 passos
+                    quando ⚑ for clicado
+                    esconda
+                    espere 1 segundos
+                    mostre
+                    toque o som pop
+                    mova 50 passos
                 </div>
 
                 <p><strong>Para as DEMAIS letras:</strong></p>
                 <div class="scratch-code">
-quando ⚑ for clicado
-esconda
-espere [2-3] segundos // Aumentar para cada letra
-mostre
-toque o som pop
-mova 50 passos
+                    quando ⚑ for clicado
+                    esconda
+                    espere [2-3] segundos // Aumentar para cada letra
+                    mostre
+                    toque o som pop
+                    mova 50 passos
                 </div>
 
                 <h4>Personalização (5 minutos)</h4>
@@ -290,45 +290,45 @@ mova 50 passos
 
                 <h4>Cenário 1 - Introdução (15 minutos)</h4>
                 <div class="scratch-code">
-quando ⚑ for clicado
-mude para o cenário [cenário1]
-diga [Era uma vez um pequeno dragão chamando Faísca!] por 3 segundos
-diga [Faísca encontrou uma floresta encantada com dois caminhos...] por 3 segundos
-pergunte [Qual caminho devo seguir? 1- Esquerda 2- Direita] e espere
+                    quando ⚑ for clicado
+                    mude para o cenário [cenário1]
+                    diga [Era uma vez um pequeno dragão chamando Faísca!] por 3 segundos
+                    diga [Faísca encontrou uma floresta encantada com dois caminhos...] por 3 segundos
+                    pergunte [Qual caminho devo seguir? 1- Esquerda 2- Direita] e espere
                 </div>
 
                 <h4>Sistema de Decisão (20 minutos)</h4>
                 <p><strong>Variável necessária:</strong> Crie "caminho_escolhido"</p>
                 <!-- INSTRUÇÃO ESPECÍFICA SOBRE VARIÁVEIS -->
                 <div class="scratch-code">
-quando ⚑ for clicado
-mude [caminho_escolhido] para [0] // Reset
+                    quando ⚑ for clicado
+                    mude [caminho_escolhido] para [0] // Reset
 
-quando eu receber [escolha_feita]
-se <(resposta) = [1]> então
-mude [caminho_escolhido] para [1]
-mude para o cenário [caminho_esquerda]
-senão
-mude [caminho_escolhido] para [2]
-mude para o cenário [caminho_direita]
+                    quando eu receber [escolha_feita]
+                    se <(resposta)=[1]> então
+                        mude [caminho_escolhido] para [1]
+                        mude para o cenário [caminho_esquerda]
+                        senão
+                        mude [caminho_escolhido] para [2]
+                        mude para o cenário [caminho_direita]
                 </div>
 
                 <h4>Finais Alternativos (15 minutos)</h4>
 
                 <p><strong>Final A - Caminho da Esquerda:</strong></p>
                 <div class="scratch-code">
-quando o cenário for [caminho_esquerda]
-diga [Você encontrou amigos mágicos!] por 3 segundos
-toque o som [magic spell]
-mude o efeito [cor] para [50]
+                    quando o cenário for [caminho_esquerda]
+                    diga [Você encontrou amigos mágicos!] por 3 segundos
+                    toque o som [magic spell]
+                    mude o efeito [cor] para [50]
                 </div>
 
                 <p><strong>Final B - Caminho da Direita:</strong></p>
                 <div class="scratch-code">
-quando o cenário for [caminho_direita]
-diga [Oh não! Uma tempestade chegou!] por 3 segundos
-toque o som [thunder]
-mude o efeito [brilho] para [50]
+                    quando o cenário for [caminho_direita]
+                    diga [Oh não! Uma tempestade chegou!] por 3 segundos
+                    toque o som [thunder]
+                    mude o efeito [brilho] para [50]
                 </div>
 
                 <h4>Exemplo Completo - "A Aventura do Dragão"</h4>
@@ -388,86 +388,86 @@ mude o efeito [brilho] para [50]
 
                 <h4>Variáveis Necessárias</h4>
                 <div class="scratch-code">
-pontuação // Armazena os pontos do jogador
-pergunta_atual // Controla qual pergunta mostrar
-resposta_correta // Guarda a resposta certa
+                    pontuação // Armazena os pontos do jogador
+                    pergunta_atual // Controla qual pergunta mostrar
+                    resposta_correta // Guarda a resposta certa
                 </div>
 
                 <h3>Implementação Detalhada</h3>
 
                 <h4>Configuração Inicial (10 minutos)</h4>
                 <div class="scratch-code">
-quando ⚑ for clicado
-mude [pontuação] para [0]
-mude [pergunta_atual] para [1]
-mude para o cenário [tela_inicial]
-diga [Bem-vindo ao Quiz de Matemática!] por 3 segundos
-espere 2 segundos
-transmita [próxima_pergunta]
+                    quando ⚑ for clicado
+                    mude [pontuação] para [0]
+                    mude [pergunta_atual] para [1]
+                    mude para o cenário [tela_inicial]
+                    diga [Bem-vindo ao Quiz de Matemática!] por 3 segundos
+                    espere 2 segundos
+                    transmita [próxima_pergunta]
                 </div>
 
                 <h4>Sistema de Perguntas (25 minutos)</h4>
 
                 <p><strong>Pergunta 1 - Adição:</strong></p>
                 <div class="scratch-code">
-quando eu receber [próxima_pergunta]
-se <(pergunta_atual) = [1]> então
-mude [resposta_correta] para [8] // 5 + 3
-pergunte [Quanto é 5 + 3?] e espere
-se <(resposta) = [8]> então
-mude [pontuação] para (pontuação + 10)
-diga [Correto! +10 pontos] por 2 segundos
-senão
-diga [Resposta correta: 8] por 2 segundos
-mude [pergunta_atual] para [2]
-espere 2 segundos
-transmita [próxima_pergunta]
+                    quando eu receber [próxima_pergunta]
+                    se <(pergunta_atual)=[1]> então
+                        mude [resposta_correta] para [8] // 5 + 3
+                        pergunte [Quanto é 5 + 3?] e espere
+                        se <(resposta)=[8]> então
+                            mude [pontuação] para (pontuação + 10)
+                            diga [Correto! +10 pontos] por 2 segundos
+                            senão
+                            diga [Resposta correta: 8] por 2 segundos
+                            mude [pergunta_atual] para [2]
+                            espere 2 segundos
+                            transmita [próxima_pergunta]
                 </div>
 
                 <p><strong>Pergunta 2 - Subtração:</strong></p>
                 <div class="scratch-code">
-se <(pergunta_atual) = [2]> então
-mude [resposta_correta] para [7] // 10 - 3
-pergunte [Quanto é 10 - 3?] e espere
-se <(resposta) = [7]> então
-mude [pontuação] para (pontuação + 10)
-diga [Correto! +10 pontos] por 2 segundos
-senão
-diga [Resposta correta: 7] por 2 segundos
-mude [pergunta_atual] para [3]
-// Continua para mais perguntas...
+                    se <(pergunta_atual)=[2]> então
+                        mude [resposta_correta] para [7] // 10 - 3
+                        pergunte [Quanto é 10 - 3?] e espere
+                        se <(resposta)=[7]> então
+                            mude [pontuação] para (pontuação + 10)
+                            diga [Correto! +10 pontos] por 2 segundos
+                            senão
+                            diga [Resposta correta: 7] por 2 segundos
+                            mude [pergunta_atual] para [3]
+                            // Continua para mais perguntas...
                 </div>
 
                 <h4>Feedback Visual (10 minutos)</h4>
                 <div class="scratch-code">
-sempre
-diga (juntar [Pontuação: ] (pontuação))
+                    sempre
+                    diga (juntar [Pontuação: ] (pontuação))
                 </div>
 
                 <p><strong>Para acertos:</strong></p>
                 <div class="scratch-code">
-toque o som [positive beep]
-mude o efeito [cor] para [25]
-espere 0.5 segundos
-mude o efeito [cor] para [0]
+                    toque o som [positive beep]
+                    mude o efeito [cor] para [25]
+                    espere 0.5 segundos
+                    mude o efeito [cor] para [0]
                 </div>
 
                 <p><strong>Para erros:</strong></p>
                 <div class="scratch-code">
-toque o som [low beep]
-mude o efeito [brilho] para [50]
-espere 0.5 segundos
-mude o efeito [brilho] para [0]
+                    toque o som [low beep]
+                    mude o efeito [brilho] para [50]
+                    espere 0.5 segundos
+                    mude o efeito [brilho] para [0]
                 </div>
 
                 <h4>Tela Final (5 minutos)</h4>
                 <div class="scratch-code">
-quando [pergunta_atual] > [5] // Após última pergunta
-diga (juntar [Fim do Quiz! Sua pontuação: ] (pontuação)) por 5 segundos
-se <(pontuação) > [30]> então
-diga [Excelente! Você é um gênio da matemática!] por 4 segundos
-senão
-diga [Bom trabalho! Continue praticando!] por 4 segundos
+                    quando [pergunta_atual] > [5] // Após última pergunta
+                    diga (juntar [Fim do Quiz! Sua pontuação: ] (pontuação)) por 5 segundos
+                    se <(pontuação)> [30]> então
+                        diga [Excelente! Você é um gênio da matemática!] por 4 segundos
+                        senão
+                        diga [Bom trabalho! Continue praticando!] por 4 segundos
                 </div>
 
                 <h4>Banco de Perguntas Sugerido</h4>
@@ -545,13 +545,13 @@ diga [Bom trabalho! Continue praticando!] por 4 segundos
 
                 <h4>Variáveis Globais</h4>
                 <div class="scratch-code">
-base
-altura
-raio
-área
-perímetro
-lado
-forma_selecionada
+                    base
+                    altura
+                    raio
+                    área
+                    perímetro
+                    lado
+                    forma_selecionada
                 </div>
 
                 <h3>Interface do Usuário</h3>
@@ -560,86 +560,86 @@ forma_selecionada
 
                 <p><strong>Quadrado:</strong></p>
                 <div class="scratch-code">
-quando este sprite for clicado
-mude [forma_selecionada] para [quadrado]
-pergunte [Qual o tamanho do lado?] e espere
-mude [lado] para (resposta)
-transmita [calcular]
+                    quando este sprite for clicado
+                    mude [forma_selecionada] para [quadrado]
+                    pergunte [Qual o tamanho do lado?] e espere
+                    mude [lado] para (resposta)
+                    transmita [calcular]
                 </div>
 
                 <p><strong>Retângulo:</strong></p>
                 <div class="scratch-code">
-quando este sprite for clicado
-mude [forma_selecionada] para [retângulo]
-pergunte [Qual a base?] e espere
-mude [base] para (resposta)
-pergunte [Qual a altura?] e espere
-mude [altura] para (resposta)
-transmita [calcular]
+                    quando este sprite for clicado
+                    mude [forma_selecionada] para [retângulo]
+                    pergunte [Qual a base?] e espere
+                    mude [base] para (resposta)
+                    pergunte [Qual a altura?] e espere
+                    mude [altura] para (resposta)
+                    transmita [calcular]
                 </div>
 
                 <p><strong>Círculo:</strong></p>
                 <div class="scratch-code">
-quando este sprite for clicado
-mude [forma_selecionada] para [círculo]
-pergunte [Qual o raio?] e espere
-mude [raio] para (resposta)
-transmita [calcular]
+                    quando este sprite for clicado
+                    mude [forma_selecionada] para [círculo]
+                    pergunte [Qual o raio?] e espere
+                    mude [raio] para (resposta)
+                    transmita [calcular]
                 </div>
 
                 <h3>Sistema de Cálculos</h3>
 
                 <h4>Processamento Central</h4>
                 <div class="scratch-code">
-quando eu receber [calcular]
-se <(forma_selecionada) = [quadrado]> então
-mude [área] para ((lado) * (lado))
-mude [perímetro] para ((4) * (lado))
-transmita [desenhar_quadrado]
+                    quando eu receber [calcular]
+                    se <(forma_selecionada)=[quadrado]> então
+                        mude [área] para ((lado) * (lado))
+                        mude [perímetro] para ((4) * (lado))
+                        transmita [desenhar_quadrado]
 
-se <(forma_selecionada) = [retângulo]> então
-mude [área] para ((base) * (altura))
-mude [perímetro] para ((2) * ((base) + (altura)))
-transmita [desenhar_retângulo]
+                        se <(forma_selecionada)=[retângulo]> então
+                            mude [área] para ((base) * (altura))
+                            mude [perímetro] para ((2) * ((base) + (altura)))
+                            transmita [desenhar_retângulo]
 
-se <(forma_selecionada) = [círculo]> então
-mude [área] para ((3.14) * ((raio) * (raio)))
-mude [perímetro] para ((2) * (3.14) * (raio))
-transmita [desenhar_círculo]
+                            se <(forma_selecionada)=[círculo]> então
+                                mude [área] para ((3.14) * ((raio) * (raio)))
+                                mude [perímetro] para ((2) * (3.14) * (raio))
+                                transmita [desenhar_círculo]
                 </div>
 
                 <h3>Sistema de Desenho</h3>
 
                 <p><strong>Desenhando o Quadrado:</strong></p>
                 <div class="scratch-code">
-quando eu receber [desenhar_quadrado]
-apague todos os desenhos
-abaixe a caneta
-repita (4) vezes
-mova (lado) passos
-gire ↻ (90) graus
+                    quando eu receber [desenhar_quadrado]
+                    apague todos os desenhos
+                    abaixe a caneta
+                    repita (4) vezes
+                    mova (lado) passos
+                    gire ↻ (90) graus
                 </div>
 
                 <p><strong>Desenhando o Círculo:</strong></p>
                 <div class="scratch-code">
-quando eu receber [desenhar_círculo]
-apague todos os desenhos
-abaixe a caneta
-repita (36) vezes // Aproximação do círculo
-mova ((2) * (3.14) * (raio) / (36)) passos
-gire ↻ (10) graus
+                    quando eu receber [desenhar_círculo]
+                    apague todos os desenhos
+                    abaixe a caneta
+                    repita (36) vezes // Aproximação do círculo
+                    mova ((2) * (3.14) * (raio) / (36)) passos
+                    gire ↻ (10) graus
                 </div>
 
                 <h4>Display de Resultados</h4>
                 <div class="scratch-code">
-sempre
-diga (juntar [Área: ] (área))
+                    sempre
+                    diga (juntar [Área: ] (área))
                 </div>
 
                 <p><strong>Sprite separado para perímetro:</strong></p>
                 <div class="scratch-code">
-sempre
-diga (juntar [Perímetro: ] (perímetro))
+                    sempre
+                    diga (juntar [Perímetro: ] (perímetro))
                 </div>
 
                 <h4>Exemplos Práticos</h4>
@@ -708,19 +708,19 @@ diga (juntar [Perímetro: ] (perímetro))
 
                 <h4>Variáveis Globais</h4>
                 <div class="scratch-code">
-população_plantas
-população_coelhos
-população_raposas
-recursos_solo
-tempo
+                    população_plantas
+                    população_coelhos
+                    população_raposas
+                    recursos_solo
+                    tempo
                 </div>
 
                 <h4>Variáveis de Configuração</h4>
                 <div class="scratch-code">
-taxa_nascimento_plantas
-taxa_nascimento_coelhos
-taxa_nascimento_raposas
-energia_inicial
+                    taxa_nascimento_plantas
+                    taxa_nascimento_coelhos
+                    taxa_nascimento_raposas
+                    energia_inicial
                 </div>
 
                 <h3>Implementação dos Comportamentos</h3>
@@ -729,95 +729,95 @@ energia_inicial
 
                 <p><strong>Comportamento Principal:</strong></p>
                 <div class="scratch-code">
-quando ⚑ for clicado
-mude o tamanho para (20)%
-aponte para a direção (0)
-vá para x: (número aleatório entre (-200) e (200)) y: (número aleatório entre (-200) e (200))
-mostre
+                    quando ⚑ for clicado
+                    mude o tamanho para (20)%
+                    aponte para a direção (0)
+                    vá para x: (número aleatório entre (-200) e (200)) y: (número aleatório entre (-200) e (200))
+                    mostre
 
-sempre
-espere (1) segundos
-se <(número aleatório entre (1) e (100)) < (taxa_nascimento_plantas)> então
-crie um clone de [mim mesmo]
+                    sempre
+                    espere (1) segundos
+                    se <(número aleatório entre (1) e (100)) < (taxa_nascimento_plantas)> então
+                        crie um clone de [mim mesmo]
                 </div>
 
                 <p><strong>Comportamento dos Clones:</strong></p>
                 <div class="scratch-code">
-quando eu começar como clone
-mude [população_plantas] para (população_plantas + 1)
-repita até <não <tocando em [Coelho]?>>
-espere (0.1) segundos
-delete este clone
+                    quando eu começar como clone
+                    mude [população_plantas] para (população_plantas + 1)
+                    repita até <não <tocando em [Coelho]?>>
+                        espere (0.1) segundos
+                        delete este clone
                 </div>
 
                 <h4>Sprite Coelho (Consumidor Primário)</h4>
 
                 <p><strong>Comportamento de Alimentação:</strong></p>
                 <div class="scratch-code">
-sempre
-se <tocando em [Planta]?> então
-mude [população_plantas] para (população_plantas - 1)
-apague [Planta] tocado
-espere (2) segundos // Tempo de digestão
-se <(número aleatório entre (1) e (100)) < (taxa_nascimento_coelhos)> então
-crie um clone de [mim mesmo]
+                    sempre
+                    se <tocando em [Planta]?> então
+                        mude [população_plantas] para (população_plantas - 1)
+                        apague [Planta] tocado
+                        espere (2) segundos // Tempo de digestão
+                        se <(número aleatório entre (1) e (100)) < (taxa_nascimento_coelhos)> então
+                            crie um clone de [mim mesmo]
                 </div>
 
                 <p><strong>Movimento Aleatório:</strong></p>
                 <div class="scratch-code">
-sempre
-aponte para a direção (número aleatório entre (1) e (360))
-mova (3) passos
-se <está tocando na borda?> então
-gire ↻ (180) graus
+                    sempre
+                    aponte para a direção (número aleatório entre (1) e (360))
+                    mova (3) passos
+                    se <está tocando na borda?> então
+                        gire ↻ (180) graus
                 </div>
 
                 <h4>Sprite Raposa (Consumidor Secundário)</h4>
 
                 <p><strong>Comportamento Predatório:</strong></p>
                 <div class="scratch-code">
-sempre
-se <tocando em [Coelho]?> então
-mude [população_coelhos] para (população_coelhos - 1)
-apague [Coelho] tocado
-espere (3) segundos // Tempo de digestão maior
-se <(número aleatório entre (1) e (100)) < (taxa_nascimento_raposas)> então
-crie um clone de [mim mesmo]
+                    sempre
+                    se <tocando em [Coelho]?> então
+                        mude [população_coelhos] para (população_coelhos - 1)
+                        apague [Coelho] tocado
+                        espere (3) segundos // Tempo de digestão maior
+                        se <(número aleatório entre (1) e (100)) < (taxa_nascimento_raposas)> então
+                            crie um clone de [mim mesmo]
                 </div>
 
                 <h3>Sistema de Monitoramento</h3>
 
                 <h4>Painel de Controle</h4>
                 <div class="scratch-code">
-sempre
-diga (juntar [Plantas: ] (população_plantas))
+                    sempre
+                    diga (juntar [Plantas: ] (população_plantas))
                 </div>
 
                 <p><strong>Sprite separado para cada população:</strong></p>
                 <div class="scratch-code">
-// Para coelhos
-sempre
-diga (juntar [Coelhos: ] (população_coelhos))
+                    // Para coelhos
+                    sempre
+                    diga (juntar [Coelhos: ] (população_coelhos))
 
-// Para raposas
-sempre
-diga (juntar [Raposas: ] (população_raposas))
+                    // Para raposas
+                    sempre
+                    diga (juntar [Raposas: ] (população_raposas))
                 </div>
 
                 <h4>Gráfico de População</h4>
                 <div class="scratch-code">
-quando ⚑ for clicado
-apague todos os desenhos
-vá para x: (-200) y: (0)
-abaixe a caneta
-defina a cor da caneta para [verde]
+                    quando ⚑ for clicado
+                    apague todos os desenhos
+                    vá para x: (-200) y: (0)
+                    abaixe a caneta
+                    defina a cor da caneta para [verde]
 
-sempre
-mude x para (x + 1)
-mude y para (população_plantas / 2) // Ajuste de escala
-se <x > (200)> então
-vá para x: (-200) y: (0)
-apague todos os desenhos
+                    sempre
+                    mude x para (x + 1)
+                    mude y para (população_plantas / 2) // Ajuste de escala
+                    se <x> (200)> então
+                        vá para x: (-200) y: (0)
+                        apague todos os desenhos
                 </div>
 
                 <h3>Intervenção Humana</h3>
@@ -826,51 +826,51 @@ apague todos os desenhos
 
                 <p><strong>Adicionar Plantas:</strong></p>
                 <div class="scratch-code">
-quando este sprite for clicado
-repita (10) vezes
-crie um clone de [Planta]
+                    quando este sprite for clicado
+                    repita (10) vezes
+                    crie um clone de [Planta]
                 </div>
 
                 <p><strong>Adicionar Coelhos:</strong></p>
                 <div class="scratch-code">
-quando este sprite for clicado
-repita (2) vezes
-crie um clone de [Coelho]
+                    quando este sprite for clicado
+                    repita (2) vezes
+                    crie um clone de [Coelho]
                 </div>
 
                 <p><strong>Adicionar Raposas:</strong></p>
                 <div class="scratch-code">
-quando este sprite for clicado
-crie um clone de [Raposa]
+                    quando este sprite for clicado
+                    crie um clone de [Raposa]
                 </div>
 
                 <h3>Cenários de Simulação</h3>
 
                 <p><strong>Cenário 1 - Equilíbrio Natural</strong></p>
                 <div class="scratch-code">
-Taxas iniciais:
-- Plantas: 50
-- Coelhos: 10
-- Raposas: 2
-- Taxa nascimento plantas: 20%
-- Taxa nascimento coelhos: 15%
-- Taxa nascimento raposas: 10%
+                    Taxas iniciais:
+                    - Plantas: 50
+                    - Coelhos: 10
+                    - Raposas: 2
+                    - Taxa nascimento plantas: 20%
+                    - Taxa nascimento coelhos: 15%
+                    - Taxa nascimento raposas: 10%
                 </div>
 
                 <p><strong>Cenário 2 - Superpopulação</strong></p>
                 <div class="scratch-code">
-Taxas iniciais:
-- Plantas: 20
-- Coelhos: 30
-- Raposas: 1
+                    Taxas iniciais:
+                    - Plantas: 20
+                    - Coelhos: 30
+                    - Raposas: 1
                 </div>
 
                 <p><strong>Cenário 3 - Predação Excessiva</strong></p>
                 <div class="scratch-code">
-Taxas iniciais:
-- Plantas: 40
-- Coelhos: 15
-- Raposas: 8
+                    Taxas iniciais:
+                    - Plantas: 40
+                    - Coelhos: 15
+                    - Raposas: 8
                 </div>
 
                 <h3>Análise dos Resultados</h3>

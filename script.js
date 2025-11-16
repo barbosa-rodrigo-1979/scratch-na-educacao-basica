@@ -35,14 +35,14 @@ if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
 }
 
 // ADICIONA EVENT LISTENER PARA O CLIQUE NO BOTÃO DE TEMA
-themeToggle.addEventListener('click', function() {
+themeToggle.addEventListener('click', function () {
     // Alterna a classe 'dark-mode' no elemento body
     // Se existir, remove; se não existir, adiciona
     document.body.classList.toggle('dark-mode');
-    
+
     // Define o tema padrão como 'light'
     let theme = 'light';
-    
+
     // Verifica se o body agora possui a classe 'dark-mode' após o toggle
     if (document.body.classList.contains('dark-mode')) {
         // Se estiver em modo escuro, atualiza a variável theme
@@ -53,7 +53,7 @@ themeToggle.addEventListener('click', function() {
         // Altera o ícone para lua
         themeToggle.textContent = '🌙';
     }
-    
+
     // Salva a preferência do tema no localStorage para persistência
     localStorage.setItem('theme', theme);
 });
@@ -68,10 +68,10 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         // Previne o comportamento padrão do link (navegação brusca)
         e.preventDefault();
-        
+
         // Obtém o elemento alvo baseado no atributo href do link clicado
         const target = document.querySelector(this.getAttribute('href'));
-        
+
         // Verifica se o elemento alvo existe
         if (target) {
             // Realiza a rolagem suave até o elemento alvo
@@ -88,14 +88,14 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // =============================================
 
 // Aguarda o DOM ser completamente carregado antes de executar
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Obtém o nome do arquivo atual da URL
     // split('/').pop() pega a última parte do caminho (nome do arquivo)
     const currentPage = window.location.pathname.split('/').pop();
-    
+
     // Seleciona TODOS os links dentro de elementos <nav>
     const navLinks = document.querySelectorAll('nav a');
-    
+
     // Itera sobre cada link de navegação
     navLinks.forEach(link => {
         // Verifica se o href do link corresponde à página atual
@@ -107,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
             link.classList.remove('active');
         }
     });
-    
+
     // CASO ESPECIAL: Página inicial (root)
     // Se estiver na raiz do site (URL sem caminho) ou no index.html
     if (currentPage === '' || currentPage === 'index.html') {
@@ -121,11 +121,11 @@ document.addEventListener('DOMContentLoaded', function() {
 // =============================================
 
 // Aguarda o DOM ser completamente carregado
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Seleciona TODAS as imagens que possuem o atributo 'data-src'
     // (imagens que devem ser carregadas apenas quando visíveis)
     const images = document.querySelectorAll('img[data-src]');
-    
+
     // Cria um Intersection Observer para detectar quando as imagens entram na viewport
     // Intersection Observer é uma API moderna que observa mudanças na interseção dos elementos
     const imageObserver = new IntersectionObserver((entries, observer) => {
@@ -135,19 +135,19 @@ document.addEventListener('DOMContentLoaded', function() {
             if (entry.isIntersecting) {
                 // Obtém a referência para a imagem que está visível
                 const img = entry.target;
-                
+
                 // Substitui o src placeholder pelo src real (armazenado em data-src)
                 img.src = img.dataset.src;
-                
+
                 // Remove o atributo data-src para evitar recarregamentos
                 img.removeAttribute('data-src');
-                
+
                 // Para de observar a imagem (já foi carregada)
                 imageObserver.unobserve(img);
             }
         });
     });
-    
+
     // Inicia a observação para cada imagem com data-src
     images.forEach(img => imageObserver.observe(img));
 });
