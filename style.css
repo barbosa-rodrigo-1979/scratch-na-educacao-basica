@@ -2976,3 +2976,127 @@ body.dark-mode .theme-toggle {
     color: var(--utfpr-white);
     /* Texto escuro */
 }
+
+/* ====== CORES ESPECÍFICAS PARA CARTÕES SCRATCH ====== */
+
+/* Cartões de Movimento - Azul */
+.nav-card.movimento {
+    background: var(--scratch-motion) !important;
+    color: var(--utfpr-black) !important;
+    border: 2px solid var(--scratch-motion);
+}
+
+.nav-card.movimento h3,
+.nav-card.movimento p,
+.nav-card.movimento code {
+    color: var(--utfpr-black) !important;
+}
+
+/* Cartões de Aparência - Roxo */
+.nav-card.aparencia {
+    background: var(--scratch-looks) !important;
+    color: var(--utfpr-black) !important;
+    border: 2px solid var(--scratch-looks);
+}
+
+.nav-card.aparencia h3,
+.nav-card.aparencia p,
+.nav-card.aparencia code {
+    color: var(--utfpr-black) !important;
+}
+
+/* Cartões de Som - Magenta */
+.nav-card.som {
+    background: var(--scratch-sound) !important;
+    color: var(--utfpr-black) !important;
+    border: 2px solid var(--scratch-sound);
+}
+
+.nav-card.som h3,
+.nav-card.som p,
+.nav-card.som code {
+    color: var(--utfpr-black) !important;
+}
+
+/* Cartões de Eventos - Amarelo */
+.nav-card.eventos {
+    background: var(--scratch-events) !important;
+    color: var(--utfpr-black) !important;
+    border: 2px solid var(--scratch-events);
+}
+
+.nav-card.eventos h3,
+.nav-card.eventos p,
+.nav-card.eventos code {
+    color: var(--utfpr-black) !important;
+}
+
+/* Cartões de Controle - Laranja */
+.nav-card.controle {
+    background: var(--scratch-control) !important;
+    color: var(--utfpr-black) !important;
+    border: 2px solid var(--scratch-control);
+}
+
+.nav-card.controle h3,
+.nav-card.controle p,
+.nav-card.controle code {
+    color: var(--utfpr-black) !important;
+}
+
+/* Cartões de Operadores e Variáveis - Azul */
+.nav-card.operadores {
+    background: var(--scratch-operators) !important;
+    color: var(--utfpr-black) !important;
+    border: 2px solid var(--scratch-operators);
+}
+
+.nav-card.operadores h3,
+.nav-card.operadores p,
+.nav-card.operadores code {
+    color: var(--utfpr-black) !important;
+}
+
+/* Adicionar ao efeito hover existente */
+.nav-card.operadores:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(35, 31, 32, 0.3);
+    filter: brightness(1.1);
+}
+
+/* Garantir que o texto permaneça preto no hover para operadores */
+.nav-card.operadores:hover h3,
+.nav-card.operadores:hover p,
+.nav-card.operadores:hover code {
+    color: var(--utfpr-black) !important;
+}
+
+/* Efeito hover para manter a consistência visual */
+.nav-card.movimento:hover,
+.nav-card.aparencia:hover,
+.nav-card.som:hover,
+.nav-card.eventos:hover,
+.nav-card.controle:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(35, 31, 32, 0.3);
+    filter: brightness(1.1);
+}
+
+/* Garantir que o texto permaneça preto no hover */
+.nav-card.movimento:hover h3,
+.nav-card.movimento:hover p,
+.nav-card.movimento:hover code,
+.nav-card.aparencia:hover h3,
+.nav-card.aparencia:hover p,
+.nav-card.aparencia:hover code,
+.nav-card.som:hover h3,
+.nav-card.som:hover p,
+.nav-card.som:hover code,
+.nav-card.eventos:hover h3,
+.nav-card.eventos:hover p,
+.nav-card.eventos:hover code,
+.nav-card.controle:hover h3,
+.nav-card.controle:hover p,
+.nav-card.controle:hover code {
+    color: var(--utfpr-black) !important;
+}
