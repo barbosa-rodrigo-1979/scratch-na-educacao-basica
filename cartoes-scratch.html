@@ -93,6 +93,8 @@ Data: Segundo semestre de 2025
                     <li><strong>Plastificar</strong> opcional para maior resistência</li>
                     <li><strong>Utilizar</strong> em atividades offline de planejamento de algoritmos</li>
                 </ul>
+                
+                <!-- O botão de impressão será inserido aqui automaticamente pelo JavaScript -->
             </div>
 
             <!-- Seção do Bloco 1: Cartões de Movimento -->
@@ -374,119 +376,7 @@ Data: Segundo semestre de 2025
     <button class="theme-toggle" id="themeToggle">🌙</button>
 
     <!-- Script JavaScript para funcionalidades interativas da página -->
-    <script>
-        // =============================================
-        // DARK MODE TOGGLE FUNCTIONALITY
-        // =============================================
-
-        // Obtém referência ao botão de alternância de tema
-        const themeToggle = document.getElementById('themeToggle');
-        // Verifica as preferências de cor do sistema do usuário
-        const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
-
-        // Obtém o tema salvo no localStorage (se existir)
-        const currentTheme = localStorage.getItem('theme');
-
-        // Aplica o tema baseado nas preferências salvas ou do sistema
-        // Verificação mais robusta para garantir compatibilidade
-        if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
-            document.body.classList.add('dark-mode');
-            themeToggle.textContent = '☀️'; // Altera ícone para sol (modo escuro ativo)
-        } else {
-            themeToggle.textContent = '🌙'; // Mantém ícone de lua (modo claro ativo)
-        }
-
-        // Adiciona evento de clique para alternar entre temas
-        themeToggle.addEventListener('click', function () {
-            // Alterna a classe dark-mode no body
-            document.body.classList.toggle('dark-mode');
-            let theme = 'light'; // Tema padrão é claro
-
-            // Verifica se o modo escuro está ativo após o toggle
-            if (document.body.classList.contains('dark-mode')) {
-                theme = 'dark';
-                themeToggle.textContent = '☀️'; // Muda para ícone de sol
-            } else {
-                themeToggle.textContent = '🌙'; // Muda para ícone de lua
-            }
-
-            // Salva a preferência do usuário no localStorage
-            localStorage.setItem('theme', theme);
-        });
-
-        // =============================================
-        // SMOOTH SCROLLING FOR ANCHOR LINKS
-        // =============================================
-
-        // Seleciona todos os links âncora (que começam com #)
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault(); // Previne o comportamento padrão do link
-                const target = document.querySelector(this.getAttribute('href'));
-
-                // Se o elemento alvo existir, aplica scroll suave
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth', // Animação suave
-                        block: 'start' // Alinha o topo do elemento com a viewport
-                    });
-                }
-            });
-        });
-
-        // =============================================
-        // ACTIVE NAVIGATION HIGHLIGHTING
-        // =============================================
-
-        // Executa quando o DOM estiver completamente carregado
-        document.addEventListener('DOMContentLoaded', function () {
-            // Obtém o nome do arquivo da página atual
-            const currentPage = window.location.pathname.split('/').pop();
-            // Seleciona todos os links de navegação
-            const navLinks = document.querySelectorAll('nav a');
-
-            // Itera sobre cada link de navegação
-            navLinks.forEach(link => {
-                // Verifica se o link corresponde à página atual
-                if (link.getAttribute('href') === currentPage) {
-                    link.classList.add('active'); // Adiciona classe active
-                } else {
-                    link.classList.remove('active'); // Remove classe active
-                }
-            });
-
-            // Define index.html como ativo quando estiver na raiz
-            if (currentPage === '' || currentPage === 'index.html') {
-                document.querySelector('nav a[href="index.html"]').classList.add('active');
-            }
-        });
-
-        // =============================================
-        // LAZY LOADING FOR IMAGES
-        // =============================================
-
-        document.addEventListener('DOMContentLoaded', function () {
-            // Seleciona todas as imagens com atributo data-src (para lazy loading)
-            const images = document.querySelectorAll('img[data-src]');
-
-            // Cria um Intersection Observer para detectar quando as imagens entram na viewport
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    // Se a imagem estiver visível na viewport
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        // Substitui data-src por src para carregar a imagem
-                        img.src = img.dataset.src;
-                        img.removeAttribute('data-src'); // Remove o atributo data-src
-                        imageObserver.unobserve(img); // Para de observar a imagem
-                    }
-                });
-            });
-
-            // Inicia a observação para cada imagem
-            images.forEach(img => imageObserver.observe(img));
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 
 </html>
