@@ -153,6 +153,1217 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // =============================================
+// PRINT FUNCTIONALITY FOR MODELOS PROJETOS
+// =============================================
+
+// Função para criar e exibir a visualização de impressão dos MODELOS DE PROJETOS
+function showPrintPreviewModelosProjetos() {
+    // Verifica se estamos na página correta
+    const isModelosPage = window.location.pathname.includes('modelos-projetos.html') || 
+                         window.location.pathname.endsWith('modelos-projetos.html');
+    if (!isModelosPage) {
+        console.log('Função showPrintPreviewModelosProjetos chamada fora da página de modelos de projetos');
+        return;
+    }
+    
+    // Cria overlay para preview de impressão
+    const printOverlay = document.createElement('div');
+    printOverlay.className = 'print-overlay';
+    printOverlay.style.display = 'flex';
+    
+    // Cria container do preview
+    const printPreview = document.createElement('div');
+    printPreview.className = 'print-preview';
+    printPreview.style.maxWidth = '90%';
+    printPreview.style.maxHeight = '90%';
+    
+    // Cria botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.className = 'close-preview';
+    closeButton.innerHTML = '×';
+    closeButton.onclick = () => {
+        document.body.removeChild(printOverlay);
+    };
+    
+    // Cria container de impressão
+    const printContainer = document.createElement('div');
+    printContainer.className = 'print-container';
+    
+    // Adiciona instruções de impressão
+    const printInstructions = document.createElement('div');
+    printInstructions.className = 'print-instructions';
+    printInstructions.innerHTML = `
+        <h2>Instruções para Impressão - Modelos de Projetos</h2>
+        <ul>
+            <li>Use papel A4 padrão</li>
+            <li>Configure a impressão para "Retrato"</li>
+            <li>Defina margens para "Padrão" ou "Mínimo"</li>
+            <li>Imprima em qualidade normal</li>
+            <li>Verifique a visualização antes de imprimir</li>
+            <li>Cada modelo de projeto inicia em uma nova página</li>
+            <li>Recomendado: imprimir por template conforme necessidade</li>
+        </ul>
+    `;
+    
+    // Cria container para os modelos de projetos
+    const printModelos = document.createElement('div');
+    printModelos.className = 'print-modelos';
+    
+    // Coleta todas as seções de conteúdo da página de modelos de projetos
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    // Adiciona cada seção ao preview de impressão
+    contentSections.forEach((section, index) => {
+        const printSection = section.cloneNode(true);
+        printSection.classList.add('print-section');
+        
+        // Remove a última seção de navegação se existir
+        const lastHeading = printSection.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            const navigationSection = lastHeading.parentElement;
+            if (navigationSection && navigationSection.classList.contains('content-section')) {
+                printSection.remove();
+                return; // Pula esta seção
+            }
+        }
+        
+        // Remove elementos de navegação dentro das seções
+        const navCards = printSection.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        printModelos.appendChild(printSection);
+    });
+    
+    // Cria botões de ação
+    const printActions = document.createElement('div');
+    printActions.className = 'print-actions';
+    
+    const printBtn = document.createElement('button');
+    printBtn.className = 'print-button';
+    printBtn.innerHTML = '🖨️ Imprimir Modelos de Projetos';
+    printBtn.onclick = () => printModelosProjetosContent();
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'secondary-button';
+    closeBtn.innerHTML = 'Fechar';
+    closeBtn.onclick = () => document.body.removeChild(printOverlay);
+    
+    printActions.appendChild(printBtn);
+    printActions.appendChild(closeBtn);
+    
+    // Monta a estrutura
+    printContainer.appendChild(printInstructions);
+    printContainer.appendChild(printModelos);
+    printPreview.appendChild(closeButton);
+    printPreview.appendChild(printContainer);
+    printPreview.appendChild(printActions);
+    printOverlay.appendChild(printPreview);
+    
+    // Adiciona ao documento
+    document.body.appendChild(printOverlay);
+}
+
+// Função para imprimir os modelos de projetos
+function printModelosProjetosContent() {
+    // Verifica se estamos na página correta
+    const isModelosPage = window.location.pathname.includes('modelos-projetos.html') || 
+                         window.location.pathname.endsWith('modelos-projetos.html');
+    if (!isModelosPage) {
+        console.log('Função printModelosProjetosContent chamada fora da página de modelos de projetos');
+        return;
+    }
+    
+    // Cria um iframe para impressão
+    const printFrame = document.createElement('iframe');
+    printFrame.style.position = 'absolute';
+    printFrame.style.left = '-9999px';
+    printFrame.style.top = '0';
+    printFrame.style.width = '0';
+    printFrame.style.height = '0';
+    printFrame.style.border = 'none';
+    
+    document.body.appendChild(printFrame);
+    
+    const printDocument = printFrame.contentWindow.document;
+    
+    // Escreve o conteúdo HTML para impressão
+    printDocument.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Modelos de Projetos Scratch - UTFPR</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    background: white;
+                    color: black;
+                    font-size: 12pt;
+                    line-height: 1.4;
+                }
+                
+                .print-container {
+                    max-width: 100%;
+                }
+                
+                .print-instructions {
+                    background: #f8f9fa;
+                    border: 1px solid #000;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    page-break-after: avoid;
+                }
+                
+                .print-instructions h2 {
+                    color: black;
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+                
+                .print-instructions ul {
+                    margin: 0;
+                    padding-left: 20px;
+                }
+                
+                .print-instructions li {
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                    color: black;
+                }
+                
+                .print-section {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                    background: white !important;
+                    border: 2px solid #000 !important;
+                    border-radius: 8px !important;
+                    padding: 20px !important;
+                    margin: 20px 0 !important;
+                    box-shadow: none !important;
+                }
+                
+                .print-section h2 {
+                    color: #000 !important;
+                    font-size: 18px !important;
+                    margin-bottom: 15px !important;
+                    border-bottom: 2px solid #000 !important;
+                    padding-bottom: 8px !important;
+                    page-break-after: avoid;
+                }
+                
+                .print-section h3 {
+                    color: #333 !important;
+                    font-size: 16px !important;
+                    margin: 20px 0 10px 0 !important;
+                    border-left: 3px solid #000 !important;
+                    padding-left: 10px !important;
+                    page-break-after: avoid;
+                }
+                
+                .print-section h4 {
+                    color: #555 !important;
+                    font-size: 14px !important;
+                    margin: 15px 0 8px 0 !important;
+                }
+                
+                .print-section h5 {
+                    color: #666 !important;
+                    font-size: 13px !important;
+                    margin: 12px 0 6px 0 !important;
+                }
+                
+                .print-section p {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                    line-height: 1.5 !important;
+                }
+                
+                .print-section ul, .print-section ol {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin: 10px 0 !important;
+                    padding-left: 25px !important;
+                }
+                
+                .print-section li {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 6px !important;
+                    line-height: 1.4 !important;
+                }
+                
+                .scratch-code {
+                    background: #f5f5f5 !important;
+                    color: black !important;
+                    border: 1px solid #ccc !important;
+                    border-left: 4px solid #000 !important;
+                    padding: 12px !important;
+                    margin: 10px 0 !important;
+                    border-radius: 6px !important;
+                    font-family: 'Courier New', monospace !important;
+                    font-size: 11px !important;
+                    white-space: pre-wrap !important;
+                    line-height: 1.3 !important;
+                }
+                
+                code {
+                    background: #f5f5f5 !important;
+                    color: black !important;
+                    border: 1px solid #ddd !important;
+                    font-size: 11px !important;
+                    padding: 2px 4px !important;
+                    border-radius: 3px !important;
+                    font-family: 'Courier New', monospace !important;
+                }
+                
+                @media print {
+                    body {
+                        padding: 10px;
+                    }
+                    
+                    .print-section {
+                        margin: 15px 0 !important;
+                        padding: 15px !important;
+                    }
+                    
+                    .print-instructions {
+                        margin-bottom: 15px !important;
+                    }
+                    
+                    .print-section h2 {
+                        font-size: 16px !important;
+                    }
+                    
+                    .print-section h3 {
+                        font-size: 14px !important;
+                    }
+                    
+                    /* Quebra de página antes de cada modelo de projeto (exceto o primeiro) */
+                    .print-section:nth-child(n+3) {
+                        page-break-before: always;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="print-container">
+                <div class="print-instructions">
+                    <h2>Modelos de Projetos Scratch - UTFPR</h2>
+                    <ul>
+                        <li><strong>Data:</strong> ${new Date().toLocaleDateString('pt-BR')}</li>
+                        <li><strong>Página:</strong> Modelos de Projetos Prontos</li>
+                        <li><strong>Material:</strong> Projeto Scratch na Educação Básica</li>
+                        <li><strong>Instruções:</strong> Cada modelo inicia em uma nova página</li>
+                    </ul>
+                </div>
+    `);
+    
+    // Adiciona cada seção de modelo de projeto ao documento de impressão
+    const contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
+        
+        // Pula a seção de navegação
+        if (title === 'Navegação') {
+            return;
+        }
+        
+        const sectionContent = section.cloneNode(true);
+        
+        // Remove elementos de navegação
+        const navCards = sectionContent.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        // Remove a seção de navegação completa se for a última
+        const lastHeading = sectionContent.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            return;
+        }
+        
+        const contentHTML = sectionContent.innerHTML;
+        
+        printDocument.write(`
+            <div class="print-section">
+                ${contentHTML}
+            </div>
+        `);
+    });
+    
+    // Finaliza o documento
+    printDocument.write(`
+            </div>
+        </body>
+        </html>
+    `);
+    
+    printDocument.close();
+    
+    // Aguarda o carregamento e imprime
+    printFrame.onload = function() {
+        printFrame.contentWindow.focus();
+        printFrame.contentWindow.print();
+        
+        // Remove o iframe após a impressão
+        setTimeout(() => {
+            if (document.body.contains(printFrame)) {
+                document.body.removeChild(printFrame);
+            }
+            const printOverlay = document.querySelector('.print-overlay');
+            if (printOverlay) {
+                document.body.removeChild(printOverlay);
+            }
+        }, 500);
+    };
+}
+
+// =============================================
+// PRINT FUNCTIONALITY FOR PROJETOS DIDATICOS
+// =============================================
+
+// Função para criar e exibir a visualização de impressão dos PROJETOS DIDÁTICOS
+function showPrintPreviewProjetosDidaticos() {
+    // Verifica se estamos na página correta
+    const isProjetosPage = window.location.pathname.includes('projetos-didaticos.html') || 
+                          window.location.pathname.endsWith('projetos-didaticos.html');
+    if (!isProjetosPage) {
+        console.log('Função showPrintPreviewProjetosDidaticos chamada fora da página de projetos didáticos');
+        return;
+    }
+    
+    // Cria overlay para preview de impressão
+    const printOverlay = document.createElement('div');
+    printOverlay.className = 'print-overlay';
+    printOverlay.style.display = 'flex';
+    
+    // Cria container do preview
+    const printPreview = document.createElement('div');
+    printPreview.className = 'print-preview';
+    printPreview.style.maxWidth = '90%';
+    printPreview.style.maxHeight = '90%';
+    
+    // Cria botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.className = 'close-preview';
+    closeButton.innerHTML = '×';
+    closeButton.onclick = () => {
+        document.body.removeChild(printOverlay);
+    };
+    
+    // Cria container de impressão
+    const printContainer = document.createElement('div');
+    printContainer.className = 'print-container';
+    
+    // Adiciona instruções de impressão
+    const printInstructions = document.createElement('div');
+    printInstructions.className = 'print-instructions';
+    printInstructions.innerHTML = `
+        <h2>Instruções para Impressão - Projetos Didáticos</h2>
+        <ul>
+            <li>Use papel A4 padrão</li>
+            <li>Configure a impressão para "Retrato"</li>
+            <li>Defina margens para "Padrão" ou "Mínimo"</li>
+            <li>Imprima em qualidade normal</li>
+            <li>Verifique a visualização antes de imprimir</li>
+            <li>Cada projeto didático inicia em uma nova página</li>
+            <li>Recomendado: imprimir por ano escolar conforme necessidade</li>
+        </ul>
+    `;
+    
+    // Cria container para os projetos didáticos
+    const printProjetos = document.createElement('div');
+    printProjetos.className = 'print-projetos';
+    
+    // Coleta todas as seções de conteúdo da página de projetos didáticos
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    // Adiciona cada seção ao preview de impressão
+    contentSections.forEach((section, index) => {
+        const printSection = section.cloneNode(true);
+        printSection.classList.add('print-section');
+        
+        // Remove a última seção de navegação se existir
+        const lastHeading = printSection.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            const navigationSection = lastHeading.parentElement;
+            if (navigationSection && navigationSection.classList.contains('content-section')) {
+                printSection.remove();
+                return; // Pula esta seção
+            }
+        }
+        
+        // Remove elementos de navegação dentro das seções
+        const navCards = printSection.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        printProjetos.appendChild(printSection);
+    });
+    
+    // Cria botões de ação
+    const printActions = document.createElement('div');
+    printActions.className = 'print-actions';
+    
+    const printBtn = document.createElement('button');
+    printBtn.className = 'print-button';
+    printBtn.innerHTML = '🖨️ Imprimir Projetos Didáticos';
+    printBtn.onclick = () => printProjetosDidaticosContent();
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'secondary-button';
+    closeBtn.innerHTML = 'Fechar';
+    closeBtn.onclick = () => document.body.removeChild(printOverlay);
+    
+    printActions.appendChild(printBtn);
+    printActions.appendChild(closeBtn);
+    
+    // Monta a estrutura
+    printContainer.appendChild(printInstructions);
+    printContainer.appendChild(printProjetos);
+    printPreview.appendChild(closeButton);
+    printPreview.appendChild(printContainer);
+    printPreview.appendChild(printActions);
+    printOverlay.appendChild(printPreview);
+    
+    // Adiciona ao documento
+    document.body.appendChild(printOverlay);
+}
+
+// Função para imprimir os projetos didáticos
+function printProjetosDidaticosContent() {
+    // Verifica se estamos na página correta
+    const isProjetosPage = window.location.pathname.includes('projetos-didaticos.html') || 
+                          window.location.pathname.endsWith('projetos-didaticos.html');
+    if (!isProjetosPage) {
+        console.log('Função printProjetosDidaticosContent chamada fora da página de projetos didáticos');
+        return;
+    }
+    
+    // Cria um iframe para impressão
+    const printFrame = document.createElement('iframe');
+    printFrame.style.position = 'absolute';
+    printFrame.style.left = '-9999px';
+    printFrame.style.top = '0';
+    printFrame.style.width = '0';
+    printFrame.style.height = '0';
+    printFrame.style.border = 'none';
+    
+    document.body.appendChild(printFrame);
+    
+    const printDocument = printFrame.contentWindow.document;
+    
+    // Escreve o conteúdo HTML para impressão
+    printDocument.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Projetos Didáticos Scratch - UTFPR</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    background: white;
+                    color: black;
+                    font-size: 12pt;
+                    line-height: 1.4;
+                }
+                
+                .print-container {
+                    max-width: 100%;
+                }
+                
+                .print-instructions {
+                    background: #f8f9fa;
+                    border: 1px solid #000;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    page-break-after: avoid;
+                }
+                
+                .print-instructions h2 {
+                    color: black;
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+                
+                .print-instructions ul {
+                    margin: 0;
+                    padding-left: 20px;
+                }
+                
+                .print-instructions li {
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                    color: black;
+                }
+                
+                .print-section {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                    background: white !important;
+                    border: 2px solid #000 !important;
+                    border-radius: 8px !important;
+                    padding: 20px !important;
+                    margin: 20px 0 !important;
+                    box-shadow: none !important;
+                }
+                
+                .print-section h2 {
+                    color: #000 !important;
+                    font-size: 18px !important;
+                    margin-bottom: 15px !important;
+                    border-bottom: 2px solid #000 !important;
+                    padding-bottom: 8px !important;
+                    page-break-after: avoid;
+                }
+                
+                .print-section h3 {
+                    color: #333 !important;
+                    font-size: 16px !important;
+                    margin: 20px 0 10px 0 !important;
+                    border-left: 3px solid #000 !important;
+                    padding-left: 10px !important;
+                    page-break-after: avoid;
+                }
+                
+                .print-section h4 {
+                    color: #555 !important;
+                    font-size: 14px !important;
+                    margin: 15px 0 8px 0 !important;
+                }
+                
+                .print-section p {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                    line-height: 1.5 !important;
+                }
+                
+                .print-section ul, .print-section ol {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin: 10px 0 !important;
+                    padding-left: 25px !important;
+                }
+                
+                .print-section li {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 6px !important;
+                    line-height: 1.4 !important;
+                }
+                
+                .scratch-code {
+                    background: #f5f5f5 !important;
+                    color: black !important;
+                    border: 1px solid #ccc !important;
+                    border-left: 4px solid #000 !important;
+                    padding: 12px !important;
+                    margin: 10px 0 !important;
+                    border-radius: 6px !important;
+                    font-family: 'Courier New', monospace !important;
+                    font-size: 11px !important;
+                    white-space: pre-wrap !important;
+                    line-height: 1.3 !important;
+                }
+                
+                .progression-table {
+                    width: 100% !important;
+                    margin: 15px 0 !important;
+                    border-collapse: collapse !important;
+                }
+                
+                .progression-table table {
+                    width: 100% !important;
+                    border: 1px solid #000 !important;
+                }
+                
+                .progression-table th {
+                    background: #f8f9fa !important;
+                    color: black !important;
+                    border: 1px solid #000 !important;
+                    padding: 8px !important;
+                    font-size: 11px !important;
+                    font-weight: bold !important;
+                }
+                
+                .progression-table td {
+                    border: 1px solid #000 !important;
+                    padding: 8px !important;
+                    font-size: 11px !important;
+                }
+                
+                .checklist {
+                    list-style: none !important;
+                    padding-left: 0 !important;
+                }
+                
+                .checklist li::before {
+                    content: "☐ " !important;
+                    margin-right: 8px !important;
+                }
+                
+                code {
+                    background: #f5f5f5 !important;
+                    color: black !important;
+                    border: 1px solid #ddd !important;
+                    font-size: 11px !important;
+                    padding: 2px 4px !important;
+                    border-radius: 3px !important;
+                    font-family: 'Courier New', monospace !important;
+                }
+                
+                @media print {
+                    body {
+                        padding: 10px;
+                    }
+                    
+                    .print-section {
+                        margin: 15px 0 !important;
+                        padding: 15px !important;
+                    }
+                    
+                    .print-instructions {
+                        margin-bottom: 15px !important;
+                    }
+                    
+                    .print-section h2 {
+                        font-size: 16px !important;
+                    }
+                    
+                    .print-section h3 {
+                        font-size: 14px !important;
+                    }
+                    
+                    /* Quebra de página antes de cada projeto didático (exceto o primeiro) */
+                    .print-section:nth-child(n+3) {
+                        page-break-before: always;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="print-container">
+                <div class="print-instructions">
+                    <h2>Projetos Didáticos Scratch - UTFPR</h2>
+                    <ul>
+                        <li><strong>Data:</strong> ${new Date().toLocaleDateString('pt-BR')}</li>
+                        <li><strong>Página:</strong> Projetos Didáticos 1º ao 5º Ano</li>
+                        <li><strong>Material:</strong> Projeto Scratch na Educação Básica</li>
+                        <li><strong>Instruções:</strong> Cada projeto inicia em uma nova página</li>
+                    </ul>
+                </div>
+    `);
+    
+    // Adiciona cada seção de projeto didático ao documento de impressão
+    const contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
+        
+        // Pula a seção de navegação
+        if (title === 'Navegação') {
+            return;
+        }
+        
+        const sectionContent = section.cloneNode(true);
+        
+        // Remove elementos de navegação
+        const navCards = sectionContent.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        // Remove a seção de navegação completa se for a última
+        const lastHeading = sectionContent.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            return;
+        }
+        
+        const contentHTML = sectionContent.innerHTML;
+        
+        printDocument.write(`
+            <div class="print-section">
+                ${contentHTML}
+            </div>
+        `);
+    });
+    
+    // Finaliza o documento
+    printDocument.write(`
+            </div>
+        </body>
+        </html>
+    `);
+    
+    printDocument.close();
+    
+    // Aguarda o carregamento e imprime
+    printFrame.onload = function() {
+        printFrame.contentWindow.focus();
+        printFrame.contentWindow.print();
+        
+        // Remove o iframe após a impressão
+        setTimeout(() => {
+            if (document.body.contains(printFrame)) {
+                document.body.removeChild(printFrame);
+            }
+            const printOverlay = document.querySelector('.print-overlay');
+            if (printOverlay) {
+                document.body.removeChild(printOverlay);
+            }
+        }, 500);
+    };
+}
+
+// =============================================
+// PRINT FUNCTIONALITY FOR FICHAS ATIVIDADES
+// =============================================
+
+// Função para criar e exibir a visualização de impressão das FICHAS DE ATIVIDADES
+function showPrintPreviewFichasAtividades() {
+    // Verifica se estamos na página correta
+    const isFichasPage = window.location.pathname.includes('fichas-atividades.html') || 
+                        window.location.pathname.endsWith('fichas-atividades.html');
+    if (!isFichasPage) {
+        console.log('Função showPrintPreviewFichasAtividades chamada fora da página de fichas de atividades');
+        return;
+    }
+    
+    // Cria overlay para preview de impressão
+    const printOverlay = document.createElement('div');
+    printOverlay.className = 'print-overlay';
+    printOverlay.style.display = 'flex';
+    
+    // Cria container do preview
+    const printPreview = document.createElement('div');
+    printPreview.className = 'print-preview';
+    printPreview.style.maxWidth = '90%';
+    printPreview.style.maxHeight = '90%';
+    
+    // Cria botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.className = 'close-preview';
+    closeButton.innerHTML = '×';
+    closeButton.onclick = () => {
+        document.body.removeChild(printOverlay);
+    };
+    
+    // Cria container de impressão
+    const printContainer = document.createElement('div');
+    printContainer.className = 'print-container';
+    
+    // Adiciona instruções de impressão
+    const printInstructions = document.createElement('div');
+    printInstructions.className = 'print-instructions';
+    printInstructions.innerHTML = `
+        <h2>Instruções para Impressão - Fichas de Atividades</h2>
+        <ul>
+            <li>Use papel A4 padrão</li>
+            <li>Configure a impressão para "Retrato"</li>
+            <li>Defina margens para "Padrão" ou "Mínimo"</li>
+            <li>Imprima em qualidade normal</li>
+            <li>Verifique a visualização antes de imprimir</li>
+            <li>Cada ficha de atividade inicia em uma nova página</li>
+            <li>Recomendado: imprimir por ano escolar conforme necessidade</li>
+        </ul>
+    `;
+    
+    // Cria container para as fichas de atividades
+    const printFichas = document.createElement('div');
+    printFichas.className = 'print-fichas';
+    
+    // Coleta todas as seções de conteúdo da página de fichas de atividades
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    // Adiciona cada seção ao preview de impressão
+    contentSections.forEach((section, index) => {
+        const printSection = section.cloneNode(true);
+        printSection.classList.add('print-section');
+        
+        // Remove a última seção de navegação se existir
+        const lastHeading = printSection.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            const navigationSection = lastHeading.parentElement;
+            if (navigationSection && navigationSection.classList.contains('content-section')) {
+                printSection.remove();
+                return; // Pula esta seção
+            }
+        }
+        
+        // Remove elementos de navegação dentro das seções
+        const navCards = printSection.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        printFichas.appendChild(printSection);
+    });
+    
+    // Cria botões de ação
+    const printActions = document.createElement('div');
+    printActions.className = 'print-actions';
+    
+    const printBtn = document.createElement('button');
+    printBtn.className = 'print-button';
+    printBtn.innerHTML = '🖨️ Imprimir Fichas de Atividades';
+    printBtn.onclick = () => printFichasAtividadesContent();
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'secondary-button';
+    closeBtn.innerHTML = 'Fechar';
+    closeBtn.onclick = () => document.body.removeChild(printOverlay);
+    
+    printActions.appendChild(printBtn);
+    printActions.appendChild(closeBtn);
+    
+    // Monta a estrutura
+    printContainer.appendChild(printInstructions);
+    printContainer.appendChild(printFichas);
+    printPreview.appendChild(closeButton);
+    printPreview.appendChild(printContainer);
+    printPreview.appendChild(printActions);
+    printOverlay.appendChild(printPreview);
+    
+    // Adiciona ao documento
+    document.body.appendChild(printOverlay);
+}
+
+// Função para imprimir as fichas de atividades
+function printFichasAtividadesContent() {
+    // Verifica se estamos na página correta
+    const isFichasPage = window.location.pathname.includes('fichas-atividades.html') || 
+                        window.location.pathname.endsWith('fichas-atividades.html');
+    if (!isFichasPage) {
+        console.log('Função printFichasAtividadesContent chamada fora da página de fichas de atividades');
+        return;
+    }
+    
+    // Cria um iframe para impressão
+    const printFrame = document.createElement('iframe');
+    printFrame.style.position = 'absolute';
+    printFrame.style.left = '-9999px';
+    printFrame.style.top = '0';
+    printFrame.style.width = '0';
+    printFrame.style.height = '0';
+    printFrame.style.border = 'none';
+    
+    document.body.appendChild(printFrame);
+    
+    const printDocument = printFrame.contentWindow.document;
+    
+    // Escreve o conteúdo HTML para impressão
+    printDocument.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Fichas de Atividades Scratch - UTFPR</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    background: white;
+                    color: black;
+                    font-size: 12pt;
+                    line-height: 1.4;
+                }
+                
+                .print-container {
+                    max-width: 100%;
+                }
+                
+                .print-instructions {
+                    background: #f8f9fa;
+                    border: 1px solid #000;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    page-break-after: avoid;
+                }
+                
+                .print-instructions h2 {
+                    color: black;
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+                
+                .print-instructions ul {
+                    margin: 0;
+                    padding-left: 20px;
+                }
+                
+                .print-instructions li {
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                    color: black;
+                }
+                
+                .print-section {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                    background: white !important;
+                    border: 2px solid #000 !important;
+                    border-radius: 8px !important;
+                    padding: 20px !important;
+                    margin: 20px 0 !important;
+                    box-shadow: none !important;
+                }
+                
+                .print-section h2 {
+                    color: #000 !important;
+                    font-size: 18px !important;
+                    margin-bottom: 15px !important;
+                    border-bottom: 2px solid #000 !important;
+                    padding-bottom: 8px !important;
+                    page-break-after: avoid;
+                }
+                
+                .print-section h3 {
+                    color: #333 !important;
+                    font-size: 16px !important;
+                    margin: 20px 0 10px 0 !important;
+                    border-left: 3px solid #000 !important;
+                    padding-left: 10px !important;
+                    page-break-after: avoid;
+                }
+                
+                .print-section h4 {
+                    color: #555 !important;
+                    font-size: 14px !important;
+                    margin: 15px 0 8px 0 !important;
+                }
+                
+                .print-section p {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                    line-height: 1.5 !important;
+                }
+                
+                .print-section ul, .print-section ol {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin: 10px 0 !important;
+                    padding-left: 25px !important;
+                }
+                
+                .print-section li {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 6px !important;
+                    line-height: 1.4 !important;
+                }
+                
+                .ficha-atividade {
+                    background: #f8f9fa !important;
+                    border: 1px solid #666 !important;
+                    padding: 15px !important;
+                    margin: 15px 0 !important;
+                    border-radius: 6px !important;
+                }
+                
+                .ficha-cabecalho {
+                    background: #e9ecef !important;
+                    border-bottom: 2px solid #666 !important;
+                    padding: 10px !important;
+                    margin-bottom: 15px !important;
+                    border-radius: 4px !important;
+                }
+                
+                .checklist-ficha {
+                    list-style: none !important;
+                    padding-left: 0 !important;
+                }
+                
+                .checklist-ficha li::before {
+                    content: "☐ " !important;
+                    margin-right: 8px !important;
+                }
+                
+                .form-input-space {
+                    display: inline-block;
+                    min-width: 200px;
+                    border-bottom: 1px solid #000;
+                    margin: 0 5px;
+                }
+                
+                .form-list-space {
+                    display: inline-block;
+                    min-width: 300px;
+                    border-bottom: 1px solid #000;
+                    margin: 0 5px;
+                }
+                
+                .area-desenho {
+                    border: 2px dashed #666 !important;
+                    height: 200px !important;
+                    border-radius: 8px !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: center !important;
+                    color: #666 !important;
+                    margin: 15px 0 !important;
+                    background: white !important;
+                }
+                
+                .assinatura {
+                    border-top: 2px solid #000 !important;
+                    padding-top: 15px !important;
+                    margin-top: 20px !important;
+                }
+                
+                .pergunta-item, .teste-item, .formula-box {
+                    background: white !important;
+                    border: 1px solid #ccc !important;
+                    padding: 12px !important;
+                    margin: 10px 0 !important;
+                    border-radius: 6px !important;
+                }
+                
+                .diario-bordo {
+                    border: 1px solid #ccc !important;
+                    padding: 12px !important;
+                    margin: 10px 0 !important;
+                    border-radius: 6px !important;
+                    min-height: 60px !important;
+                    background: white !important;
+                }
+                
+                .brainstorming-section, .plano-acao {
+                    background: #f8f9fa !important;
+                    border: 1px solid #666 !important;
+                    padding: 15px !important;
+                    margin: 15px 0 !important;
+                    border-radius: 6px !important;
+                }
+                
+                .semana-plano {
+                    background: white !important;
+                    border: 1px solid #ccc !important;
+                    padding: 12px !important;
+                    margin: 10px 0 !important;
+                    border-radius: 6px !important;
+                }
+                
+                code {
+                    background: #f5f5f5 !important;
+                    color: black !important;
+                    border: 1px solid #ddd !important;
+                    font-size: 11px !important;
+                    padding: 2px 4px !important;
+                    border-radius: 3px !important;
+                    font-family: 'Courier New', monospace !important;
+                }
+                
+                @media print {
+                    body {
+                        padding: 10px;
+                    }
+                    
+                    .print-section {
+                        margin: 15px 0 !important;
+                        padding: 15px !important;
+                    }
+                    
+                    .print-instructions {
+                        margin-bottom: 15px !important;
+                    }
+                    
+                    .print-section h2 {
+                        font-size: 16px !important;
+                    }
+                    
+                    .print-section h3 {
+                        font-size: 14px !important;
+                    }
+                    
+                    /* Quebra de página antes de cada ficha de atividade (exceto a primeira) */
+                    .print-section:nth-child(n+3) {
+                        page-break-before: always;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="print-container">
+                <div class="print-instructions">
+                    <h2>Fichas de Atividades Scratch - UTFPR</h2>
+                    <ul>
+                        <li><strong>Data:</strong> ${new Date().toLocaleDateString('pt-BR')}</li>
+                        <li><strong>Página:</strong> Fichas de Atividades 1º ao 5º Ano + Bônus</li>
+                        <li><strong>Material:</strong> Projeto Scratch na Educação Básica</li>
+                        <li><strong>Instruções:</strong> Cada ficha inicia em uma nova página</li>
+                    </ul>
+                </div>
+    `);
+    
+    // Adiciona cada seção de ficha de atividade ao documento de impressão
+    const contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
+        
+        // Pula a seção de navegação
+        if (title === 'Navegação') {
+            return;
+        }
+        
+        const sectionContent = section.cloneNode(true);
+        
+        // Remove elementos de navegação
+        const navCards = sectionContent.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        // Remove a seção de navegação completa se for a última
+        const lastHeading = sectionContent.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            return;
+        }
+        
+        const contentHTML = sectionContent.innerHTML;
+        
+        printDocument.write(`
+            <div class="print-section">
+                ${contentHTML}
+            </div>
+        `);
+    });
+    
+    // Finaliza o documento
+    printDocument.write(`
+            </div>
+        </body>
+        </html>
+    `);
+    
+    printDocument.close();
+    
+    // Aguarda o carregamento e imprime
+    printFrame.onload = function() {
+        printFrame.contentWindow.focus();
+        printFrame.contentWindow.print();
+        
+        // Remove o iframe após a impressão
+        setTimeout(() => {
+            if (document.body.contains(printFrame)) {
+                document.body.removeChild(printFrame);
+            }
+            const printOverlay = document.querySelector('.print-overlay');
+            if (printOverlay) {
+                document.body.removeChild(printOverlay);
+            }
+        }, 500);
+    };
+}
+
+// =============================================
 // PRINT FUNCTIONALITY FOR SCRATCH CARDS
 // =============================================
 
@@ -830,6 +2041,829 @@ function printLessonPlansContent() {
 }
 
 // =============================================
+// PRINT FUNCTIONALITY FOR SUGESTOES ATIVIDADES
+// =============================================
+
+// Função para criar e exibir a visualização de impressão das SUGESTÕES DE ATIVIDADES
+function showPrintPreviewSugestoesAtividades() {
+    // Verifica se estamos na página correta
+    const isSugestoesPage = window.location.pathname.includes('sugestoes-atividades.html') || 
+                           window.location.pathname.endsWith('sugestoes-atividades.html');
+    if (!isSugestoesPage) {
+        console.log('Função showPrintPreviewSugestoesAtividades chamada fora da página de sugestões de atividades');
+        return;
+    }
+    
+    // Cria overlay para preview de impressão
+    const printOverlay = document.createElement('div');
+    printOverlay.className = 'print-overlay';
+    printOverlay.style.display = 'flex';
+    
+    // Cria container do preview
+    const printPreview = document.createElement('div');
+    printPreview.className = 'print-preview';
+    printPreview.style.maxWidth = '90%';
+    printPreview.style.maxHeight = '90%';
+    
+    // Cria botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.className = 'close-preview';
+    closeButton.innerHTML = '×';
+    closeButton.onclick = () => {
+        document.body.removeChild(printOverlay);
+    };
+    
+    // Cria container de impressão
+    const printContainer = document.createElement('div');
+    printContainer.className = 'print-container';
+    
+    // Adiciona instruções de impressão
+    const printInstructions = document.createElement('div');
+    printInstructions.className = 'print-instructions';
+    printInstructions.innerHTML = `
+        <h2>Instruções para Impressão - Sugestões de Atividades</h2>
+        <ul>
+            <li>Use papel A4 padrão</li>
+            <li>Configure a impressão para "Retrato"</li>
+            <li>Defina margens para "Padrão" ou "Mínimo"</li>
+            <li>Imprima em qualidade normal</li>
+            <li>Verifique a visualização antes de imprimir</li>
+            <li>Recomendado: imprimir por seções para melhor organização</li>
+        </ul>
+    `;
+    
+    // Cria container para as sugestões de atividades
+    const printSugestoes = document.createElement('div');
+    printSugestoes.className = 'print-sugestoes';
+    
+    // Coleta todas as seções de conteúdo da página de sugestões de atividades
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    // Adiciona cada seção ao preview de impressão
+    contentSections.forEach((section, index) => {
+        const printSection = section.cloneNode(true);
+        printSection.classList.add('print-section');
+        
+        // Remove a última seção de navegação se existir
+        const lastHeading = printSection.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            const navigationSection = lastHeading.parentElement;
+            if (navigationSection && navigationSection.classList.contains('content-section')) {
+                printSection.remove();
+                return; // Pula esta seção
+            }
+        }
+        
+        // Remove elementos de navegação dentro das seções
+        const navCards = printSection.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        printSugestoes.appendChild(printSection);
+    });
+    
+    // Cria botões de ação
+    const printActions = document.createElement('div');
+    printActions.className = 'print-actions';
+    
+    const printBtn = document.createElement('button');
+    printBtn.className = 'print-button';
+    printBtn.innerHTML = '🖨️ Imprimir Sugestões de Atividades';
+    printBtn.onclick = () => printSugestoesAtividadesContent();
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'secondary-button';
+    closeBtn.innerHTML = 'Fechar';
+    closeBtn.onclick = () => document.body.removeChild(printOverlay);
+    
+    printActions.appendChild(printBtn);
+    printActions.appendChild(closeBtn);
+    
+    // Monta a estrutura
+    printContainer.appendChild(printInstructions);
+    printContainer.appendChild(printSugestoes);
+    printPreview.appendChild(closeButton);
+    printPreview.appendChild(printContainer);
+    printPreview.appendChild(printActions);
+    printOverlay.appendChild(printPreview);
+    
+    // Adiciona ao documento
+    document.body.appendChild(printOverlay);
+}
+
+// Função para imprimir as sugestões de atividades
+function printSugestoesAtividadesContent() {
+    // Verifica se estamos na página correta
+    const isSugestoesPage = window.location.pathname.includes('sugestoes-atividades.html') || 
+                           window.location.pathname.endsWith('sugestoes-atividades.html');
+    if (!isSugestoesPage) {
+        console.log('Função printSugestoesAtividadesContent chamada fora da página de sugestões de atividades');
+        return;
+    }
+    
+    // Cria um iframe para impressão
+    const printFrame = document.createElement('iframe');
+    printFrame.style.position = 'absolute';
+    printFrame.style.left = '-9999px';
+    printFrame.style.top = '0';
+    printFrame.style.width = '0';
+    printFrame.style.height = '0';
+    printFrame.style.border = 'none';
+    
+    document.body.appendChild(printFrame);
+    
+    const printDocument = printFrame.contentWindow.document;
+    
+    // Escreve o conteúdo HTML para impressão
+    printDocument.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Sugestões de Atividades com Cartões Scratch - UTFPR</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    background: white;
+                    color: black;
+                    font-size: 12pt;
+                    line-height: 1.4;
+                }
+                
+                .print-container {
+                    max-width: 100%;
+                }
+                
+                .print-instructions {
+                    background: #f8f9fa;
+                    border: 1px solid #000;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    page-break-after: avoid;
+                }
+                
+                .print-instructions h2 {
+                    color: black;
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+                
+                .print-instructions ul {
+                    margin: 0;
+                    padding-left: 20px;
+                }
+                
+                .print-instructions li {
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                    color: black;
+                }
+                
+                .print-section {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                    background: white !important;
+                    border: 2px solid #000 !important;
+                    border-radius: 8px !important;
+                    padding: 20px !important;
+                    margin: 20px 0 !important;
+                    box-shadow: none !important;
+                }
+                
+                .print-section h2 {
+                    color: #000 !important;
+                    font-size: 18px !important;
+                    margin-bottom: 15px !important;
+                    border-bottom: 2px solid #000 !important;
+                    padding-bottom: 8px !important;
+                    page-break-after: avoid;
+                }
+                
+                .print-section h3 {
+                    color: #333 !important;
+                    font-size: 16px !important;
+                    margin: 20px 0 10px 0 !important;
+                    border-left: 3px solid #000 !important;
+                    padding-left: 10px !important;
+                    page-break-after: avoid;
+                }
+                
+                .print-section h4 {
+                    color: #555 !important;
+                    font-size: 14px !important;
+                    margin: 15px 0 8px 0 !important;
+                }
+                
+                .print-section h5 {
+                    color: #666 !important;
+                    font-size: 13px !important;
+                    margin: 12px 0 6px 0 !important;
+                }
+                
+                .print-section p {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                    line-height: 1.5 !important;
+                }
+                
+                .print-section ul, .print-section ol {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin: 10px 0 !important;
+                    padding-left: 25px !important;
+                }
+                
+                .print-section li {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 6px !important;
+                    line-height: 1.4 !important;
+                }
+                
+                .atividade-info {
+                    background: #f8f9fa !important;
+                    border: 1px solid #ccc !important;
+                    padding: 15px !important;
+                    margin-bottom: 15px !important;
+                    border-radius: 6px !important;
+                }
+                
+                .scratch-code {
+                    background: #f5f5f5 !important;
+                    color: black !important;
+                    border: 1px solid #ccc !important;
+                    border-left: 4px solid #000 !important;
+                    padding: 12px !important;
+                    margin: 10px 0 !important;
+                    border-radius: 6px !important;
+                    font-family: 'Courier New', monospace !important;
+                    font-size: 11px !important;
+                    white-space: pre-wrap !important;
+                    line-height: 1.3 !important;
+                }
+                
+                pre {
+                    background: #f5f5f5 !important;
+                    color: black !important;
+                    border: 1px solid #ccc !important;
+                    border-left: 4px solid #000 !important;
+                    padding: 12px !important;
+                    margin: 10px 0 !important;
+                    border-radius: 6px !important;
+                    font-family: 'Courier New', monospace !important;
+                    font-size: 11px !important;
+                    white-space: pre-wrap !important;
+                    line-height: 1.3 !important;
+                }
+                
+                code {
+                    background: #f5f5f5 !important;
+                    color: black !important;
+                    border: 1px solid #ddd !important;
+                    font-size: 11px !important;
+                }
+                
+                .step-by-step {
+                    background: #f8f9fa !important;
+                    border: 1px dashed #666 !important;
+                    padding: 15px !important;
+                    margin: 15px 0 !important;
+                    border-radius: 6px !important;
+                }
+                
+                .ficha-modelo {
+                    background: #f8f9fa !important;
+                    border: 1px solid #666 !important;
+                    padding: 15px !important;
+                    margin: 15px 0 !important;
+                    border-radius: 6px !important;
+                }
+                
+                @media print {
+                    body {
+                        padding: 10px;
+                    }
+                    
+                    .print-section {
+                        margin: 15px 0 !important;
+                        padding: 15px !important;
+                    }
+                    
+                    .print-instructions {
+                        margin-bottom: 15px !important;
+                    }
+                    
+                    .print-section h2 {
+                        font-size: 16px !important;
+                    }
+                    
+                    .print-section h3 {
+                        font-size: 14px !important;
+                    }
+                }
+                
+                /* Quebra de página antes de cada atividade principal */
+                .print-section:nth-child(n+2) {
+                    page-break-before: always;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="print-container">
+                <div class="print-instructions">
+                    <h2>Sugestões de Atividades com Cartões Scratch - UTFPR</h2>
+                    <ul>
+                        <li><strong>Data:</strong> ${new Date().toLocaleDateString('pt-BR')}</li>
+                        <li><strong>Página:</strong> Sugestões de Atividades 1º ao 5º Ano</li>
+                        <li><strong>Material:</strong> Projeto Scratch na Educação Básica</li>
+                        <li><strong>Instruções:</strong> Cada seção inicia em uma nova página</li>
+                    </ul>
+                </div>
+    `);
+    
+    // Adiciona cada seção de sugestão de atividade ao documento de impressão
+    const contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
+        
+        // Pula a seção de navegação
+        if (title === 'Navegação') {
+            return;
+        }
+        
+        const sectionContent = section.cloneNode(true);
+        
+        // Remove elementos de navegação
+        const navCards = sectionContent.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        // Remove a seção de navegação completa se for a última
+        const lastHeading = sectionContent.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            return;
+        }
+        
+        const contentHTML = sectionContent.innerHTML;
+        
+        printDocument.write(`
+            <div class="print-section">
+                ${contentHTML}
+            </div>
+        `);
+    });
+    
+    // Finaliza o documento
+    printDocument.write(`
+            </div>
+        </body>
+        </html>
+    `);
+    
+    printDocument.close();
+    
+    // Aguarda o carregamento e imprime
+    printFrame.onload = function() {
+        printFrame.contentWindow.focus();
+        printFrame.contentWindow.print();
+        
+        // Remove o iframe após a impressão
+        setTimeout(() => {
+            if (document.body.contains(printFrame)) {
+                document.body.removeChild(printFrame);
+            }
+            const printOverlay = document.querySelector('.print-overlay');
+            if (printOverlay) {
+                document.body.removeChild(printOverlay);
+            }
+        }, 500);
+    };
+}
+
+// =============================================
+// PRINT FUNCTIONALITY FOR ATIVIDADES RAPIDAS
+// =============================================
+
+// Função para criar e exibir a visualização de impressão das FICHAS RÁPIDAS
+function showPrintPreviewAtividadesRapidas() {
+    // Verifica se estamos na página correta
+    const isAtividadesRapidasPage = window.location.pathname.includes('atividades-rapidas.html') || 
+                                   window.location.pathname.endsWith('atividades-rapidas.html');
+    if (!isAtividadesRapidasPage) {
+        console.log('Função showPrintPreviewAtividadesRapidas chamada fora da página de atividades rápidas');
+        return;
+    }
+    
+    // Cria overlay para preview de impressão
+    const printOverlay = document.createElement('div');
+    printOverlay.className = 'print-overlay';
+    printOverlay.style.display = 'flex';
+    
+    // Cria container do preview
+    const printPreview = document.createElement('div');
+    printPreview.className = 'print-preview';
+    printPreview.style.maxWidth = '90%';
+    printPreview.style.maxHeight = '90%';
+    
+    // Cria botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.className = 'close-preview';
+    closeButton.innerHTML = '×';
+    closeButton.onclick = () => {
+        document.body.removeChild(printOverlay);
+    };
+    
+    // Cria container de impressão
+    const printContainer = document.createElement('div');
+    printContainer.className = 'print-container';
+    
+    // Adiciona instruções de impressão
+    const printInstructions = document.createElement('div');
+    printInstructions.className = 'print-instructions';
+    printInstructions.innerHTML = `
+        <h2>Instruções para Impressão - Fichas Rápidas</h2>
+        <ul>
+            <li>Use papel A4 padrão</li>
+            <li>Configure a impressão para "Retrato"</li>
+            <li>Defina margens para "Padrão" ou "Mínimo"</li>
+            <li>Imprima em qualidade normal</li>
+            <li>Verifique a visualização antes de imprimir</li>
+            <li>Cada ficha rápida inicia em uma nova página</li>
+        </ul>
+    `;
+    
+    // Cria container para as fichas rápidas
+    const printAtividadesRapidas = document.createElement('div');
+    printAtividadesRapidas.className = 'print-atividades-rapidas';
+    
+    // Coleta todas as seções de conteúdo da página de fichas rápidas
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    // Adiciona cada seção ao preview de impressão
+    contentSections.forEach((section, index) => {
+        const printSection = section.cloneNode(true);
+        printSection.classList.add('print-section');
+        
+        // Remove a última seção de navegação se existir
+        const lastHeading = printSection.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            const navigationSection = lastHeading.parentElement;
+            if (navigationSection && navigationSection.classList.contains('content-section')) {
+                printSection.remove();
+                return; // Pula esta seção
+            }
+        }
+        
+        // Remove elementos de navegação dentro das seções
+        const navCards = printSection.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        printAtividadesRapidas.appendChild(printSection);
+    });
+    
+    // Cria botões de ação
+    const printActions = document.createElement('div');
+    printActions.className = 'print-actions';
+    
+    const printBtn = document.createElement('button');
+    printBtn.className = 'print-button';
+    printBtn.innerHTML = '🖨️ Imprimir Fichas Rápidas';
+    printBtn.onclick = () => printAtividadesRapidasContent();
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'secondary-button';
+    closeBtn.innerHTML = 'Fechar';
+    closeBtn.onclick = () => document.body.removeChild(printOverlay);
+    
+    printActions.appendChild(printBtn);
+    printActions.appendChild(closeBtn);
+    
+    // Monta a estrutura
+    printContainer.appendChild(printInstructions);
+    printContainer.appendChild(printAtividadesRapidas);
+    printPreview.appendChild(closeButton);
+    printPreview.appendChild(printContainer);
+    printPreview.appendChild(printActions);
+    printOverlay.appendChild(printPreview);
+    
+    // Adiciona ao documento
+    document.body.appendChild(printOverlay);
+}
+
+// Função para imprimir as fichas rápidas
+function printAtividadesRapidasContent() {
+    // Verifica se estamos na página correta
+    const isAtividadesRapidasPage = window.location.pathname.includes('atividades-rapidas.html') || 
+                                   window.location.pathname.endsWith('atividades-rapidas.html');
+    if (!isAtividadesRapidasPage) {
+        console.log('Função printAtividadesRapidasContent chamada fora da página de atividades rápidas');
+        return;
+    }
+    
+    // Cria um iframe para impressão
+    const printFrame = document.createElement('iframe');
+    printFrame.style.position = 'absolute';
+    printFrame.style.left = '-9999px';
+    printFrame.style.top = '0';
+    printFrame.style.width = '0';
+    printFrame.style.height = '0';
+    printFrame.style.border = 'none';
+    
+    document.body.appendChild(printFrame);
+    
+    const printDocument = printFrame.contentWindow.document;
+    
+    // Escreve o conteúdo HTML para impressão
+    printDocument.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Fichas de Atividade Rápida Scratch - UTFPR</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    background: white;
+                    color: black;
+                    font-size: 12pt;
+                    line-height: 1.4;
+                }
+                
+                .print-container {
+                    max-width: 100%;
+                }
+                
+                .print-instructions {
+                    background: #f8f9fa;
+                    border: 1px solid #000;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    page-break-after: avoid;
+                }
+                
+                .print-instructions h2 {
+                    color: black;
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+                
+                .print-instructions ul {
+                    margin: 0;
+                    padding-left: 20px;
+                }
+                
+                .print-instructions li {
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                    color: black;
+                }
+                
+                .print-section {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                    background: white !important;
+                    border: 2px solid #000 !important;
+                    border-radius: 8px !important;
+                    padding: 20px !important;
+                    margin: 20px 0 !important;
+                    box-shadow: none !important;
+                }
+                
+                .print-section h2 {
+                    color: #000 !important;
+                    font-size: 18px !important;
+                    margin-bottom: 15px !important;
+                    border-bottom: 2px solid #000 !important;
+                    padding-bottom: 8px !important;
+                    page-break-after: avoid;
+                }
+                
+                .print-section h3 {
+                    color: #333 !important;
+                    font-size: 16px !important;
+                    margin: 20px 0 10px 0 !important;
+                    border-left: 3px solid #000 !important;
+                    padding-left: 10px !important;
+                    page-break-after: avoid;
+                }
+                
+                .print-section h4 {
+                    color: #555 !important;
+                    font-size: 14px !important;
+                    margin: 15px 0 8px 0 !important;
+                }
+                
+                .print-section p {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                    line-height: 1.5 !important;
+                }
+                
+                .print-section ul, .print-section ol {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin: 10px 0 !important;
+                    padding-left: 25px !important;
+                }
+                
+                .print-section li {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 6px !important;
+                    line-height: 1.4 !important;
+                }
+                
+                .ficha-rapida {
+                    background: #f8f9fa !important;
+                    border: 1px solid #666 !important;
+                    padding: 15px !important;
+                    margin: 15px 0 !important;
+                    border-radius: 6px !important;
+                }
+                
+                .ficha-header {
+                    background: #e9ecef !important;
+                    border-bottom: 2px solid #666 !important;
+                    padding: 10px !important;
+                    margin-bottom: 15px !important;
+                    border-radius: 4px !important;
+                }
+                
+                .ficha-tempo, .ficha-nivel {
+                    background: #ffd200 !important;
+                    color: black !important;
+                    padding: 5px 10px !important;
+                    border-radius: 15px !important;
+                    font-size: 11px !important;
+                    font-weight: bold !important;
+                    display: inline-block !important;
+                    margin-right: 10px !important;
+                }
+                
+                .scratch-code {
+                    background: #f5f5f5 !important;
+                    color: black !important;
+                    border: 1px solid #ccc !important;
+                    border-left: 4px solid #000 !important;
+                    padding: 12px !important;
+                    margin: 10px 0 !important;
+                    border-radius: 6px !important;
+                    font-family: 'Courier New', monospace !important;
+                    font-size: 11px !important;
+                    white-space: pre-wrap !important;
+                    line-height: 1.3 !important;
+                }
+                
+                .dica-box {
+                    background: #fff3cd !important;
+                    border: 1px solid #666 !important;
+                    border-left: 4px solid #000 !important;
+                    padding: 12px !important;
+                    margin: 10px 0 !important;
+                    border-radius: 6px !important;
+                }
+                
+                .cartaz-box {
+                    background: white !important;
+                    border: 2px solid #000 !important;
+                    margin: 15px 0 !important;
+                    border-radius: 6px !important;
+                }
+                
+                .cartaz-header {
+                    background: #ffd200 !important;
+                    color: black !important;
+                    padding: 12px !important;
+                    font-size: 14px !important;
+                    font-weight: bold !important;
+                    border-bottom: 2px solid #000 !important;
+                }
+                
+                .cartaz-content {
+                    padding: 15px !important;
+                }
+                
+                .checklist {
+                    list-style: none !important;
+                    padding-left: 0 !important;
+                }
+                
+                .checklist li::before {
+                    content: "☐ " !important;
+                    margin-right: 8px !important;
+                }
+                
+                @media print {
+                    body {
+                        padding: 10px;
+                    }
+                    
+                    .print-section {
+                        margin: 15px 0 !important;
+                        padding: 15px !important;
+                    }
+                    
+                    .print-instructions {
+                        margin-bottom: 15px !important;
+                    }
+                    
+                    .print-section h2 {
+                        font-size: 16px !important;
+                    }
+                    
+                    .print-section h3 {
+                        font-size: 14px !important;
+                    }
+                    
+                    /* Quebra de página antes de cada ficha rápida (exceto a primeira) */
+                    .print-section:nth-child(n+3) {
+                        page-break-before: always;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="print-container">
+                <div class="print-instructions">
+                    <h2>Fichas de Atividade Rápida Scratch - UTFPR</h2>
+                    <ul>
+                        <li><strong>Data:</strong> ${new Date().toLocaleDateString('pt-BR')}</li>
+                        <li><strong>Página:</strong> Fichas de Atividade Rápida (15 minutos)</li>
+                        <li><strong>Material:</strong> Projeto Scratch na Educação Básica</li>
+                        <li><strong>Instruções:</strong> Cada ficha inicia em uma nova página</li>
+                    </ul>
+                </div>
+    `);
+    
+    // Adiciona cada seção de ficha rápida ao documento de impressão
+    const contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
+        
+        // Pula a seção de navegação
+        if (title === 'Navegação') {
+            return;
+        }
+        
+        const sectionContent = section.cloneNode(true);
+        
+        // Remove elementos de navegação
+        const navCards = sectionContent.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        // Remove a seção de navegação completa se for a última
+        const lastHeading = sectionContent.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            return;
+        }
+        
+        const contentHTML = sectionContent.innerHTML;
+        
+        printDocument.write(`
+            <div class="print-section">
+                ${contentHTML}
+            </div>
+        `);
+    });
+    
+    // Finaliza o documento
+    printDocument.write(`
+            </div>
+        </body>
+        </html>
+    `);
+    
+    printDocument.close();
+    
+    // Aguarda o carregamento e imprime
+    printFrame.onload = function() {
+        printFrame.contentWindow.focus();
+        printFrame.contentWindow.print();
+        
+        // Remove o iframe após a impressão
+        setTimeout(() => {
+            if (document.body.contains(printFrame)) {
+                document.body.removeChild(printFrame);
+            }
+            const printOverlay = document.querySelector('.print-overlay');
+            if (printOverlay) {
+                document.body.removeChild(printOverlay);
+            }
+        }, 500);
+    };
+}
+
+// =============================================
 // INITIALIZE PRINT BUTTONS ON PAGE LOAD
 // =============================================
 
@@ -842,6 +2876,26 @@ document.addEventListener('DOMContentLoaded', function() {
     // Verifica se estamos na página de planos de aula
     const isPlanosPage = window.location.pathname.includes('planos-aula.html') || 
                         window.location.pathname.endsWith('planos-aula.html');
+
+    // Verifica se estamos na página de sugestões de atividades
+    const isSugestoesPage = window.location.pathname.includes('sugestoes-atividades.html') || 
+                           window.location.pathname.endsWith('sugestoes-atividades.html');
+
+    // Verifica se estamos na página de atividades rápidas
+    const isAtividadesRapidasPage = window.location.pathname.includes('atividades-rapidas.html') || 
+                                   window.location.pathname.endsWith('atividades-rapidas.html');
+
+    // Verifica se estamos na página de fichas de atividades
+    const isFichasPage = window.location.pathname.includes('fichas-atividades.html') || 
+                        window.location.pathname.endsWith('fichas-atividades.html');
+
+    // Verifica se estamos na página de projetos didáticos
+    const isProjetosPage = window.location.pathname.includes('projetos-didaticos.html') || 
+                          window.location.pathname.endsWith('projetos-didaticos.html');
+
+    // Verifica se estamos na página de modelos de projetos
+    const isModelosPage = window.location.pathname.includes('modelos-projetos.html') || 
+                         window.location.pathname.endsWith('modelos-projetos.html');
 
     // BOTÃO PARA CARTÕES SCRATCH (apenas na página cartoes-scratch.html)
     if (isCartoesPage) {
@@ -865,6 +2919,101 @@ document.addEventListener('DOMContentLoaded', function() {
         printButton.className = 'print-button';
         printButton.innerHTML = '🖨️ Imprimir Planos de Aula';
         printButton.onclick = showPrintPreviewLessonPlans;
+        printButton.style.margin = '20px 0';
+        printButton.style.display = 'block';
+        printButton.style.marginLeft = 'auto';
+        printButton.style.marginRight = 'auto';
+        
+        // Adiciona o botão após o page-header
+        const pageHeader = document.querySelector('.page-header');
+        if (pageHeader) {
+            pageHeader.parentNode.insertBefore(printButton, pageHeader.nextSibling);
+        }
+    }
+    
+    // BOTÃO PARA SUGESTÕES DE ATIVIDADES (apenas na página sugestoes-atividades.html)
+    if (isSugestoesPage) {
+        // Cria e adiciona o botão de impressão específico para sugestões de atividades
+        const printButton = document.createElement('button');
+        printButton.className = 'print-button';
+        printButton.innerHTML = '🖨️ Imprimir Sugestões de Atividades';
+        printButton.onclick = showPrintPreviewSugestoesAtividades;
+        printButton.style.margin = '20px 0';
+        printButton.style.display = 'block';
+        printButton.style.marginLeft = 'auto';
+        printButton.style.marginRight = 'auto';
+        
+        // Adiciona o botão após o page-header
+        const pageHeader = document.querySelector('.page-header');
+        if (pageHeader) {
+            pageHeader.parentNode.insertBefore(printButton, pageHeader.nextSibling);
+        }
+    }
+    
+    // BOTÃO PARA ATIVIDADES RÁPIDAS (apenas na página atividades-rapidas.html)
+    if (isAtividadesRapidasPage) {
+        // Cria e adiciona o botão de impressão específico para fichas rápidas
+        const printButton = document.createElement('button');
+        printButton.className = 'print-button';
+        printButton.innerHTML = '🖨️ Imprimir Fichas Rápidas';
+        printButton.onclick = showPrintPreviewAtividadesRapidas;
+        printButton.style.margin = '20px 0';
+        printButton.style.display = 'block';
+        printButton.style.marginLeft = 'auto';
+        printButton.style.marginRight = 'auto';
+        
+        // Adiciona o botão após o page-header
+        const pageHeader = document.querySelector('.page-header');
+        if (pageHeader) {
+            pageHeader.parentNode.insertBefore(printButton, pageHeader.nextSibling);
+        }
+    }
+    
+    // BOTÃO PARA FICHAS DE ATIVIDADES (apenas na página fichas-atividades.html)
+    if (isFichasPage) {
+        // Cria e adiciona o botão de impressão específico para fichas de atividades
+        const printButton = document.createElement('button');
+        printButton.className = 'print-button';
+        printButton.innerHTML = '🖨️ Imprimir Fichas de Atividades';
+        printButton.onclick = showPrintPreviewFichasAtividades;
+        printButton.style.margin = '20px 0';
+        printButton.style.display = 'block';
+        printButton.style.marginLeft = 'auto';
+        printButton.style.marginRight = 'auto';
+        
+        // Adiciona o botão após o page-header
+        const pageHeader = document.querySelector('.page-header');
+        if (pageHeader) {
+            pageHeader.parentNode.insertBefore(printButton, pageHeader.nextSibling);
+        }
+    }
+    
+    // BOTÃO PARA PROJETOS DIDÁTICOS (apenas na página projetos-didaticos.html)
+    if (isProjetosPage) {
+        // Cria e adiciona o botão de impressão específico para projetos didáticos
+        const printButton = document.createElement('button');
+        printButton.className = 'print-button';
+        printButton.innerHTML = '🖨️ Imprimir Projetos Didáticos';
+        printButton.onclick = showPrintPreviewProjetosDidaticos;
+        printButton.style.margin = '20px 0';
+        printButton.style.display = 'block';
+        printButton.style.marginLeft = 'auto';
+        printButton.style.marginRight = 'auto';
+        
+        // Adiciona o botão após o page-header
+        const pageHeader = document.querySelector('.page-header');
+        if (pageHeader) {
+            pageHeader.parentNode.insertBefore(printButton, pageHeader.nextSibling);
+        }
+    }
+    
+    // BOTÃO PARA MODELOS DE PROJETOS (apenas na página modelos-projetos.html)
+    if (isModelosPage) {
+        // Cria e adiciona o botão de impressão específico para modelos de projetos
+        const printButton = document.createElement('button');
+        printButton.className = 'print-button';
+        printButton.innerHTML = '🖨️ Imprimir Modelos de Projetos';
+        printButton.onclick = showPrintPreviewModelosProjetos;
         printButton.style.margin = '20px 0';
         printButton.style.display = 'block';
         printButton.style.marginLeft = 'auto';
