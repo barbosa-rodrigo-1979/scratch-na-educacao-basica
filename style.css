@@ -3100,3 +3100,233 @@ body.dark-mode .theme-toggle {
 .nav-card.controle:hover code {
     color: var(--utfpr-black) !important;
 }
+
+/* ====== ESTILOS PARA IMPRESSÃO DE CARTÕES SCRATCH ====== */
+
+.print-button {
+    background: linear-gradient(135deg, var(--utfpr-Yellow) 0%, var(--utfpr-Yellow-dark) 100%);
+    color: var(--utfpr-black);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin: 20px 0;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    font-size: 1rem;
+}
+
+.print-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(135deg, var(--utfpr-Yellow-light) 0%, var(--utfpr-Yellow) 100%);
+}
+
+/* Overlay de impressão */
+.print-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+}
+
+.print-preview {
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+    position: relative;
+}
+
+.close-preview {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: var(--utfpr-gray-dark);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.print-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.secondary-button {
+    background: var(--utfpr-gray);
+    color: var(--utfpr-black);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.secondary-button:hover {
+    background: var(--utfpr-gray-dark);
+    color: white;
+}
+
+/* Estilos específicos para o modo de impressão */
+@media print {
+    /* Oculta elementos não essenciais na impressão */
+    header,
+    footer,
+    .theme-toggle,
+    .content-section:not(.print-section),
+    .page-header,
+    .card-grid:not(.print-cards),
+    .print-button,
+    .print-overlay {
+        display: none !important;
+    }
+
+    /* Estilos específicos para impressão dos cartões */
+    .print-section {
+        display: block !important;
+        page-break-inside: avoid;
+    }
+
+    .print-cards {
+        display: grid !important;
+        grid-template-columns: repeat(3, 1fr) !important;
+        gap: 15px !important;
+        margin: 0 !important;
+        padding: 20px !important;
+    }
+
+    .print-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        background: white !important;
+        border: 2px solid #000 !important;
+        border-radius: 8px !important;
+        padding: 15px !important;
+        margin: 0 !important;
+        box-shadow: none !important;
+        min-height: 120px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    /* Mantém as cores dos cartões na impressão através das bordas */
+    .print-card.movimento {
+        border-left: 8px solid var(--scratch-motion) !important;
+    }
+
+    .print-card.aparencia {
+        border-left: 8px solid var(--scratch-looks) !important;
+    }
+
+    .print-card.som {
+        border-left: 8px solid var(--scratch-sound) !important;
+    }
+
+    .print-card.eventos {
+        border-left: 8px solid var(--scratch-events) !important;
+    }
+
+    .print-card.controle {
+        border-left: 8px solid var(--scratch-control) !important;
+    }
+
+    .print-card.operadores {
+        border-left: 8px solid var(--scratch-operators) !important;
+    }
+
+    /* Estilos de texto para impressão */
+    .print-card h3 {
+        font-size: 14px !important;
+        margin: 0 0 8px 0 !important;
+        color: black !important;
+    }
+
+    .print-card p {
+        font-size: 12px !important;
+        margin: 2px 0 !important;
+        color: black !important;
+    }
+
+    .print-card code {
+        background: #f5f5f5 !important;
+        color: black !important;
+        border: 1px solid #ddd !important;
+        font-size: 11px !important;
+    }
+
+    /* Container principal de impressão */
+    .print-container {
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+
+    /* Instruções de impressão */
+    .print-instructions {
+        background: #f8f9fa !important;
+        border: 1px solid #000 !important;
+        padding: 15px !important;
+        margin-bottom: 20px !important;
+        page-break-after: avoid;
+    }
+
+    .print-instructions h2 {
+        color: black !important;
+        font-size: 16px !important;
+        margin-bottom: 10px !important;
+    }
+
+    .print-instructions ul {
+        margin: 0 !important;
+        padding-left: 20px !important;
+    }
+
+    .print-instructions li {
+        font-size: 12px !important;
+        margin-bottom: 5px !important;
+        color: black !important;
+    }
+}
+
+/* Ajustes para modo escuro nos elementos de impressão */
+body.dark-mode .print-button {
+    background: linear-gradient(135deg, var(--utfpr-Yellow-dark) 0%, var(--utfpr-Yellow-darker) 100%);
+    color: var(--utfpr-white);
+}
+
+body.dark-mode .print-button:hover {
+    background: linear-gradient(135deg, var(--utfpr-Yellow) 0%, var(--utfpr-Yellow-dark) 100%);
+}
+
+body.dark-mode .secondary-button {
+    background: var(--utfpr-gray-medium);
+    color: var(--utfpr-black);
+}
+
+body.dark-mode .secondary-button:hover {
+    background: var(--utfpr-gray-dark);
+    color: var(--utfpr-white);
+}
