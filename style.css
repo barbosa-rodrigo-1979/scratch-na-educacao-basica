@@ -1,3332 +1,879 @@
-/*
-Objetivo: Padronizar a apresentação visual dos elementos HTML do projeto Scratch na Educação Básica
-Desenvolvido por: Gisele Nunes, Rodrigo Barbosa
-Data: Segundo semestre de 2025
-*/
-/* ====== VARIÁVEIS CSS (CSS Custom Properties) ====== */
-:root {
-    /* Paleta de cores oficial da UTFPR baseada no amarelo */
-    --utfpr-Yellow: #FFD200;
-    /* Amarelo principal UTFPR */
-    --utfpr-Yellow-light: #FFE84D;
-    /* Amarelo claro para hover/states */
-    --utfpr-Yellow-dark: #E9B400;
-    /* Amarelo escuro para bordas/ênfase */
-    --utfpr-Yellow-darker: #C99700;
-    /* Amarelo mais escuro para detalhes */
-
-    /* Escala de cinza para textos e fundos */
-    --utfpr-white: #ffffff;
-    /* Branco puro */
-    --utfpr-gray-light: #f8f9fa;
-    /* Cinza muito claro para fundos */
-    --utfpr-gray: #e9ecef;
-    /* Cinza claro para bordas */
-    --utfpr-gray-medium: #dee2e6;
-    /* Cinza médio para elementos UI */
-    --utfpr-gray-dark: #6c757d;
-    /* Cinza escuro para textos secundários */
-    --utfpr-black: #212529;
-    /* Preto para textos principais */
-
-    /* Cores temáticas do Scratch baseadas nas categorias de blocos */
-    --scratch-motion: #4a6cd4;
-    /* Azul - blocos de Movimento */
-    --scratch-looks: #8a55d7;
-    /* Roxo - blocos de Aparência */
-    --scratch-sound: #bb42c3;
-    /* Rosa - blocos de Som */
-    --scratch-events: #ffbf00;
-    /* Amarelo - blocos de Eventos */
-    --scratch-control: #ff8c1a;
-    /* Laranja - blocos de Controle */
-    --scratch-sensing: #2ca5a2;
-    /* Verde-água - blocos de Sensores */
-    --scratch-operators: #5cb712;
-    /* Verde - blocos de Operadores */
-
-    /* Cores utilitárias para componentes */
-    --card-bg: #ffffff;
-    /* Cor de fundo para cards */
-    --border-color: #dee2e6;
-    /* Cor padrão para bordas */
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra padrão */
-    --success-color: #28a745;
-    /* Verde para indicar sucesso */
-}
-
-/* ====== RESET E CONFIGURAÇÕES GLOBAIS ====== */
-* {
-    margin: 0;
-    /* Remove margens padrão de todos os elementos */
-    padding: 0;
-    /* Remove paddings padrão de todos os elementos */
-    box-sizing: border-box;
-    /* Inclui padding e border no cálculo de width/height */
-}
-
-/* Estilização do corpo do documento */
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    /* Fonte moderna e legível */
-    line-height: 1.6;
-    /* Espaçamento entre linhas para melhor legibilidade */
-    color: var(--utfpr-black);
-    /* Cor do texto usando variável CSS */
-    /* Gradiente de fundo do corpo - pode ser alterado facilmente */
-    background: linear-gradient(135deg, var(--utfpr-gray-dark) 0%, #343a40 100%);
-}
-
-/* ====== LAYOUT CONTAINER ====== */
-.container {
-    max-width: 1200px;
-    /* Largura máxima do conteúdo */
-    margin: 0 auto;
-    /* Centraliza o container horizontalmente */
-    padding: 0 20px;
-    /* Padding lateral para espaçamento em telas menores */
-}
-
-/* ====== CABEÇALHO SUPERIOR ====== */
-.header-top {
-    /* Gradiente de fundo do cabeçalho */
-    background: linear-gradient(135deg, var(--utfpr-gray-dark) 0%, var(--utfpr-gray-medium) 100%);
-    color: var(--utfpr-black);
-    /* Cor do texto */
-    padding: 20px 0;
-    /* Espaçamento vertical */
-    box-shadow: 0 2px 15px rgba(35, 31, 32, 0.4);
-    /* Sombra para profundidade */
-    border-bottom: 4px solid var(--utfpr-yellow-dark);
-    /* Linha de destaque na borda inferior */
-}
-
-/* Layout flexível para o container do cabeçalho */
-.header-top .container {
-    display: flex;
-    /* Ativa layout flexbox */
-    justify-content: space-between;
-    /* Espaça itens nas extremidades */
-    align-items: center;
-    /* Alinha itens verticalmente ao centro */
-    flex-wrap: wrap;
-    /* Permite quebra de linha em telas pequenas */
-}
-
-/* Container para logo e nome da instituição */
-.logo-container {
-    display: flex;
-    /* Layout flex para alinhar logo e texto */
-    align-items: center;
-    /* Alinha verticalmente ao centro */
-    gap: 15px;
-    /* Espaço entre logo e texto */
-}
-
-/* Estilização da logo */
-.logo {
-    height: 65px;
-    /* Altura fixa da logo */
-    width: auto;
-    /* Largura automática para manter proporção */
-    filter: brightness(0) invert(1);
-    /* Inverte cores para versão branca */
-}
-
-/* Estilização do nome da instituição */
-.institution-name {
-    font-size: 0.95rem;
-    /* Tamanho de fonte menor */
-    line-height: 1.3;
-    /* Espaçamento entre linhas */
-    font-weight: 600;
-    /* Peso da fonte semi-negrito */
-    color: var(--utfpr-black);
-    /* Cor do texto */
-}
-
-/* Texto secundário dentro do nome da instituição */
-.institution-name small {
-    font-size: 0.85rem;
-    /* Tamanho ainda menor */
-    opacity: 0.95;
-    /* Leve transparência */
-    font-weight: normal;
-    /* Peso normal (não negrito) */
-    color: var(--utfpr-black);
-    /* Cor do texto */
-}
-
-/* Título principal do cabeçalho */
-.header-title {
-    text-align: right;
-    /* Alinha texto à direita */
-    font-size: 1.15rem;
-    /* Tamanho da fonte */
-    font-weight: bold;
-    /* Texto em negrito */
-    color: var(--utfpr-black);
-    /* Cor do texto */
-}
-
-/* Texto secundário do título */
-.header-title small {
-    font-size: 0.9rem;
-    /* Tamanho menor */
-    font-weight: normal;
-    /* Peso normal */
-    opacity: 0.95;
-    /* Leve transparência */
-    color: var(--utfpr-black);
-    /* Cor do texto */
-}
-
-/* ====== CABEÇALHO INFERIOR (MENU DE NAVEGAÇÃO) ====== */
-.header-bottom {
-    background-color: var(--utfpr-gray-dark);
-    /* Cor de fundo */
-    border-bottom: 3px solid var(--utfpr-yellow-darker);
-    /* Linha de destaque */
-}
-
-/* Lista de navegação */
-nav ul {
-    display: flex;
-    /* Layout flex para menu horizontal */
-    list-style: none;
-    /* Remove marcadores padrão de lista */
-    justify-content: center;
-    /* Centraliza itens do menu */
-    flex-wrap: wrap;
-    /* Permite quebra em telas pequenas */
-}
-
-/* Itens da lista de navegação */
-nav li {
-    margin: 0;
-    /* Remove margens padrão */
-}
-
-/* Links de navegação */
-nav a {
-    display: block;
-    /* Faz o link ocupar toda a área do li */
-    padding: 16px 22px;
-    /* Espaçamento interno */
-    color: var(--utfpr-black);
-    /* Cor do texto */
-    text-decoration: none;
-    /* Remove sublinhado padrão */
-    font-weight: 500;
-    /* Peso médio da fonte */
-    transition: all 0.3s ease;
-    /* Transição suave para hover */
-    border-bottom: 3px solid transparent;
-    /* Borda inferior transparente */
-}
-
-/* Efeito hover nos links de navegação */
-nav a:hover {
-    background-color: var(--utfpr-yellow-dark);
-    /* Fundo amarelo escuro */
-    color: var(--utfpr-black);
-    /* Cor do texto */
-    border-bottom-color: var(--utfpr-yellow-light);
-    /* Borda inferior amarela clara */
-}
-
-/* Link de navegação ativo */
-nav a.active {
-    background-color: var(--utfpr-Yellow);
-    /* Fundo amarelo */
-    border-bottom-color: var(--utfpr-black);
-    /* Borda inferior preta */
-    font-weight: bold;
-    /* Texto em negrito */
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Sombra interna */
-    color: var(--utfpr-black);
-    /* Cor do texto */
-}
-
-/* ====== CONTEÚDO PRINCIPAL ====== */
-main {
-    padding: 30px 0;
-    /* Espaçamento vertical */
-    /* Gradiente de fundo do conteúdo principal */
-    background: linear-gradient(135deg, var(--utfpr-gray-medium) 0%, var(--utfpr-gray-dark) 100%);
-    min-height: calc(100vh - 200px);
-    /* Altura mínima para ocupar a tela */
-}
-
-/* ====== CABEÇALHO DA PÁGINA ====== */
-.page-header {
-    text-align: center;
-    /* Centraliza o conteúdo */
-    margin-bottom: 40px;
-    /* Espaço abaixo do cabeçalho */
-    padding: 35px 0;
-    /* Espaçamento vertical interno */
-    background: var(--utfpr-white);
-    /* Fundo branco */
-    border-radius: 12px;
-    /* Bordas arredondadas */
-    box-shadow: 0 4px 15px rgba(35, 31, 32, 0.3);
-    /* Sombra para destaque */
-    border: 2px solid var(--utfpr-gray);
-    /* Borda sutil */
-}
-
-/* Título principal da página */
-.page-header h1 {
-    color: var(--utfpr-Yellow);
-    /* Cor amarela UTFPR */
-    font-size: 2.6rem;
-    /* Tamanho grande da fonte */
-    margin-bottom: 12px;
-    /* Espaço abaixo do título */
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-    /* Sombra sutil no texto */
-}
-
-/* Subtítulo da página */
-.subtitle {
-    font-size: 1.25rem;
-    /* Tamanho médio da fonte */
-    color: var(--utfpr-gray-dark);
-    /* Cor cinza escuro */
-    margin-bottom: 18px;
-    /* Espaço abaixo */
-    font-weight: 500;
-    /* Peso médio da fonte */
-}
-
-/* Autores do conteúdo */
-.authors {
-    font-style: italic;
-    /* Texto em itálico */
-    color: var(--utfpr-gray-dark);
-    /* Cor cinza escuro */
-    font-size: 0.95rem;
-    /* Tamanho menor */
-}
-
-/* ====== SEÇÕES DE CONTEÚDO ====== */
-.content-section {
-    background: var(--utfpr-white);
-    /* Fundo branco */
-    padding: 32px;
-    /* Espaçamento interno generoso */
-    margin-bottom: 32px;
-    /* Espaço entre seções */
-    border-radius: 12px;
-    /* Bordas arredondadas */
-    box-shadow: 0 3px 12px rgba(35, 31, 32, 0.1);
-    /* Sombra sutil */
-    border-left: 5px solid var(--utfpr-yellow-dark);
-    /* Destaque na borda esquerda */
-    border: 1px solid var(--utfpr-gray-medium);
-    /* Borda completa sutil */
-    text-align: justify;
-    /* Texto justificado */
-    hyphens: auto;
-    /* Hifenização automática */
-}
-
-/* Títulos de seção nível 2 */
-.content-section h2 {
-    color: var(--utfpr-Yellow);
-    /* Cor amarela */
-    margin-bottom: 22px;
-    /* Espaço abaixo */
-    font-size: 1.9rem;
-    /* Tamanho grande */
-    border-bottom: 2px solid var(--utfpr-Yellow-light);
-    /* Linha abaixo do título */
-    padding-bottom: 12px;
-    /* Espaço entre texto e linha */
-}
-
-/* Títulos de seção nível 3 */
-.content-section h3 {
-    color: var(--utfpr-Yellow-dark);
-    /* Amarelo escuro */
-    margin: 28px 0 16px 0;
-    /* Margem superior e inferior */
-    font-size: 1.45rem;
-    /* Tamanho médio-grande */
-    border-left: 3px solid var(--utfpr-Yellow);
-    /* Destaque na borda esquerda */
-    padding-left: 12px;
-    /* Espaço entre borda e texto */
-}
-
-/* Títulos de seção nível 4 */
-.content-section h4 {
-    color: var(--utfpr-Yellow);
-    /* Cor amarela */
-    margin: 22px 0 12px 0;
-    /* Margens */
-    font-size: 1.25rem;
-    /* Tamanho médio */
-}
-
-/* Títulos de seção nível 5 */
-.content-section h5 {
-    color: var(--utfpr-Yellow-dark);
-    /* Amarelo escuro */
-    margin: 18px 0 10px 0;
-    /* Margens */
-    font-size: 1.1rem;
-    /* Tamanho pequeno-médio */
-    font-weight: 600;
-    /* Peso semi-negrito */
-}
-
-/* Parágrafos */
-.content-section p {
-    margin-bottom: 16px;
-    /* Espaço entre parágrafos */
-    line-height: 1.7;
-    /* Espaçamento entre linhas para legibilidade */
-}
-
-/* Listas não-ordenadas e ordenadas */
-.content-section ul,
-.content-section ol {
-    margin: 18px 0;
-    /* Margem superior e inferior */
-    padding-left: 32px;
-    /* Recuo interno esquerdo */
-}
-
-/* Itens de lista */
-.content-section li {
-    margin-bottom: 10px;
-    /* Espaço entre itens */
-    line-height: 1.6;
-    /* Espaçamento entre linhas */
-}
-
-/* Listas aninhadas */
-.content-section ul ul,
-.content-section ol ol {
-    margin: 8px 0;
-    /* Margem menor para listas aninhadas */
-    padding-left: 20px;
-    /* Recuo menor para aninhamento */
-}
-
-/* Itens de lista sem marcador */
-.content-section ul li[style*="list-style-type: none"] {
-    list-style-type: none !important;
-    /* Remove marcador */
-    margin-left: 0;
-    /* Remove margem */
-    padding-left: 0;
-    /* Remove padding */
-}
-
-/* Links no conteúdo */
-.content-section a {
-    color: var(--utfpr-Yellow-dark);
-    /* Cor amarela escura */
-    text-decoration: none;
-    /* Remove sublinhado */
-    border-bottom: 1px solid transparent;
-    /* Borda inferior transparente */
-    transition: border-color 0.3s ease;
-    /* Transição suave */
-}
-
-/* Efeito hover em links */
-.content-section a:hover {
-    border-bottom-color: var(--utfpr-Yellow-dark);
-    /* Borda inferior amarela */
-}
-
-/* ====== COMPONENTES DE INTERFACE ====== */
-
-/* Badge/etiqueta para destaques */
-.badge {
-    display: inline-block;
-    /* Permite padding e margin */
-    padding: 5px 14px;
-    /* Espaçamento interno */
-    /* Gradiente amarelo */
-    background: linear-gradient(135deg, var(--utfpr-Yellow) 0%, var(--utfpr-Yellow-light) 100%);
-    color: var(--utfpr-black);
-    /* Cor do texto */
-    border-radius: 20px;
-    /* Bordas completamente arredondadas */
-    font-size: 0.82rem;
-    /* Tamanho pequeno */
-    font-weight: bold;
-    /* Texto em negrito */
-    margin-left: 12px;
-    /* Espaço à esquerda */
-    vertical-align: middle;
-    /* Alinha verticalmente com texto */
-    box-shadow: 0 2px 4px rgba(35, 31, 32, 0.3);
-    /* Sombra */
-}
-
-/* Container para palavras-chave */
-.keywords {
-    display: flex;
-    /* Layout flexível */
-    flex-wrap: wrap;
-    /* Permite quebra de linha */
-    gap: 10px;
-    /* Espaço entre elementos */
-    margin: 20px 0;
-    /* Margem vertical */
-}
-
-/* Item individual de palavra-chave */
-.keyword {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 8px 16px;
-    /* Espaçamento interno */
-    border-radius: 20px;
-    /* Bordas arredondadas */
-    font-size: 0.9rem;
-    /* Tamanho pequeno */
-    border: 1px solid var(--utfpr-gray-medium);
-    /* Borda sutil */
-    color: var(--utfpr-gray-dark);
-    /* Cor do texto */
-}
-
-/* Grid para resumo executivo */
-.executive-summary {
-    display: grid;
-    /* Layout em grid */
-    /* Colunas responsivas com largura mínima de 250px */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    /* Espaço entre células */
-    margin: 25px 0;
-    /* Margem vertical */
-}
-
-/* Item individual do resumo */
-.summary-item {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 20px;
-    /* Espaçamento interno */
-    border-radius: 10px;
-    /* Bordas arredondadas */
-    border-left: 4px solid var(--utfpr-Yellow);
-    /* Destaque na esquerda */
-}
-
-/* Caixa de informação */
-.info-box {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    /* Gradiente azul suave */
-    /*background: linear-gradient(135deg, #e3f2fd, #f3e5f5);*/
-    /*border-left: 4px solid var(--scratch-motion);*/
-    /* Borda colorida */
-    border-left: 4px solid var(--utfpr-Yellow);
-    padding: 20px;
-    /* Espaçamento interno */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    margin: 20px 0;
-    /* Margem vertical */
-}
-
-/* Passo a passo */
-.step-by-step {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    border: 2px dashed var(--utfpr-Yellow);
-    /* Borda tracejada amarela */
-    padding: 20px;
-    /* Espaçamento interno */
-    border-radius: 10px;
-    /* Bordas arredondadas */
-    margin: 20px 0;
-    /* Margem vertical */
-}
-
-/* Caixa de prática */
-.practice-box {
-    /* Gradiente verde suave */
-    background: linear-gradient(135deg, #e8f5e8, #f0f4c3);
-    border: 2px solid var(--scratch-operators);
-    /* Borda verde */
-    padding: 20px;
-    /* Espaçamento interno */
-    border-radius: 10px;
-    /* Bordas arredondadas */
-    margin: 20px 0;
-    /* Margem vertical */
-}
-
-/* ====== COMPONENTES ESPECÍFICOS DO PROJETO ====== */
-
-/* Seção de projeto por ano */
-.projeto-ano {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 25px;
-    /* Espaçamento interno */
-    border-radius: 10px;
-    /* Bordas arredondadas */
-    margin: 25px 0;
-    /* Margem vertical */
-    border: 1px solid var(--utfpr-gray-medium);
-    /* Borda sutil */
-}
-
-/* Conexão com currículo */
-.curriculum-connection {
-    background: white;
-    /* Fundo branco */
-    padding: 15px;
-    /* Espaçamento interno */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    margin: 15px 0;
-    /* Margem vertical */
-    border-left: 4px solid var(--success-color);
-    /* Borda verde */
-}
-
-/* Tabela de progressão */
-.progression-table {
-    margin: 30px 0;
-    /* Margem vertical */
-    overflow-x: auto;
-    /* Scroll horizontal se necessário */
-}
-
-/* Estilização de tabelas */
-.progression-table table {
-    width: 100%;
-    /* Largura total */
-    border-collapse: collapse;
-    /* Remove espaços entre bordas */
-    background: white;
-    /* Fundo branco */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    overflow: hidden;
-    /* Esconde bordas internas arredondadas */
-    box-shadow: var(--shadow);
-    /* Sombra padrão */
-}
-
-/* Cabeçalho da tabela */
-.progression-table th {
-    background: var(--utfpr-Yellow);
-    /* Fundo amarelo */
-    color: var(--utfpr-black);
-    /* Texto preto */
-    padding: 12px;
-    /* Espaçamento interno */
-    text-align: left;
-    /* Alinhamento à esquerda */
-    font-weight: bold;
-    /* Texto em negrito */
-}
-
-/* Células da tabela */
-.progression-table td {
-    padding: 10px 12px;
-    /* Espaçamento interno */
-    border-bottom: 1px solid var(--utfpr-gray);
-    /* Linha divisória */
-}
-
-/* Linhas pares com fundo alternado */
-.progression-table tr:nth-child(even) {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-}
-
-/* ====== PLANOS DE AULA ====== */
-.plano-aula {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 25px;
-    /* Espaçamento interno */
-    border-radius: 10px;
-    /* Bordas arredondadas */
-    margin: 25px 0;
-    /* Margem vertical */
-    border: 2px solid var(--utfpr-gray-medium);
-    /* Borda */
-}
-
-/* Detalhes do plano */
-.plano-details {
-    background: white;
-    /* Fundo branco */
-    padding: 20px;
-    /* Espaçamento interno */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    margin-top: 15px;
-    /* Margem superior */
-}
-
-/* Informações do plano */
-.plano-info {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 15px;
-    /* Espaçamento interno */
-    border-radius: 6px;
-    /* Bordas arredondadas */
-    margin-bottom: 20px;
-    /* Margem inferior */
-}
-
-/* ====== FICHAS DE ATIVIDADE ====== */
-.ficha-modelo {
-    background: white;
-    /* Fundo branco */
-    border: 2px solid var(--utfpr-gray-dark);
-    /* Borda escura */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    padding: 25px;
-    /* Espaçamento interno */
-    margin: 20px 0;
-    /* Margem vertical */
-    box-shadow: var(--shadow);
-    /* Sombra padrão */
-}
-
-/* Cabeçalho da ficha */
-.ficha-header {
-    display: flex;
-    /* Layout flexível */
-    justify-content: space-between;
-    /* Espaça elementos nas extremidades */
-    align-items: center;
-    /* Alinha verticalmente */
-    margin-bottom: 20px;
-    /* Margem inferior */
-    padding-bottom: 15px;
-    /* Espaçamento inferior interno */
-    border-bottom: 2px solid var(--utfpr-gray);
-    /* Linha divisória */
-}
-
-/* Informações da ficha */
-.ficha-info {
-    display: flex;
-    /* Layout flexível */
-    gap: 10px;
-    /* Espaço entre elementos */
-}
-
-/* Tempo e nível da ficha */
-.ficha-tempo,
-.ficha-nivel {
-    background: var(--utfpr-Yellow);
-    /* Fundo amarelo */
-    color: var(--utfpr-black);
-    /* Texto preto */
-    padding: 5px 10px;
-    /* Espaçamento interno */
-    border-radius: 15px;
-    /* Bordas arredondadas */
-    font-size: 0.8rem;
-    /* Tamanho pequeno */
-    font-weight: bold;
-    /* Texto em negrito */
-}
-
-/* Conteúdo da ficha */
-.ficha-content {
-    line-height: 1.8;
-    /* Espaçamento entre linhas generoso */
-}
-
-/* Seção de desafios */
-.ficha-desafios {
-    margin: 20px 0;
-    /* Margem vertical */
-}
-
-/* Desafio individual */
-.desafio {
-    margin: 15px 0;
-    /* Margem vertical */
-}
-
-/* Espaço para resposta */
-.space-resposta {
-    border-bottom: 1px dashed var(--utfpr-gray-dark);
-    /* Linha tracejada */
-    min-height: 25px;
-    /* Altura mínima */
-    margin: 5px 0 15px 0;
-    /* Margens */
-}
-
-/* Checkpoint da ficha */
-.ficha-checkpoint {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 15px;
-    /* Espaçamento interno */
-    border-radius: 6px;
-    /* Bordas arredondadas */
-    margin-top: 20px;
-    /* Margem superior */
-}
-
-/* Lista de verificação */
-.checklist {
-    list-style: none;
-    /* Remove marcadores */
-    padding-left: 0;
-    /* Remove recuo */
-}
-
-/* Itens da lista de verificação */
-.checklist li {
-    padding: 5px 0;
-    /* Espaçamento vertical */
-    display: flex;
-    /* Layout flexível */
-    align-items: center;
-    /* Alinha verticalmente */
-}
-
-/* ====== CARTÕES DO SCRATCH ====== */
-.cartoes-container {
-    display: grid;
-    /* Layout em grid */
-    /* Colunas responsivas */
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
-    /* Espaço entre cartões */
-    margin: 25px 0;
-    /* Margem vertical */
-}
-
-/* Categoria de cartões */
-.categoria-cartoes {
-    background: white;
-    /* Fundo branco */
-    padding: 20px;
-    /* Espaçamento interno */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    border-left: 4px solid var(--utfpr-Yellow);
-    /* Destaque na esquerda */
-    box-shadow: var(--shadow);
-    /* Sombra padrão */
-}
-
-/* Lista dentro de categoria */
-.categoria-cartoes ul {
-    list-style: none;
-    /* Remove marcadores */
-    padding-left: 0;
-    /* Remove recuo */
-}
-
-/* Itens da lista de cartões */
-.categoria-cartoes li {
-    padding: 8px 0;
-    /* Espaçamento vertical */
-    border-bottom: 1px dashed var(--utfpr-gray);
-    /* Linha tracejada divisória */
-    font-family: 'Courier New', monospace;
-    /* Fonte monoespaçada */
-}
-
-/* Remove borda do último item */
-.categoria-cartoes li:last-child {
-    border-bottom: none;
-    /* Sem borda inferior */
-}
-
-/* ====== GLOSSÁRIO ====== */
-.glossario {
-    margin: 25px 0;
-    /* Margem vertical */
-}
-
-/* Termo do glossário */
-.termo-glossario {
-    background: white;
-    /* Fundo branco */
-    padding: 20px;
-    /* Espaçamento interno */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    margin-bottom: 15px;
-    /* Margem inferior */
-    border-left: 4px solid var(--utfpr-Yellow);
-    /* Destaque na esquerda */
-    box-shadow: var(--shadow);
-    /* Sombra padrão */
-}
-
-/* ====== IMAGENS E MULTIMÍDIA ====== */
-.image-container {
-    display: flex;
-    /* Layout flexível */
-    justify-content: center;
-    /* Centraliza horizontalmente */
-    margin: 25px 0;
-    /* Margem vertical */
-    padding: 15px;
-    /* Espaçamento interno */
-    background-color: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    border-radius: 10px;
-    /* Bordas arredondadas */
-    border: 1px solid var(--utfpr-gray-medium);
-    /* Borda sutil */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    /* Sombra sutil */
-}
-
-/* Imagem de conteúdo geral */
-.content-image {
-    max-width: 100%;
-    /* Largura máxima responsiva */
-    height: auto;
-    /* Altura automática para manter proporção */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    /* Sombra */
-    transition: all 0.3s ease;
-    /* Transição suave para hover */
-    border: 2px solid var(--utfpr-white);
-    /* Borda branca */
-}
-
-/* Efeito hover na imagem */
-.content-image:hover {
-    transform: scale(1.02);
-    /* Leve aumento */
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-    /* Sombra mais intensa */
-}
-
-/* Variantes específicas de imagens */
-.logo-image {
-    max-width: 300px;
-    /* Largura máxima para logos */
-    padding: 10px;
-    /* Espaçamento interno */
-    background-color: var(--utfpr-white);
-    /* Fundo branco */
-}
-
-.contextual-image {
-    max-width: 500px;
-    /* Largura máxima */
-    border: 3px solid var(--utfpr-Yellow-light);
-    /* Borda amarela clara */
-}
-
-.interface-image {
-    max-width: 600px;
-    /* Largura máxima */
-    border: 2px dashed var(--utfpr-gray-dark);
-    /* Borda tracejada */
-}
-
-.blocks-image {
-    max-width: 400px;
-    /* Largura máxima */
-    border: 2px solid var(--utfpr-gray);
-    /* Borda cinza */
-    background-color: var(--utfpr-white);
-    /* Fundo branco */
-    padding: 15px;
-    /* Espaçamento interno */
-}
-
-.project-image {
-    max-width: 550px;
-    /* Largura máxima */
-    border: 3px solid var(--utfpr-Yellow);
-    /* Borda amarela */
-    background-color: var(--utfpr-white);
-    /* Fundo branco */
-    padding: 10px;
-    /* Espaçamento interno */
-}
-
-/* Legenda de imagem */
-.image-caption {
-    text-align: center;
-    /* Texto centralizado */
-    font-style: italic;
-    /* Texto em itálico */
-    color: var(--utfpr-gray-dark);
-    /* Cor cinza escuro */
-    margin-top: 8px;
-    /* Espaço acima */
-    font-size: 0.9rem;
-    /* Tamanho pequeno */
-}
-
-/* ====== CÓDIGO E PRÉ-FORMATAÇÃO ====== */
-pre {
-    background-color: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 22px;
-    /* Espaçamento interno generoso */
-    border-radius: 10px;
-    /* Bordas arredondadas */
-    margin: 18px 0;
-    /* Margem vertical */
-    overflow-x: auto;
-    /* Scroll horizontal se necessário */
-    border-left: 5px solid var(--utfpr-Yellow);
-    /* Destaque na esquerda */
-    border: 1px solid var(--utfpr-gray-medium);
-    /* Borda completa */
-    font-size: 0.95rem;
-    /* Tamanho da fonte */
-}
-
-code {
-    background-color: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 3px 8px;
-    /* Espaçamento interno */
-    border-radius: 5px;
-    /* Bordas arredondadas */
-    font-family: 'Courier New', monospace;
-    /* Fonte monoespaçada */
-    font-size: 0.92rem;
-    /* Tamanho pequeno */
-    border: 1px solid var(--utfpr-gray);
-    /* Borda sutil */
-    color: var(--utfpr-Yellow-dark);
-    /* Cor do texto */
-}
-
-/* ====== CARDS DE NAVEGAÇÃO ====== */
-.card-grid {
-    display: grid;
-    /* Layout em grid */
-    /* Colunas responsivas */
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 24px;
-    /* Espaço entre cards */
-    margin-top: 24px;
-    /* Margem superior */
-}
-
-/* Card de navegação individual */
-.nav-card {
-    /* Gradiente de fundo */
-    background: linear-gradient(135deg, var(--utfpr-white) 0%, var(--utfpr-gray-light) 100%);
-    padding: 28px;
-    /* Espaçamento interno generoso */
-    border-radius: 12px;
-    /* Bordas arredondadas */
-    text-decoration: none;
-    /* Remove sublinhado */
-    color: inherit;
-    /* Herda cor do texto */
-    border: 2px solid var(--utfpr-gray);
-    /* Borda sutil */
-    transition: all 0.3s ease;
-    /* Transição suave */
-    display: block;
-    /* Elemento de bloco */
-    box-shadow: 0 3px 10px rgba(35, 31, 32, 0.3);
-    /* Sombra */
-}
-
-/* Efeito hover no card */
-.nav-card:hover {
-    transform: translateY(-5px);
-    /* Move para cima */
-    box-shadow: 0 8px 25px rgba(35, 31, 32, 0.3);
-    /* Sombra mais intensa */
-    border-color: var(--utfpr-Yellow);
-    /* Borda amarela */
-    /* Gradiente alterado no hover */
-    background: linear-gradient(135deg, var(--utfpr-white) 0%, #f0f7ff 100%);
-}
-
-/* ====== RODAPÉ ====== */
-footer {
-    /* Gradiente de fundo */
-    background: linear-gradient(135deg, var(--utfpr-gray-medium) 0%, var(--utfpr-gray-dark) 100%);
-    color: var(--utfpr-black);
-    /* Cor do texto */
-    padding: 45px 0 25px 0;
-    /* Espaçamento interno (mais em cima) */
-    border-top: 5px solid var(--utfpr-yellow);
-    /* Linha amarela no topo */
-    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.3);
-    /* Sombra interna */
-}
-
-/* Conteúdo do rodapé em grid */
-.footer-content {
-    display: grid;
-    /* Layout em grid */
-    /* Colunas responsivas */
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 35px;
-    /* Espaço entre colunas */
-    margin-bottom: 35px;
-    /* Margem inferior */
-}
-
-/* Seções do rodapé */
-.footer-section h3 {
-    color: var(--utfpr-black);
-    /* Cor do texto */
-    margin-bottom: 18px;
-    /* Margem inferior */
-    font-size: 1.25rem;
-    /* Tamanho da fonte */
-    border-bottom: 2px solid var(--utfpr-Yellow-light);
-    /* Linha abaixo */
-    padding-bottom: 8px;
-    /* Espaço entre texto e linha */
-    display: inline-block;
-    /* Largura conforme conteúdo */
-}
-
-/* Texto e links do rodapé */
-.footer-section p,
-.footer-section li {
-    margin-bottom: 10px;
-    /* Espaço entre itens */
-    opacity: 0.95;
-    /* Leve transparência */
-    line-height: 1.6;
-    /* Espaçamento entre linhas */
-    color: var(--utfpr-black);
-    /* Cor do texto */
-}
-
-.footer-section a {
-    color: var(--utfpr-black);
-    /* Cor do link */
-    text-decoration: none;
-    /* Remove sublinhado */
-    transition: all 0.3s ease;
-    /* Transição suave */
-    border-bottom: 1px solid transparent;
-    /* Borda inferior transparente */
-}
-
-.footer-section a:hover {
-    opacity: 0.9;
-    /* Leve transparência no hover */
-    border-bottom-color: var(--utfpr-black);
-    /* Sublinhado no hover */
-}
-
-.footer-section ul {
-    list-style: none;
-    /* Remove marcadores */
-    padding: 0;
-    /* Remove padding */
-}
-
-/* Copyright */
-.copyright {
-    text-align: center;
-    /* Texto centralizado */
-    padding-top: 25px;
-    /* Espaçamento superior */
-    border-top: 1px solid rgba(0, 0, 0, 0.3);
-    /* Linha divisória */
-    opacity: 0.9;
-    /* Leve transparência */
-    font-size: 0.92rem;
-    /* Tamanho pequeno */
-    color: var(--utfpr-black);
-    /* Cor do texto */
-}
-
-/* ====== CARTÕES SCRATCH ESPECÍFICOS ====== */
-.cartoes-scratch-section {
-    margin: 30px 0;
-    /* Margem vertical */
-}
-
-.cartoes-intro {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 20px;
-    /* Espaçamento interno */
-    border-radius: 10px;
-    /* Bordas arredondadas */
-    margin-bottom: 25px;
-    /* Margem inferior */
-    border-left: 4px solid var(--utfpr-Yellow);
-    /* Destaque na esquerda */
-}
-
-/* Grid para cartões scratch */
-.cartoes-grid {
-    display: grid;
-    /* Layout em grid */
-    /* Colunas responsivas */
-    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-    gap: 20px;
-    /* Espaço entre cartões */
-    margin: 25px 0;
-    /* Margem vertical */
-}
-
-/* Cartão scratch individual */
-.cartao-scratch {
-    background: white;
-    /* Fundo branco */
-    border-radius: 12px;
-    /* Bordas arredondadas */
-    padding: 20px;
-    /* Espaçamento interno */
-    box-shadow: var(--shadow);
-    /* Sombra padrão */
-    border-top: 5px solid;
-    /* Borda superior colorida */
-    position: relative;
-    /* Para posicionamento de elementos filhos */
-    min-height: 180px;
-    /* Altura mínima */
-    display: flex;
-    /* Layout flexível */
-    flex-direction: column;
-    /* Direção coluna */
-    justify-content: space-between;
-    /* Espaço entre conteúdo */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    /* Transições */
-}
-
-/* Efeito hover no cartão */
-.cartao-scratch:hover {
-    transform: translateY(-5px);
-    /* Move para cima */
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    /* Sombra mais intensa */
-}
-
-/* Cores específicas por categoria de bloco Scratch */
-.cartao-scratch.movimento {
-    border-top-color: var(--scratch-motion);
-    /* Azul - Movimento */
-}
-
-.cartao-scratch.aparencia {
-    border-top-color: var(--scratch-looks);
-    /* Roxo - Aparência */
-}
-
-.cartao-scratch.som {
-    border-top-color: var(--scratch-sound);
-    /* Rosa - Som */
-}
-
-.cartao-scratch.eventos {
-    border-top-color: var(--scratch-events);
-    /* Amarelo - Eventos */
-}
-
-.cartao-scratch.controle {
-    border-top-color: var(--scratch-control);
-    /* Laranja - Controle */
-}
-
-.cartao-scratch.operadores {
-    border-top-color: var(--scratch-operators);
-    /* Verde - Operadores */
-}
-
-.cartao-scratch.valores {
-    border-top-color: var(--utfpr-gray-dark);
-    /* Cinza - Valores */
-}
-
-/* Cabeçalho do cartão */
-.cartao-header {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 8px 12px;
-    /* Espaçamento interno */
-    border-radius: 6px;
-    /* Bordas arredondadas */
-    margin-bottom: 15px;
-    /* Margem inferior */
-    text-align: center;
-    /* Texto centralizado */
-    font-weight: bold;
-    /* Texto em negrito */
-    font-size: 0.9rem;
-    /* Tamanho pequeno */
-}
-
-/* Conteúdo principal do cartão */
-.cartao-content {
-    flex-grow: 1;
-    /* Ocupa espaço disponível */
-    display: flex;
-    /* Layout flexível */
-    flex-direction: column;
-    /* Direção coluna */
-    justify-content: center;
-    /* Centraliza verticalmente */
-    align-items: center;
-    /* Centraliza horizontalmente */
-    text-align: center;
-    /* Texto centralizado */
-    font-family: 'Courier New', monospace;
-    /* Fonte monoespaçada */
-    font-size: 0.95rem;
-    /* Tamanho da fonte */
-    line-height: 1.4;
-    /* Espaçamento entre linhas */
-}
-
-/* Input simulado no cartão */
-.cartao-input {
-    display: inline-block;
-    /* Permite dimensionamento */
-    background: var(--utfpr-gray);
-    /* Fundo cinza */
-    border: 1px solid var(--utfpr-gray-medium);
-    /* Borda */
-    border-radius: 4px;
-    /* Bordas levemente arredondadas */
-    padding: 2px 6px;
-    /* Espaçamento interno mínimo */
-    margin: 0 2px;
-    /* Margem lateral pequena */
-    min-width: 30px;
-    /* Largura mínima */
-    text-align: center;
-    /* Texto centralizado */
-}
-
-/* Rodapé do cartão */
-.cartao-footer {
-    margin-top: 10px;
-    /* Margem superior */
-    font-size: 0.8rem;
-    /* Tamanho muito pequeno */
-    color: var(--utfpr-gray-dark);
-    /* Cor cinza escuro */
-    text-align: center;
-    /* Texto centralizado */
-    font-style: italic;
-    /* Texto em itálico */
-}
-
-/* ====== ATIVIDADES E SUGESTÕES ====== */
-.atividades-sugestoes {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 25px;
-    /* Espaçamento interno */
-    border-radius: 10px;
-    /* Bordas arredondadas */
-    margin-top: 30px;
-    /* Margem superior */
-    border: 2px dashed var(--utfpr-Yellow);
-    /* Borda tracejada amarela */
-}
-
-.atividade-item {
-    background: white;
-    /* Fundo branco */
-    padding: 20px;
-    /* Espaçamento interno */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    margin-bottom: 20px;
-    /* Margem inferior */
-    border-left: 4px solid var(--utfpr-Yellow);
-    /* Destaque na esquerda */
-}
-
-/* Tags de cartões necessários */
-.cartoes-necessarios {
-    display: flex;
-    /* Layout flexível */
-    flex-wrap: wrap;
-    /* Permite quebra de linha */
-    gap: 8px;
-    /* Espaço entre tags */
-    margin: 10px 0;
-    /* Margem vertical */
-}
-
-.cartao-tag {
-    background: var(--utfpr-Yellow-light);
-    /* Fundo amarelo claro */
-    color: var(--utfpr-black);
-    /* Texto preto */
-    padding: 4px 10px;
-    /* Espaçamento interno */
-    border-radius: 15px;
-    /* Bordas arredondadas */
-    font-size: 0.8rem;
-    /* Tamanho pequeno */
-    font-weight: bold;
-    /* Texto em negrito */
-}
-
-/* ====== BOTÃO DE ALTERAÇÃO DE TEMA ====== */
-.theme-toggle {
-    position: fixed;
-    /* Posicionamento fixo na tela */
-    bottom: 20px;
-    /* 20px da parte inferior */
-    right: 20px;
-    /* 20px da direita */
-    /*background: var(--utfpr-Yellow);  Fundo amarelo */
-    background-color: var(--utfpr-gray-dark);
-    /* Fundo cinza escuro*/
-    /* Cor de fundo */
-    color: var(--utfpr-gray-dark);
-    /* Cor cinza escuro */
-    border: none;
-    /* Sem borda */
-    border-radius: 50%;
-    /* Forma circular */
-    width: 50px;
-    /* Largura fixa */
-    height: 50px;
-    /* Altura fixa */
-    font-size: 1.2rem;
-    /* Tamanho do ícone */
-    cursor: pointer;
-    /* Cursor de pointer */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    /* Sombra */
-    z-index: 1000;
-    /* Acima de outros elementos */
-}
-
-/* ====== ACESSIBILIDADE ====== */
-a:focus,
-button:focus {
-    outline: 3px solid var(--utfpr-Yellow);
-    /* Contraste amarelo no foco */
-    outline-offset: 2px;
-    /* Espaço entre elemento e outline */
-}
-
-/* Scroll suave para navegação por âncoras */
-html {
-    scroll-behavior: smooth;
-    /* Animação suave ao scroll */
-}
-
-/* ====== RESPONSIVIDADE - TABLETS ====== */
-@media (max-width: 768px) {
-    .header-top .container {
-        flex-direction: column;
-        /* Empilha elementos verticalmente */
-        text-align: center;
-        /* Centraliza texto */
-        gap: 18px;
-        /* Espaço entre elementos */
-    }
-
-    .header-title {
-        text-align: center;
-        /* Centraliza título */
-    }
-
-    nav ul {
-        flex-direction: column;
-        /* Menu vertical */
-    }
-
-    nav a {
-        padding: 14px 20px;
-        /* Ajusta espaçamento */
-        text-align: center;
-        /* Centraliza texto */
-    }
-
-    .page-header h1 {
-        font-size: 2.2rem;
-        /* Reduz tamanho do título */
-    }
-
-    .content-section {
-        padding: 25px;
-        /* Reduz padding */
-    }
-
-    .card-grid {
-        grid-template-columns: 1fr;
-        /* Uma coluna */
-    }
-
-    .footer-content {
-        grid-template-columns: 1fr;
-        /* Uma coluna */
-        text-align: center;
-        /* Centraliza texto */
-    }
-
-    .executive-summary {
-        grid-template-columns: 1fr;
-        /* Uma coluna */
-    }
-
-    .cartoes-container {
-        grid-template-columns: 1fr;
-        /* Uma coluna */
-    }
-
-    .ficha-header {
-        flex-direction: column;
-        /* Empilha elementos */
-        gap: 10px;
-        /* Espaço entre elementos */
-        text-align: center;
-        /* Centraliza texto */
-    }
-
-    .progression-table {
-        font-size: 0.9rem;
-        /* Reduz tamanho da fonte */
-    }
-
-    .image-container {
-        margin: 20px 0;
-        /* Ajusta margens */
-        padding: 12px;
-        /* Reduz padding */
-    }
-
-    /* Ajustes específicos para imagens em tablets */
-    .logo-image {
-        max-width: 250px;
-        /* Reduz largura máxima */
-    }
-
-    .contextual-image {
-        max-width: 400px;
-        /* Reduz largura máxima */
-    }
-
-    .interface-image {
-        max-width: 500px;
-        /* Reduz largura máxima */
-    }
-
-    .blocks-image {
-        max-width: 350px;
-        /* Reduz largura máxima */
-    }
-
-    .project-image {
-        max-width: 450px;
-        /* Reduz largura máxima */
-    }
-
-    .cartoes-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        /* Ajusta grid */
-        gap: 15px;
-        /* Reduz espaço entre cartões */
-    }
-
-    .cartao-scratch {
-        min-height: 160px;
-        /* Reduz altura mínima */
-        padding: 15px;
-        /* Reduz padding */
-    }
-}
-
-/* ====== RESPONSIVIDADE - CELULARES ====== */
-@media (max-width: 480px) {
-    .container {
-        padding: 0 15px;
-        /* Reduz padding lateral */
-    }
-
-    .page-header h1 {
-        font-size: 1.9rem;
-        /* Reduz ainda mais o título */
-    }
-
-    .content-section h2 {
-        font-size: 1.6rem;
-        /* Reduz subtítulo */
-    }
-
-    .content-section h3 {
-        font-size: 1.35rem;
-        /* Reduz título nível 3 */
-    }
-
-    .logo {
-        height: 55px;
-        /* Reduz logo */
-    }
-
-    .content-section {
-        padding: 20px;
-        /* Reduz padding */
-    }
-
-    .projeto-ano,
-    .plano-aula {
-        padding: 20px;
-        /* Reduz padding */
-    }
-
-    .ficha-modelo {
-        padding: 20px;
-        /* Reduz padding */
-    }
-
-    .image-container {
-        margin: 15px 0;
-        /* Reduz margens */
-        padding: 10px;
-        /* Reduz padding */
-    }
-
-    .content-image {
-        border-radius: 6px;
-        /* Bordas menos arredondadas */
-    }
-
-    /* Ajustes específicos para imagens em celulares */
-    .logo-image {
-        max-width: 200px;
-        /* Reduz ainda mais */
-    }
-
-    .contextual-image {
-        max-width: 300px;
-        /* Reduz ainda mais */
-    }
-
-    .interface-image {
-        max-width: 350px;
-        /* Reduz ainda mais */
-    }
-
-    .blocks-image {
-        max-width: 280px;
-        /* Reduz ainda mais */
-        padding: 10px;
-        /* Reduz padding */
-    }
-
-    .project-image {
-        max-width: 320px;
-        /* Reduz ainda mais */
-        padding: 8px;
-        /* Reduz padding */
-    }
-
-    .cartoes-grid {
-        grid-template-columns: 1fr;
-        /* Uma coluna em celulares */
-    }
-
-    .cartao-scratch {
-        min-height: 140px;
-        /* Altura mínima menor */
-        padding: 12px;
-        /* Padding menor */
-    }
-
-    .cartao-content {
-        font-size: 0.9rem;
-        /* Fonte menor */
-    }
-}
-
-/* ====== ACESSIBILIDADE - REDUÇÃO DE MOVIMENTO ====== */
-@media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        /* Remove animações */
-        animation-iteration-count: 1 !important;
-        /* Uma única iteração */
-        transition-duration: 0.01ms !important;
-        /* Remove transições */
-    }
-
-    .content-image:hover {
-        transform: none;
-        /* Sem transform no hover */
-    }
-
-    .nav-card:hover {
-        transform: none;
-        /* Sem transform no hover */
-    }
-
-    .cartao-scratch:hover {
-        transform: none;
-        /* Sem transform no hover */
-    }
-}
-
-/* ====== ESTILOS PARA IMPRESSÃO ====== */
-@media print {
-
-    /* Elementos a serem ocultados na impressão */
-    header,
-    footer,
-    .nav-card,
-    .theme-toggle,
-    .card-grid,
-    .content-section:last-child {
-        display: none !important;
-        /* Oculta completamente */
-    }
-
-    /* Estilos gerais para impressão */
-    body {
-        background: white !important;
-        /* Fundo branco */
-        color: black !important;
-        /* Texto preto */
-        font-size: 12pt;
-        /* Tamanho padrão para impressão */
-        line-height: 1.4;
-        /* Espaçamento reduzido */
-    }
-
-    .container {
-        max-width: 100% !important;
-        /* Largura total */
-        padding: 0 !important;
-        /* Sem padding */
-        margin: 0 !important;
-        /* Sem margem */
-    }
-
-    /* Cartões para impressão */
-    .scratch-card,
-    .cartao-scratch {
-        break-inside: avoid;
-        /* Evita quebra dentro do cartão */
-        page-break-inside: avoid;
-        /* Evita quebra de página */
-        border: 2px solid #000 !important;
-        /* Borda preta */
-        box-shadow: none !important;
-        /* Sem sombra */
-        margin-bottom: 15px;
-        /* Margem padrão */
-    }
-
-    .scratch-card:hover,
-    .cartao-scratch:hover {
-        transform: none !important;
-        /* Sem transform no hover */
-    }
-
-    .page-header {
-        margin-bottom: 20px !important;
-        /* Margem reduzida */
-    }
-
-    .content-section {
-        box-shadow: none !important;
-        /* Sem sombra */
-        margin-bottom: 20px !important;
-        /* Margem reduzida */
-        padding: 15px !important;
-        /* Padding reduzido */
-        break-inside: avoid;
-        /* Evita quebra dentro da seção */
-        border: 1px solid #000;
-        /* Borda preta */
-    }
-
-    /* Quebra de página antes da terceira seção em diante */
-    .content-section:nth-child(n+3) {
-        page-break-before: always;
-        /* Quebra de página antes */
-    }
-
-    .badge {
-        background: #ddd !important;
-        /* Fundo cinza */
-        color: black !important;
-        /* Texto preto */
-        border: 1px solid #999;
-        /* Borda cinza */
-    }
-}
-
-/* ====== SIMULAÇÃO DA INTERFACE SCRATCH ====== */
-.scratch-interface {
-    display: grid;
-    /* Layout em grid complexo */
-    /* Definição das áreas do grid */
-    grid-template-areas:
-        "menu menu menu"
-        "palco blocos scripts"
-        "sprites blocos scripts";
-    grid-template-columns: 1fr 1fr 2fr;
-    /* Proporções das colunas */
-    gap: 12px;
-    /* Espaço entre áreas */
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    border: 2px solid var(--utfpr-gray-medium);
-    /* Borda */
-    border-radius: 10px;
-    /* Bordas arredondadas */
-    padding: 15px;
-    /* Espaçamento interno */
-    margin: 25px auto;
-    /* Margem centralizada */
-    max-width: 100%;
-    /* Largura máxima responsiva */
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    /* Sombra */
-}
-
-/* Áreas individuais da interface */
-.interface-area {
-    background: var(--utfpr-white);
-    /* Fundo branco */
-    border: 1px solid var(--utfpr-gray-medium);
-    /* Borda sutil */
-    border-radius: 6px;
-    /* Bordas arredondadas */
-    padding: 10px;
-    /* Espaçamento interno */
-    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.05);
-    /* Sombra interna */
-    text-align: center;
-    /* Texto centralizado */
-    font-size: 0.95rem;
-    /* Tamanho da fonte */
-    color: var(--utfpr-black);
-    /* Cor do texto */
-}
-
-/* Posicionamento específico no grid */
-.menu-area {
-    grid-area: menu;
-    /* Ocupa área 'menu' */
-    background: var(--utfpr-Yellow);
-    /* Fundo amarelo */
-    font-weight: bold;
-    /* Texto em negrito */
-    border-radius: 6px;
-    /* Bordas arredondadas */
-    text-align: left;
-    /* Alinhamento à esquerda */
-    padding: 10px 15px;
-    /* Espaçamento interno */
-}
-
-.palco-area {
-    grid-area: palco;
-    /* Ocupa área 'palco' */
-}
-
-.blocos-area {
-    grid-area: blocos;
-    /* Ocupa área 'blocos' */
-}
-
-.scripts-area {
-    grid-area: scripts;
-    /* Ocupa área 'scripts' */
-}
-
-.sprites-area {
-    grid-area: sprites;
-    /* Ocupa área 'sprites' */
-}
-
-/* Estilos das subpartes */
-.area-label {
-    font-weight: bold;
-    /* Texto em negrito */
-    color: var(--utfpr-Yellow-dark);
-    /* Cor amarela escura */
-    border-bottom: 2px solid var(--utfpr-Yellow-light);
-    /* Linha abaixo */
-    padding-bottom: 4px;
-    /* Espaço entre texto e linha */
-    margin-bottom: 8px;
-    /* Margem inferior */
-}
-
-.area-content {
-    font-family: 'Courier New', monospace;
-    /* Fonte monoespaçada */
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    border-radius: 6px;
-    /* Bordas arredondadas */
-    padding: 8px;
-    /* Espaçamento interno */
-    border: 1px dashed var(--utfpr-gray-dark);
-    /* Borda tracejada */
-}
-
-/* ====== RESPONSIVIDADE DA INTERFACE SCRATCH ====== */
-@media (max-width: 900px) {
-    .scratch-interface {
-        /* Grid de uma coluna para telas menores */
-        grid-template-areas:
-            "menu"
-            "palco"
-            "blocos"
-            "scripts"
-            "sprites";
-        grid-template-columns: 1fr;
-        /* Uma coluna */
-    }
-
-    .interface-area {
-        text-align: left;
-        /* Alinhamento à esquerda */
-    }
-}
-
-/* ====== COMPONENTES ADICIONAIS ====== */
-
-.atividade-info {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 15px;
-    /* Espaçamento interno */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    margin: 15px 0;
-    /* Margem vertical */
-    border-left: 4px solid var(--utfpr-Yellow);
-    /* Destaque na esquerda */
-}
-
-.scratch-code {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    border: 1px solid var(--utfpr-gray-medium);
-    /* Borda */
-    border-left: 4px solid var(--utfpr-Yellow);
-    /* Destaque na esquerda */
-    padding: 15px;
-    /* Espaçamento interno */
-    margin: 15px 0;
-    /* Margem vertical */
-    border-radius: 6px;
-    /* Bordas arredondadas */
-    font-family: 'Courier New', monospace;
-    /* Fonte monoespaçada */
-    white-space: pre-wrap;
-    /* Preserva quebras de linha */
-    line-height: 1.4;
-    /* Espaçamento entre linhas */
-}
-
-/* ====== FICHAS RÁPIDAS ====== */
-.ficha-rapida {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 25px;
-    /* Espaçamento interno */
-    border-radius: 10px;
-    /* Bordas arredondadas */
-    margin: 20px 0;
-    /* Margem vertical */
-    border: 2px solid var(--utfpr-Yellow);
-    /* Borda amarela */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    /* Sombra */
-}
-
-.ficha-header {
-    display: flex;
-    /* Layout flexível */
-    justify-content: space-between;
-    /* Espaça elementos */
-    align-items: center;
-    /* Alinha verticalmente */
-    margin-bottom: 20px;
-    /* Margem inferior */
-    padding-bottom: 15px;
-    /* Espaçamento inferior interno */
-    border-bottom: 2px solid var(--utfpr-Yellow-light);
-    /* Linha divisória */
-    flex-wrap: wrap;
-    /* Permite quebra de linha */
-    gap: 10px;
-    /* Espaço entre elementos */
-}
-
-.ficha-tempo,
-.ficha-nivel {
-    background: var(--utfpr-Yellow);
-    /* Fundo amarelo */
-    color: var(--utfpr-black);
-    /* Texto preto */
-    padding: 8px 15px;
-    /* Espaçamento interno */
-    border-radius: 20px;
-    /* Bordas arredondadas */
-    font-size: 0.9rem;
-    /* Tamanho pequeno */
-    font-weight: bold;
-    /* Texto em negrito */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    /* Sombra sutil */
-}
-
-.dica-box {
-    /* Gradiente amarelo suave */
-    background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-    border: 1px solid var(--utfpr-Yellow);
-    /* Borda amarela */
-    border-left: 4px solid var(--utfpr-Yellow-dark);
-    /* Destaque na esquerda */
-    padding: 15px;
-    /* Espaçamento interno */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    margin: 15px 0;
-    /* Margem vertical */
-}
-
-.cartaz-box {
-    background: white;
-    /* Fundo branco */
-    border: 3px solid var(--utfpr-Yellow);
-    /* Borda amarela espessa */
-    border-radius: 12px;
-    /* Bordas arredondadas */
-    margin: 20px 0;
-    /* Margem vertical */
-    overflow: hidden;
-    /* Esconde conteúdo extra */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-    /* Sombra */
-}
-
-.cartaz-header {
-    background: var(--utfpr-Yellow);
-    /* Fundo amarelo */
-    color: var(--utfpr-black);
-    /* Texto preto */
-    text-align: center;
-    /* Texto centralizado */
-    padding: 15px;
-    /* Espaçamento interno */
-    font-size: 1.3rem;
-    /* Tamanho grande */
-    font-weight: bold;
-    /* Texto em negrito */
-    border-bottom: 2px solid var(--utfpr-Yellow-dark);
-    /* Linha divisória */
-}
-
-.cartaz-content {
-    padding: 20px;
-    /* Espaçamento interno */
-}
-
-.cartaz-content p {
-    margin-bottom: 15px;
-    /* Espaço entre parágrafos */
-    padding-bottom: 15px;
-    /* Espaçamento inferior */
-    border-bottom: 1px dashed var(--utfpr-gray);
-    /* Linha tracejada divisória */
-}
-
-.cartaz-content p:last-child {
-    border-bottom: none;
-    /* Remove borda do último parágrafo */
-    margin-bottom: 0;
-    /* Remove margem inferior */
-}
-
-/* Lista de verificação personalizada */
-.checklist {
-    list-style: none;
-    /* Remove marcadores padrão */
-    padding-left: 0;
-    /* Remove recuo */
-}
-
-.checklist li {
-    padding: 8px 0;
-    /* Espaçamento vertical */
-    display: flex;
-    /* Layout flexível */
-    align-items: center;
-    /* Alinha verticalmente */
-    border-bottom: 1px solid var(--utfpr-gray);
-    /* Linha divisória */
-}
-
-.checklist li:last-child {
-    border-bottom: none;
-    /* Remove borda do último item */
-}
-
-/* Marcador personalizado para checklist */
-.checklist li::before {
-    content: "☐";
-    /* Quadrado vazio (checkbox não marcado) */
-    margin-right: 10px;
-    /* Espaço entre marcador e texto */
-    font-size: 1.1rem;
-    /* Tamanho do marcador */
-}
-
-/* Bloco de código Scratch estilizado */
-.scratch-code {
-    background: #2d2d2d;
-    /* Fundo escuro quase preto */
-    color: #f8f8f2;
-    /* Texto claro (cor de syntax highlighting) */
-    border: 1px solid #444;
-    /* Borda escura */
-    border-left: 4px solid var(--utfpr-Yellow);
-    /* Destaque amarelo na esquerda */
-    padding: 18px;
-    /* Espaçamento interno generoso */
-    margin: 18px 0;
-    /* Margem vertical */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    font-family: 'Courier New', monospace;
-    /* Fonte monoespaçada */
-    white-space: pre-wrap;
-    /* Preserva quebras de linha */
-    line-height: 1.5;
-    /* Espaçamento entre linhas */
-    font-size: 0.95rem;
-    /* Tamanho da fonte */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-    /* Sombra */
-}
-
-/* Responsividade para fichas rápidas */
-@media (max-width: 768px) {
-    .ficha-header {
-        flex-direction: column;
-        /* Empilha elementos verticalmente */
-        align-items: flex-start;
-        /* Alinha à esquerda */
-    }
-
-    .ficha-tempo,
-    .ficha-nivel {
-        width: 100%;
-        /* Largura total */
-        text-align: center;
-        /* Texto centralizado */
-    }
-
-    .scratch-code {
-        font-size: 0.85rem;
-        /* Fonte menor */
-        padding: 12px;
-        /* Padding reduzido */
-    }
-}
-
-/* ====== FICHAS DE ATIVIDADE ESPECÍFICAS ====== */
-.ficha-atividade {
-    background: var(--utfpr-white);
-    /* Fundo branco */
-    border: 2px solid var(--utfpr-Yellow);
-    /* Borda amarela */
-    border-radius: 12px;
-    /* Bordas arredondadas */
-    padding: 25px;
-    /* Espaçamento interno */
-    margin: 25px 0;
-    /* Margem vertical */
-    box-shadow: var(--shadow);
-    /* Sombra padrão */
-}
-
-.ficha-cabecalho {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 15px;
-    /* Espaçamento interno */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    margin-bottom: 20px;
-    /* Margem inferior */
-    border-left: 4px solid var(--utfpr-Yellow);
-    /* Destaque na esquerda */
-}
-
-.ficha-cabecalho p {
-    margin: 5px 0;
-    /* Margem vertical reduzida */
-    font-weight: 500;
-    /* Peso médio da fonte */
-}
-
-/* Checklist específico para fichas */
-.checklist-ficha {
-    list-style: none;
-    /* Remove marcadores */
-    padding-left: 0;
-    /* Remove recuo */
-}
-
-.checklist-ficha li {
-    padding: 8px 0;
-    /* Espaçamento vertical */
-    display: flex;
-    /* Layout flexível */
-    align-items: center;
-    /* Alinha verticalmente */
-    border-bottom: 1px solid var(--utfpr-gray);
-    /* Linha divisória */
-}
-
-.checklist-ficha li:last-child {
-    border-bottom: none;
-    /* Remove borda do último item */
-}
-
-/* Marcador personalizado */
-.checklist-ficha li::before {
-    content: "☐";
-    /* Quadrado vazio */
-    margin-right: 10px;
-    /* Espaço entre marcador e texto */
-    font-size: 1.1rem;
-    /* Tamanho do marcador */
-    color: var(--utfpr-Yellow-dark);
-    /* Cor amarela escura */
-}
-
-/* Área para desenho/diagramas */
-.area-desenho {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    border: 2px dashed var(--utfpr-gray-dark);
-    /* Borda tracejada escura */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    margin: 15px 0;
-    /* Margem vertical */
-    padding: 15px;
-    /* Espaçamento interno */
-}
-
-.assinatura {
-    margin-top: 25px;
-    /* Margem superior generosa */
-    padding-top: 15px;
-    /* Espaçamento superior interno */
-    border-top: 2px solid var(--utfpr-Yellow);
-    /* Linha divisória */
-    text-align: right;
-    /* Alinhamento à direita */
-}
-
-/* Espaços para preenchimento em formulários */
-.form-input-space {
-    border-bottom: 1px dashed var(--utfpr-gray-dark);
-    /* Linha tracejada */
-    min-height: 25px;
-    /* Altura mínima */
-    margin: 5px 0 15px 0;
-    /* Margens */
-    padding: 0 5px;
-    /* Pequeno padding lateral */
-}
-
-.form-list-space {
-    border-bottom: 1px dashed var(--utfpr-gray-dark);
-    /* Linha tracejada */
-    min-height: 20px;
-    /* Altura mínima menor */
-    margin: 8px 0;
-    /* Margens */
-    padding: 0 5px;
-    /* Pequeno padding lateral */
-    display: block;
-    /* Elemento de bloco */
-}
-
-.formula-box {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 15px;
-    /* Espaçamento interno */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    margin: 10px 0;
-    /* Margem vertical */
-    border-left: 4px solid var(--utfpr-Yellow-dark);
-    /* Destaque na esquerda */
-    font-family: 'Courier New', monospace;
-    /* Fonte monoespaçada */
-}
-
-.diario-bordo {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    border: 1px solid var(--utfpr-gray-medium);
-    /* Borda sutil */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    padding: 15px;
-    /* Espaçamento interno */
-    margin: 15px 0;
-    /* Margem vertical */
-    min-height: 80px;
-    /* Altura mínima */
-}
-
-.brainstorming-section {
-    /* Gradiente azul/roxo suave */
-    background: linear-gradient(135deg, #e3f2fd, #f3e5f5);
-    padding: 20px;
-    /* Espaçamento interno */
-    border-radius: 10px;
-    /* Bordas arredondadas */
-    margin: 20px 0;
-    /* Margem vertical */
-    border: 2px solid var(--utfpr-Yellow-light);
-    /* Borda amarela clara */
-}
-
-.plano-acao {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 20px;
-    /* Espaçamento interno */
-    border-radius: 10px;
-    /* Bordas arredondadas */
-    margin: 20px 0;
-    /* Margem vertical */
-    border: 2px dashed var(--utfpr-Yellow);
-    /* Borda tracejada amarela */
-}
-
-.semana-plano {
-    background: white;
-    /* Fundo branco */
-    padding: 15px;
-    /* Espaçamento interno */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    margin: 15px 0;
-    /* Margem vertical */
-    border-left: 4px solid var(--utfpr-Yellow);
-    /* Destaque na esquerda */
-}
-
-/* ====== RESPONSIVIDADE PARA FICHAS ====== */
-@media (max-width: 768px) {
-    .ficha-atividade {
-        padding: 20px;
-        /* Reduz padding */
-    }
-
-    .ficha-cabecalho {
-        padding: 12px;
-        /* Reduz padding */
-    }
-
-    .area-desenho {
-        padding: 12px;
-        /* Reduz padding */
-    }
-}
-
-@media (max-width: 480px) {
-    .ficha-atividade {
-        padding: 15px;
-        /* Reduz ainda mais o padding */
-    }
-
-    .checklist-ficha li {
-        padding: 6px 0;
-        /* Reduz espaçamento */
-        font-size: 0.9rem;
-        /* Reduz tamanho da fonte */
-    }
-}
-
-/* ====== COMPONENTES ADICIONAIS ====== */
-
-/* Tabelas de projetos */
-.projeto-tabela {
-    width: 100%;
-    /* Largura total */
-    border-collapse: collapse;
-    /* Remove espaços entre bordas */
-    margin: 20px 0;
-    /* Margem vertical */
-    background: white;
-    /* Fundo branco */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    overflow: hidden;
-    /* Esconde bordas internas arredondadas */
-    box-shadow: var(--shadow);
-    /* Sombra padrão */
-}
-
-.projeto-tabela th {
-    background: var(--utfpr-Yellow);
-    /* Fundo amarelo */
-    color: var(--utfpr-black);
-    /* Texto preto */
-    padding: 12px;
-    /* Espaçamento interno */
-    text-align: left;
-    /* Alinhamento à esquerda */
-    font-weight: bold;
-    /* Texto em negrito */
-    border-bottom: 2px solid var(--utfpr-Yellow-dark);
-    /* Linha inferior */
-}
-
-.projeto-tabela td {
-    padding: 10px 12px;
-    /* Espaçamento interno */
-    border-bottom: 1px solid var(--utfpr-gray);
-    /* Linha divisória */
-}
-
-.projeto-tabela tr:nth-child(even) {
-    background: var(--utfpr-gray-light);
-    /* Fundo alternado para linhas pares */
-}
-
-.projeto-tabela tr:hover {
-    background: var(--utfpr-Yellow-light);
-    /* Destaque ao passar o mouse */
-}
-
-/* Lista de avaliação */
-.avaliacao-lista {
-    list-style: none;
-    /* Remove marcadores */
-    padding-left: 0;
-    /* Remove recuo */
-}
-
-.avaliacao-lista li {
-    padding: 8px 0;
-    /* Espaçamento vertical */
-    border-bottom: 1px solid var(--utfpr-gray);
-    /* Linha divisória */
-    display: flex;
-    /* Layout flexível */
-    align-items: center;
-    /* Alinha verticalmente */
-}
-
-.avaliacao-lista li:last-child {
-    border-bottom: none;
-    /* Remove borda do último item */
-}
-
-.avaliacao-lista li::before {
-    content: "✅";
-    /* Emoji de checkmark */
-    margin-right: 10px;
-    /* Espaço entre marcador e texto */
-    font-size: 1.1rem;
-    /* Tamanho do marcador */
-}
-
-/* Bloco de código Scratch melhorado */
-.scratch-code {
-    background: #2d2d2d;
-    /* Fundo escuro */
-    color: #f8f8f2;
-    /* Texto claro */
-    border: 1px solid #444;
-    /* Borda escura */
-    border-left: 4px solid var(--utfpr-Yellow);
-    /* Destaque amarelo */
-    padding: 18px;
-    /* Espaçamento interno */
-    margin: 18px 0;
-    /* Margem vertical */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    font-family: 'Courier New', monospace;
-    /* Fonte monoespaçada */
-    white-space: pre-wrap;
-    /* Preserva quebras de linha */
-    line-height: 1.5;
-    /* Espaçamento entre linhas */
-    font-size: 0.95rem;
-    /* Tamanho da fonte */
-    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
-    /* Sombra */
-    position: relative;
-    /* Para posicionar pseudo-elemento */
-}
-
-/* Label para bloco de código Scratch */
-.scratch-code::before {
-    content: "Scratch";
-    /* Texto do label */
-    position: absolute;
-    /* Posicionamento absoluto */
-    top: -10px;
-    /* Move para cima do container */
-    left: 10px;
-    /* Distância da esquerda */
-    background: var(--utfpr-Yellow);
-    /* Fundo amarelo */
-    color: var(--utfpr-black);
-    /* Texto preto */
-    padding: 2px 8px;
-    /* Espaçamento interno */
-    border-radius: 4px;
-    /* Bordas arredondadas */
-    font-size: 0.8rem;
-    /* Tamanho pequeno */
-    font-weight: bold;
-    /* Texto em negrito */
-}
-
-/* ====== RESPONSIVIDADE PARA TABELAS ====== */
-@media (max-width: 768px) {
-    .projeto-tabela {
-        font-size: 0.9rem;
-        /* Reduz tamanho da fonte */
-    }
-
-    .projeto-tabela th,
-    .projeto-tabela td {
-        padding: 8px 10px;
-        /* Reduz padding */
-    }
-
-    .scratch-code {
-        font-size: 0.85rem;
-        /* Reduz tamanho da fonte */
-        padding: 12px;
-        /* Reduz padding */
-    }
-}
-
-@media (max-width: 480px) {
-    .projeto-tabela {
-        font-size: 0.8rem;
-        /* Reduz ainda mais a fonte */
-    }
-
-    .projeto-tabela th,
-    .projeto-tabela td {
-        padding: 6px 8px;
-        /* Reduz ainda mais o padding */
-    }
-}
-
-/* ====== ESTILOS PARA IMPRESSÃO DE PROJETOS ====== */
-@media print {
-    .projeto-tabela {
-        break-inside: avoid;
-        /* Evita quebra dentro da tabela */
-        page-break-inside: avoid;
-        /* Evita quebra de página */
-    }
-
-    .scratch-code {
-        background: white !important;
-        /* Fundo branco para impressão */
-        color: black !important;
-        /* Texto preto para impressão */
-        border: 1px solid black !important;
-        /* Borda preta */
-    }
-}
-
-/* ====== COMPONENTES ADICIONAIS ====== */
-
-/* Aviso importante */
-.aviso-importante {
-    /* Gradiente amarelo chamativo */
-    /*background: linear-gradient(135deg, var(--utfpr-Yellow-light), var(--utfpr-Yellow));*/
-    background-color: var(--utfpr-gray-dark);
-    /* Cor de fundo */
-    border: 3px solid var(--utfpr-Yellow-dark);
-    /* Borda espessa */
-    border-radius: 12px;
-    /* Bordas arredondadas */
-    padding: 25px;
-    /* Espaçamento interno generoso */
-    margin: 25px 0;
-    /* Margem vertical */
-    text-align: center;
-    /* Texto centralizado */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-    /* Sombra intensa */
-}
-
-.aviso-importante h4 {
-    color: var(--utfpr-black);
-    /* Texto preto */
-    margin: 0;
-    /* Remove margens */
-    font-size: 1.4rem;
-    /* Tamanho grande */
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-    /* Sombra de texto */
-}
-
-/* Código Scratch dentro de listas */
-.content-section ul .scratch-code,
-.content-section ol .scratch-code {
-    margin: 10px 0;
-    /* Margem reduzida */
-    font-size: 0.9rem;
-    /* Fonte menor */
-}
-
-/* ====== RESPONSIVIDADE PARA CONTEÚDO LONGO ====== */
-@media (max-width: 768px) {
-    .scratch-code {
-        font-size: 0.85rem;
-        /* Fonte menor */
-        padding: 12px;
-        /* Padding reduzido */
-        overflow-x: auto;
-        /* Scroll horizontal se necessário */
-    }
-
-    .aviso-importante {
-        padding: 20px;
-        /* Padding reduzido */
-    }
-
-    .aviso-importante h4 {
-        font-size: 1.2rem;
-        /* Fonte menor */
-    }
-}
-
-@media (max-width: 480px) {
-    .scratch-code {
-        font-size: 0.8rem;
-        /* Fonte ainda menor */
-        padding: 10px;
-        /* Padding ainda menor */
-    }
-
-    .aviso-importante {
-        padding: 15px;
-        /* Padding ainda menor */
-    }
-
-    .aviso-importante h4 {
-        font-size: 1.1rem;
-        /* Fonte ainda menor */
-    }
-}
-
-/* Melhorias para organização visual dos planos */
-.plano-info {
-    background: var(--utfpr-gray-light);
-    /* Fundo cinza claro */
-    padding: 20px;
-    /* Espaçamento interno */
-    border-radius: 8px;
-    /* Bordas arredondadas */
-    margin-bottom: 25px;
-    /* Margem inferior */
-    border-left: 4px solid var(--utfpr-Yellow);
-    /* Destaque na esquerda */
-}
-
-.plano-info ul {
-    margin: 10px 0;
-    /* Margem vertical para listas */
-}
-
-.plano-info li {
-    margin-bottom: 8px;
-    /* Espaço entre itens da lista */
-}
-
-/* Melhorias para hierarquia visual */
-.content-section h4 {
-    color: var(--utfpr-Yellow-dark);
-    /* Amarelo escuro */
-    margin: 20px 0 12px 0;
-    /* Margens */
-    font-size: 1.2rem;
-    /* Tamanho médio */
-    border-bottom: 1px solid var(--utfpr-Yellow-light);
-    /* Linha inferior */
-    padding-bottom: 6px;
-    /* Espaço entre texto e linha */
-}
-
-.content-section h5 {
-    color: var(--utfpr-Yellow-darker);
-    /* Amarelo mais escuro */
-    margin: 16px 0 8px 0;
-    /* Margens reduzidas */
-    font-size: 1.1rem;
-    /* Tamanho pequeno-médio */
-    font-weight: 600;
-    /* Peso semi-negrito */
-}
-
-/* ====== MODO ESCURO ====== */
-body.dark-mode {
-    /* Inversão completa da paleta de cores para modo escuro */
-    --utfpr-black: #f8f9fa;
-    /* Texto claro (era escuro) */
-    --utfpr-white: #212529;
-    /* Fundo escuro (era claro) */
-    --utfpr-gray-light: #343a40;
-    /* Cinza escuro (era claro) */
-    --utfpr-gray: #495057;
-    /* Cinza médio-escuro */
-    --utfpr-gray-medium: #6c757d;
-    /* Cinza médio */
-    --utfpr-gray-dark: #adb5bd;
-    /* Cinza claro (era escuro) */
-    --card-bg: #2d3748;
-    /* Fundo de cards escuro */
-    --border-color: #4a5568;
-    /* Borda escura */
-    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    /* Sombra mais intensa */
-}
-
-/* Ajustes específicos para modo escuro */
-body.dark-mode .header-top {
-    background: linear-gradient(135deg, var(--utfpr-gray) 0%, var(--utfpr-gray-medium) 100%);
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode .header-bottom {
-    background-color: var(--utfpr-gray);
-    /* Fundo escuro */
-}
-
-body.dark-mode nav a {
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode nav a:hover {
-    background-color: var(--utfpr-Yellow-dark);
-    /* Amarelo escuro */
-    color: var(--utfpr-white);
-    /* Texto branco */
-}
-
-body.dark-mode main {
-    background: linear-gradient(135deg, var(--utfpr-gray-medium) 0%, var(--utfpr-gray) 100%);
-}
-
-body.dark-mode .page-header {
-    background: var(--utfpr-white);
-    /* Fundo escuro */
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode .content-section {
-    background: var(--utfpr-white);
-    /* Fundo escuro */
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-/* Títulos no modo escuro */
-body.dark-mode .content-section h2,
-body.dark-mode .content-section h3,
-body.dark-mode .content-section h4,
-body.dark-mode .content-section h5 {
-    color: var(--utfpr-Yellow);
-    /* Amarelo para contraste */
-}
-
-/* Componentes no modo escuro */
-body.dark-mode .summary-item,
-body.dark-mode .info-box,
-body.dark-mode .step-by-step,
-body.dark-mode .practice-box,
-body.dark-mode .projeto-ano,
-body.dark-mode .plano-aula,
-body.dark-mode .ficha-modelo,
-body.dark-mode .ficha-rapida,
-body.dark-mode .ficha-atividade {
-    background: var(--utfpr-gray-light);
-    /* Fundo escuro */
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode .keyword {
-    background: var(--utfpr-gray);
-    /* Fundo escuro */
-    color: var(--utfpr-black);
-    /* Texto claro */
-    border-color: var(--utfpr-gray-medium);
-    /* Borda escura */
-}
-
-body.dark-mode .nav-card {
-    background: linear-gradient(135deg, var(--utfpr-white) 0%, var(--utfpr-gray-light) 100%);
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode .nav-card:hover {
-    background: linear-gradient(135deg, var(--utfpr-white) 0%, var(--utfpr-gray) 100%);
-}
-
-body.dark-mode footer {
-    background: linear-gradient(135deg, var(--utfpr-gray-medium) 0%, var(--utfpr-gray) 100%);
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode .footer-section h3 {
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode .footer-section a {
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode .cartao-scratch {
-    background: var(--utfpr-white);
-    /* Fundo escuro */
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode .cartao-header {
-    background: var(--utfpr-gray-light);
-    /* Fundo escuro */
-}
-
-body.dark-mode .cartao-input {
-    background: var(--utfpr-gray);
-    /* Fundo escuro */
-    border-color: var(--utfpr-gray-medium);
-    /* Borda escura */
-}
-
-body.dark-mode pre,
-body.dark-mode code {
-    background-color: var(--utfpr-gray-light);
-    /* Fundo escuro */
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode .scratch-code {
-    background: #1a202c;
-    /* Fundo azul escuro */
-    color: #e2e8f0;
-    /* Texto azul claro */
-    border-color: #4a5568;
-    /* Borda azul escura */
-}
-
-body.dark-mode .image-container {
-    background-color: var(--utfpr-gray-light);
-    /* Fundo escuro */
-    border-color: var(--utfpr-gray-medium);
-    /* Borda escura */
-}
-
-body.dark-mode .dica-box {
-    background: linear-gradient(135deg, #4a5568, #2d3748);
-    /* Gradiente escuro */
-    border-color: var(--utfpr-Yellow);
-    /* Borda amarela */
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode .cartaz-box {
-    background: var(--utfpr-white);
-    /* Fundo escuro */
-    border-color: var(--utfpr-Yellow);
-    /* Borda amarela */
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode .cartaz-header {
-    background: var(--utfpr-Yellow);
-    /* Fundo amarelo */
-    color: var(--utfpr-white);
-    /* Texto escuro */
-}
-
-body.dark-mode .area-desenho {
-    background: var(--utfpr-gray-light);
-    /* Fundo escuro */
-    border-color: var(--utfpr-gray-dark);
-    /* Borda clara */
-}
-
-body.dark-mode .diario-bordo {
-    background: var(--utfpr-gray-light);
-    /* Fundo escuro */
-    border-color: var(--utfpr-gray-medium);
-    /* Borda escura */
-}
-
-body.dark-mode .brainstorming-section {
-    background: linear-gradient(135deg, #2d3748, #4a5568);
-    /* Gradiente escuro */
-    border-color: var(--utfpr-Yellow-light);
-    /* Borda amarela clara */
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode .plano-acao {
-    background: var(--utfpr-gray-light);
-    /* Fundo escuro */
-    border-color: var(--utfpr-Yellow);
-    /* Borda amarela */
-}
-
-body.dark-mode .semana-plano {
-    background: var(--utfpr-white);
-    /* Fundo escuro */
-    border-left-color: var(--utfpr-Yellow);
-    /* Destaque amarelo */
-}
-
-/* Tabelas no modo escuro */
-body.dark-mode .progression-table table,
-body.dark-mode .projeto-tabela {
-    background: var(--utfpr-white);
-    /* Fundo escuro */
-    color: var(--utfpr-black);
-    /* Texto claro */
-}
-
-body.dark-mode .progression-table th,
-body.dark-mode .projeto-tabela th {
-    background: var(--utfpr-Yellow);
-    /* Fundo amarelo */
-    color: var(--utfpr-white);
-    /* Texto escuro */
-}
-
-body.dark-mode .progression-table tr:nth-child(even),
-body.dark-mode .projeto-tabela tr:nth-child(even) {
-    background: var(--utfpr-gray-light);
-    /* Fundo escuro alternado */
-}
-
-/* Formulários no modo escuro */
-body.dark-mode .form-input-space,
-body.dark-mode .form-list-space {
-    border-bottom-color: var(--utfpr-gray-dark);
-    /* Borda clara */
-}
-
-/* Checklists no modo escuro */
-body.dark-mode .checklist li,
-body.dark-mode .checklist-ficha li {
-    border-bottom-color: var(--utfpr-gray);
-    /* Borda escura */
-}
-
-/* Botão de tema no modo escuro */
-body.dark-mode .theme-toggle {
-    /*background: var(--utfpr-Yellow);  Fundo amarelo */
-    background-color: var(--utfpr-gray-dark);
-    /* Fundo cinza escuro*/
-    /* Cor de fundo */
-    color: var(--utfpr-white);
-    /* Texto escuro */
-}
-
-/* ====== CORES ESPECÍFICAS PARA CARTÕES SCRATCH ====== */
-
-/* Cartões de Movimento - Azul */
-.nav-card.movimento {
-    background: var(--scratch-motion) !important;
-    color: var(--utfpr-black) !important;
-    border: 2px solid var(--scratch-motion);
-}
-
-.nav-card.movimento h3,
-.nav-card.movimento p,
-.nav-card.movimento code {
-    color: var(--utfpr-black) !important;
-}
-
-/* Cartões de Aparência - Roxo */
-.nav-card.aparencia {
-    background: var(--scratch-looks) !important;
-    color: var(--utfpr-black) !important;
-    border: 2px solid var(--scratch-looks);
-}
-
-.nav-card.aparencia h3,
-.nav-card.aparencia p,
-.nav-card.aparencia code {
-    color: var(--utfpr-black) !important;
-}
-
-/* Cartões de Som - Magenta */
-.nav-card.som {
-    background: var(--scratch-sound) !important;
-    color: var(--utfpr-black) !important;
-    border: 2px solid var(--scratch-sound);
-}
-
-.nav-card.som h3,
-.nav-card.som p,
-.nav-card.som code {
-    color: var(--utfpr-black) !important;
-}
-
-/* Cartões de Eventos - Amarelo */
-.nav-card.eventos {
-    background: var(--scratch-events) !important;
-    color: var(--utfpr-black) !important;
-    border: 2px solid var(--scratch-events);
-}
-
-.nav-card.eventos h3,
-.nav-card.eventos p,
-.nav-card.eventos code {
-    color: var(--utfpr-black) !important;
-}
-
-/* Cartões de Controle - Laranja */
-.nav-card.controle {
-    background: var(--scratch-control) !important;
-    color: var(--utfpr-black) !important;
-    border: 2px solid var(--scratch-control);
-}
-
-.nav-card.controle h3,
-.nav-card.controle p,
-.nav-card.controle code {
-    color: var(--utfpr-black) !important;
-}
-
-/* Cartões de Operadores e Variáveis - Azul */
-.nav-card.operadores {
-    background: var(--scratch-operators) !important;
-    color: var(--utfpr-black) !important;
-    border: 2px solid var(--scratch-operators);
-}
-
-.nav-card.operadores h3,
-.nav-card.operadores p,
-.nav-card.operadores code {
-    color: var(--utfpr-black) !important;
-}
-
-/* Adicionar ao efeito hover existente */
-.nav-card.operadores:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(35, 31, 32, 0.3);
-    filter: brightness(1.1);
-}
-
-/* Garantir que o texto permaneça preto no hover para operadores */
-.nav-card.operadores:hover h3,
-.nav-card.operadores:hover p,
-.nav-card.operadores:hover code {
-    color: var(--utfpr-black) !important;
-}
-
-/* Efeito hover para manter a consistência visual */
-.nav-card.movimento:hover,
-.nav-card.aparencia:hover,
-.nav-card.som:hover,
-.nav-card.eventos:hover,
-.nav-card.controle:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(35, 31, 32, 0.3);
-    filter: brightness(1.1);
-}
-
-/* Garantir que o texto permaneça preto no hover */
-.nav-card.movimento:hover h3,
-.nav-card.movimento:hover p,
-.nav-card.movimento:hover code,
-.nav-card.aparencia:hover h3,
-.nav-card.aparencia:hover p,
-.nav-card.aparencia:hover code,
-.nav-card.som:hover h3,
-.nav-card.som:hover p,
-.nav-card.som:hover code,
-.nav-card.eventos:hover h3,
-.nav-card.eventos:hover p,
-.nav-card.eventos:hover code,
-.nav-card.controle:hover h3,
-.nav-card.controle:hover p,
-.nav-card.controle:hover code {
-    color: var(--utfpr-black) !important;
-}
-
-/* ====== ESTILOS PARA IMPRESSÃO DE CARTÕES SCRATCH ====== */
-
-.print-button {
-    background: linear-gradient(135deg, var(--utfpr-Yellow) 0%, var(--utfpr-Yellow-dark) 100%);
-    color: var(--utfpr-black);
-    border: none;
-    padding: 12px 24px;
-    border-radius: 8px;
-    font-weight: bold;
-    cursor: pointer;
-    margin: 20px 0;
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-    font-size: 1rem;
-}
-
-.print-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    background: linear-gradient(135deg, var(--utfpr-Yellow-light) 0%, var(--utfpr-Yellow) 100%);
-}
-
-/* Overlay de impressão */
-.print-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    display: none;
-    justify-content: center;
-    align-items: center;
-    z-index: 10000;
-}
-
-.print-preview {
-    background: white;
-    padding: 30px;
-    border-radius: 12px;
-    max-width: 90%;
-    max-height: 90%;
-    overflow: auto;
-    position: relative;
-}
-
-.close-preview {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-    background: var(--utfpr-gray-dark);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.print-actions {
-    display: flex;
-    gap: 10px;
-    margin-top: 20px;
-    justify-content: center;
-}
-
-.secondary-button {
-    background: var(--utfpr-gray);
-    color: var(--utfpr-black);
-    border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.secondary-button:hover {
-    background: var(--utfpr-gray-dark);
-    color: white;
-}
-
-/* Estilos específicos para o modo de impressão */
-@media print {
-    /* Oculta elementos não essenciais na impressão */
-    header,
-    footer,
-    .theme-toggle,
-    .content-section:not(.print-section),
-    .page-header,
-    .card-grid:not(.print-cards),
-    .print-button,
-    .print-overlay {
-        display: none !important;
-    }
-
-    /* Estilos específicos para impressão dos cartões */
-    .print-section {
-        display: block !important;
-        page-break-inside: avoid;
-    }
-
-    .print-cards {
-        display: grid !important;
-        grid-template-columns: repeat(3, 1fr) !important;
-        gap: 15px !important;
-        margin: 0 !important;
-        padding: 20px !important;
-    }
-
-    .print-card {
-        break-inside: avoid;
-        page-break-inside: avoid;
-        background: white !important;
-        border: 2px solid #000 !important;
-        border-radius: 8px !important;
-        padding: 15px !important;
-        margin: 0 !important;
-        box-shadow: none !important;
-        min-height: 120px !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: center !important;
-    }
-
-    /* Mantém as cores dos cartões na impressão através das bordas */
-    .print-card.movimento {
-        border-left: 8px solid var(--scratch-motion) !important;
-    }
-
-    .print-card.aparencia {
-        border-left: 8px solid var(--scratch-looks) !important;
-    }
-
-    .print-card.som {
-        border-left: 8px solid var(--scratch-sound) !important;
-    }
-
-    .print-card.eventos {
-        border-left: 8px solid var(--scratch-events) !important;
-    }
-
-    .print-card.controle {
-        border-left: 8px solid var(--scratch-control) !important;
-    }
-
-    .print-card.operadores {
-        border-left: 8px solid var(--scratch-operators) !important;
-    }
-
-    /* Estilos de texto para impressão */
-    .print-card h3 {
-        font-size: 14px !important;
-        margin: 0 0 8px 0 !important;
-        color: black !important;
-    }
-
-    .print-card p {
-        font-size: 12px !important;
-        margin: 2px 0 !important;
-        color: black !important;
-    }
-
-    .print-card code {
-        background: #f5f5f5 !important;
-        color: black !important;
-        border: 1px solid #ddd !important;
-        font-size: 11px !important;
-    }
-
-    /* Container principal de impressão */
-    .print-container {
-        width: 100% !important;
-        margin: 0 !important;
-        padding: 0 !important;
-    }
-
-    /* Instruções de impressão */
-    .print-instructions {
-        background: #f8f9fa !important;
-        border: 1px solid #000 !important;
-        padding: 15px !important;
-        margin-bottom: 20px !important;
-        page-break-after: avoid;
-    }
-
-    .print-instructions h2 {
-        color: black !important;
-        font-size: 16px !important;
-        margin-bottom: 10px !important;
-    }
-
-    .print-instructions ul {
-        margin: 0 !important;
-        padding-left: 20px !important;
-    }
-
-    .print-instructions li {
-        font-size: 12px !important;
-        margin-bottom: 5px !important;
-        color: black !important;
-    }
-}
-
-/* Ajustes para modo escuro nos elementos de impressão */
-body.dark-mode .print-button {
-    background: linear-gradient(135deg, var(--utfpr-Yellow-dark) 0%, var(--utfpr-Yellow-darker) 100%);
-    color: var(--utfpr-white);
-}
-
-body.dark-mode .print-button:hover {
-    background: linear-gradient(135deg, var(--utfpr-Yellow) 0%, var(--utfpr-Yellow-dark) 100%);
-}
-
-body.dark-mode .secondary-button {
-    background: var(--utfpr-gray-medium);
-    color: var(--utfpr-black);
-}
-
-body.dark-mode .secondary-button:hover {
-    background: var(--utfpr-gray-dark);
-    color: var(--utfpr-white);
-}
+// Objetivo: Implementar as funcionalidades necessárias no projeto  - projeto Scratch na Educação Básica
+// - Toggle de Tema Escuro/Claro: Permite alternar entre temas e salva a preferência
+// - Rolagem Suave: Suaviza a navegação por links âncora
+// - Navegação Ativa: Destaca a página atual no menu de navegação
+// - Lazy Loading de Imagens: Carrega imagens apenas quando ficam visíveis
+// - Funcionalidade de Impressão: Permite imprimir os cartões Scratch
+// Desenvolvido por: Gisele Nunes, Rodrigo Barbosa
+// Data: Segundo semestre de 2025 
+
+// =============================================
+// DARK MODE TOGGLE FUNCTIONALITY
+// =============================================
+
+// Obtém o elemento do botão de alternância do tema pelo ID
+const themeToggle = document.getElementById('themeToggle');
+
+// Verifica as preferências de tema do sistema operacional/usuario
+// A Media Query '(prefers-color-scheme: dark)' retorna true se o usuário prefere tema escuro
+const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
+
+// Recupera o tema salvo no localStorage (se existir)
+// O localStorage persiste mesmo após fechar o navegador
+const currentTheme = localStorage.getItem('theme');
+
+// VERIFICAÇÃO ROBUSTA DO TEMA ATUAL
+// Se o tema salvo for 'dark' OU (não houver tema salvo E o sistema preferir tema escuro)
+if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
+    // Adiciona a classe 'dark-mode' ao body para aplicar o tema escuro
+    document.body.classList.add('dark-mode');
+    // Altera o ícone do botão para sol (indicando que clicar ativará o modo claro)
+    themeToggle.textContent = '☀️';
+} else {
+    // Define o ícone como lua (indicando que clicar ativará o modo escuro)
+    themeToggle.textContent = '🌙';
+}
+
+// ADICIONA EVENT LISTENER PARA O CLIQUE NO BOTÃO DE TEMA
+themeToggle.addEventListener('click', function () {
+    // Alterna a classe 'dark-mode' no elemento body
+    // Se existir, remove; se não existir, adiciona
+    document.body.classList.toggle('dark-mode');
+
+    // Define o tema padrão como 'light'
+    let theme = 'light';
+
+    // Verifica se o body agora possui a classe 'dark-mode' após o toggle
+    if (document.body.classList.contains('dark-mode')) {
+        // Se estiver em modo escuro, atualiza a variável theme
+        theme = 'dark';
+        // Altera o ícone para sol
+        themeToggle.textContent = '☀️';
+    } else {
+        // Altera o ícone para lua
+        themeToggle.textContent = '🌙';
+    }
+
+    // Salva a preferência do tema no localStorage para persistência
+    localStorage.setItem('theme', theme);
+});
+
+// =============================================
+// SMOOTH SCROLLING PARA LINKS ÂNCORA
+// =============================================
+
+// Seleciona TODOS os links que começam com "#" (links âncora)
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    // Adiciona um event listener de clique para cada link âncora
+    anchor.addEventListener('click', function (e) {
+        // Previne o comportamento padrão do link (navegação brusca)
+        e.preventDefault();
+
+        // Obtém o elemento alvo baseado no atributo href do link clicado
+        const target = document.querySelector(this.getAttribute('href'));
+
+        // Verifica se o elemento alvo existe
+        if (target) {
+            // Realiza a rolagem suave até o elemento alvo
+            target.scrollIntoView({
+                behavior: 'smooth',  // Animação suave
+                block: 'start'       // Alinha o topo do elemento com o topo da viewport
+            });
+        }
+    });
+});
+
+// =============================================
+// MARCAÇÃO DE PÁGINA ATIVA NA NAVEGAÇÃO
+// =============================================
+
+// Aguarda o DOM ser completamente carregado antes de executar
+document.addEventListener('DOMContentLoaded', function () {
+    // Obtém o nome do arquivo atual da URL
+    // split('/').pop() pega a última parte do caminho (nome do arquivo)
+    const currentPage = window.location.pathname.split('/').pop();
+
+    // Seleciona TODOS os links dentro de elementos <nav>
+    const navLinks = document.querySelectorAll('nav a');
+
+    // Itera sobre cada link de navegação
+    navLinks.forEach(link => {
+        // Verifica se o href do link corresponde à página atual
+        if (link.getAttribute('href') === currentPage) {
+            // Se for a página atual, adiciona a classe 'active'
+            link.classList.add('active');
+        } else {
+            // Remove a classe 'active' dos outros links
+            link.classList.remove('active');
+        }
+    });
+
+    // CASO ESPECIAL: Página inicial (root)
+    // Se estiver na raiz do site (URL sem caminho) ou no index.html
+    if (currentPage === '' || currentPage === 'index.html') {
+        // Seleciona especificamente o link para index.html e marca como ativo
+        document.querySelector('nav a[href="index.html"]').classList.add('active');
+    }
+});
+
+// =============================================
+// LAZY LOADING PARA IMAGENS
+// =============================================
+
+// Aguarda o DOM ser completamente carregado
+document.addEventListener('DOMContentLoaded', function () {
+    // Seleciona TODAS as imagens que possuem o atributo 'data-src'
+    // (imagens que devem ser carregadas apenas quando visíveis)
+    const images = document.querySelectorAll('img[data-src]');
+
+    // Cria um Intersection Observer para detectar quando as imagens entram na viewport
+    // Intersection Observer é uma API moderna que observa mudanças na interseção dos elementos
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+        // Itera sobre todas as entradas (elementos observados) que sofreram mudanças
+        entries.forEach(entry => {
+            // Verifica se o elemento está visível na viewport (intersectando)
+            if (entry.isIntersecting) {
+                // Obtém a referência para a imagem que está visível
+                const img = entry.target;
+
+                // Substitui o src placeholder pelo src real (armazenado em data-src)
+                img.src = img.dataset.src;
+
+                // Remove o atributo data-src para evitar recarregamentos
+                img.removeAttribute('data-src');
+
+                // Para de observar a imagem (já foi carregada)
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    // Inicia a observação para cada imagem com data-src
+    images.forEach(img => imageObserver.observe(img));
+});
+
+// =============================================
+// PRINT FUNCTIONALITY FOR SCRATCH CARDS
+// =============================================
+
+// Função para criar e exibir a visualização de impressão
+function showPrintPreview() {
+    // Verifica se estamos na página correta
+    const isCartoesPage = window.location.pathname.includes('cartoes-scratch.html') || 
+                         window.location.pathname.endsWith('cartoes-scratch.html');
+    if (!isCartoesPage) {
+        console.log('Função showPrintPreview chamada fora da página de cartões scratch');
+        return;
+    }
+    
+    // Cria overlay para preview de impressão
+    const printOverlay = document.createElement('div');
+    printOverlay.className = 'print-overlay';
+    printOverlay.style.display = 'flex';
+    
+    // Cria container do preview
+    const printPreview = document.createElement('div');
+    printPreview.className = 'print-preview';
+    
+    // Cria botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.className = 'close-preview';
+    closeButton.innerHTML = '×';
+    closeButton.onclick = () => {
+        document.body.removeChild(printOverlay);
+    };
+    
+    // Cria container de impressão
+    const printContainer = document.createElement('div');
+    printContainer.className = 'print-container';
+    
+    // Adiciona instruções de impressão
+    const printInstructions = document.createElement('div');
+    printInstructions.className = 'print-instructions';
+    printInstructions.innerHTML = `
+        <h2>Instruções para Impressão</h2>
+        <ul>
+            <li>Use papel A4 de 180-250g para melhor durabilidade</li>
+            <li>Configure a impressão para "Retrato"</li>
+            <li>Defina margens para "Mínimo" ou "Nenhuma"</li>
+            <li>Imprima em qualidade normal ou alta</li>
+            <li>Recorte seguindo as linhas pontilhadas</li>
+        </ul>
+    `;
+    
+    // Cria grid de cartões para impressão
+    const printCards = document.createElement('div');
+    printCards.className = 'print-cards';
+    
+    // Coleta todos os cartões da página
+    const allCards = document.querySelectorAll('.nav-card');
+    
+    // Adiciona cada cartão ao preview de impressão
+    allCards.forEach((card, index) => {
+        const printCard = card.cloneNode(true);
+        printCard.classList.add('print-card');
+        
+        // Preserva a classe de categoria para cores na impressão
+        if (card.classList.contains('movimento')) printCard.classList.add('movimento');
+        if (card.classList.contains('aparencia')) printCard.classList.add('aparencia');
+        if (card.classList.contains('som')) printCard.classList.add('som');
+        if (card.classList.contains('eventos')) printCard.classList.add('eventos');
+        if (card.classList.contains('controle')) printCard.classList.add('controle');
+        if (card.classList.contains('operadores')) printCard.classList.add('operadores');
+        
+        printCards.appendChild(printCard);
+    });
+    
+    // Cria botões de ação
+    const printActions = document.createElement('div');
+    printActions.className = 'print-actions';
+    
+    const printBtn = document.createElement('button');
+    printBtn.className = 'print-button';
+    printBtn.innerHTML = '🖨️ Imprimir Cartões';
+    printBtn.onclick = printScratchCards;
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'secondary-button';
+    closeBtn.innerHTML = 'Fechar';
+    closeBtn.onclick = () => document.body.removeChild(printOverlay);
+    
+    printActions.appendChild(printBtn);
+    printActions.appendChild(closeBtn);
+    
+    // Monta a estrutura
+    printContainer.appendChild(printInstructions);
+    printContainer.appendChild(printCards);
+    printPreview.appendChild(closeButton);
+    printPreview.appendChild(printContainer);
+    printPreview.appendChild(printActions);
+    printOverlay.appendChild(printPreview);
+    
+    // Adiciona ao documento
+    document.body.appendChild(printOverlay);
+}
+
+// Função para imprimir os cartões
+function printScratchCards() {
+    // Verifica se estamos na página correta
+    const isCartoesPage = window.location.pathname.includes('cartoes-scratch.html') || 
+                         window.location.pathname.endsWith('cartoes-scratch.html');
+    if (!isCartoesPage) {
+        console.log('Função printScratchCards chamada fora da página de cartões scratch');
+        return;
+    }
+    
+    // Cria um iframe para impressão
+    const printFrame = document.createElement('iframe');
+    printFrame.style.position = 'absolute';
+    printFrame.style.left = '-9999px';
+    printFrame.style.top = '0';
+    printFrame.style.width = '0';
+    printFrame.style.height = '0';
+    printFrame.style.border = 'none';
+    
+    document.body.appendChild(printFrame);
+    
+    const printDocument = printFrame.contentWindow.document;
+    
+    // Escreve o conteúdo HTML para impressão
+    printDocument.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Cartões Scratch para Recortar</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    background: white;
+                    color: black;
+                }
+                
+                .print-container {
+                    max-width: 100%;
+                }
+                
+                .print-instructions {
+                    background: #f8f9fa;
+                    border: 1px solid #000;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    page-break-after: avoid;
+                }
+                
+                .print-instructions h2 {
+                    color: black;
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+                
+                .print-instructions ul {
+                    margin: 0;
+                    padding-left: 20px;
+                }
+                
+                .print-instructions li {
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                    color: black;
+                }
+                
+                .print-cards {
+                    display: grid;
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 15px;
+                    margin: 0;
+                    padding: 0;
+                }
+                
+                .print-card {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                    background: white !important;
+                    border: 2px solid #000 !important;
+                    border-radius: 8px !important;
+                    padding: 15px !important;
+                    margin: 0 !important;
+                    box-shadow: none !important;
+                    min-height: 120px !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    justify-content: center !important;
+                }
+                
+                .print-card h3 {
+                    font-size: 14px !important;
+                    margin: 0 0 8px 0 !important;
+                    color: black !important;
+                }
+                
+                .print-card p {
+                    font-size: 12px !important;
+                    margin: 2px 0 !important;
+                    color: black !important;
+                }
+                
+                .print-card code {
+                    background: #f5f5f5 !important;
+                    color: black !important;
+                    border: 1px solid #ddd !important;
+                    font-size: 11px !important;
+                    padding: 2px 4px !important;
+                    border-radius: 3px !important;
+                }
+                
+                /* Cores das bordas para categorias */
+                .print-card.movimento {
+                    border-left: 8px solid #4a6cd4 !important;
+                }
+                
+                .print-card.aparencia {
+                    border-left: 8px solid #8a55d7 !important;
+                }
+                
+                .print-card.som {
+                    border-left: 8px solid #bb42c3 !important;
+                }
+                
+                .print-card.eventos {
+                    border-left: 8px solid #ffbf00 !important;
+                }
+                
+                .print-card.controle {
+                    border-left: 8px solid #ff8c1a !important;
+                }
+                
+                .print-card.operadores {
+                    border-left: 8px solid #5cb712 !important;
+                }
+                
+                @media print {
+                    body {
+                        padding: 10px;
+                    }
+                    
+                    .print-cards {
+                        grid-template-columns: repeat(3, 1fr);
+                    }
+                    
+                    .print-card {
+                        min-height: 110px !important;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="print-container">
+                <div class="print-instructions">
+                    <h2>Cartões Scratch para Recortar - UTFPR</h2>
+                    <ul>
+                        <li><strong>Papel:</strong> Use A4 de 180-250g</li>
+                        <li><strong>Orientação:</strong> Retrato</li>
+                        <li><strong>Margens:</strong> Mínimas ou Nenhuma</li>
+                        <li><strong>Corte:</strong> Siga as linhas dos cartões</li>
+                        <li><strong>Plastificação:</strong> Opcional para maior durabilidade</li>
+                    </ul>
+                </div>
+                <div class="print-cards">
+    `);
+    
+    // Adiciona cada cartão ao documento de impressão
+    const allCards = document.querySelectorAll('.nav-card');
+    allCards.forEach((card, index) => {
+        const title = card.querySelector('h3') ? card.querySelector('h3').textContent : 'Cartão ' + (index + 1);
+        const firstParagraph = card.querySelector('p') ? card.querySelector('p').innerHTML : '';
+        const secondParagraph = card.querySelectorAll('p')[1] ? card.querySelectorAll('p')[1].textContent : '';
+        
+        const category = 
+            card.classList.contains('movimento') ? 'movimento' :
+            card.classList.contains('aparencia') ? 'aparencia' :
+            card.classList.contains('som') ? 'som' :
+            card.classList.contains('eventos') ? 'eventos' :
+            card.classList.contains('controle') ? 'controle' :
+            card.classList.contains('operadores') ? 'operadores' : '';
+        
+        printDocument.write(`
+            <div class="print-card ${category}">
+                <h3>${title}</h3>
+                ${firstParagraph ? `<p>${firstParagraph}</p>` : ''}
+                ${secondParagraph ? `<p>${secondParagraph}</p>` : ''}
+            </div>
+        `);
+    });
+    
+    // Finaliza o documento
+    printDocument.write(`
+                </div>
+            </div>
+        </body>
+        </html>
+    `);
+    
+    printDocument.close();
+    
+    // Aguarda o carregamento e imprime
+    printFrame.onload = function() {
+        printFrame.contentWindow.focus();
+        printFrame.contentWindow.print();
+        
+        // Remove o iframe após a impressão
+        setTimeout(() => {
+            if (document.body.contains(printFrame)) {
+                document.body.removeChild(printFrame);
+            }
+            const printOverlay = document.querySelector('.print-overlay');
+            if (printOverlay) {
+                document.body.removeChild(printOverlay);
+            }
+        }, 500);
+    };
+}
+
+// =============================================
+// PRINT FUNCTIONALITY FOR LESSON PLANS
+// =============================================
+
+// Função para criar e exibir a visualização de impressão de PLANOS DE AULA
+function showPrintPreviewLessonPlans() {
+    // Verifica se estamos na página correta
+    const isPlanosPage = window.location.pathname.includes('planos-aula.html') || 
+                        window.location.pathname.endsWith('planos-aula.html');
+    if (!isPlanosPage) {
+        console.log('Função showPrintPreviewLessonPlans chamada fora da página de planos de aula');
+        return;
+    }
+    
+    // Cria overlay para preview de impressão
+    const printOverlay = document.createElement('div');
+    printOverlay.className = 'print-overlay';
+    printOverlay.style.display = 'flex';
+    
+    // Cria container do preview
+    const printPreview = document.createElement('div');
+    printPreview.className = 'print-preview';
+    
+    // Cria botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.className = 'close-preview';
+    closeButton.innerHTML = '×';
+    closeButton.onclick = () => {
+        document.body.removeChild(printOverlay);
+    };
+    
+    // Cria container de impressão
+    const printContainer = document.createElement('div');
+    printContainer.className = 'print-container';
+    
+    // Adiciona instruções de impressão
+    const printInstructions = document.createElement('div');
+    printInstructions.className = 'print-instructions';
+    printInstructions.innerHTML = `
+        <h2>Instruções para Impressão - Planos de Aula</h2>
+        <ul>
+            <li>Use papel A4 padrão</li>
+            <li>Configure a impressão para "Retrato"</li>
+            <li>Defina margens para "Padrão" ou "Mínimo"</li>
+            <li>Imprima em qualidade normal</li>
+            <li>Verifique a visualização antes de imprimir</li>
+        </ul>
+    `;
+    
+    // Cria container para os planos de aula
+    const printLessonPlans = document.createElement('div');
+    printLessonPlans.className = 'print-lesson-plans';
+    
+    // Coleta todas as seções de conteúdo da página de planos de aula
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    // Adiciona cada seção ao preview de impressão
+    contentSections.forEach((section, index) => {
+        const printSection = section.cloneNode(true);
+        printSection.classList.add('print-section');
+        
+        // Remove elementos não necessários para impressão
+        const navCards = printSection.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        // Remove o último elemento de navegação se existir
+        const lastHeading = printSection.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            const navigationSection = lastHeading.parentElement;
+            if (navigationSection && navigationSection.classList.contains('content-section')) {
+                printSection.remove();
+                return; // Pula esta seção
+            }
+        }
+        
+        printLessonPlans.appendChild(printSection);
+    });
+    
+    // Cria botões de ação
+    const printActions = document.createElement('div');
+    printActions.className = 'print-actions';
+    
+    const printBtn = document.createElement('button');
+    printBtn.className = 'print-button';
+    printBtn.innerHTML = '🖨️ Imprimir Planos de Aula';
+    printBtn.onclick = () => printLessonPlansContent();
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'secondary-button';
+    closeBtn.innerHTML = 'Fechar';
+    closeBtn.onclick = () => document.body.removeChild(printOverlay);
+    
+    printActions.appendChild(printBtn);
+    printActions.appendChild(closeBtn);
+    
+    // Monta a estrutura
+    printContainer.appendChild(printInstructions);
+    printContainer.appendChild(printLessonPlans);
+    printPreview.appendChild(closeButton);
+    printPreview.appendChild(printContainer);
+    printPreview.appendChild(printActions);
+    printOverlay.appendChild(printPreview);
+    
+    // Adiciona ao documento
+    document.body.appendChild(printOverlay);
+}
+
+// Função para imprimir os planos de aula
+function printLessonPlansContent() {
+    // Verifica se estamos na página correta
+    const isPlanosPage = window.location.pathname.includes('planos-aula.html') || 
+                        window.location.pathname.endsWith('planos-aula.html');
+    if (!isPlanosPage) {
+        console.log('Função printLessonPlansContent chamada fora da página de planos de aula');
+        return;
+    }
+    
+    // Cria um iframe para impressão
+    const printFrame = document.createElement('iframe');
+    printFrame.style.position = 'absolute';
+    printFrame.style.left = '-9999px';
+    printFrame.style.top = '0';
+    printFrame.style.width = '0';
+    printFrame.style.height = '0';
+    printFrame.style.border = 'none';
+    
+    document.body.appendChild(printFrame);
+    
+    const printDocument = printFrame.contentWindow.document;
+    
+    // Escreve o conteúdo HTML para impressão
+    printDocument.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Planos de Aula Scratch - UTFPR</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    background: white;
+                    color: black;
+                    font-size: 12pt;
+                    line-height: 1.4;
+                }
+                
+                .print-container {
+                    max-width: 100%;
+                }
+                
+                .print-instructions {
+                    background: #f8f9fa;
+                    border: 1px solid #000;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    page-break-after: avoid;
+                }
+                
+                .print-instructions h2 {
+                    color: black;
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+                
+                .print-instructions ul {
+                    margin: 0;
+                    padding-left: 20px;
+                }
+                
+                .print-instructions li {
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                    color: black;
+                }
+                
+                .print-section {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                    background: white !important;
+                    border: 2px solid #000 !important;
+                    border-radius: 8px !important;
+                    padding: 20px !important;
+                    margin: 20px 0 !important;
+                    box-shadow: none !important;
+                }
+                
+                .print-section h2 {
+                    color: #000 !important;
+                    font-size: 18px !important;
+                    margin-bottom: 15px !important;
+                    border-bottom: 2px solid #000 !important;
+                    padding-bottom: 8px !important;
+                }
+                
+                .print-section h3 {
+                    color: #333 !important;
+                    font-size: 16px !important;
+                    margin: 20px 0 10px 0 !important;
+                    border-left: 3px solid #000 !important;
+                    padding-left: 10px !important;
+                }
+                
+                .print-section h4 {
+                    color: #555 !important;
+                    font-size: 14px !important;
+                    margin: 15px 0 8px 0 !important;
+                }
+                
+                .print-section h5 {
+                    color: #666 !important;
+                    font-size: 13px !important;
+                    margin: 12px 0 6px 0 !important;
+                }
+                
+                .print-section p {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                    line-height: 1.5 !important;
+                }
+                
+                .print-section ul, .print-section ol {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin: 10px 0 !important;
+                    padding-left: 25px !important;
+                }
+                
+                .print-section li {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 6px !important;
+                    line-height: 1.4 !important;
+                }
+                
+                .plano-info {
+                    background: #f8f9fa !important;
+                    border: 1px solid #ccc !important;
+                    padding: 15px !important;
+                    margin-bottom: 15px !important;
+                    border-radius: 6px !important;
+                }
+                
+                .scratch-code {
+                    background: #f5f5f5 !important;
+                    color: black !important;
+                    border: 1px solid #ccc !important;
+                    border-left: 4px solid #000 !important;
+                    padding: 12px !important;
+                    margin: 10px 0 !important;
+                    border-radius: 6px !important;
+                    font-family: 'Courier New', monospace !important;
+                    font-size: 11px !important;
+                    white-space: pre-wrap !important;
+                    line-height: 1.3 !important;
+                }
+                
+                .checklist {
+                    list-style: none !important;
+                    padding-left: 0 !important;
+                }
+                
+                .checklist li::before {
+                    content: "☐ " !important;
+                    margin-right: 8px !important;
+                }
+                
+                @media print {
+                    body {
+                        padding: 10px;
+                    }
+                    
+                    .print-section {
+                        margin: 15px 0 !important;
+                        padding: 15px !important;
+                    }
+                    
+                    .print-instructions {
+                        margin-bottom: 15px !important;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="print-container">
+                <div class="print-instructions">
+                    <h2>Planos de Aula Scratch - UTFPR</h2>
+                    <ul>
+                        <li><strong>Data:</strong> ${new Date().toLocaleDateString('pt-BR')}</li>
+                        <li><strong>Página:</strong> Planos de Aula 1º ao 5º Ano</li>
+                        <li><strong>Instruções:</strong> Verifique a visualização antes de imprimir</li>
+                    </ul>
+                </div>
+    `);
+    
+    // Adiciona cada seção de plano de aula ao documento de impressão
+    const contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
+        
+        // Pula a seção de navegação
+        if (title === 'Navegação') {
+            return;
+        }
+        
+        const sectionContent = section.cloneNode(true);
+        
+        // Remove elementos de navegação
+        const navCards = sectionContent.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        // Remove a seção de navegação completa se for a última
+        const lastHeading = sectionContent.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            return;
+        }
+        
+        const contentHTML = sectionContent.innerHTML;
+        
+        printDocument.write(`
+            <div class="print-section">
+                ${contentHTML}
+            </div>
+        `);
+    });
+    
+    // Finaliza o documento
+    printDocument.write(`
+            </div>
+        </body>
+        </html>
+    `);
+    
+    printDocument.close();
+    
+    // Aguarda o carregamento e imprime
+    printFrame.onload = function() {
+        printFrame.contentWindow.focus();
+        printFrame.contentWindow.print();
+        
+        // Remove o iframe após a impressão
+        setTimeout(() => {
+            if (document.body.contains(printFrame)) {
+                document.body.removeChild(printFrame);
+            }
+            const printOverlay = document.querySelector('.print-overlay');
+            if (printOverlay) {
+                document.body.removeChild(printOverlay);
+            }
+        }, 500);
+    };
+}
+
+// =============================================
+// INITIALIZE PRINT BUTTONS ON PAGE LOAD
+// =============================================
+
+// Adiciona o botão de impressão à página quando carregada
+document.addEventListener('DOMContentLoaded', function() {
+    // Verifica se estamos na página de cartões scratch
+    const isCartoesPage = window.location.pathname.includes('cartoes-scratch.html') || 
+                         window.location.pathname.endsWith('cartoes-scratch.html');
+    
+    // Verifica se estamos na página de planos de aula
+    const isPlanosPage = window.location.pathname.includes('planos-aula.html') || 
+                        window.location.pathname.endsWith('planos-aula.html');
+
+    // BOTÃO PARA CARTÕES SCRATCH (apenas na página cartoes-scratch.html)
+    if (isCartoesPage) {
+        // Cria e adiciona o botão de impressão para cartões
+        const printButton = document.createElement('button');
+        printButton.className = 'print-button';
+        printButton.innerHTML = '🖨️ Imprimir Cartões';
+        printButton.onclick = showPrintPreview;
+        
+        // Adiciona o botão após o primeiro content-section
+        const firstSection = document.querySelector('.content-section');
+        if (firstSection) {
+            firstSection.parentNode.insertBefore(printButton, firstSection.nextSibling);
+        }
+    }
+    
+    // BOTÃO PARA PLANOS DE AULA (apenas na página planos-aula.html)
+    if (isPlanosPage) {
+        // Cria e adiciona o botão de impressão específico para planos de aula
+        const printButton = document.createElement('button');
+        printButton.className = 'print-button';
+        printButton.innerHTML = '🖨️ Imprimir Planos de Aula';
+        printButton.onclick = showPrintPreviewLessonPlans;
+        printButton.style.margin = '20px 0';
+        printButton.style.display = 'block';
+        printButton.style.marginLeft = 'auto';
+        printButton.style.marginRight = 'auto';
+        
+        // Adiciona o botão após o page-header
+        const pageHeader = document.querySelector('.page-header');
+        if (pageHeader) {
+            pageHeader.parentNode.insertBefore(printButton, pageHeader.nextSibling);
+        }
+    }
+});
