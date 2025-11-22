@@ -557,16 +557,11 @@ main {
 
 /* Caixa de prática */
 .practice-box {
-    /* Gradiente verde suave */
-    background: linear-gradient(135deg, #e8f5e8, #f0f4c3);
-    border: 2px solid var(--scratch-operators);
-    /* Borda verde */
+    background: linear-gradient(135deg, var(--utfpr-gray-medium), var(--utfpr-gray));
+    border: 2px solid var(--utfpr-gray-dark);
     padding: 20px;
-    /* Espaçamento interno */
     border-radius: 10px;
-    /* Bordas arredondadas */
     margin: 20px 0;
-    /* Margem vertical */
 }
 
 /* ====== COMPONENTES ESPECÍFICOS DO PROJETO ====== */
@@ -1032,7 +1027,8 @@ code {
 /* Card de navegação individual */
 .nav-card {
     /* Gradiente de fundo */
-    background: linear-gradient(135deg, var(--utfpr-white) 0%, var(--utfpr-gray-light) 100%);
+    /*background: linear-gradient(135deg, var(--utfpr-white) 0%, var(--utfpr-gray-light) 100%);*/
+    background: linear-gradient(135deg, var(--utfpr-white) 0%, var(--utfpr-gray) 100%);
     padding: 28px;
     /* Espaçamento interno generoso */
     border-radius: 12px;
@@ -2001,7 +1997,7 @@ html {
 .dica-box {
     /* Gradiente amarelo suave */
     background: linear-gradient(135deg, #fff3cd, #ffeaa7);
-    border: 1px solid var(--utfpr-Yellow);
+    border: 1px solid var(--utfpr-Yellow-dark);
     /* Borda amarela */
     border-left: 4px solid var(--utfpr-Yellow-dark);
     /* Destaque na esquerda */
@@ -2597,7 +2593,7 @@ html {
     /* Remove margens */
     font-size: 1.4rem;
     /* Tamanho grande */
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+    /*text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);*/
     /* Sombra de texto */
 }
 
@@ -2801,6 +2797,7 @@ body.dark-mode .keyword {
 
 body.dark-mode .nav-card {
     background: linear-gradient(135deg, var(--utfpr-white) 0%, var(--utfpr-gray-light) 100%);
+    color: var(--utfpr-black);
     color: var(--utfpr-black);
     /* Texto claro */
 }
