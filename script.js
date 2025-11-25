@@ -211,20 +211,17 @@ function showPrintPreviewMundoDigital() {
     // Coleta todas as seções de conteúdo da página mundo digital
     const contentSections = document.querySelectorAll('.content-section');
     
-    // Adiciona cada seção ao preview de impressão
+    // Adiciona cada seção ao preview de impressão (REMOVENDO NAVEGAÇÃO)
     contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : '';
+        
+        // Remove a seção de navegação e tudo que vem após
+        if (title === 'Navegação') {
+            return;
+        }
+        
         const printSection = section.cloneNode(true);
         printSection.classList.add('print-section');
-        
-        // Remove a última seção de navegação se existir
-        const lastHeading = printSection.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            const navigationSection = lastHeading.parentElement;
-            if (navigationSection && navigationSection.classList.contains('content-section')) {
-                printSection.remove();
-                return; // Pula esta seção
-            }
-        }
         
         // Remove elementos de navegação dentro das seções
         const navCards = printSection.querySelector('.card-grid');
@@ -493,12 +490,12 @@ function printMundoDigitalContent() {
                 </div>
     `);
     
-    // Adiciona cada seção do mundo digital ao documento de impressão
+    // Adiciona cada seção do mundo digital ao documento de impressão (REMOVENDO NAVEGAÇÃO)
     const contentSections = document.querySelectorAll('.content-section');
     contentSections.forEach((section, index) => {
         const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
         
-        // Pula a seção de navegação
+        // Remove a seção de navegação e tudo que vem após
         if (title === 'Navegação') {
             return;
         }
@@ -509,12 +506,6 @@ function printMundoDigitalContent() {
         const navCards = sectionContent.querySelector('.card-grid');
         if (navCards) {
             navCards.remove();
-        }
-        
-        // Remove a seção de navegação completa se for a última
-        const lastHeading = sectionContent.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            return;
         }
         
         const contentHTML = sectionContent.innerHTML;
@@ -613,20 +604,17 @@ function showPrintPreviewModelosProjetos() {
     // Coleta todas as seções de conteúdo da página de modelos de projetos
     const contentSections = document.querySelectorAll('.content-section');
     
-    // Adiciona cada seção ao preview de impressão
+    // Adiciona cada seção ao preview de impressão (REMOVENDO NAVEGAÇÃO)
     contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : '';
+        
+        // Remove a seção de navegação e tudo que vem após
+        if (title === 'Navegação') {
+            return;
+        }
+        
         const printSection = section.cloneNode(true);
         printSection.classList.add('print-section');
-        
-        // Remove a última seção de navegação se existir
-        const lastHeading = printSection.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            const navigationSection = lastHeading.parentElement;
-            if (navigationSection && navigationSection.classList.contains('content-section')) {
-                printSection.remove();
-                return; // Pula esta seção
-            }
-        }
         
         // Remove elementos de navegação dentro das seções
         const navCards = printSection.querySelector('.card-grid');
@@ -857,12 +845,12 @@ function printModelosProjetosContent() {
                 </div>
     `);
     
-    // Adiciona cada seção de modelo de projeto ao documento de impressão
+    // Adiciona cada seção de modelo de projeto ao documento de impressão (REMOVENDO NAVEGAÇÃO)
     const contentSections = document.querySelectorAll('.content-section');
     contentSections.forEach((section, index) => {
         const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
         
-        // Pula a seção de navegação
+        // Remove a seção de navegação e tudo que vem após
         if (title === 'Navegação') {
             return;
         }
@@ -873,12 +861,6 @@ function printModelosProjetosContent() {
         const navCards = sectionContent.querySelector('.card-grid');
         if (navCards) {
             navCards.remove();
-        }
-        
-        // Remove a seção de navegação completa se for a última
-        const lastHeading = sectionContent.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            return;
         }
         
         const contentHTML = sectionContent.innerHTML;
@@ -977,20 +959,17 @@ function showPrintPreviewProjetosDidaticos() {
     // Coleta todas as seções de conteúdo da página de projetos didáticos
     const contentSections = document.querySelectorAll('.content-section');
     
-    // Adiciona cada seção ao preview de impressão
+    // Adiciona cada seção ao preview de impressão (REMOVENDO NAVEGAÇÃO)
     contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : '';
+        
+        // Remove a seção de navegação e tudo que vem após
+        if (title === 'Navegação') {
+            return;
+        }
+        
         const printSection = section.cloneNode(true);
         printSection.classList.add('print-section');
-        
-        // Remove a última seção de navegação se existir
-        const lastHeading = printSection.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            const navigationSection = lastHeading.parentElement;
-            if (navigationSection && navigationSection.classList.contains('content-section')) {
-                printSection.remove();
-                return; // Pula esta seção
-            }
-        }
         
         // Remove elementos de navegação dentro das seções
         const navCards = printSection.querySelector('.card-grid');
@@ -1257,12 +1236,12 @@ function printProjetosDidaticosContent() {
                 </div>
     `);
     
-    // Adiciona cada seção de projeto didático ao documento de impressão
+    // Adiciona cada seção de projeto didático ao documento de impressão (REMOVENDO NAVEGAÇÃO)
     const contentSections = document.querySelectorAll('.content-section');
     contentSections.forEach((section, index) => {
         const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
         
-        // Pula a seção de navegação
+        // Remove a seção de navegação e tudo que vem após
         if (title === 'Navegação') {
             return;
         }
@@ -1273,12 +1252,6 @@ function printProjetosDidaticosContent() {
         const navCards = sectionContent.querySelector('.card-grid');
         if (navCards) {
             navCards.remove();
-        }
-        
-        // Remove a seção de navegação completa se for a última
-        const lastHeading = sectionContent.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            return;
         }
         
         const contentHTML = sectionContent.innerHTML;
@@ -1377,20 +1350,17 @@ function showPrintPreviewFichasAtividades() {
     // Coleta todas as seções de conteúdo da página de fichas de atividades
     const contentSections = document.querySelectorAll('.content-section');
     
-    // Adiciona cada seção ao preview de impressão
+    // Adiciona cada seção ao preview de impressão (REMOVENDO NAVEGAÇÃO)
     contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : '';
+        
+        // Remove a seção de navegação e tudo que vem após
+        if (title === 'Navegação') {
+            return;
+        }
+        
         const printSection = section.cloneNode(true);
         printSection.classList.add('print-section');
-        
-        // Remove a última seção de navegação se existir
-        const lastHeading = printSection.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            const navigationSection = lastHeading.parentElement;
-            if (navigationSection && navigationSection.classList.contains('content-section')) {
-                printSection.remove();
-                return; // Pula esta seção
-            }
-        }
         
         // Remove elementos de navegação dentro das seções
         const navCards = printSection.querySelector('.card-grid');
@@ -1698,12 +1668,12 @@ function printFichasAtividadesContent() {
                 </div>
     `);
     
-    // Adiciona cada seção de ficha de atividade ao documento de impressão
+    // Adiciona cada seção de ficha de atividade ao documento de impressão (REMOVENDO NAVEGAÇÃO)
     const contentSections = document.querySelectorAll('.content-section');
     contentSections.forEach((section, index) => {
         const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
         
-        // Pula a seção de navegação
+        // Remove a seção de navegação e tudo que vem após
         if (title === 'Navegação') {
             return;
         }
@@ -1714,12 +1684,6 @@ function printFichasAtividadesContent() {
         const navCards = sectionContent.querySelector('.card-grid');
         if (navCards) {
             navCards.remove();
-        }
-        
-        // Remove a seção de navegação completa se for a última
-        const lastHeading = sectionContent.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            return;
         }
         
         const contentHTML = sectionContent.innerHTML;
@@ -2133,8 +2097,15 @@ function showPrintPreviewLessonPlans() {
     // Coleta todas as seções de conteúdo da página de planos de aula
     const contentSections = document.querySelectorAll('.content-section');
     
-    // Adiciona cada seção ao preview de impressão
+    // Adiciona cada seção ao preview de impressão (REMOVENDO NAVEGAÇÃO)
     contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : '';
+        
+        // Remove a seção de navegação e tudo que vem após
+        if (title === 'Navegação') {
+            return;
+        }
+        
         const printSection = section.cloneNode(true);
         printSection.classList.add('print-section');
         
@@ -2142,16 +2113,6 @@ function showPrintPreviewLessonPlans() {
         const navCards = printSection.querySelector('.card-grid');
         if (navCards) {
             navCards.remove();
-        }
-        
-        // Remove o último elemento de navegação se existir
-        const lastHeading = printSection.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            const navigationSection = lastHeading.parentElement;
-            if (navigationSection && navigationSection.classList.contains('content-section')) {
-                printSection.remove();
-                return; // Pula esta seção
-            }
         }
         
         printLessonPlans.appendChild(printSection);
@@ -2375,12 +2336,12 @@ function printLessonPlansContent() {
                 </div>
     `);
     
-    // Adiciona cada seção de plano de aula ao documento de impressão
+    // Adiciona cada seção de plano de aula ao documento de impressão (REMOVENDO NAVEGAÇÃO)
     const contentSections = document.querySelectorAll('.content-section');
     contentSections.forEach((section, index) => {
         const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
         
-        // Pula a seção de navegação
+        // Remove a seção de navegação e tudo que vem após
         if (title === 'Navegação') {
             return;
         }
@@ -2391,12 +2352,6 @@ function printLessonPlansContent() {
         const navCards = sectionContent.querySelector('.card-grid');
         if (navCards) {
             navCards.remove();
-        }
-        
-        // Remove a seção de navegação completa se for a última
-        const lastHeading = sectionContent.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            return;
         }
         
         const contentHTML = sectionContent.innerHTML;
@@ -2494,20 +2449,17 @@ function showPrintPreviewSugestoesAtividades() {
     // Coleta todas as seções de conteúdo da página de sugestões de atividades
     const contentSections = document.querySelectorAll('.content-section');
     
-    // Adiciona cada seção ao preview de impressão
+    // Adiciona cada seção ao preview de impressão (REMOVENDO NAVEGAÇÃO)
     contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : '';
+        
+        // Remove a seção de navegação e tudo que vem após
+        if (title === 'Navegação') {
+            return;
+        }
+        
         const printSection = section.cloneNode(true);
         printSection.classList.add('print-section');
-        
-        // Remove a última seção de navegação se existir
-        const lastHeading = printSection.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            const navigationSection = lastHeading.parentElement;
-            if (navigationSection && navigationSection.classList.contains('content-section')) {
-                printSection.remove();
-                return; // Pula esta seção
-            }
-        }
         
         // Remove elementos de navegação dentro das seções
         const navCards = printSection.querySelector('.card-grid');
@@ -2779,12 +2731,12 @@ function printSugestoesAtividadesContent() {
                 </div>
     `);
     
-    // Adiciona cada seção de sugestão de atividade ao documento de impressão
+    // Adiciona cada seção de sugestão de atividade ao documento de impressão (REMOVENDO NAVEGAÇÃO)
     const contentSections = document.querySelectorAll('.content-section');
     contentSections.forEach((section, index) => {
         const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
         
-        // Pula a seção de navegação
+        // Remove a seção de navegação e tudo que vem após
         if (title === 'Navegação') {
             return;
         }
@@ -2795,12 +2747,6 @@ function printSugestoesAtividadesContent() {
         const navCards = sectionContent.querySelector('.card-grid');
         if (navCards) {
             navCards.remove();
-        }
-        
-        // Remove a seção de navegação completa se for a última
-        const lastHeading = sectionContent.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            return;
         }
         
         const contentHTML = sectionContent.innerHTML;
@@ -2898,20 +2844,17 @@ function showPrintPreviewAtividadesRapidas() {
     // Coleta todas as seções de conteúdo da página de fichas rápidas
     const contentSections = document.querySelectorAll('.content-section');
     
-    // Adiciona cada seção ao preview de impressão
+    // Adiciona cada seção ao preview de impressão (REMOVENDO NAVEGAÇÃO)
     contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : '';
+        
+        // Remove a seção de navegação e tudo que vem após
+        if (title === 'Navegação') {
+            return;
+        }
+        
         const printSection = section.cloneNode(true);
         printSection.classList.add('print-section');
-        
-        // Remove a última seção de navegação se existir
-        const lastHeading = printSection.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            const navigationSection = lastHeading.parentElement;
-            if (navigationSection && navigationSection.classList.contains('content-section')) {
-                printSection.remove();
-                return; // Pula esta seção
-            }
-        }
         
         // Remove elementos de navegação dentro das seções
         const navCards = printSection.querySelector('.card-grid');
@@ -3198,12 +3141,12 @@ function printAtividadesRapidasContent() {
                 </div>
     `);
     
-    // Adiciona cada seção de ficha rápida ao documento de impressão
+    // Adiciona cada seção de ficha rápida ao documento de impressão (REMOVENDO NAVEGAÇÃO)
     const contentSections = document.querySelectorAll('.content-section');
     contentSections.forEach((section, index) => {
         const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
         
-        // Pula a seção de navegação
+        // Remove a seção de navegação e tudo que vem após
         if (title === 'Navegação') {
             return;
         }
@@ -3214,12 +3157,6 @@ function printAtividadesRapidasContent() {
         const navCards = sectionContent.querySelector('.card-grid');
         if (navCards) {
             navCards.remove();
-        }
-        
-        // Remove a seção de navegação completa se for a última
-        const lastHeading = sectionContent.querySelector('h2:last-child');
-        if (lastHeading && lastHeading.textContent === 'Navegação') {
-            return;
         }
         
         const contentHTML = sectionContent.innerHTML;
