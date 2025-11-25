@@ -23,7 +23,7 @@ const prefersDarkScheme = window.matchMedia('(prefers-color-scheme: dark)');
 const currentTheme = localStorage.getItem('theme');
 
 // VERIFICAÇÃO ROBUSTA DO TEMA ATUAL
-// Se o tema salvo for 'dark' OU (não houver tema salvo E o sistema preferir tema escuro)
+// Se o tema salvo por 'dark' OU (não houver tema salvo E o sistema preferir tema escuro)
 if (currentTheme === 'dark' || (!currentTheme && prefersDarkScheme.matches)) {
     // Adiciona a classe 'dark-mode' ao body para aplicar o tema escuro
     document.body.classList.add('dark-mode');
@@ -151,6 +151,407 @@ document.addEventListener('DOMContentLoaded', function () {
     // Inicia a observação para cada imagem com data-src
     images.forEach(img => imageObserver.observe(img));
 });
+
+// =============================================
+// PRINT FUNCTIONALITY FOR MUNDO DIGITAL
+// =============================================
+
+// Função para criar e exibir a visualização de impressão do MUNDO DIGITAL
+function showPrintPreviewMundoDigital() {
+    // Verifica se estamos na página correta
+    const isMundoDigitalPage = window.location.pathname.includes('mundo-digital.html') || 
+                              window.location.pathname.endsWith('mundo-digital.html');
+    if (!isMundoDigitalPage) {
+        console.log('Função showPrintPreviewMundoDigital chamada fora da página mundo digital');
+        return;
+    }
+    
+    // Cria overlay para preview de impressão
+    const printOverlay = document.createElement('div');
+    printOverlay.className = 'print-overlay';
+    printOverlay.style.display = 'flex';
+    
+    // Cria container do preview
+    const printPreview = document.createElement('div');
+    printPreview.className = 'print-preview';
+    printPreview.style.maxWidth = '90%';
+    printPreview.style.maxHeight = '90%';
+    
+    // Cria botão de fechar
+    const closeButton = document.createElement('button');
+    closeButton.className = 'close-preview';
+    closeButton.innerHTML = '×';
+    closeButton.onclick = () => {
+        document.body.removeChild(printOverlay);
+    };
+    
+    // Cria container de impressão
+    const printContainer = document.createElement('div');
+    printContainer.className = 'print-container';
+    
+    // Adiciona instruções de impressão
+    const printInstructions = document.createElement('div');
+    printInstructions.className = 'print-instructions';
+    printInstructions.innerHTML = `
+        <h2>Instruções para Impressão - Mundo Digital</h2>
+        <ul>
+            <li>Use papel A4 padrão</li>
+            <li>Configure a impressão para "Retrato"</li>
+            <li>Defina margens para "Padrão" ou "Mínimo"</li>
+            <li>Imprima em qualidade normal</li>
+            <li>Verifique a visualização antes de imprimir</li>
+            <li>Recomendado: imprimir para consulta e estudo</li>
+        </ul>
+    `;
+    
+    // Cria container para o conteúdo do mundo digital
+    const printMundoDigital = document.createElement('div');
+    printMundoDigital.className = 'print-mundo-digital';
+    
+    // Coleta todas as seções de conteúdo da página mundo digital
+    const contentSections = document.querySelectorAll('.content-section');
+    
+    // Adiciona cada seção ao preview de impressão
+    contentSections.forEach((section, index) => {
+        const printSection = section.cloneNode(true);
+        printSection.classList.add('print-section');
+        
+        // Remove a última seção de navegação se existir
+        const lastHeading = printSection.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            const navigationSection = lastHeading.parentElement;
+            if (navigationSection && navigationSection.classList.contains('content-section')) {
+                printSection.remove();
+                return; // Pula esta seção
+            }
+        }
+        
+        // Remove elementos de navegação dentro das seções
+        const navCards = printSection.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        printMundoDigital.appendChild(printSection);
+    });
+    
+    // Cria botões de ação
+    const printActions = document.createElement('div');
+    printActions.className = 'print-actions';
+    
+    const printBtn = document.createElement('button');
+    printBtn.className = 'print-button';
+    printBtn.innerHTML = '🖨️ Imprimir Conteúdo Mundo Digital';
+    printBtn.onclick = () => printMundoDigitalContent();
+    
+    const closeBtn = document.createElement('button');
+    closeBtn.className = 'secondary-button';
+    closeBtn.innerHTML = 'Fechar';
+    closeBtn.onclick = () => document.body.removeChild(printOverlay);
+    
+    printActions.appendChild(printBtn);
+    printActions.appendChild(closeBtn);
+    
+    // Monta a estrutura
+    printContainer.appendChild(printInstructions);
+    printContainer.appendChild(printMundoDigital);
+    printPreview.appendChild(closeButton);
+    printPreview.appendChild(printContainer);
+    printPreview.appendChild(printActions);
+    printOverlay.appendChild(printPreview);
+    
+    // Adiciona ao documento
+    document.body.appendChild(printOverlay);
+}
+
+// Função para imprimir o conteúdo do mundo digital
+function printMundoDigitalContent() {
+    // Verifica se estamos na página correta
+    const isMundoDigitalPage = window.location.pathname.includes('mundo-digital.html') || 
+                              window.location.pathname.endsWith('mundo-digital.html');
+    if (!isMundoDigitalPage) {
+        console.log('Função printMundoDigitalContent chamada fora da página mundo digital');
+        return;
+    }
+    
+    // Cria um iframe para impressão
+    const printFrame = document.createElement('iframe');
+    printFrame.style.position = 'absolute';
+    printFrame.style.left = '-9999px';
+    printFrame.style.top = '0';
+    printFrame.style.width = '0';
+    printFrame.style.height = '0';
+    printFrame.style.border = 'none';
+    
+    document.body.appendChild(printFrame);
+    
+    const printDocument = printFrame.contentWindow.document;
+    
+    // Escreve o conteúdo HTML para impressão
+    printDocument.write(`
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>Mundo Digital: Conceitos Fundamentais - UTFPR</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    background: white;
+                    color: black;
+                    font-size: 12pt;
+                    line-height: 1.4;
+                }
+                
+                .print-container {
+                    max-width: 100%;
+                }
+                
+                .print-instructions {
+                    background: #f8f9fa;
+                    border: 1px solid #000;
+                    padding: 15px;
+                    margin-bottom: 20px;
+                    page-break-after: avoid;
+                }
+                
+                .print-instructions h2 {
+                    color: black;
+                    font-size: 16px;
+                    margin-bottom: 10px;
+                }
+                
+                .print-instructions ul {
+                    margin: 0;
+                    padding-left: 20px;
+                }
+                
+                .print-instructions li {
+                    font-size: 12px;
+                    margin-bottom: 5px;
+                    color: black;
+                }
+                
+                .print-section {
+                    break-inside: avoid;
+                    page-break-inside: avoid;
+                    background: white !important;
+                    border: 2px solid #000 !important;
+                    border-radius: 8px !important;
+                    padding: 20px !important;
+                    margin: 20px 0 !important;
+                    box-shadow: none !important;
+                }
+                
+                .print-section h2 {
+                    color: #000 !important;
+                    font-size: 18px !important;
+                    margin-bottom: 15px !important;
+                    border-bottom: 2px solid #000 !important;
+                    padding-bottom: 8px !important;
+                    page-break-after: avoid;
+                }
+                
+                .print-section h3 {
+                    color: #333 !important;
+                    font-size: 16px !important;
+                    margin: 20px 0 10px 0 !important;
+                    border-left: 3px solid #000 !important;
+                    padding-left: 10px !important;
+                    page-break-after: avoid;
+                }
+                
+                .print-section h4 {
+                    color: #555 !important;
+                    font-size: 14px !important;
+                    margin: 15px 0 8px 0 !important;
+                }
+                
+                .print-section p {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 10px !important;
+                    line-height: 1.5 !important;
+                }
+                
+                .print-section ul, .print-section ol {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin: 10px 0 !important;
+                    padding-left: 25px !important;
+                }
+                
+                .print-section li {
+                    color: black !important;
+                    font-size: 12px !important;
+                    margin-bottom: 6px !important;
+                    line-height: 1.4 !important;
+                }
+                
+                .info-box, .step-by-step, .practice-box {
+                    background: #f8f9fa !important;
+                    border: 1px solid #ccc !important;
+                    padding: 15px !important;
+                    margin: 15px 0 !important;
+                    border-radius: 6px !important;
+                }
+                
+                .executive-summary {
+                    display: grid !important;
+                    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+                    gap: 15px !important;
+                    margin: 20px 0 !important;
+                }
+                
+                .summary-item {
+                    background: #f8f9fa !important;
+                    border: 1px solid #ccc !important;
+                    padding: 15px !important;
+                    border-radius: 6px !important;
+                    border-left: 4px solid #000 !important;
+                }
+                
+                .aviso-importante {
+                    background: #fff3cd !important;
+                    border: 2px solid #000 !important;
+                    padding: 20px !important;
+                    margin: 20px 0 !important;
+                    border-radius: 8px !important;
+                    text-align: center !important;
+                }
+                
+                .aviso-importante h4 {
+                    color: black !important;
+                    margin: 0 !important;
+                    font-size: 14px !important;
+                }
+                
+                .scratch-code {
+                    background: #f5f5f5 !important;
+                    color: black !important;
+                    border: 1px solid #ccc !important;
+                    border-left: 4px solid #000 !important;
+                    padding: 12px !important;
+                    margin: 10px 0 !important;
+                    border-radius: 6px !important;
+                    font-family: 'Courier New', monospace !important;
+                    font-size: 11px !important;
+                    white-space: pre-wrap !important;
+                    line-height: 1.3 !important;
+                }
+                
+                code {
+                    background: #f5f5f5 !important;
+                    color: black !important;
+                    border: 1px solid #ddd !important;
+                    font-size: 11px !important;
+                    padding: 2px 4px !important;
+                    border-radius: 3px !important;
+                    font-family: 'Courier New', monospace !important;
+                }
+                
+                @media print {
+                    body {
+                        padding: 10px;
+                    }
+                    
+                    .print-section {
+                        margin: 15px 0 !important;
+                        padding: 15px !important;
+                    }
+                    
+                    .print-instructions {
+                        margin-bottom: 15px !important;
+                    }
+                    
+                    .print-section h2 {
+                        font-size: 16px !important;
+                    }
+                    
+                    .print-section h3 {
+                        font-size: 14px !important;
+                    }
+                    
+                    /* Quebra de página antes de cada seção principal (exceto a primeira) */
+                    .print-section:nth-child(n+3) {
+                        page-break-before: always;
+                    }
+                }
+            </style>
+        </head>
+        <body>
+            <div class="print-container">
+                <div class="print-instructions">
+                    <h2>Mundo Digital: Conceitos Fundamentais - UTFPR</h2>
+                    <ul>
+                        <li><strong>Data:</strong> ${new Date().toLocaleDateString('pt-BR')}</li>
+                        <li><strong>Página:</strong> Mundo Digital - Conceitos Fundamentais</li>
+                        <li><strong>Material:</strong> Projeto Scratch na Educação Básica</li>
+                        <li><strong>Instruções:</strong> Cada seção principal inicia em uma nova página</li>
+                    </ul>
+                </div>
+    `);
+    
+    // Adiciona cada seção do mundo digital ao documento de impressão
+    const contentSections = document.querySelectorAll('.content-section');
+    contentSections.forEach((section, index) => {
+        const title = section.querySelector('h2') ? section.querySelector('h2').textContent : `Seção ${index + 1}`;
+        
+        // Pula a seção de navegação
+        if (title === 'Navegação') {
+            return;
+        }
+        
+        const sectionContent = section.cloneNode(true);
+        
+        // Remove elementos de navegação
+        const navCards = sectionContent.querySelector('.card-grid');
+        if (navCards) {
+            navCards.remove();
+        }
+        
+        // Remove a seção de navegação completa se for a última
+        const lastHeading = sectionContent.querySelector('h2:last-child');
+        if (lastHeading && lastHeading.textContent === 'Navegação') {
+            return;
+        }
+        
+        const contentHTML = sectionContent.innerHTML;
+        
+        printDocument.write(`
+            <div class="print-section">
+                ${contentHTML}
+            </div>
+        `);
+    });
+    
+    // Finaliza o documento
+    printDocument.write(`
+            </div>
+        </body>
+        </html>
+    `);
+    
+    printDocument.close();
+    
+    // Aguarda o carregamento e imprime
+    printFrame.onload = function() {
+        printFrame.contentWindow.focus();
+        printFrame.contentWindow.print();
+        
+        // Remove o iframe após a impressão
+        setTimeout(() => {
+            if (document.body.contains(printFrame)) {
+                document.body.removeChild(printFrame);
+            }
+            const printOverlay = document.querySelector('.print-overlay');
+            if (printOverlay) {
+                document.body.removeChild(printOverlay);
+            }
+        }, 500);
+    };
+}
 
 // =============================================
 // PRINT FUNCTIONALITY FOR MODELOS PROJETOS
@@ -367,12 +768,6 @@ function printModelosProjetosContent() {
                     color: #555 !important;
                     font-size: 14px !important;
                     margin: 15px 0 8px 0 !important;
-                }
-                
-                .print-section h5 {
-                    color: #666 !important;
-                    font-size: 13px !important;
-                    margin: 12px 0 6px 0 !important;
                 }
                 
                 .print-section p {
@@ -2897,6 +3292,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const isModelosPage = window.location.pathname.includes('modelos-projetos.html') || 
                          window.location.pathname.endsWith('modelos-projetos.html');
 
+    // Verifica se estamos na página de mundo digital
+    const isMundoDigitalPage = window.location.pathname.includes('mundo-digital.html') || 
+                              window.location.pathname.endsWith('mundo-digital.html');
+
     // BOTÃO PARA CARTÕES SCRATCH (apenas na página cartoes-scratch.html)
     if (isCartoesPage) {
         // Cria e adiciona o botão de impressão para cartões
@@ -3014,6 +3413,25 @@ document.addEventListener('DOMContentLoaded', function() {
         printButton.className = 'print-button';
         printButton.innerHTML = '🖨️ Imprimir Modelos de Projetos';
         printButton.onclick = showPrintPreviewModelosProjetos;
+        printButton.style.margin = '20px 0';
+        printButton.style.display = 'block';
+        printButton.style.marginLeft = 'auto';
+        printButton.style.marginRight = 'auto';
+        
+        // Adiciona o botão após o page-header
+        const pageHeader = document.querySelector('.page-header');
+        if (pageHeader) {
+            pageHeader.parentNode.insertBefore(printButton, pageHeader.nextSibling);
+        }
+    }
+    
+    // BOTÃO PARA MUNDO DIGITAL (apenas na página mundo-digital.html)
+    if (isMundoDigitalPage) {
+        // Cria e adiciona o botão de impressão específico para mundo digital
+        const printButton = document.createElement('button');
+        printButton.className = 'print-button';
+        printButton.innerHTML = '🖨️ Imprimir Conteúdo Mundo Digital';
+        printButton.onclick = showPrintPreviewMundoDigital;
         printButton.style.margin = '20px 0';
         printButton.style.display = 'block';
         printButton.style.marginLeft = 'auto';
