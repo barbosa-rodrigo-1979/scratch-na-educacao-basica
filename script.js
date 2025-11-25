@@ -2,6 +2,7 @@
 // Desenvolvido por: Gisele Nunes, Rodrigo Barbosa
 // Data: Segundo semestre de 2025 
 
+
 // - Toggle de Tema Escuro/Claro: Permite alternar entre temas e salva a preferência
 // - Rolagem Suave: Suaviza a navegação por links âncora
 // - Navegação Ativa: Destaca a página atual no menu de navegação
