@@ -127,8 +127,6 @@ Recursos:
 - Sistema de resultados
 ```
 
-![Objetivos_Educacionais](como-implementar.png)
-
 ## 🎯 Como Implementar
 
 ### 📅 Planejamento Anual Sugerido
