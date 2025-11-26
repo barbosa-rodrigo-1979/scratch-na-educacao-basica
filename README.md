@@ -369,7 +369,7 @@ Junte-se à comunidade de educadores Scratch! Compartilhe experiências, dúvida
 **Email:** giseleacn@gmail.com  
 **Email:** barbosa.rodrigo.1979@gmail.com
 
-*"Não estamos ensinando crianças a serem programadoras, estamos ensinando-as a pensar criativamente, raciocinar sistematicamente e trabalhar colaborativamente." - Mitchel Resnick*
+**"Não estamos ensinando crianças a serem programadoras, estamos ensinando-as a pensar criativamente, raciocinar sistematicamente e trabalhar colaborativamente." - Mitchel Resnick**
 
 ---
 
@@ -378,4 +378,4 @@ Junte-se à comunidade de educadores Scratch! Compartilhe experiências, dúvida
 **🎯 Público-Alvo**: Professores do 1º ao 5º ano do Ensino Fundamental  
 **🏷️ Tags**: #Scratch #Educação #Programação #PensamentoComputacional #BNCC
 
-*UTFPR Polo Siqueira Campos - 2025*
+**UTFPR Polo Siqueira Campos - 2025**
