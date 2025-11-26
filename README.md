@@ -6,16 +6,16 @@
 
 **Portal de Recursos Pedagógicos** para implementação do **Scratch** em salas de aula do **1º ao 5º ano** do Ensino Fundamental. Desenvolvido por educadores para educadores, este material oferece uma abordagem completa e progressiva para o ensino de programação criativa aliada ao desenvolvimento do pensamento computacional.
 
-<img width="768" height="346" alt="Objetivos_Educacionais" src="objetivos-educacionais.png" />
-
 ### 🎯 Objetivos Educacionais
 
+
 | Habilidade | Benefício | Aplicação |
-||--|--|
+|------------|------------|-----------|
 | **Pensamento Computacional** | Resolução estruturada de problemas | Decomposição, padrões, abstração |
 | **Criatividade** | Expressão e inovação | Projetos pessoais e narrativas |
 | **Colaboração** | Trabalho em equipe | Programação em pares, compartilhamento |
 | **Raciocínio Lógico** | Organização mental | Sequenciamento, condições, loops |
+
 
 ## 🏗️ Estrutura do Conteúdo
 
