@@ -6,7 +6,7 @@
 
 **Portal de Recursos Pedagógicos** para implementação do **Scratch** em salas de aula do **1º ao 5º ano** do Ensino Fundamental. Desenvolvido por educadores para educadores, este material oferece uma abordagem completa e progressiva para o ensino de programação criativa aliada ao desenvolvimento do pensamento computacional.
 
-<img width="768" height="346" alt="Objetivos_Educacionais" src="#-objetivos-educacionais" />
+<img width="768" height="346" alt="Objetivos_Educacionais" src="objetivos-educacionais.png" />
 
 ### 🎯 Objetivos Educacionais
 
@@ -131,7 +131,7 @@ Recursos:
 - Sistema de resultados
 ```
 
-<img width="768" height="346" alt="Objetivos_Educacionais" src="#-como-implementar" />
+<img width="768" height="346" alt="Objetivos_Educacionais" src="como-implementar.png" />
 
 ## 🎯 Como Implementar
 
