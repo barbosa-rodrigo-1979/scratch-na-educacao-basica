@@ -8,14 +8,12 @@
 
 ### 🎯 Objetivos Educacionais
 
-
 | Habilidade | Benefício | Aplicação |
-|------------|------------|-----------|
+|------------|-----------|-----------|
 | **Pensamento Computacional** | Resolução estruturada de problemas | Decomposição, padrões, abstração |
 | **Criatividade** | Expressão e inovação | Projetos pessoais e narrativas |
 | **Colaboração** | Trabalho em equipe | Programação em pares, compartilhamento |
 | **Raciocínio Lógico** | Organização mental | Sequenciamento, condições, loops |
-
 
 ## 🏗️ Estrutura do Conteúdo
 
@@ -32,35 +30,35 @@
 ### 3. 📚 **Planos de Aula por Ano Escolar**
 
 #### 🟦 **1º Ano - "Meu Nome Animado"**
-```scratch
+```
 Objetivos: Identificação de letras, sequência temporal, cores
 Duração: 2 aulas de 50 minutos
 Habilidades: Coordenação motora, reconhecimento alfabético
 ```
 
 #### 🟩 **2º Ano - "História com Dois Finais"**
-```scratch
+```
 Objetivos: Narrativa, causa e consequência, tomada de decisão
 Duração: 3 aulas de 50 minutos
 Habilidades: Expressão criativa, estrutura narrativa
 ```
 
 #### 🟨 **3º Ano - "Quiz Matemático"**
-```scratch
+```
 Objetivos: Operações básicas, variáveis, feedback
 Duração: 3 aulas de 50 minutos
 Habilidades: Raciocínio lógico-matemático
 ```
 
 #### 🟧 **4º Ano - "Calculadora Geométrica"**
-```scratch
+```
 Objetivos: Formas geométricas, área, perímetro, fórmulas
 Duração: 4 aulas de 50 minutos
 Habilidades: Visualização espacial, aplicação matemática
 ```
 
 #### 🟥 **5º Ano - "Simulador de Ecossistema"**
-```scratch
+```
 Objetivos: Cadeias alimentares, equilíbrio ecológico, modelagem
 Duração: 5 aulas de 50 minutos
 Habilidades: Pensamento sistêmico, análise científica
@@ -69,14 +67,12 @@ Habilidades: Pensamento sistêmico, análise científica
 ### 4. 🎨 **Materiais Práticos**
 
 #### 🃏 **Cartões para Recorte**
-```markdown
 - Movimento (Azul): 10 cartões
 - Aparência (Roxo): 8 cartões  
 - Som (Magenta): 6 cartões
 - Eventos (Amarelo): 8 cartões
 - Controle (Laranja): 6 cartões
 - Operadores (Verde): Cartões variados
-```
 
 #### ⚡ **Fichas de Atividade Rápida** (15 minutos cada)
 1. **Animação Relâmpago** - Movimento e som básicos
@@ -95,7 +91,7 @@ Habilidades: Pensamento sistêmico, análise científica
 ### 5. 🏆 **Modelos Prontos**
 
 #### 📝 **Template 1: Apresentação Pessoal Interativa**
-```scratch
+```
 Estrutura:
 - Configuração inicial
 - Sprite principal do aluno
@@ -104,7 +100,7 @@ Estrutura:
 ```
 
 #### ❓ **Template 2: Quiz Educativo Completo**
-```scratch
+```
 Características:
 - Sistema de pontuação
 - Temporizador
@@ -114,7 +110,7 @@ Características:
 ```
 
 #### 🎭 **Template 3: Animação com Múltiplos Sprites**
-```scratch
+```
 Funcionalidades:
 - Sistema de sincronização
 - Personagens coordenados
@@ -123,7 +119,7 @@ Funcionalidades:
 ```
 
 #### 📐 **Template 4: Simulador Matemático Interativo**
-```scratch
+```
 Recursos:
 - Cálculo de área e perímetro
 - Desenho automático de formas
@@ -131,14 +127,14 @@ Recursos:
 - Sistema de resultados
 ```
 
-<img width="768" height="346" alt="Objetivos_Educacionais" src="como-implementar.png" />
+![Objetivos_Educacionais](como-implementar.png)
 
 ## 🎯 Como Implementar
 
 ### 📅 Planejamento Anual Sugerido
 
 | Bimestre | 1º Ano | 2º Ano | 3º Ano | 4º Ano | 5º Ano |
-|-||||||
+|----------|--------|--------|--------|--------|--------|
 | **1º** | Nome Animado | História Simples | Quiz Básico | Formas Básicas | Ecossistema Simples |
 | **2º** | Animação com Som | Escolhas Múltiplas | Quiz com Timer | Cálculos Avançados | Simulação Complexa |
 | **3º** | Múltiplos Sprites | Diálogos | Sistema Pontuação | Interface Completa | Intervenção Humana |
@@ -163,45 +159,40 @@ Recursos:
 ### 🔍 Rubricas de Avaliação
 
 #### Para 1º-2º Ano
-```markdown
-✅ FUNCIONAMENTO (3 pontos)
+**✅ FUNCIONAMENTO (3 pontos)**
 - Projeto inicia com bandeira verde
 - Executa sem erros
 - Faz o que foi proposto
 
-✅ CRIATIVIDADE (2 pontos)
+**✅ CRIATIVIDADE (2 pontos)**
 - Elementos pessoais adicionados
 - Cores e sons escolhidos
 - Originalidade na solução
 
-✅ ORGANIZAÇÃO (1 ponto)
+**✅ ORGANIZAÇÃO (1 ponto)**
 - Scripts organizados
 - Nomes apropriados
 - Projeto salvo corretamente
-```
 
 #### Para 3º-5º Ano
-```markdown
-✅ LÓGICA E ESTRUTURA (3 pontos)
+**✅ LÓGICA E ESTRUTURA (3 pontos)**
 - Uso adequado de loops
 - Condicionais quando necessário
 - Variáveis bem empregadas
 
-✅ INTERATIVIDADE (2 pontos)
+**✅ INTERATIVIDADE (2 pontos)**
 - Responde a entradas do usuário
 - Feedback claro
 - Múltiplas ações possíveis
 
-✅ OTIMIZAÇÃO (1 ponto)
+**✅ OTIMIZAÇÃO (1 ponto)**
 - Código eficiente
 - Sem repetições desnecessárias
 - Uso apropriado de eventos
-```
 
 ### 📈 Instrumentos de Registro
 
 #### Checklist de Observação
-```markdown
 - [ ] Engaja-se nas atividades
 - [ ] Contribui com ideias
 - [ ] Ajuda colegas
@@ -211,12 +202,11 @@ Recursos:
 - [ ] Monta sequências logicamente
 - [ ] Resolve problemas independentemente
 - [ ] Cria projetos originais
-```
 
 ## 🔧 Recursos Técnicos
 
 ### 💻 Configuração Recomendada
-```yaml
+```
 Plataforma: Scratch Online (scratch.mit.edu) ou Scratch Desktop
 Navegador: Chrome ou Firefox (atualizados)
 Conexão: Internet para versão online
@@ -251,7 +241,7 @@ Backup: Contas de professor para salvar projetos
 ## 🌐 Conexões Curriculares
 
 ### 📐 Matemática
-```scratch
+```
 Operações básicas: Quiz matemático
 Geometria: Calculadora de formas
 Medidas: Cálculo de área e perímetro
@@ -259,7 +249,7 @@ Padrões: Sequências e repetições
 ```
 
 ### 📚 Língua Portuguesa
-```scratch
+```
 Narrativa: Histórias interativas
 Diálogo: Conversas entre personagens  
 Estrutura: Início, meio e fim
@@ -267,7 +257,7 @@ Criatividade: Desenvolvimento de enredos
 ```
 
 ### 🔬 Ciências
-```scratch
+```
 Ecologia: Simulador de ecossistemas
 Cadeia alimentar: Relações entre espécies
 Investigação: Formulação de hipóteses
@@ -275,7 +265,7 @@ Análise: Interpretação de dados
 ```
 
 ### 🎨 Artes
-```scratch
+```
 Design: Criação de sprites e cenários
 Animação: Movimento e expressão
 Música: Sons e trilhas sonoras
@@ -360,8 +350,6 @@ Este material está disponível para uso educacional não comercial. Professores
 
 **Atribuição**: Gisele Nunes, Rodrigo Barbosa - UTFPR 2025
 
-
-
 ## 🚀 Comece Agora!
 
 ### Primeiros Passos Rápidos
@@ -378,16 +366,16 @@ Junte-se à comunidade de educadores Scratch! Compartilhe experiências, dúvida
 
 **https://barbosa-rodrigo-1979.github.io/scratch-na-educacao-basica/index.html**
 
-**Email:** giseleacn@gmail.com <br>
+**Email:** giseleacn@gmail.com  
 **Email:** barbosa.rodrigo.1979@gmail.com
-
 
 *"Não estamos ensinando crianças a serem programadoras, estamos ensinando-as a pensar criativamente, raciocinar sistematicamente e trabalhar colaborativamente." - Mitchel Resnick*
 
-
+---
 
 **📅 Última Atualização**: Novembro 2025  
-*UTFPR Polo Siqueira Campos - 2025
 **🔄 Manutenção**: Contínua com base no feedback de educadores  
 **🎯 Público-Alvo**: Professores do 1º ao 5º ano do Ensino Fundamental  
 **🏷️ Tags**: #Scratch #Educação #Programação #PensamentoComputacional #BNCC
+
+*UTFPR Polo Siqueira Campos - 2025*
