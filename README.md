@@ -1,188 +1,389 @@
-# README: Cartilha Pedagógica - Introdução ao Scratch para Professores
+# 🎓 Scratch na Educação Básica - Portal Completo para Professores
 
-## 📚 Visão Geral do Projeto
+![Scratch Logo](https://scratch.mit.edu/images/scratch-og.png)
 
-Este repositório contém materiais completos para capacitação de professores da educação básica (1º ao 5º ano) no uso da ferramenta Scratch como recurso pedagógico interdisciplinar. Desenvolvido por **Gisele Nunes** e **Rodrigo Barbosa** sob orientação do **Prof. Alexandre Busquim** da **UTFPR Polo Siqueira Campos**, o material alia fundamentação teórica à prática docente.
+## 📖 Sobre o Projeto
 
-### 🎯 Objetivo Principal
-Capacitar professores para utilizar o Scratch no desenvolvimento de habilidades cognitivas essenciais do século XXI, incluindo:
-- Resolução de problemas
-- Pensamento computacional  
-- Trabalho colaborativo
-- Criatividade e expressão
+**Portal de Recursos Pedagógicos** para implementação do **Scratch** em salas de aula do **1º ao 5º ano** do Ensino Fundamental. Desenvolvido por educadores para educadores, este material oferece uma abordagem completa e progressiva para o ensino de programação criativa aliada ao desenvolvimento do pensamento computacional.
 
-## 📋 Estrutura dos Materiais
+### 🎯 Objetivos Educacionais
 
-### 1. 📖 **Cartilha Pedagógica Principal** (`Cartilha Pedagógica.docx`)
-**Conteúdo:** Guia completo com fundamentação teórica e prática
-- **Introdução ao Scratch**: Conceitos básicos e benefícios pedagógicos
-- **Primeiros Passos**: Acesso à plataforma e interface
-- **Blocos Fundamentais**: Categorias e funções dos blocos
-- **Projetos por Ano Escolar**: Atividades específicas para cada série
-- **Planos de Aula Prontos**: Estruturas detalhadas para implementação
-- **Materiais Complementares**: Recursos de apoio
+| Habilidade | Benefício | Aplicação |
+||--|--|
+| **Pensamento Computacional** | Resolução estruturada de problemas | Decomposição, padrões, abstração |
+| **Criatividade** | Expressão e inovação | Projetos pessoais e narrativas |
+| **Colaboração** | Trabalho em equipe | Programação em pares, compartilhamento |
+| **Raciocínio Lógico** | Organização mental | Sequenciamento, condições, loops |
 
-### 2. 🎴 **Cartões para Recorte** (`CARTÕES SCRATCH PARA RECORTE.docx`)
-**Finalidade:** Atividades offline de planejamento de algoritmos
-- **Blocos de Movimento** (Azuis): `mova passos`, `gire graus`, etc.
-- **Blocos de Aparência** (Roxos): `diga`, `pense`, `mude efeito`
-- **Blocos de Som** (Magenta): `toque o som`, `toque nota`
-- **Blocos de Eventos** (Amarelos): `quando bandeira`, `quando tecla`
-- **Blocos de Controle** (Laranja): `espere`, `repita`, `se-então`
-- **Operadores e Valores** (Verdes): operações matemáticas e valores
+## 🏗️ Estrutura do Conteúdo
 
-### 3. ⚡ **Fichas de Atividade Rápida** (`FICHAS DE ATIVIDADE RÁPIDA SCRATCH.docx`)
-**Característica:** Atividades de 15 minutos para diferentes níveis
-- **Ficha 1**: Animação Relâmpago (Iniciante)
-- **Ficha 2**: Diálogo Express (Básico)  
-- **Ficha 3**: Efeitos Visuais Relâmpago (Intermediário)
-- **Ficha 4**: Mini-Jogo Relâmpago (Intermediário)
-- **Ficha 5**: Animação com Clones (Avançado)
-- **Ficha 6**: Interatividade Instantânea (Todos os níveis)
-- **Ficha 7**: Animação com Cenários (2º-4º ano)
+### 1. 🎒 **Fundamentos Teóricos**
+- **Mundo Digital**: Analogia conceitual do pensamento computacional
+- **Referências Bibliográficas**: Base acadêmica e teórica
+- **BNCC**: Alinhamento com a Base Nacional Comum Curricular
 
-### 4. 📝 **Fichas de Atividades Completas** (`FICHAS DE ATIVIDADES SCRATCH.docx`)
-**Aplicação:** Atividades estruturadas por ano escolar
-- **1º Ano**: "O Gato Dançarino" - Primeiros passos
-- **2º Ano**: "Escolha sua Aventura" - Histórias interativas
-- **3º Ano**: "Desafio da Matemática" - Quiz matemático
-- **4º Ano**: "Formas e Medidas" - Simulador geométrico
-- **5º Ano**: "Mundo em Equilíbrio" - Ecossistema interativo
-- **Bônus**: Desafio criativo para projetos próprios
+### 2. 🚀 **Primeiros Passos**
+- **Guia de Iniciação**: Interface e conceitos básicos
+- **Tutorial Passo a Passo**: Primeiro projeto "Gato Dançante"
+- **Dicas de Gestão**: Sala de aula e recursos tecnológicos
 
-### 5. 🛠️ **Materiais Complementares** (`MATERIAIS COMPLEMENTARES SCRATCH.docx`)
-**Recursos adicionais para professores:**
-- Glossário completo de termos Scratch
-- Referências e links úteis
-- Guia de solução de problemas
-- Cartazes para sala de aula
-- Checklists de preparação
+### 3. 📚 **Planos de Aula por Ano Escolar**
 
-### 6. 🎨 **Modelos de Projetos Prontos** (`MODELOS DE PROJETOS PRONTOS SCRATCH.docx`)
-**Templates implementáveis:**
-- **Template 1**: Apresentação Pessoal Interativa
-- **Template 2**: Quiz Educativo Completo
-- **Template 3**: Animação com Múltiplos Sprites
-- **Template 4**: Simulador Matemático Interativo
+#### 🟦 **1º Ano - "Meu Nome Animado"**
+```scratch
+Objetivos: Identificação de letras, sequência temporal, cores
+Duração: 2 aulas de 50 minutos
+Habilidades: Coordenação motora, reconhecimento alfabético
+```
 
-### 7. 📅 **Planos de Aula** (`PLANOS DE AULA SCRATCH.docx`)
-**Estruturas detalhadas por ano:**
-- **1º Ano** (2 aulas): "Meu Nome Animado"
-- **2º Ano** (3 aulas): "História Interativa" 
-- **3º Ano** (3 aulas): "Quiz Matemático"
-- **4º Ano** (4 aulas): "Calculadora Geométrica"
-- **5º Ano** (5 aulas): "Simulador de Ecossistema"
+#### 🟩 **2º Ano - "História com Dois Finais"**
+```scratch
+Objetivos: Narrativa, causa e consequência, tomada de decisão
+Duração: 3 aulas de 50 minutos
+Habilidades: Expressão criativa, estrutura narrativa
+```
 
-### 8. 🚀 **Primeiros Passos** (`PRIMEIROS PASSOS NO SCRATCH.docx`)
-**Guia inicial completo:**
-- Criação de conta e acesso à plataforma
-- Tour detalhado pela interface
-- Primeiro projeto passo a passo
-- Solução de problemas comuns
+#### 🟨 **3º Ano - "Quiz Matemático"**
+```scratch
+Objetivos: Operações básicas, variáveis, feedback
+Duração: 3 aulas de 50 minutos
+Habilidades: Raciocínio lógico-matemático
+```
 
-### 9. 🏫 **Projetos por Ano Escolar** (`PROJETOS DIDÁTICOS POR ANO ESCOLAR.docx`)
-**Projetos específicos detalhados:**
-- **1º Ano**: Animação do nome com letras
-- **2º Ano**: Histórias com finais alternativos
-- **3º Ano**: Quiz de operações matemáticas
-- **4º Ano**: Calculadora de formas geométricas
-- **5º Ano**: Simulador de cadeia alimentar
+#### 🟧 **4º Ano - "Calculadora Geométrica"**
+```scratch
+Objetivos: Formas geométricas, área, perímetro, fórmulas
+Duração: 4 aulas de 50 minutos
+Habilidades: Visualização espacial, aplicação matemática
+```
 
-### 10. 🎯 **Sugestões com Cartões** (`SUGESTÕES DE ATIVIDADES COM CARTÕES SCRATCH.docx`)
-**Atividades práticas com cartões:**
-- Sequência Lógica (1º-2º ano)
-- Criando Condições (3º-4º ano)
-- Loops e Repetições (4º-5º ano)
-- Variáveis e Pontuação (5º ano)
-- Eventos e Comunicação (3º-5º ano)
-- Operadores e Lógica (4º-5º ano)
+#### 🟥 **5º Ano - "Simulador de Ecossistema"**
+```scratch
+Objetivos: Cadeias alimentares, equilíbrio ecológico, modelagem
+Duração: 5 aulas de 50 minutos
+Habilidades: Pensamento sistêmico, análise científica
+```
 
-## 🎓 Benefícios Pedagógicos
+### 4. 🎨 **Materiais Práticos**
 
-### Habilidades Desenvolvidas
-- **Pensamento Computacional**: Decomposição, reconhecimento de padrões, abstração, algoritmos
-- **Raciocínio Lógico**: Sequenciamento, condicionais, loops
-- **Criatividade**: Expressão através de animações e histórias
-- **Colaboração**: Trabalho em grupo e compartilhamento de projetos
-- **Resolução de Problemas**: Debugging e refinamento de projetos
+#### 🃏 **Cartões para Recorte**
+```markdown
+- Movimento (Azul): 10 cartões
+- Aparência (Roxo): 8 cartões  
+- Som (Magenta): 6 cartões
+- Eventos (Amarelo): 8 cartões
+- Controle (Laranja): 6 cartões
+- Operadores (Verde): Cartões variados
+```
 
-### Conexões com a BNCC
-Os materiais atendem a múltiplas competências da Base Nacional Comum Curricular:
-- **Competência 2**: Pensamento científico, crítico e criativo
-- **Competência 4**: Comunicação
-- **Competência 5**: Cultura digital
-- **Competência 6**: Trabalho e projeto de vida
+#### ⚡ **Fichas de Atividade Rápida** (15 minutos cada)
+1. **Animação Relâmpago** - Movimento e som básicos
+2. **Diálogo Express** - Conversa entre personagens
+3. **Efeitos Visuais** - Transformações e cores
+4. **Mini-Jogo** - Jogo simples funcional
+5. **Animação com Clones** - Multiplicação mágica
+6. **Interatividade** - Resposta ao usuário
+7. **Cenários Dinâmicos** - Narrativa visual
 
-## 🚀 Como Implementar
+#### 📋 **Fichas de Atividades Completas**
+- Atividades estruturadas por ano escolar
+- Planejamento, implementação e avaliação
+- Ficha bônus para projetos criativos livres
 
-### Para Professores Iniciantes
-1. **Comece com**: "Primeiros Passos no Scratch"
-2. **Use**: Cartilha Principal como referência
-3. **Pratique**: Fichas de Atividade Rápida (15 min)
-4. **Implemente**: Planos de Aula do 1º ano
+### 5. 🏆 **Modelos Prontos**
 
-### Para Experiência Progressiva
-1. **Semana 1-2**: Projetos do 1º e 2º ano
-2. **Semana 3-4**: Projetos do 3º e 4º ano  
-3. **Semana 5-6**: Projetos do 5º ano e interdisciplinares
+#### 📝 **Template 1: Apresentação Pessoal Interativa**
+```scratch
+Estrutura:
+- Configuração inicial
+- Sprite principal do aluno
+- Slides de apresentação (idade, família, hobbies)
+- Sprites adicionais (botões, mascote)
+```
 
-### Gestão de Sala de Aula
-- **Pares programadores**: Trabalho em duplas
-- **Estações de ajuda**: Computadores com soluções
-- **Mostra e conta**: Compartilhamento regular
-- **Cartazes de referência**: Apoio visual constante
+#### ❓ **Template 2: Quiz Educativo Completo**
+```scratch
+Características:
+- Sistema de pontuação
+- Temporizador
+- Banco de perguntas
+- Feedback visual
+- Tela final com resultados
+```
+
+#### 🎭 **Template 3: Animação com Múltiplos Sprites**
+```scratch
+Funcionalidades:
+- Sistema de sincronização
+- Personagens coordenados
+- Diálogo interativo
+- Sequência de ações em grupo
+```
+
+#### 📐 **Template 4: Simulador Matemático Interativo**
+```scratch
+Recursos:
+- Cálculo de área e perímetro
+- Desenho automático de formas
+- Interface intuitiva
+- Sistema de resultados
+```
+
+## 🎯 Como Implementar
+
+### 📅 Planejamento Anual Sugerido
+
+| Bimestre | 1º Ano | 2º Ano | 3º Ano | 4º Ano | 5º Ano |
+|-||||||
+| **1º** | Nome Animado | História Simples | Quiz Básico | Formas Básicas | Ecossistema Simples |
+| **2º** | Animação com Som | Escolhas Múltiplas | Quiz com Timer | Cálculos Avançados | Simulação Complexa |
+| **3º** | Múltiplos Sprites | Diálogos | Sistema Pontuação | Interface Completa | Intervenção Humana |
+| **4º** | Projeto Livre | Projeto Livre | Projeto Livre | Projeto Livre | Projeto Livre |
+
+### 👨‍🏫 Estratégias de Sala de Aula
+
+#### 🎪 Dinâmicas de Grupo
+- **Programação em Pares**: Um navega, outro programa
+- **Estações Rotativas**: Diferentes atividades simultâneas
+- **Debugging Coletivo**: Solução colaborativa de problemas
+- **Mostra e Conta**: Apresentação de projetos
+
+#### 🎭 Papéis dos Estudantes
+- **Diretor**: Coordena a história/projeto
+- **Programador**: Monta os blocos lógicos
+- **Designer**: Cria sprites e cenários
+- **Apresentador**: Demonstra para a classe
 
 ## 📊 Avaliação e Acompanhamento
 
-### Instrumentos de Avaliação
-- **Rubricas específicas** por ano escolar
-- **Checklists** de conceitos e habilidades
-- **Observação direta** do engajamento
-- **Portfólios** de projetos dos alunos
-- **Autoavaliação** e reflexão
+### 🔍 Rubricas de Avaliação
 
-### Critérios por Ano
-- **1º-2º ano**: Participação, compreensão de sequência, uso básico
-- **3º-4º ano**: Lógica, aplicação de conceitos, criatividade
-- **5º ano**: Sistemas complexos, análise, solução de problemas
+#### Para 1º-2º Ano
+```markdown
+✅ FUNCIONAMENTO (3 pontos)
+- Projeto inicia com bandeira verde
+- Executa sem erros
+- Faz o que foi proposto
+
+✅ CRIATIVIDADE (2 pontos)
+- Elementos pessoais adicionados
+- Cores e sons escolhidos
+- Originalidade na solução
+
+✅ ORGANIZAÇÃO (1 ponto)
+- Scripts organizados
+- Nomes apropriados
+- Projeto salvo corretamente
+```
+
+#### Para 3º-5º Ano
+```markdown
+✅ LÓGICA E ESTRUTURA (3 pontos)
+- Uso adequado de loops
+- Condicionais quando necessário
+- Variáveis bem empregadas
+
+✅ INTERATIVIDADE (2 pontos)
+- Responde a entradas do usuário
+- Feedback claro
+- Múltiplas ações possíveis
+
+✅ OTIMIZAÇÃO (1 ponto)
+- Código eficiente
+- Sem repetições desnecessárias
+- Uso apropriado de eventos
+```
+
+### 📈 Instrumentos de Registro
+
+#### Checklist de Observação
+```markdown
+- [ ] Engaja-se nas atividades
+- [ ] Contribui com ideias
+- [ ] Ajuda colegas
+- [ ] Explica conceitos com suas palavras
+- [ ] Aplica conceitos em novos contextos
+- [ ] Identifica e corrige erros
+- [ ] Monta sequências logicamente
+- [ ] Resolve problemas independentemente
+- [ ] Cria projetos originais
+```
 
 ## 🔧 Recursos Técnicos
 
-### Requisitos do Sistema
-- **Computador** com acesso à internet
-- **Navegador** atualizado (Chrome, Firefox recomendados)
-- **Conta Scratch** (gratuita)
-- **Opção offline**: Scratch Desktop para locais sem internet
+### 💻 Configuração Recomendada
+```yaml
+Plataforma: Scratch Online (scratch.mit.edu) ou Scratch Desktop
+Navegador: Chrome ou Firefox (atualizados)
+Conexão: Internet para versão online
+Recursos: Headphones para atividades com som
+Backup: Contas de professor para salvar projetos
+```
 
-### Links Importantes
-- 🌐 **Scratch Oficial**: https://scratch.mit.edu
-- 👨‍🏫 **Para Educadores**: https://scratch.mit.edu/educators
-- 📥 **Download Offline**: https://scratch.mit.edu/download
+### 🛠️ Solução de Problemas Comuns
 
-## 💡 Dicas para Sucesso
+#### ❌ "Blocos Não Encaixam"
+**Solução**: Arraste lentamente até aparecer linha branca de conexão
 
-### Para o Professor
-- **Comece simples**: Domine os conceitos básicos primeiro
-- **Teste sempre**: Verifique projetos antes de apresentar
-- **Celebre tentativas**: Erros são oportunidades de aprendizado
-- **Documente progresso**: Registre conquistas e desafios
+#### ❌ "Programa Não Inicia" 
+**Verifique**: 
+- Bloco "quando ⚑ for clicado" no topo
+- Clicou na bandeira verde (não nos blocos)
+- Stop vermelho não está ativado
 
-### Para os Alunos
-- **Explorar é aprender**: Incentive a experimentação
-- **Compartilhar é crescer**: Promova a colaboração
-- **Persistência traz resultados**: Valorize o processo de tentativa e erro
+#### ❌ "Sprite Some do Palco"
+**Comandos**: 
+- `mostre` (torna visível)
+- `vá para x: 0 y: 0` (centraliza)
+- Verifique se não usou `esconda` sem `mostre`
 
-## 📞 Suporte e Continuidade
+#### ❌ "Som Não Funciona"
+**Checklist**:
+- Volume do computador ligado
+- Usou bloco "toque o som [som]"
+- Som existe na biblioteca
+- Teste clicando diretamente no bloco de som
 
-### Próximos Passos
-- **Comunidade Scratch**: Participe de fóruns e compartilhe experiências
-- **Formação contínua**: Explore recursos adicionais do MIT
-- **Projetos avançados**: Evolua para programação textual (Python, JavaScript)
+## 🌐 Conexões Curriculares
 
-### Contato e Contribuições
+### 📐 Matemática
+```scratch
+Operações básicas: Quiz matemático
+Geometria: Calculadora de formas
+Medidas: Cálculo de área e perímetro
+Padrões: Sequências e repetições
+```
+
+### 📚 Língua Portuguesa
+```scratch
+Narrativa: Histórias interativas
+Diálogo: Conversas entre personagens  
+Estrutura: Início, meio e fim
+Criatividade: Desenvolvimento de enredos
+```
+
+### 🔬 Ciências
+```scratch
+Ecologia: Simulador de ecossistemas
+Cadeia alimentar: Relações entre espécies
+Investigação: Formulação de hipóteses
+Análise: Interpretação de dados
+```
+
+### 🎨 Artes
+```scratch
+Design: Criação de sprites e cenários
+Animação: Movimento e expressão
+Música: Sons e trilhas sonoras
+Cores: Efeitos visuais e estética
+```
+
+## 📁 Estrutura de Arquivos
+
+```
+scratch-educacao-basica/
+│
+├── 📚 fundamentos-teoricos/
+│   ├── mundo-digital
+│   ├── referencias-bibliograficas
+│   └── bncc-alinhamento
+│
+├── 🚀 primeiros-passos/
+│   ├── guia-iniciacao
+│   ├── tutorial-gato-dancante
+│   └── dicas-gestao
+│
+├── 📅 planos-aula/
+│   ├── 1º-ano/
+│   ├── 2º-ano/
+│   ├── 3º-ano/
+│   ├── 4º-ano/
+│   └── 5º-ano/
+│
+├── 🎨 materiais-praticos/
+│   ├── cartoes-recorte/
+│   ├── fichas-rapidas/
+│   ├── fichas-completas/
+│   └── modelos-prontos/
+│
+├── 📊 avaliacao/
+│   ├── rubricas/
+│   ├── checklists/
+│   └── formularios-observacao/
+│
+└── 🔧 recursos-tecnicos/
+    ├── solucao-problemas/
+    ├── configuracao/
+    └── links-uteis/
+```
+
+## 👥 Equipe e Créditos
+
+### 🎓 Autores
+- **Gisele Nunes** - Desenvolvimento de conteúdo pedagógico
+- **Rodrigo Barbosa** - Estruturação técnica e implementação
+
+### 🏫 Orientação
+- **Prof. Alexandre Busquim** - UTFPR Polo Siqueira Campos
+
+### 📚 Instituição
+- **Universidade Tecnológica Federal do Paraná** - Campus Siqueira Campos
+
+## 🔗 Links Importantes
+
+### 🌐 Plataformas Oficiais
+- [Scratch Oficial](https://scratch.mit.edu)
+- [Scratch para Educadores](https://scratch.mit.edu/educators)
+- [Scratch Desktop (Offline)](https://scratch.mit.edu/download)
+
+### 📖 Recursos em Português
+- [Scratch Brasil](http://www.scratchbrasil.net)
+- [Fundação Lemann](https://fundacaolemann.org.br)
+- [Base Nacional Comum Curricular](http://basenacionalcomum.mec.gov.br)
+
+### 🎓 Formação Continuada
+- [ScratchEd (Harvard)](http://scratched.gse.harvard.edu)
+- [Code.org Integração](https://code.org/educate/scratch)
+
+## 📄 Licença e Uso
+
+Este material está disponível para uso educacional não comercial. Professores e educadores podem:
+
+- ✅ Utilizar em salas de aula
+- ✅ Adaptar para realidade local
+- ✅ Compartilhar com colegas educadores
+- ✅ Traduzir para outros idiomas
+
+**Atribuição**: Gisele Nunes, Rodrigo Barbosa - UTFPR 2025
+
+
+
+## 🚀 Comece Agora!
+
+### Primeiros Passos Rápidos
+
+1. **Acesse** o [Scratch Online](https://scratch.mit.edu)
+2. **Crie** uma conta gratuita de professor
+3. **Explore** a interface com o guia "Primeiros Passos"
+4. **Experimente** uma Ficha Rápida de 15 minutos
+5. **Planeje** sua primeira aula com os planos estruturados
+
+### 📞 Suporte e Comunidade
+
+Junte-se à comunidade de educadores Scratch! Compartilhe experiências, dúvidas e projetos bem-sucedidos através do site do projeto:
+
+**https://barbosa-rodrigo-1979.github.io/scratch-na-educacao-basica/index.html**
+
 **Email:** giseleacn@gmail.com <br>
 **Email:** barbosa.rodrigo.1979@gmail.com
 
----
 
-*UTFPR Polo Siqueira Campos - 2025*
+*"Não estamos ensinando crianças a serem programadoras, estamos ensinando-as a pensar criativamente, raciocinar sistematicamente e trabalhar colaborativamente." - Mitchel Resnick*
+
+
+
+**📅 Última Atualização**: Novembro 2025  
+*UTFPR Polo Siqueira Campos - 2025
+**🔄 Manutenção**: Contínua com base no feedback de educadores  
+**🎯 Público-Alvo**: Professores do 1º ao 5º ano do Ensino Fundamental  
+**🏷️ Tags**: #Scratch #Educação #Programação #PensamentoComputacional #BNCC
